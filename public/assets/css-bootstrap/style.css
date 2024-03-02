@@ -489,10 +489,11 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .banner-area {
-    padding: 259px 0 328px;
+    padding: 179px 0 328px;
     background-color: #b0b0b0;
-    background-image: url("../images/logo/banner5.jpg");
+    background-image: url("../images/logo/banner7.jpg");
     background-position: center;
+    background-repeat: no-repeat;
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
