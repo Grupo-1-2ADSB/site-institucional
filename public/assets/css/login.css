@@ -35,7 +35,6 @@ span{
 }
 
 a{
-    text-decoration: none;
     color: white;
 }
 
@@ -68,6 +67,7 @@ i{
     top: -31px;
     left: 17px;
     color: #fff;
+    width: 5%;
 }
 ::-webkit-input-placeholder{
     color: #fff;
