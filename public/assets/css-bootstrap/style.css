@@ -32,6 +32,7 @@ h3 {
 
 h4 {
     color: #222;
+    text-shadow: 1px 0 1px white;
     font-family: "Ubuntu", sans-serif;
     font-size: 16px !important;
     font-weight: 400
@@ -127,9 +128,15 @@ textarea:focus {
 
 .nav-menu,
 .nav-menu * {
+    top: -113px;
+    justify-content: flex-end;
     margin: 0;
+    display: flex;
     padding: 0;
-    list-style: none
+    list-style: none;
+    width: 100%;
+    left: 242%;
+
 }
 
 .nav-menu ul {
@@ -421,7 +428,7 @@ body.mobile-nav-active #mobile-nav-toggle {
     padding: 14px 0;
     position: fixed;
     left: 0;
-    top: 17px;
+    top: -41px;
     right: 0;
     transition: all 0.5s;
     z-index: 997
@@ -446,6 +453,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #header.header-scrolled {
+    height: 29%;
+    width: 100%;
     background: #f9f9fd;
     transition: all 0.5s;
     top: 0
@@ -475,7 +484,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #header #logo img {
     padding: 0;
-    margin: 0
+    margin: 0;
+    width: 30%
 }
 
 @media (max-width: 768px) {
@@ -489,12 +499,27 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .banner-area {
-    padding: 179px 0 328px;
+    padding: 155px 0 328px;
     background-color: #b0b0b0;
-    background-image: url("../images/logo/banner7.jpg");
+    background-image: url("../images/logo/banner7.png");
     background-position: center;
     background-repeat: no-repeat;
 }
+
+h1 {
+    color: rgb(27, 27, 27);
+    text-shadow: 2px 2px 4px #f8f6f6;
+  }
+  
+.retangulo2 {
+    width: 999px;
+    height: 620px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: linear-gradient(90deg, black 33%, rgba(0, 0, 0, 0) 100%);
+}
+
 
 @media (min-width: 768px) and (max-width: 991.98px) {
     .banner-area {
@@ -3270,6 +3295,7 @@ h6 {
     text-transform: uppercase;
     font-size: 12px;
     font-weight: 400;
+    border-radius: 50px;
     display: inline-block;
     padding: 12px 30px !important;
     -webkit-transition: all .2s ease-in-out;
