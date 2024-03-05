@@ -8,7 +8,7 @@
 }
 
 body {
-  background: #121212;
+  background: #b0a7a7;
 }
 
 /* HEADER */
@@ -18,25 +18,31 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 20px 10%;
-  background: #121212;
+  padding: 13px 3%;
+  background: #fbfdfd;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 100;
 }
 
-.logo {
+/* .logo {
   font-size: 25px;
   color: aqua;
   text-decoration: none;
   font-weight: 600;
+} */
+
+.navbar{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .navbar a {
   font-size: 18px;
   text-decoration: none;
-  color: #ededed;
+  color: #020202;
   font-weight: 500;
   margin-left: 35px;
   transition: .3s;
@@ -51,9 +57,9 @@ body {
 
 .banner {
   height: fit-content;
-  padding: 40px 0;
+  padding: 125px 0;
   color: white;
-  background-image: url("../images/department1.jpg");
+  background-image: url("../images/logo/banner7.png");
   background-size: cover;
 }
 
@@ -79,8 +85,8 @@ body {
 /* SOBRE */
 
 .social {
-  margin: 20px;
-  background-color: #121212;
+  /* margin: 20px; */
+  background-color: #fff;
   display: flex;
 }
 
@@ -112,7 +118,7 @@ body {
 }
 
 .box p {
-  color: whitesmoke;
+  color: rgb(12, 12, 12);
 }
 
 /* FOTOS COSPLAY */
@@ -121,7 +127,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  /* flex-direction: column; */
 }
 
 .header-galeria h1{
