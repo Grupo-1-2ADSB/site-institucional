@@ -26,7 +26,7 @@ body{
     padding: 0 15px 0 15px;
 }
 
-span{
+p{
     color: #fff;
     font-size: small;
     display: flex;
@@ -162,3 +162,6 @@ label a{
     width:100%;
     transition:800ms ease all;
   }
+
+  /* --------input--------- */
+  
