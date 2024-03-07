@@ -1,5 +1,7 @@
+/* Importa as fontes 'EB Garamond' e 'Poppins' do Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+/* Reset de estilos padrão para elementos */
 * {
   margin: 0;
   padding: 0;
@@ -7,12 +9,12 @@
   font-family: 'Poppins', sans-serif;
 }
 
+/* Configurações gerais do corpo da página */
 body {
   background: #b0a7a7;
 }
 
-/* HEADER */
-
+/* Estilos para o cabeçalho (header) fixo */
 .header {
   position: fixed;
   top: 0;
@@ -26,19 +28,14 @@ body {
   z-index: 100;
 }
 
-/* .logo {
-  font-size: 25px;
-  color: aqua;
-  text-decoration: none;
-  font-weight: 600;
-} */
-
-.navbar{
+/* Estilos para a barra de navegação (navbar) */
+.navbar {
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
 
+/* Estilos para os links na barra de navegação */
 .navbar a {
   font-size: 18px;
   text-decoration: none;
@@ -48,13 +45,13 @@ body {
   transition: .3s;
 }
 
+/* Estilos para links na navegação ao passar o mouse e quando ativo */
 .navbar a:hover,
 .navbar a.ativado {
   color: aqua;
 }
 
-/* BANNER */
-
+/* Estilos para a seção de banner */
 .banner {
   height: fit-content;
   padding: 125px 0;
@@ -63,6 +60,7 @@ body {
   background-size: cover;
 }
 
+/* Estilos para o container dentro do banner */
 .banner .container {
   height: 400px;
   font-size: 36px;
@@ -70,6 +68,7 @@ body {
   align-items: center;
 }
 
+/* Estilos para os parágrafos dentro do banner */
 .banner p {
   margin-left: 100px;
   margin-top: 50px;
@@ -78,34 +77,33 @@ body {
   font-size: 36px;
 }
 
+/* Estilos para a classe 'span' dentro do container do banner */
 .banner .container span {
   font-weight: 800;
 }
 
-/* SOBRE */
-
+/* Estilos para a seção social */
 .social {
-  /* margin: 20px; */
   background-color: #fff;
   display: flex;
 }
 
-.social .container {
-  justify-content: center;
-}
-
+/* Estilos para as caixas (boxes) na seção social */
 .box img {
   width: 170px;
 }
 
+/* Estilos para o container dentro da seção social */
 .social .container .boxes {
   display: flex;
 }
 
+/* Estilos para os parágrafos na seção social */
 .social p {
   text-align: center;
 }
 
+/* Estilos para as caixas individuais na seção social */
 .box {
   margin: 10px;
   display: flex;
@@ -113,30 +111,32 @@ body {
   align-items: center;
 }
 
+/* Estilos para os títulos (h4) dentro das caixas sociais */
 .box h4 {
   color: aqua;
 }
 
+/* Estilos para os parágrafos dentro das caixas sociais */
 .box p {
   color: rgb(12, 12, 12);
 }
 
-/* FOTOS COSPLAY */
-
-.header-galeria{
+/* Estilos para a seção de galeria cosplay */
+.header-galeria {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* flex-direction: column; */
 }
 
-.header-galeria h1{
+/* Estilos para o título (h1) na seção de galeria cosplay */
+.header-galeria h1 {
   font-size: 25px;
   font-weight: 900;
   color: aqua;
 }
 
-.galeria-container{
+/* Estilos para o container da galeria */
+.galeria-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -145,43 +145,48 @@ body {
   margin: 40px 40px;
 }
 
-.galeria-itens{
+/* Estilos para os itens individuais da galeria */
+.galeria-itens {
   width: 280px;
   height: 170px;
   border: 10px solid #2b2b2b;
   box-shadow: 5px 5px 5px aqua;
 }
 
-.galeria-itens:hover{
+/* Efeitos de hover nos itens da galeria */
+.galeria-itens:hover {
   transition: .1s;
   transform: scale(1.1);
 }
 
-.galeria-itens img{
+/* Estilos para as imagens dentro dos itens da galeria */
+.galeria-itens img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* FOOTER */
-
-.container-footer{
+/* Estilos para o rodapé (footer) */
+.container-footer {
   background-color: black;
   align-items: center;
   justify-content: center;
 }
 
-.footer-container{
+/* Estilos para o container dentro do rodapé */
+.footer-container {
   width: 100%;
   padding: 70px 30px 20px;
 }
 
-.social-icons{
+/* Estilos para os ícones sociais no rodapé */
+.social-icons {
   display: flex;
   justify-content: center;
 }
 
-.social-icons a{
+/* Estilos para os links sociais no rodapé */
+.social-icons a {
   text-decoration: none;
   padding: 10px;
   background-color: #ededed;
@@ -189,28 +194,32 @@ body {
   border-radius: 25%;
 }
 
-.social-icons a i{
+/* Estilos para os ícones dentro dos links sociais no rodapé */
+.social-icons a i {
   font-size: 2em;
   color: #121212;
   opacity: 0.9;
-  
 }
 
-.social-icons a:hover{
+/* Efeito de hover nos links sociais do rodapé */
+.social-icons a:hover {
   background-color: aqua;
   transition: 0.5s;
 }
 
-.footer{
+/* Estilos gerais para a seção de rodapé */
+.footer {
   margin: 30px 0;
 }
 
-.footer ul{
+/* Estilos para a lista dentro do rodapé */
+.footer ul {
   display: flex;
   justify-content: center;
 }
 
-.footer ul li a{
+/* Estilos para os links na lista do rodapé */
+.footer ul li a {
   color: #ededed;
   margin: 20px;
   text-decoration: none;
@@ -218,41 +227,113 @@ body {
   transition: 0.5s;
 }
 
-.footer ul li a:hover{
+/* Efeito de hover nos links da lista do rodapé */
+.footer ul li a:hover {
   color: aqua;
 }
 
-.footerBottom{
+/* Estilos para a seção inferior do rodapé */
+.footerBottom {
   background-color: black;
   padding: 20px;
   text-align: center;
-}
-
-.footerBottom{
   color: #ededed;
 }
 
+/* Estilos para o container "eu" no rodapé */
 .container-eu {
   text-align: center;
-  width: 40%;
+  width: 100%;
   justify-content: center;
   align-items: center;
   display: flex;
-  margin: auto;
+  flex-wrap: wrap;
   margin-top: 20px;
 }
 
-.container-eu p{
+/* Estilos para os parágrafos dentro do container "eu" no rodapé */
+.container-eu p {
   color: #ededed;
   margin-left: 20px;
 }
 
+/* Estilos para o container do logotipo no rodapé */
 .footer-logo {
   justify-content: center;
   align-items: center;
   display: flex;
 }
 
-.container-eu img{
- border-radius: 25%; 
+/* Estilos para a imagem dentro do container "eu" no rodapé */
+.container-eu img {
+  border-radius: 25%;
+}
+
+/* Media Queries para design responsivo */
+
+/* Para telas até 768px de largura */
+@media only screen and (max-width: 768px) {
+  .header {
+    padding: 13px 5%;
+  }
+
+  .navbar {
+    justify-content: center;
+  }
+
+  .navbar a {
+    margin: 0 15px;
+  }
+
+  .banner .container {
+    height: auto;
+  }
+
+  .banner p {
+    margin: 20px 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  .social .container .boxes {
+    flex-direction: column;
+  }
+
+  .box {
+    margin: 10px 0;
+  }
+
+  .galeria-itens {
+    width: calc(50% - 20px);
+  }
+}
+
+/* Para telas até 480px de largura */
+@media only screen and (max-width: 480px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar a {
+    margin: 10px 0;
+  }
+
+  .banner p {
+    margin: 20px 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  .social .container .boxes {
+    flex-direction: column;
+  }
+
+  .box {
+    margin: 10px 0;
+  }
+
+  .galeria-itens {
+    width: 100%;
+  }
 }
