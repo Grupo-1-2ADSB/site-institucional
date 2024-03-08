@@ -23,49 +23,86 @@ body {
   background: #fbfdfd;
 }
 
-
-
 /* Estilos para a barra de navegação (navbar) */
 .navbar {
-  align-items: center;    
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: #fbfdfd;
+  align-items: center;
   display: flex;
   justify-content: space-between;
   padding: 0.5rem 2rem;
 }
 
-.nav-list{
+.nav-list {
   display: flex;
   align-items: center;
 }
 
-.nav-list ul{
+.nav-list ul {
   display: flex;
   justify-content: center;
   list-style: none;
 }
 
-.nav-item{
+.nav-item {
   margin: 0 15px;
-  /* list-style: none; */
 }
 
-.nav-link{
+.nav-link {
   text-decoration: none;
   font-size: 1.15rem;
   color: #fff;
   font-weight: 400;
 }
 
-.mobile-menu-icon{
+.mobile-menu-icon {
   display: none;
+  position: absolute;
+  top: 50%;
+  right: 2rem;
+  transform: translateY(-50%);
 }
 
-.modile-menu{
+.mobile-menu {
   display: none;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fbfdfd;
+  z-index: 999;
+  overflow-y: auto;
+  padding-top: 1rem;
 }
 
+.mobile-menu ul {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
 
+.mobile-menu .nav-item {
+  display: block;
+  padding: 1rem;
+  transition: background 0.3s;
+}
 
+.mobile-menu .nav-item:hover {
+  background: aqua;
+}
+
+.mobile-menu-close {
+  display: none;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+}
 
 /* Estilos para os links na barra de navegação */
 .navbar a {
@@ -89,9 +126,7 @@ body {
   background-image: url("../images/logo/banner7.png");
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat  ;
-  /* position: relative; */
-  min-height: 100vh;
+  background-repeat: no-repeat;
 }
 
 /* Estilos para o container dentro do banner */
@@ -105,17 +140,11 @@ body {
 /* Estilos para os parágrafos dentro do banner */
 .banner p {
   margin-left: 100px;
-  /* margin-top: 5px;       */
-  padding: 0;
   width: 40%;
   font-size: 25px;
-
   font-weight: 800;
   box-shadow: rgba(0, 0, 0, 0.24);
- 
 }
-
-
 
 /* Estilos para a seção social */
 .social {
@@ -124,16 +153,14 @@ body {
   position: relative;
 }
 
-.boxes{
+.boxes {
   gap: 20px;
 }
 
 /* Estilos para as caixas (boxes) na seção social */
 .box img {
   width: 170px;
-  
 }
-
 
 /* Estilos para o container dentro da seção social */
 .social .container .boxes {
@@ -159,11 +186,8 @@ body {
   align-items: center;
   height: 500px;
   width: 25%;
-  
-  background-color:#084d6e;
+  background-color: #084d6e;
 }
-
-
 
 /* Estilos para os parágrafos dentro das caixas sociais */
 .box p {
@@ -172,7 +196,7 @@ body {
 }
 
 /* Container sobre nos */
-.container-sobre-nos{
+.container-sobre-nos {
   background-image: url("../images/banner.png");
   width: 100%;
   height: 710px;
@@ -180,49 +204,54 @@ body {
   background-size: cover;
   background-position: center;
 }
-.container-sobre-nos img{
+
+.container-sobre-nos img {
   max-width: 20%;
 }
 
 /* responsividade menu */
-@media screen and (max-width: 800px){
-  .navbar{
+@media screen and (max-width: 800px) {
+  .navbar {
     padding: 1.5rem 4rem;
   }
 
-  .nav-item{
+  .nav-item {
     display: none;
   }
 
-  .mobile-menu-icon{
+  .mobile-menu-icon {
     display: block;
   }
 
-  .mobile-menu-icon button{
+  .mobile-menu-icon button {
     background-color: transparent;
     border: none;
     cursor: pointer;
   }
 
-  .modile-menu ul{
+  .mobile-menu ul {
     display: flex;
     flex-direction: column;
     text-align: center;
     padding-bottom: 1rem;
   }
 
-  .modile-menu .nav-item{
+  .mobile-menu .nav-item {
     display: block;
     padding-top: 1.2rem;
   }
 
-  .open{
+  .open {
     display: block;
   }
-  .box{
+
+  .box {
     width: 70%;
   }
-  .boxes, .container, .social{
+
+  .boxes,
+  .container,
+  .social {
     width: 100%;
     min-height: 100vh;
     display: flex;
@@ -230,7 +259,8 @@ body {
     align-items: center;
     justify-content: center;
   }
-  .banner{
+
+  .banner {
     background-position: right;
   }
 }
@@ -241,37 +271,32 @@ body {
   align-items: center;
   justify-content: center;
   display: flex;
-
   height: 185px;
-  /* background-color: blueviolet; */
 }
-.footer-logo{
+
+.footer-logo {
   width: 33%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.footer-contato{
-  width: 33%;
-  height: 150px;
-  display: flex;
 
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-
-  /* background-color: aqua; */
-}
-.footer-endereco{
+.footer-contato {
   width: 33%;
   height: 150px;
   display: flex;
-
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
 
-  /* background-color: rgb(255, 0, 187); */
+.footer-endereco {
+  width: 33%;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 /* Estilos para o container dentro do rodapé */
@@ -307,7 +332,7 @@ body {
 
 /* Estilos para a seção inferior do rodapé */
 .footerBottom {
-  background-color:#084d6e; 
+  background-color: #084d6e;
   padding: 20px;
   text-align: center;
   color: #000000;
@@ -346,10 +371,6 @@ body {
   .box {
     margin: 10px 0;
   }
-
-  .galeria-itens {
-    width: calc(50% - 20px);
-  }
 }
 
 /* Para telas até 480px de largura */
@@ -376,122 +397,9 @@ body {
   .box {
     margin: 10px 0;
   }
-
-  .galeria-itens {
-    width: 100%;
-  }
 }
 
-
-
-/* Estilos para os ícones sociais no rodapé */
-/* .social-icons {
-  display: flex;
-  justify-content: center;
-} */
-
-/* Estilos para os links sociais no rodapé */
-/* .social-icons a {
-  text-decoration: none;
-  padding: 10px;
-  background-color: #ededed;
-  margin: 10px;
-  border-radius: 25%;
-} */
-
-/* Estilos para os ícones dentro dos links sociais no rodapé */
-/* .social-icons a i {
-  font-size: 2em;
-  color: #121212;
-  opacity: 0.9;
-} */
-
-/* Efeito de hover nos links sociais do rodapé */
-/* .social-icons a:hover {
-  background-color: aqua;
-  transition: 0.5s;
-} */
-
-/* Estilos para o container "eu" no rodapé */
-/* .container-eu {
-  text-align: center;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 20px;
-} */
-
-/* Estilos para os parágrafos dentro do container "eu" no rodapé */
-/* .container-eu p {
-  color: #ededed;
-  margin-left: 20px;
-} */
-
-/* Estilos para o container do logotipo no rodapé */
-/* .footer-logo {
-  justify-content: center;
-  align-items: center;
-  display: flex;
-} */
-
-/* Estilos para a imagem dentro do container "eu" no rodapé */
-/* .container-eu img {
-  border-radius: 25%;
-} */
-
-/* Estilos para as imagens dentro dos itens da galeria */
-/* .galeria-itens img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-} */
-
-/* Estilos para a seção de galeria cosplay */
-/* .header-galeria {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
-/* Estilos para o título (h1) na seção de galeria cosplay */
-/* .header-galeria h1 {
-  font-size: 25px;
-  font-weight: 900;
-  color: aqua;
-} */
-
-/* Estilos para o container da galeria */
-/* .galeria-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 2vw;
-  padding: 0 2px;
-  margin: 40px 40px;
-} */
-
-/* Estilos para os itens individuais da galeria */
-/* .galeria-itens {
-  width: 280px;
-  height: 170px;
-  border: 10px solid #2b2b2b;
-  box-shadow: 5px 5px 5px aqua;
-} */
-
-/* Efeitos de hover nos itens da galeria */
-/* .galeria-itens:hover {
-  transition: .1s;
-  transform: scale(1.1);
-} */
-
-/* Estilos para a classe 'span' dentro do container do banner */
-/* .banner .container span {
-  font-weight: 800;
-} */
-
-/* Estilos para os títulos (h4) dentro das caixas sociais */
-/* .box h4 {
-  color: aqua;
-} */
+/* Estilos para o ícone no estado "open" */
+.open .mobile-menu-close {
+  display: block;
+}
