@@ -37,7 +37,7 @@ body {
   /* align-items: center; */
   display: flex;
   justify-content: space-between;
-  padding: 1.5rem 6rem;
+  padding: 0.5rem 2rem;
 }
 
 .nav-list{
@@ -71,6 +71,7 @@ body {
   display: none;
 }
 
+/* responsividade menu */
 @media screen and (max-width: 730px){
   .navbar{
     padding: 1.5rem 4rem;
@@ -106,14 +107,6 @@ body {
     display: block;
   }
 }
-
-
-
-
-
-
-
-
 
 
 /* Estilos para os links na barra de navegação */
@@ -152,16 +145,17 @@ body {
 /* Estilos para os parágrafos dentro do banner */
 .banner p {
   margin-left: 100px;
-  margin-top: 50px;
+  margin-top: 5px;
   padding: 0;
-  width: 280px;
-  font-size: 36px;
+  width: 40%;
+  font-size: 25px;
+
+  font-weight: 800;
+  box-shadow: rgba(0, 0, 0, 0.24);
+ 
 }
 
-/* Estilos para a classe 'span' dentro do container do banner */
-.banner .container span {
-  font-weight: 800;
-}
+
 
 /* Estilos para a seção social */
 .social {
@@ -174,14 +168,20 @@ body {
   width: 170px;
 }
 
+
 /* Estilos para o container dentro da seção social */
 .social .container .boxes {
   display: flex;
+  justify-content: space-around;
 }
 
 /* Estilos para os parágrafos na seção social */
 .social p {
+  display: flex;
+  align-items: center;
   text-align: center;
+  width: 100%;
+  height: 290px;
 }
 
 /* Estilos para as caixas individuais na seção social */
@@ -190,102 +190,73 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 500px;
+  width: 29%;
+  
+  background-color:#084d6e;
 }
 
-/* Estilos para os títulos (h4) dentro das caixas sociais */
-.box h4 {
-  color: aqua;
-}
+
 
 /* Estilos para os parágrafos dentro das caixas sociais */
 .box p {
-  color: rgb(12, 12, 12);
+  color: #fff;
+  font-size: 20px;
 }
 
-/* Estilos para a seção de galeria cosplay */
-.header-galeria {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Estilos para o título (h1) na seção de galeria cosplay */
-.header-galeria h1 {
-  font-size: 25px;
-  font-weight: 900;
-  color: aqua;
-}
-
-/* Estilos para o container da galeria */
-.galeria-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 2vw;
-  padding: 0 2px;
-  margin: 40px 40px;
-}
-
-/* Estilos para os itens individuais da galeria */
-.galeria-itens {
-  width: 280px;
-  height: 170px;
-  border: 10px solid #2b2b2b;
-  box-shadow: 5px 5px 5px aqua;
-}
-
-/* Efeitos de hover nos itens da galeria */
-.galeria-itens:hover {
-  transition: .1s;
-  transform: scale(1.1);
-}
-
-/* Estilos para as imagens dentro dos itens da galeria */
-.galeria-itens img {
+/* Container sobre nos */
+.container-sobre-nos{
+  background-image: url("../images/Captura\ de\ Tela\ \(91\).png");
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: 750px;
+}
+.container-sobre-nos img{
+  max-width: 20%;
 }
 
 /* Estilos para o rodapé (footer) */
 .container-footer {
-  background-color: black;
+  background-color: rgb(255, 254, 254);
   align-items: center;
   justify-content: center;
+  display: flex;
+
+  height: 185px;
+  /* background-color: blueviolet; */
+}
+.footer-logo{
+  width: 33%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer-contato{
+  width: 33%;
+  height: 150px;
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  /* background-color: aqua; */
+}
+.footer-endereco{
+  width: 33%;
+  height: 150px;
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  /* background-color: rgb(255, 0, 187); */
 }
 
 /* Estilos para o container dentro do rodapé */
 .footer-container {
   width: 100%;
   padding: 70px 30px 20px;
-}
-
-/* Estilos para os ícones sociais no rodapé */
-.social-icons {
-  display: flex;
-  justify-content: center;
-}
-
-/* Estilos para os links sociais no rodapé */
-.social-icons a {
-  text-decoration: none;
-  padding: 10px;
-  background-color: #ededed;
-  margin: 10px;
-  border-radius: 25%;
-}
-
-/* Estilos para os ícones dentro dos links sociais no rodapé */
-.social-icons a i {
-  font-size: 2em;
-  color: #121212;
-  opacity: 0.9;
-}
-
-/* Efeito de hover nos links sociais do rodapé */
-.social-icons a:hover {
-  background-color: aqua;
-  transition: 0.5s;
 }
 
 /* Estilos gerais para a seção de rodapé */
@@ -315,39 +286,10 @@ body {
 
 /* Estilos para a seção inferior do rodapé */
 .footerBottom {
-  background-color: black;
+  background-color:#084d6e; 
   padding: 20px;
   text-align: center;
-  color: #ededed;
-}
-
-/* Estilos para o container "eu" no rodapé */
-.container-eu {
-  text-align: center;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 20px;
-}
-
-/* Estilos para os parágrafos dentro do container "eu" no rodapé */
-.container-eu p {
-  color: #ededed;
-  margin-left: 20px;
-}
-
-/* Estilos para o container do logotipo no rodapé */
-.footer-logo {
-  justify-content: center;
-  align-items: center;
-  display: flex;
-}
-
-/* Estilos para a imagem dentro do container "eu" no rodapé */
-.container-eu img {
-  border-radius: 25%;
+  color: #000000;
 }
 
 /* Media Queries para design responsivo */
@@ -418,3 +360,117 @@ body {
     width: 100%;
   }
 }
+
+
+
+/* Estilos para os ícones sociais no rodapé */
+/* .social-icons {
+  display: flex;
+  justify-content: center;
+} */
+
+/* Estilos para os links sociais no rodapé */
+/* .social-icons a {
+  text-decoration: none;
+  padding: 10px;
+  background-color: #ededed;
+  margin: 10px;
+  border-radius: 25%;
+} */
+
+/* Estilos para os ícones dentro dos links sociais no rodapé */
+/* .social-icons a i {
+  font-size: 2em;
+  color: #121212;
+  opacity: 0.9;
+} */
+
+/* Efeito de hover nos links sociais do rodapé */
+/* .social-icons a:hover {
+  background-color: aqua;
+  transition: 0.5s;
+} */
+
+/* Estilos para o container "eu" no rodapé */
+/* .container-eu {
+  text-align: center;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+} */
+
+/* Estilos para os parágrafos dentro do container "eu" no rodapé */
+/* .container-eu p {
+  color: #ededed;
+  margin-left: 20px;
+} */
+
+/* Estilos para o container do logotipo no rodapé */
+/* .footer-logo {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+} */
+
+/* Estilos para a imagem dentro do container "eu" no rodapé */
+/* .container-eu img {
+  border-radius: 25%;
+} */
+
+/* Estilos para as imagens dentro dos itens da galeria */
+/* .galeria-itens img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+} */
+
+/* Estilos para a seção de galeria cosplay */
+/* .header-galeria {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+/* Estilos para o título (h1) na seção de galeria cosplay */
+/* .header-galeria h1 {
+  font-size: 25px;
+  font-weight: 900;
+  color: aqua;
+} */
+
+/* Estilos para o container da galeria */
+/* .galeria-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2vw;
+  padding: 0 2px;
+  margin: 40px 40px;
+} */
+
+/* Estilos para os itens individuais da galeria */
+/* .galeria-itens {
+  width: 280px;
+  height: 170px;
+  border: 10px solid #2b2b2b;
+  box-shadow: 5px 5px 5px aqua;
+} */
+
+/* Efeitos de hover nos itens da galeria */
+/* .galeria-itens:hover {
+  transition: .1s;
+  transform: scale(1.1);
+} */
+
+/* Estilos para a classe 'span' dentro do container do banner */
+/* .banner .container span {
+  font-weight: 800;
+} */
+
+/* Estilos para os títulos (h4) dentro das caixas sociais */
+/* .box h4 {
+  color: aqua;
+} */
