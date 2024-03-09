@@ -188,6 +188,7 @@ body {
   width: 90%;
   background-color: #084d6e;
   border-radius: 50px;
+  padding: 15px;
 }
 
 .box-dicionario{
@@ -196,6 +197,7 @@ body {
   height: 170px;
   border-radius: 50px;
   justify-content: space-evenly;
+  color: #ffffff;
 
   /* background-color: blueviolet; */
 }
@@ -209,15 +211,15 @@ body {
   border-radius: 50px;
   display: flex;
   align-items: center;
+  font-size: 42px;
 
-  /* background-color: aqua  ; */
+  /* background-color: aqua; */
 }
 
 .box1{
   display: flex;
   flex-direction: column;
   align-items: center;
-
   width: 100%;
 }
 
@@ -225,18 +227,15 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-
   width: 100%;            
 }
-
-
-
-
 
 /* Estilos para os parágrafos dentro das caixas sociais */
 .box p {
   color: #fff;
-  font-size: 20px;
+  font-size: 22px;
+  width: 80%;
+  text-align: start;
 }
 
 /* Container sobre nos */
