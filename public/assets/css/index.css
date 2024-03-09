@@ -271,32 +271,31 @@ body {
   align-items: center;
   justify-content: center;
   display: flex;
-  height: 185px;
+  flex-wrap: wrap;
+  height: auto; /* Alterado para 'auto' para acomodar diferentes alturas de conteúdo */
+  padding: 10px;
 }
 
-.footer-logo {
-  width: 33%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.footer-contato {
-  width: 33%;
-  height: 150px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
+.footer-logo,
+.footer-contato,
 .footer-endereco {
-  width: 33%;
-  height: 150px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  flex: 1; /* Alterado para flex: 1 para distribuir o espaço de forma igual entre os elementos */
+  text-align: center;
+  padding: 0 10px;
+}
+
+.footer-logo img {
+  width: 55%;
+}
+
+.footer-contato h3,
+.footer-endereco h3 {
+  margin-bottom: 10px;
+}
+
+.footer-contato p,
+.footer-endereco p {
+  margin: 10px 0;
 }
 
 /* Estilos para o container dentro do rodapé */
@@ -336,70 +335,4 @@ body {
   padding: 20px;
   text-align: center;
   color: #000000;
-}
-
-/* Media Queries para design responsivo */
-
-/* Para telas até 768px de largura */
-@media only screen and (max-width: 768px) {
-  .header {
-    padding: 13px 5%;
-  }
-
-  .navbar {
-    justify-content: center;
-  }
-
-  .navbar a {
-    margin: 0 15px;
-  }
-
-  .banner .container {
-    height: auto;
-  }
-
-  .banner p {
-    margin: 20px 0;
-    text-align: center;
-    width: 100%;
-  }
-
-  .social .container .boxes {
-    flex-direction: column;
-  }
-
-  .box {
-    margin: 10px 0;
-  }
-}
-
-/* Para telas até 480px de largura */
-@media only screen and (max-width: 480px) {
-  .navbar {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .navbar a {
-    margin: 10px 0;
-  }
-
-  .banner p {
-    margin: 20px 0;
-    text-align: center;
-    width: 100%;
-  }
-
-  .social .container .boxes {
-    flex-direction: column;
-  }
-
-  .box {
-    margin: 10px 0;
-  }
-}
-
-/* Estilos para o ícone no estado "open" */
-.open .mobile-menu-close {
-  display: block;
 }
