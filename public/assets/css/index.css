@@ -89,7 +89,6 @@ body {
 .mobile-menu .nav-item {
   display: block;
   padding: 1rem;
-  /* transition: background 0.3s; */
 }
 
 .mobile-menu .nav-item:hover {
@@ -127,23 +126,23 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  height: 695px; /* Altura ajustada */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Estilos para o container dentro do banner */
 .banner .container {
-  height: 695px;
-  font-size: 36px;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
+  max-width: 80%; /* Largura ajustada */
 }
 
 /* Estilos para os parágrafos dentro do banner */
 .banner p {
-  margin-left: 100px;
-  width: 40%;
   font-size: 25px;
   font-weight: 800;
-  box-shadow: rgba(0, 0, 0, 0.24);
+  margin: 20px 0; /* Margem ajustada */
 }
 
 /* Estilos para a seção social */
@@ -287,16 +286,10 @@ body {
 
 .footer-logo img {
   width: 55%;
-}
-
-.footer-contato h3,
-.footer-endereco h3 {
-  margin-bottom: 10px;
-}
-
-.footer-contato p,
-.footer-endereco p {
-  margin: 10px 0;
+  max-width: 100%;
+  margin: 0 auto; /* Adicionado para centralizar a logo na parte responsiva */
+  display: block; /* Adicionado para alinhar corretamente a logo */
+  margin-top: auto; /* Adicionado para a logo ficar na última linha */
 }
 
 /* Estilos para o container dentro do rodapé */
