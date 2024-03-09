@@ -154,17 +154,18 @@ body {
 
 .boxes {
   gap: 20px;
+  width: 100%;
 }
 
 /* Estilos para as caixas (boxes) na seção social */
 .box img {
-  width: 170px;
+  width: 100px;
 }
 
 /* Estilos para o container dentro da seção social */
 .social .container .boxes {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 /* Estilos para os parágrafos na seção social */
@@ -183,10 +184,54 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 500px;
-  width: 25%;
+  height: 450px;
+  width: 90%;
   background-color: #084d6e;
+  border-radius: 50px;
 }
+
+.box-dicionario{
+  display: flex;
+  width: 100%;
+  height: 170px;
+  border-radius: 50px;
+  justify-content: space-evenly;
+
+  /* background-color: blueviolet; */
+}
+.box-dicionario img{
+  width: 30%;
+
+  /* background-color: chartreuse; */
+}
+.box-dicionario h1{
+  width: 60%;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+
+  /* background-color: aqua  ; */
+}
+
+.box1{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+}
+
+.box2{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;            
+}
+
+
+
+
 
 /* Estilos para os parágrafos dentro das caixas sociais */
 .box p {
