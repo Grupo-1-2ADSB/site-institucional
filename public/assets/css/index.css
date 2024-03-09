@@ -76,8 +76,8 @@ body {
   bottom: 0;
   background: #fbfdfd;
   z-index: 999;
-  overflow-y: auto;
-  padding-top: 1rem;
+  /* overflow-y: auto; */
+  padding-top: 50px;
 }
 
 .mobile-menu ul {
@@ -242,7 +242,7 @@ body {
 
   .open {
     display: block;
-    height: 195px;
+    height: 234px;
   }
 
   .box {
