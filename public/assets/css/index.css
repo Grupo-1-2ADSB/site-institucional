@@ -424,13 +424,14 @@ section details[open] summary ~ p{
 
 /* Estilos para o rodapé (footer) */
 .container-footer {
-  background-color: rgb(255, 254, 254);
+  background-color: #084d6e;
   align-items: center;
   justify-content: center;
   display: flex;
   flex-wrap: wrap;
   height: auto; /* Alterado para 'auto' para acomodar diferentes alturas de conteúdo */
   padding: 10px;
+  color: #fff;
 }
 
 .footer-logo,
@@ -468,7 +469,7 @@ section details[open] summary ~ p{
 
 /* Estilos para os links na lista do rodapé */
 .footer ul li a {
-  color: #ededed;
+  color: #084d6e;
   margin: 20px;
   text-decoration: none;
   font-size: 20px;
@@ -481,9 +482,9 @@ section details[open] summary ~ p{
 }
 
 /* Estilos para a seção inferior do rodapé */
-.footerBottom {
+/* .footerBottom {
   background-color: #084d6e;
   padding: 20px;
   text-align: center;
   color: #000000;
-}
+} */
