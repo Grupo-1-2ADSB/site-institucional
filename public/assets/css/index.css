@@ -298,7 +298,21 @@ section details p{
   background-color: #fff;
   border-radius: 0 0 30px 30px;
   padding: 12px;
+}
 
+@keyframes descer {
+  0%{
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  100%{
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+section details[open] summary ~ p{
+  animation: descer 0.3s ease-in-out forwards;
 }
 
 /* linha */
