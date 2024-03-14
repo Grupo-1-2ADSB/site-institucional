@@ -34,7 +34,7 @@ body {
   align-items: center;
   display: flex;
   justify-content: space-between;
-  padding: 0.5rem 2rem;
+  padding: 1rem 2rem;
 }
 
 .nav-list {
@@ -55,16 +55,16 @@ body {
 .nav-link {
   text-decoration: none;
   font-size: 1.15rem;
-  color: #fff;
+  color: #084d6e;
   font-weight: 400;
 }
 
 .mobile-menu-icon {
   display: none;
-  position: absolute;
-  top: 50%;
-  right: 2rem;
-  transform: translateY(-50%);
+  /* position: absolute; */
+  /* top: 50%; */
+  /* right: 2rem; */
+  /* transform: translateY(-50%); */
 }
 
 .mobile-menu {
@@ -202,6 +202,44 @@ body {
 }
 
 @media screen and (max-width: 800px){
+
+  @media screen and (max-width: 435px){
+    .banner {
+      background-position: right;
+      background-repeat: no-repeat;
+      height: 60vh;
+      justify-content: center;
+
+      .container {
+        text-align: center;
+        justify-content: center;
+        width: 83%;
+        height: -20px;
+        padding-top: 90px;
+        border: none;
+        background-color: transparent;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 30px;
+        line-height: 30px;
+      }
+
+      p {
+        margin: 20px 0;
+        font: 400 italic 10px 'Poppins';
+        text-align: center;
+      }
+    }
+
+    .nav-link {
+      font-size: 1rem;
+    }
+
+
+  }
+
   .boxes{
     flex-direction: column;
   }
@@ -226,11 +264,11 @@ body {
   /* background-color: chartreuse; */
 }
 .box-dicionario h1{
-  width: 60%;
+  /* width: 60%; */
   border-radius: 50px;
   display: flex;
   align-items: center;
-  font-size: 42px;
+  /* font-size: 42px; */
 
   /* background-color: aqua; */
 }
@@ -379,7 +417,16 @@ section details[open] summary ~ p{
 /* responsividade menu */
 @media screen and (max-width: 800px) {
   .navbar {
-    padding: 1.5rem 4rem;
+    padding: 1.5rem 3rem;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 40%;
+    }
   }
 
   .nav-item {
