@@ -77,7 +77,7 @@ body {
   background: #fbfdfd;
   z-index: 999;
   /* overflow-y: auto; */
-  padding-top: 50px;
+  padding-top: 4em;
 }
 
 .mobile-menu ul {
@@ -203,7 +203,7 @@ body {
 
 @media screen and (max-width: 800px){
 
-  @media screen and (max-width: 435px){
+  @media screen and (max-width: 540px){
     .banner {
       background-position: right;
       background-repeat: no-repeat;
@@ -268,7 +268,7 @@ body {
   border-radius: 50px;
   display: flex;
   align-items: center;
-  /* font-size: 42px; */
+  font-size: 20px;
 
   /* background-color: aqua; */
 }
@@ -290,7 +290,7 @@ body {
 /* Estilos para os parágrafos dentro das caixas sociais */
 .box p {
   color: #fff;
-  font-size: 22px;
+  /* font-size: 22px; */
   width: 80%;
   text-align: start;
 }
@@ -407,10 +407,54 @@ section details[open] summary ~ p{
 }
 
 .sobre-texto{
-  width: 30%;
+  /* width: 30%; */
   height: 200px;
 
   background-color: #b670b8;
+}
+
+@media screen and (min-width: 570px) and (max-width: 1024px){ 
+  @media screen and (max-width: 770px) {
+    /* Responsividade Navbar */
+    .mobile-menu {
+      padding-top: 7.5em;
+    }
+     
+    /* Responsividade Sessão 1 */
+    .banner {
+      justify-content: center;
+     
+      .container {
+        padding: 0 55px;
+        margin-top: 120px;
+        width: 65%;
+        border: none;
+        background-color: transparent;
+
+          h1, p {
+            text-align: center;
+          }
+    
+  }
+}
+  }
+
+  .banner {
+    .container {
+      max-width: 80%;
+      padding: 30px;
+
+      h1 {
+        font-size: 50px;
+        line-height: 50px;
+      }
+
+      p {
+        font: 400 italic 18px 'Poppins';
+        margin: 10px 0;
+      }
+    }
+  }
 }
 
 
@@ -457,7 +501,7 @@ section details[open] summary ~ p{
 
   .open {
     display: block;
-    height: 234px;
+    height: fit-content;
   }
 
   .box {
