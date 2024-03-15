@@ -1,0 +1,245 @@
+/* responsividade menu para telas até 800px de largura */
+@media screen and (max-width: 800px) {
+    .navbar {
+      padding: 1.5rem 3rem;
+    }
+  
+    .logo {
+      display: flex;
+      align-items: center;
+  
+      img {
+        width: 40%;
+      }
+    }
+  
+    .nav-item {
+      display: none;
+    }
+  
+    .mobile-menu-icon {
+      display: block;
+    }
+  
+    .mobile-menu-icon button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+  
+    .mobile-menu ul {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      padding-bottom: 1rem;
+    }
+  
+    .mobile-menu .nav-item {
+      display: block;
+      padding-top: 0.2rem;
+    }
+  
+    .open {
+      display: block;
+      height: fit-content;
+    }
+  
+    .box {
+      width: 70%;
+    }
+  
+    .boxes,
+    .container,
+    .social {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: unset;
+    }
+  
+    .banner {
+      background-position: right;
+    }
+
+    .boxes{
+        flex-direction: column;
+    }
+
+    .box1, .box2{
+        align-items: center;
+    }
+
+    /* Responsividade adicional para telas até 569px */
+    @media screen and (max-width: 569px){
+        /* Responsividade Sessão 1 */
+        .banner {
+          background-position: right;
+          background-repeat: no-repeat;
+          height: 60vh;
+          justify-content: center;
+    
+          .container {
+            text-align: center;
+            justify-content: center;
+            width: 83%;
+            padding-top: 90px;
+            border: none;
+            background-color: transparent;
+            backdrop-filter: unset;
+          }
+    
+          h1 {
+            text-align: center;
+            font-size: 30px;
+            line-height: 30px;
+          }
+    
+          p {
+            margin: 20px 0;
+            font: 400 italic 10px 'Poppins';
+            text-align: center;
+          }
+        }
+
+        @media screen and (min-width: 280px) and (max-width: 280px) {
+            .mobile-menu {
+                padding-top: 3.5em;
+            }
+        }
+
+        @media screen and (min-width: 540px) {
+            .mobile-menu {
+                padding-top: 6em;
+            }
+        }
+
+        .nav-link {
+          font-size: 1rem;
+        }
+      }
+}
+
+/* Responsividade Sessão 1 e adicional Navbar para telas entre 570px e 800px */
+@media screen and (min-width: 570px) and (max-width: 800px){
+     /* Responsividade até 770px dentro do intervalo pai  */
+    @media screen and (max-width: 800px) {
+        /* Responsividade Navbar */
+        .mobile-menu {
+            padding-top: 9em;
+        }
+        
+        /* Responsividade Sessão 1 */
+        .banner {
+            justify-content: center;
+        
+            .container {
+                padding: 0 55px;
+                margin-top: 120px;
+                width: 65%;
+                border: none;
+                background-color: transparent;
+                backdrop-filter: unset;
+
+                h1, p {
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    .banner {
+        .container {
+            max-width: 80%;
+            padding: 30px;
+            backdrop-filter: unset;
+
+            h1 {
+                font-size: 50px;
+                line-height: 50px;
+            }
+
+            p {
+                font: 400 italic 18px 'Poppins';
+                margin: 10px 0;
+            }
+        }
+    }
+}
+
+/* responsividade Sessão 1 para telas com min de 800px de largura */
+@media screen and (min-width: 800px) {
+    .banner .container {
+        backdrop-filter: blur(13.5px);
+      }
+
+      .banner h1{
+        text-align: start;
+        font-size: 50px;
+        line-height: 49px;
+    }
+
+    .banner p {
+        font: 400 italic 16px 'Poppins';
+        margin: 15px 0 0;
+        text-align: start;
+        width: 75%;
+      }
+}
+
+/* Responsividade Sessão 4 para dispositivos entre 270px e 719px de largura */
+@media screen and (min-width: 270px) and (max-width: 719px) {
+    .container-sobre-nos {
+      justify-content: center;
+      align-items: center;
+      background-size: 280%;
+      height: 70vh;
+    }
+  
+    .container-sobre-nos .sobre-texto {
+      padding: 20px 25px;
+      position: unset;
+      border-radius: 20px;
+      margin-top: 0;
+      width: 65%;
+      font-size: 10px;
+    }
+  
+    @media screen and (min-width: 375px) {
+      .container-sobre-nos {
+        padding-top: 70px;
+      }
+    }
+
+    @media screen and (min-width: 413px) {
+        .container-sobre-nos {
+            background-size: 250%;
+        }
+    }
+}
+  
+/* Responsividade Sessão 4 para dispositivos entre 720px e 1180px de largura */
+@media screen and (min-width: 720px) and (max-width: 1180px) {
+    .container-sobre-nos {
+      justify-content: center;
+      align-items: center;
+      background-size: 160%;
+    }
+  
+    .container-sobre-nos .sobre-texto {
+      position: unset;
+      width: 50%;
+      font-size: 15px;
+      margin-top: 135px;
+    }
+  
+    /* Ajustes adicionais para telas até 1024px */
+    @media screen and (max-width: 1024px) {
+      .container-sobre-nos .sobre-texto {
+        right: 102px;
+        bottom: 88px;
+      }
+    }
+}
