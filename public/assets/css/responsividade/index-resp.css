@@ -72,6 +72,16 @@
         align-items: center;
     }
 
+    /* Perguntas frequentes
+    * Diminuindo o título "Perguntas Frequentes" nessa resolução"*/
+    .container-perguntas .perguntas h1{
+      font-size: 25px;
+    }
+
+    .perguntas details p {
+      font-size: 80%;
+    }
+
     /* Responsividade adicional para telas até 569px */
     @media screen and (max-width: 569px){
         /* Responsividade Sessão 1 */

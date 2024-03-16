@@ -302,7 +302,7 @@ section details summary{
   background-color: #fff;
   padding: 2%;
   color: #000000;
-  border-radius: 30px;
+  border-radius: 15px;
 }
 
 section details[open] summary{
