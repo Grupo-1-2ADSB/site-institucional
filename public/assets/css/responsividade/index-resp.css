@@ -122,17 +122,60 @@
             .mobile-menu {
                 padding-top: 3.5em;
             }
+            
+            /*Empilahndo os elementos no footer e diminuindo as fonts para essa resolução de tela*/
+            .container-footer{
+              flex-direction: column;
+            }
+
+            .footer-logo,
+            .footer-contato,
+            .footer-endereco {
+              width: 100%;
+            }
+
+            .footer-logo img{
+              width: 45%;
+            }
+
+            .footer-contato,
+            .footer-endereco h3{
+              font-size: 15px;
+              margin-top: 10px;
+            }
+
+            .footer-contato,
+            .footer-endereco p{
+              font-size: 12px;
+            }
         }
 
         @media screen and (min-width: 540px) {
             .mobile-menu {
                 padding-top: 6em;
             }
+
+            /* Estilos para o rodapé (footer) */
+            .footer-logo img{
+              width: 80%;
+            }
+
+            .footer-contato,
+            .footer-endereco h3{
+              font-size: 15px;
+            }
+
+            .footer-contato,
+            .footer-endereco p{
+              font-size: 11px;
+              margin: 2px;
+            }
         }
 
         .nav-link {
           font-size: 1rem;
         }
+
       }
 }
 
@@ -209,7 +252,7 @@
       justify-content: center;
       align-items: center;
       background-size: 280%;
-      height: 70vh;
+      height: 50vh;
     }
   
     .container-sobre-nos .sobre-texto {
@@ -220,6 +263,14 @@
       width: 65%;
       font-size: 10px;
     }
+
+    .sobre-texto{
+      font-size: 1px;
+    }
+
+    .sobre-nos-btn{
+      font-size: 12px;
+    }
   
     @media screen and (min-width: 375px) {
       .container-sobre-nos {
@@ -229,7 +280,7 @@
 
     @media screen and (min-width: 413px) {
         .container-sobre-nos {
-            background-size: 250%;
+            background-size: 220%;
         }
     }
 }
