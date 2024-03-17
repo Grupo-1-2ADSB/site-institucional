@@ -72,6 +72,10 @@
         align-items: center;
     }
 
+    .box-dicionario h1{
+      margin-left: 5%;
+    }
+
     /* Perguntas frequentes
     * Diminuindo o título "Perguntas Frequentes" nessa resolução"*/
     .container-perguntas .perguntas h1{
