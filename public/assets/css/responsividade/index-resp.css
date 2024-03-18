@@ -90,7 +90,7 @@
 
     /* Responsividade adicional para telas até 569px */
     @media screen and (max-width: 569px){
-        /* Responsividade Sessão 1 */
+        /* Responsividade Seção 1 */
         .banner {
           background-position: right;
           background-repeat: no-repeat;
@@ -126,7 +126,7 @@
                 padding-top: 3.5em;
             }
 
-            /* Responsividade Sessão 2 */
+            /* Responsividade Seção 2 */
             .boxes {
               margin-top: -50px;
             }
@@ -196,7 +196,7 @@
       }
 }
 
-/* Responsividade Sessão 1 e adicional Navbar para telas entre 570px e 800px */
+/* Responsividade Seção 1 e adicional Navbar para telas entre 570px e 800px */
 @media screen and (min-width: 570px) and (max-width: 800px){
      /* Responsividade até 770px dentro do intervalo pai  */
     @media screen and (max-width: 800px) {
@@ -205,7 +205,7 @@
             padding-top: 9em;
         }
         
-        /* Responsividade Sessão 1 */
+        /* Responsividade Seção 1 */
         .banner {
             justify-content: center;
         
@@ -243,7 +243,7 @@
     }
 }
 
-/* responsividade Sessão 1 para telas com min de 800px de largura */
+/* responsividade Seção 1 para telas com min de 800px de largura */
 @media screen and (min-width: 800px) {
     .banner .container {
         backdrop-filter: blur(13.5px);
@@ -263,7 +263,7 @@
       }
 }
 
-/* Responsividade Sessão 4 para dispositivos entre 270px e 719px de largura */
+/* Responsividade Seção 4 para dispositivos entre 270px e 719px de largura */
 @media screen and (min-width: 270px) and (max-width: 719px) {
     .container-sobre-nos {
       justify-content: center;
@@ -302,7 +302,7 @@
     }
 }
   
-/* Responsividade Sessão 4 para dispositivos entre 720px e 1180px de largura */
+/* Responsividade Seção 4 para dispositivos entre 720px e 1180px de largura */
 @media screen and (min-width: 720px) and (max-width: 1180px) {
     .container-sobre-nos {
       justify-content: center;
@@ -326,7 +326,7 @@
     }
 }
 
-/* responsividade Sessão 2 para telas com min de 800px de largura */
+/* responsividade Seção 2 para telas com min de 800px de largura */
 @media screen and (min-width: 800px) {
   .social > .container {
     display: flex;
