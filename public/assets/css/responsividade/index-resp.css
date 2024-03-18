@@ -303,7 +303,7 @@
 }
   
 /* Responsividade Seção 4 para dispositivos entre 720px e 1180px de largura */
-@media screen and (min-width: 720px) and (max-width: 1180px) {
+@media screen and (min-width: 719px) and (max-width: 1180px) {
     .container-sobre-nos {
       justify-content: center;
       align-items: center;
@@ -312,9 +312,13 @@
   
     .container-sobre-nos .sobre-texto {
       position: unset;
-      width: 50%;
-      font-size: 15px;
-      margin-top: 135px;
+      width: 60%;
+      font-size: 14px;
+      margin-top: 125px;
+    }
+
+    .sobre-nos-btn{
+      font-size: 11px;
     }
   
     /* Ajustes adicionais para telas até 1024px */
@@ -402,5 +406,33 @@
     margin: 15px 0 0;
     text-align: start;
     width: 75%;
+  }
+}
+
+@media screen and (min-width: 360px) and (max-width: 450px){
+  /*Empilahndo os elementos no footer e diminuindo as fonts para essa resolução de tela*/
+  .container-footer{
+    flex-direction: column;
+  }
+
+  .footer-logo,
+  .footer-contato,
+  .footer-endereco {
+    width: 100%;
+  }
+
+  .footer-logo img{
+    width: 35%;
+  }
+
+  .footer-contato,
+  .footer-endereco h3{
+    font-size: 20px;
+    margin-top: 10px;
+  }
+
+  .footer-contato,
+  .footer-endereco p{
+    font-size: 14px;
   }
 }
