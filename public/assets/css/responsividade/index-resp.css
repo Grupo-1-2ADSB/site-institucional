@@ -46,6 +46,7 @@
   
     .box {
       width: 70%;
+      gap: 17px;
     }
   
     .boxes,
@@ -74,6 +75,7 @@
 
     .box-dicionario h1{
       margin-left: 5%;
+      line-height: 23px;
     }
 
     /* Perguntas frequentes
@@ -99,10 +101,11 @@
             text-align: center;
             justify-content: center;
             width: 83%;
-            padding-top: 90px;
+            padding: 90px 15px 0;
             border: none;
             background-color: transparent;
             backdrop-filter: unset;
+            
           }
     
           h1 {
@@ -121,6 +124,20 @@
         @media screen and (min-width: 280px) and (max-width: 280px) {
             .mobile-menu {
                 padding-top: 3.5em;
+            }
+
+            /* Responsividade Sessão 2 */
+            .boxes {
+              margin-top: -50px;
+            }
+
+            .box-dicionario h1 {
+              font-size: 15px;
+              line-height: 18px;
+            }
+
+            .box p {
+              font-size: 0.7rem;
             }
             
             /*Empilahndo os elementos no footer e diminuindo as fonts para essa resolução de tela*/
@@ -251,8 +268,8 @@
     .container-sobre-nos {
       justify-content: center;
       align-items: center;
-      background-size: 280%;
-      height: 50vh;
+      background-size: 300%;
+      height: 70vh;
     }
   
     .container-sobre-nos .sobre-texto {
@@ -307,4 +324,83 @@
         bottom: 88px;
       }
     }
+}
+
+/* responsividade Sessão 2 para telas com min de 800px de largura */
+@media screen and (min-width: 800px) {
+  .social > .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .boxes {
+    width: 85%;
+    align-items: center;
+  }
+
+  .box {
+    gap: 15px;
+    height: 33vh;
+  }
+
+  .box p {
+    width: 78%;
+  }
+
+  .box-dicionario {
+    width: unset;
+    gap: 27px;
+  }
+
+  .box-dicionario h1 {
+    font-size: 2rem;
+    line-height: 30px;
+    width: 50%;
+  }
+
+  .box1, .box2 {
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media screen and (min-width: 820px) and (max-width: 1023px) {
+    .box {
+      gap: 15px;
+      height: 23vh;
+    }
+
+    .box-dicionario {
+      gap: 13px;
+    }
+
+    .box-dicionario h1 {
+      font-size: 1.2rem;
+      line-height: 22px;
+    }
+  }
+
+  @media screen and (min-width: 1024px) and (max-width: 1279px) {
+    .box {
+      height: 43vh;
+    }
+
+    .box-dicionario h1 {
+      font-size: 1.5rem;
+      line-height: 25px;
+    }
+  }
+
+  .banner h1{
+    text-align: start;
+    font-size: 50px;
+    line-height: 49px;
+  }
+
+  .banner p {
+    font: 400 italic 16px 'Poppins';
+    margin: 15px 0 0;
+    text-align: start;
+    width: 75%;
+  }
 }
