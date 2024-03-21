@@ -85,6 +85,10 @@ body {
   padding-top: 5em;
 }
 
+.mobile-menu a:hover{
+  color: #FFF;
+}
+
 .mobile-menu ul {
   display: flex;
   flex-direction: column;
@@ -97,7 +101,7 @@ body {
 }
 
 .mobile-menu .nav-item:hover {
-  background: aqua;
+  background: #084d6e;
 }
 
 .mobile-menu-close {
