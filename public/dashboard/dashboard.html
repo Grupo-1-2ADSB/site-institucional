@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <title>Dashboard | MedTech</title>
+</head>
+
+<body>
+
+    <!-- Barra lateral -->
+    <div class="sidebar">
+        <!-- Logo e nome do aplicativo -->
+        <a href="#" class="logo">
+            <i class='bx bx-desktop'></i>
+            <div class="logo-name"><span>Med</span>Tech</div>
+        </a>
+        <!-- Menu lateral -->
+        <ul class="side-menu">
+            <li><a href="#"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
+            <li class="active"><a href="#"><i class='bx bx-analyse'></i>Analytics</a></li>
+            <li><a href="#"><i class='bx bx-group'></i>Usuários</a></li>
+            <li><a href="#"><i class='bx bx-cog'></i>Configurações</a></li>
+        </ul>
+        <!-- Menu de logout -->
+        <ul class="side-menu">
+            <li>
+                <a href="#" class="logout">
+                    <i class='bx bx-log-out-circle'></i>
+                    Sair
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- Fim da barra lateral -->
+
+    <!-- Conteúdo principal -->
+    <div class="content">
+        <!-- Barra de navegação -->
+        <nav>
+            <i class='bx bx-menu'></i> <!-- Ícone de menu -->
+            <form action="#">
+                <div class="form-input">
+                    <button class="search-btn" type="submit"><i class='bx bxl-aws'></i></button>
+                    <!-- Ícone de pesquisa -->
+                </div>
+            </form>
+            <input type="checkbox" id="theme-toggle" hidden> <!-- Alternador de tema (escondido) -->
+            <label for="theme-toggle" class="theme-toggle"></label> <!-- Rótulo para alternador de tema -->
+            <a href="#" class="notif">
+                <i class='bx bx-bell'></i> <!-- Ícone de notificações -->
+                <span class="count">12</span> <!-- Contagem de notificações -->
+            </a>
+            <a href="#" class="profile">
+                <img src="../../assets/images/logoMedTech.png"> <!-- Imagem da logo -->
+            </a>
+        </nav>
+        <!-- Fim da barra de navegação -->
+
+        <main>
+            <!-- Cabeçalho -->
+            <div class="header">
+                <div class="left">
+                    <h1>Dashboard</h1> <!-- Título principal -->
+                    <ul class="breadcrumb">
+                        <li><a href="#">Analytics</a></li> <!-- Migalha de pão (breadcrumb) -->
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Insights -->
+            <ul class="insights">
+                <!-- Estatísticas breves -->
+                <li><i class='bx bx-wifi'></i>
+                    <span class="info">
+                        <h3>71</h3>
+                        <p>Conexões Rede</p> <!-- Informação sobre conexões de rede -->
+                    </span>
+                </li>
+                <li><i class='bx bx-error'></i>
+                    <span class="info">
+                        <h3>4</h3>
+                        <p>Alertas</p> <!-- Informação sobre alertas -->
+                    </span>
+                <li>
+                    <i class='bx bx-desktop'></i>
+                    <span class="info">
+                        <h3>34</h3>
+                        <p>Máquinas On</p> <!-- Informação sobre máquinas online -->
+                    </span>
+                </li>
+                </li>
+                <li><i class='bx bx-desktop'></i>
+                    <span class="info">
+                        <h3>2</h3>
+                        <p>Máquinas Off</p> <!-- Informação sobre máquinas offline -->
+                    </span>
+                </li>
+            </ul>
+            <!-- Fim dos Insights -->
+
+            <!-- Informações detalhadas -->
+            <div class="bottom-data">
+                <!-- Lista de usuários -->
+                <div class="orders">
+                    <div class="header">
+                        <i class='bx bx-receipt'></i> <!-- Ícone de lista -->
+                        <h3>Lista de Usuários</h3> <!-- Título da seção -->
+                        <i class='bx bx-filter'></i> <!-- Ícone de filtro -->
+                    </div>
+                    <!-- Tabela de usuários -->
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Data de Criação</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Linhas da tabela com informações de usuários -->
+                            <tr>
+                                <td>
+                                    <img src="RPH04407.jpg">
+                                    <p>Kauã Nunes</p>
+                                </td>
+                                <td>23-03-2024</td>
+                                <td><span class="status completed">Ativo</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="FotoBia.png">
+                                    <p>Bia Rosa</p>
+                                </td>
+                                <td>15-03-2024</td>
+                                <td><span class="status completed">Ativo</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="FotoLucas.png">
+                                    <p>Lucas de Paula</p>
+                                </td>
+                                <td>14-03-2022</td>
+                                <td><span class="status completed">Ativo</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Lembretes (Reminders) -->
+                <div class="reminders">
+                    <div class="header">
+                        <i class='bx bx-desktop'></i> <!-- Ícone de lembretes -->
+                        <h3>Máquinas</h3> <!-- Título da seção -->
+                        <i class='bx bx-filter'></i> <!-- Ícone de filtro -->
+                        <i class='bx bx-plus'></i> <!-- Ícone de adição -->
+                    </div>
+                    <!-- Lista de tarefas de máquinas -->
+                    <ul class="task-list">
+                        <li class="completed">
+                            <div class="task-title">
+                                <i class='bx bx-check-circle'></i> <!-- Ícone de tarefa concluída -->
+                                <p>Computador 1</p> <!-- Nome da máquina -->
+                            </div>
+                        </li>
+                        <li class="completed">
+                            <div class="task-title">
+                                <i class='bx bx-check-circle'></i> <!-- Ícone de tarefa concluída -->
+                                <p>Computador 2</p> <!-- Nome da máquina -->
+                            </div>
+                        </li>
+                        <li class="not-completed">
+                            <div class="task-title">
+                                <i class='bx bx'> </i> <!-- Ícone de tarefa não concluída -->
+                                <p>Computador 3</p> <!-- Nome da máquina -->
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Fim dos lembretes (Reminders) -->
+            </div>
+        </main>
+    </div>
+    <!-- Fim do conteúdo principal -->
+
+    <script src="../assets/js/dashboard.js"></script> <!-- Importando arquivo JavaScript -->
+</body>
+
+</html>
+
+
+
+</html>
