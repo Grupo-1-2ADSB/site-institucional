@@ -3,10 +3,15 @@
     Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
     "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
     "Source Han Sans CN", sans-serif;
-}
-*{
-  width: 100%;
-}
+} 
+@media (min-width: 768px){
+@media (min-width: 600px){
+    @media (min-width: 992px){
+      @media (min-width: 1200px){
+  .body{
+    max-width: 100%;
+  }
+}}}}
 
 .main-container {
   overflow: hidden;
@@ -1130,3 +1135,8 @@ button {
   z-index: 59;
   overflow: hidden;
 }
+
+img {
+  max-width: 100%;
+}
+
