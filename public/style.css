@@ -80,11 +80,10 @@ form {
     transform: translateX(-50%);
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 14px;
+    gap: 7px;
     background-color: var(--primary-color);
-    width: 334px;
-    height: 54px;
+    width: 372px;
+    height: 81px;
     border-radius: 0 0 20px 20px;
 }
 
@@ -101,14 +100,14 @@ form {
   padding: 10px 29px;
 }
 
-.btnColor {
+/*.btnColor {
   position: absolute;
   width: 208px;
   height: 100%;
   background-color:rgb(142, 142, 123); 
   border-radius: 30px;
   transition: .3s;
-}
+}*/
 
 input[type="text"], input[type="password"] {
   border: none;
@@ -140,6 +139,7 @@ button[type="submit"] {
 
 #signin {
   left: 25px;
+  top: 60px;
 }
 
 #signup {
@@ -160,6 +160,14 @@ i {
   top: 114px;
 }
 
-.iPassword2 {
-  top: 190px;
+.iPassword2{
+  top:191px;
+}
+
+.fa-user{
+  top:114px
+}
+
+.iPassword3 {
+  top: 266px;
 }
