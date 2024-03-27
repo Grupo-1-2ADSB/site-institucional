@@ -119,8 +119,8 @@ input[type="text"], input[type="password"] {
 }
 
 button[type="submit"] {
-  background: #660fc8;
-  color: white;
+  background: #faf9fa;
+  color: rgb(14, 14, 14);
   border-radius: 30px;
   width: 100%;
   border: none;
