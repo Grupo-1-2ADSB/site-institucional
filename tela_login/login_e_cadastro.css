@@ -23,7 +23,31 @@
     text-decoration: none;
     color: var(--second-color);
   }
+
+  .btnColor {
+    position: absolute;
+    width: 108px;
+    height: 100%;
+    background: linear-gradient(to right, #1917b7, #0f89e6);
+    border-radius: 30px;
+    transition: .3s;
+  }
+
   
+.buttonsForm {
+  margin-top: 40px;
+  border-radius: 30px;
+  box-shadow: 0 0 7px 0 blueviolet;
+}
+
+.buttonsForm button {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  position: relative;
+  padding: 10px 29px;
+}
+
   a:hover {
     text-decoration: underline;
   }
@@ -78,7 +102,7 @@
   }
   */
   .login-header button {
-    font-size: 30px;
+    font-size: 25px;
     color: var(--black-color);
   }
   
