@@ -5,7 +5,7 @@ var btnColor = document.querySelector('.btnColor')
 document.querySelector('#btnSignin')
   .addEventListener('click', () => {
     formSignin.style.left = "25px"
-    formSignup.style.left = "450px"
+    formSignup.style.left = "620px"
     btnColor.style.left = "0px"
 })
 
