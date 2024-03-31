@@ -30,6 +30,7 @@ body{
     height: 100%;
     background: #81a7c2;
     /* background: linear-gradient(90deg, rgba(82,124,153,1) 0%, rgba(122,165,196,1) 50%, rgba(193,205,214,1) 100%); */
+    z-index: 6;
 }
 
 .signin-signup{
@@ -41,6 +42,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-around;
+    z-index: 5;
 }
 
 form{
@@ -130,5 +132,36 @@ a{
 }
 
 .social-icon:hover{
+    color: #074c7e;
+    border: #074c7e;
+}
+
+.panels-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.panel{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 35%;
+    min-width: 238px;
+    padding: 0 10px;
+    text-align: center;
+    z-index: 6;
+}
+.content{
+    color: #fff;
+}
+.image{
+    width: 100%;
 
 }
