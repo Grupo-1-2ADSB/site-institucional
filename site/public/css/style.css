@@ -139,15 +139,11 @@ button[type="submit"] {
 
 #signin {
   left: 95px;
-  top: 60px;
-
-  background-color: cadetblue;
+  top: 90px;
 }
 
 #signup {
-  left: 750px;
-
-  background-color: blueviolet;
+  left: 600px;
 }
 
 i {
