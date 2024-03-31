@@ -1,0 +1,134 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: ; */
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #074c7ed2;
+}
+
+.container{
+    position: relative;
+    width: 70vw;
+    height: 80vh;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+}
+
+.container::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #81a7c2;
+    /* background: linear-gradient(90deg, rgba(82,124,153,1) 0%, rgba(122,165,196,1) 50%, rgba(193,205,214,1) 100%); */
+}
+
+.signin-signup{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 40%;
+    min-width: 238px;
+    padding: 0 10px;
+}
+
+.title{
+    font-size: 35px;
+    color: #074c7ed2;
+    margin-bottom: 10px;
+}
+
+.input-field{
+    width: 100%;
+    height: 50px;
+    background-color: #f0f0f0;
+    margin: 10px 0;
+    border: 2px solid #074c7ed2;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+}
+
+/* .input-field i{
+    flex: 1;
+    text-align: center;
+    font-size: 18px;
+} */
+
+.input-field input{
+    flex: 5;
+    background: none;
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.btn{
+    width: 150px;
+    height: 50px;
+    border: none;
+    border-radius: 50px;
+    background: #074c7ed2;
+    color: #fff;
+    font-weight: 600;
+    margin: 10px 0;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.btn:hover{
+    background-color: #074c7e;
+}
+
+.social-text{
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.social-media{
+    display: flex;
+    justify-content: center;
+}
+
+.social-icon{
+    height: 45px;
+    width: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #444;
+    border: 1px solid #444 ;
+    border-radius: 50px;
+    margin: 0 5px;
+}
+
+a{
+    text-decoration: none;
+}
+
+.social-icon:hover{
+
+}
