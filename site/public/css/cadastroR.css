@@ -10,14 +10,14 @@ body{
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background-color: #074c7ed2;
+    background: #074c7ed2;
 }
 
 .container{
     position: relative;
     width: 70vw;
     height: 80vh;
-    background-color: #fff;
+    background: #fff;
     border-radius: 15px;
     box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
     overflow: hidden;
@@ -33,7 +33,7 @@ body{
     background: #81a7c2;
     /* background: linear-gradient(90deg, rgba(82,124,153,1) 0%, rgba(122,165,196,1) 50%, rgba(193,205,214,1) 100%); */
     z-index: 6;
-    transform: translateX(100);
+    transform: translateX(100%);
     transition: 1s ease-in-out;
 }
 
@@ -79,7 +79,7 @@ form.sign-up-form{
 .input-field{
     width: 100%;
     height: 50px;
-    background-color: #f0f0f0;
+    background: #f0f0f0;
     margin: 10px 0;
     border: 2px solid #074c7ed2;
     border-radius: 50px;
@@ -87,11 +87,11 @@ form.sign-up-form{
     align-items: center;
 }
 
-/* .input-field i{
+.input-field i{
     flex: 1;
     text-align: center;
     font-size: 18px;
-} */
+}
 
 .input-field input{
     flex: 5;
@@ -226,19 +226,19 @@ a{
     transform: translateX(0);
 }
 
-.container.container.sign-up-mode form.form.sign-in-form{
+.container.sign-up-mode form.sign-in-form{
     opacity: 0;   
 }
 
-.container.container.sign-up-mode form.form.sign-up-form{
+.container.sign-up-mode form.sign-up-form{
     opacity: 1;   
 }
 
-.container.container.sign-up-mode .right-panel{
+.container.sign-up-mode .right-panel{
     pointer-events: none;
 }
 
-.container.container.sign-up-mode .left-panel{
+.container.sign-up-mode .left-panel{
     pointer-events: all;
 }
 
