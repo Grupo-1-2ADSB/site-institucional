@@ -16,13 +16,12 @@ MedTech é um projeto desenvolvido como parte de um trabalho acadêmico na facul
 1. Clone o repositório para o seu ambiente local:
 
 ```bash
-git clone https://github.com/seu_usuario/medtech.git
+git clone https://github.com/Grupo-1-2ADSB/site-institucional.git
 ```
 
 2. Instale as dependências do projeto:
 
 ```bash
-cd medtech
 npm install
 ```
 
