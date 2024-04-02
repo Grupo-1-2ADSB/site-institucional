@@ -1,7 +1,5 @@
 # MedTech - Projeto de Monitoramento de Hardware em Telas Nocivas
 
-![MedTech Logo](link_para_o_logo)
-
 ## Descrição
 
 MedTech é um projeto desenvolvido como parte de um trabalho acadêmico na faculdade. Ele tem como objetivo monitorar o hardware e a exposição a telas nocivas, fornecendo informações úteis para ajudar os usuários a gerenciar seu tempo de exposição e tomar medidas para proteger seus hardware.
