@@ -1,0 +1,460 @@
+/* Importa as fontes 'EB Garamond' e 'Poppins' do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+html{
+  scroll-behavior: smooth;
+}
+
+/* Reset de estilos padrão para elementos */
+* {
+  margin: 0;
+  padding: 0; 
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Configurações gerais do corpo da página */
+body {
+  background: #b0a7a7;
+}
+
+/* Estilos para o cabeçalho (header) fixo */
+.header {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fbfdfd;
+}
+
+/* Estilos para a barra de navegação (navbar) */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: #fbfdfd;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 4.5rem;
+  border-bottom: 1px solid #084D6E;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+.nav-item {
+  margin: 0 15px;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-size: 1.15rem;
+  color: #084d6e;
+  font-weight: 400;
+}
+
+.mobile-menu-icon {
+  display: none;
+  /* position: absolute; */
+  /* top: 50%; */
+  /* right: 2rem; */
+  /* transform: translateY(-50%); */
+}
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 50px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fbfdfd;
+  z-index: 999;
+  /* overflow-y: auto; */
+  padding-top: 5em;
+}
+
+.mobile-menu a:hover{
+  color: #FFF;
+}
+
+.mobile-menu ul {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.mobile-menu .nav-item {
+  display: block;
+  padding: 1rem;
+}
+
+.mobile-menu .nav-item:hover {
+  background: #084d6e;
+}
+
+.mobile-menu-close {
+  display: none;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+}
+
+/* Estilos para os links na barra de navegação */
+.navbar a {
+  font-size: 18px;
+  text-decoration: none;
+  color: #020202;
+  font-weight: 500;
+  margin-left: 35px;
+  transition: .3s;
+}
+
+/* Estilos para links na navegação ao passar o mouse e quando ativo */
+.navbar a:hover,
+.navbar a.ativado {
+  color: #084d6e;
+}
+
+/* Estilos para a seção de banner */
+.banner {
+  color: white;
+  background-image: url("../assets/logo/banner7.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 695px; /* Altura ajustada */
+  display: flex;
+  align-items: center;
+}
+
+/* Estilos para o container dentro do banner */
+.banner .container {
+  text-align: center;
+  max-width: 80%; /* Largura ajustada */
+  width: 55%;
+  padding: 30px 3em 30px 4.5em;
+  border-radius: 0 30px 30px 0;
+  border-top: 1px solid #FFF;
+  border-bottom: 1px solid #FFF;
+  border-right: 1px solid #FFF;
+
+  background-color: #ffffff3d;
+}
+
+/* Estilos para os parágrafos dentro do banner */
+.banner h1{
+  text-align: start;
+  font-size: 50px;
+}
+.banner p {
+  font-size: 20px;
+  font-weight: 800;
+  margin: 20px 0; /* Margem ajustada */
+  text-align: start;
+}
+
+/* Estilos para a seção social */
+.social {
+  background-color: #fff;
+  display: flex;
+  position: relative;
+}
+
+
+/* Estilos para as caixas (boxes) na seção social */
+.box img {
+  width: 100px;
+}
+
+/* Estilos para o container dentro da seção social */
+.boxes {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: -80px;
+
+}
+
+/* Estilos para os parágrafos na seção social */
+.social p {
+  display: flex;
+  align-items: center;
+}
+
+/* Estilos para as caixas individuais na seção social */
+.box {
+  /* margin-bottom: 50px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 85%;
+  background-color: #084d6e;
+  border-radius: 20px;
+  padding: 30px 10px;
+  margin: 15px;
+}
+
+.box-dicionario{
+  display: flex;
+  width: 80%;
+  align-items: center;
+  border-radius: 50px;
+  justify-content: center;
+  color: #ffffff;
+
+  /* background-color: blueviolet; */
+}
+.box-dicionario img{
+  width: 20%;
+
+  /* background-color: chartreuse; */
+}
+.box-dicionario h1{
+  /* width: 60%; */
+  font-size: 20px;
+  
+
+  /* background-color: aqua; */
+}
+
+.box1{
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  width: 100%;
+}
+
+.box2{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 100%;            
+}
+
+/* Estilos para os parágrafos dentro das caixas sociais */
+.box p {
+  color: #fff;
+  font-size: 0.8rem;
+  width: 80%;
+  text-align: justify;
+  font-style: italic;
+}
+
+/* container teste */
+.container-perguntas{
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  background-color: rgb(255, 255, 255);
+}
+.container-perguntas .perguntas h1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  font-size: 50px;
+  background-color: #DCEDF6;
+}
+
+.perguntas{
+  width: 90%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 30px;
+  padding: 40px;    
+
+  background-color: #DCEDF6;
+}
+
+section{
+  width: 90%;
+  max-width: 100%;
+
+  background-color: #DCEDF6;
+}
+
+section details{
+  margin: 10px 0;
+}
+
+section details summary{
+  background-color: #fff;
+  padding: 2%;
+  color: #000000;
+  border-radius: 15px;
+}
+
+section details[open] summary{
+  border-radius: 30px 30px 0 0;
+}
+
+section details p{
+  background-color: #fff;
+  border-radius: 0 0 30px 30px;
+  padding: 12px;
+}
+
+@keyframes descer {
+  0%{
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  100%{
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+section details[open] summary ~ p{
+  animation: descer 0.3s ease-in-out forwards;
+}
+
+/* linha */
+.linha{
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+}
+
+/* Container sobre nos */
+.container-sobre-nos {
+  /* width: 100%; */
+  height: 710px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  background-color: #fff;
+
+  background-image: url("../assets/index/section4/background-img-section4.svg");
+  background-size: 90%;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  
+}
+
+.container-sobre-nos .sobre-texto{
+  background: rgba(8, 77, 110, 0.55);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 30px;
+  position: relative;
+  right: 250px;
+  bottom: 120px;
+  backdrop-filter: blur(13.5px);
+  -webkit-backdrop-filter: blur(13.5px);
+  border-radius: 27px;
+}
+
+.container-sobre-nos .imagem{
+  width: 80%;
+  display: flex;
+}
+
+.sobre-texto{
+  width: 30%;
+  color: #FFF;
+  background-color: transparent;
+  font: 200 italic 14px 'Poppins';
+  text-align: justify;
+}
+
+.sobre-nos-btn {
+  background-color: #FFF;
+    border: none;
+    padding: 5px 20px;
+    border-radius: 20px;
+    font: 600 15px 'Poppins';
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+/* Estilos para o rodapé (footer) */
+.container-footer {
+  background-color: #084d6e;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  height: auto; /* Alterado para 'auto' para acomodar diferentes alturas de conteúdo */
+  padding: 10px;
+  color: #fff;
+}
+
+.footer-logo,
+.footer-contato,
+.footer-endereco {
+  flex: 1; /* Alterado para flex: 1 para distribuir o espaço de forma igual entre os elementos */
+  text-align: center;
+  padding: 0 10px;
+}
+
+.footer-logo img {
+  width: 55%;
+  max-width: 100%;
+  margin: 0 auto; /* Adicionado para centralizar a logo na parte responsiva */
+  display: block; /* Adicionado para alinhar corretamente a logo */
+  margin-top: auto; /* Adicionado para a logo ficar na última linha */
+}
+
+/* Estilos para o container dentro do rodapé */
+.footer-container {
+  width: 100%;
+  padding: 70px 30px 20px;
+}
+
+/* Estilos gerais para a seção de rodapé */
+.footer {
+  margin: 30px 0;
+}
+
+/* Estilos para a lista dentro do rodapé */
+.footer ul {
+  display: flex;
+  justify-content: center;
+}
+
+/* Estilos para os links na lista do rodapé */
+.footer ul li a {
+  color: #084d6e;
+  margin: 20px;
+  text-decoration: none;
+  font-size: 20px;
+  transition: 0.5s;
+}
+
+/* Efeito de hover nos links da lista do rodapé */
+.footer ul li a:hover {
+  color: aqua;
+}
+
+/* Estilos para a seção inferior do rodapé */
+/* .footerBottom {
+  background-color: #084d6e;
+  padding: 20px;
+  text-align: center;
+  color: #000000;
+} */

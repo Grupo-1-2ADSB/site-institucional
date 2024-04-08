@@ -1,0 +1,438 @@
+/* responsividade menu para telas até 800px de largura */
+@media screen and (max-width: 800px) {
+    .navbar {
+      padding: 1.5rem 3rem;
+    }
+  
+    .logo {
+      display: flex;
+      align-items: center;
+  
+      img {
+        width: 40%;
+      }
+    }
+  
+    .nav-item {
+      display: none;
+    }
+  
+    .mobile-menu-icon {
+      display: block;
+    }
+  
+    .mobile-menu-icon button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+  
+    .mobile-menu ul {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      padding-bottom: 1rem;
+    }
+  
+    .mobile-menu .nav-item {
+      display: block;
+      padding-top: 0.2rem;
+    }
+  
+    .open {
+      display: block;
+      height: fit-content;
+    }
+  
+    .box {
+      width: 70%;
+      gap: 17px;
+    }
+  
+    .boxes,
+    .container,
+    .social {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: unset;
+    }
+  
+    .banner {
+      background-position: right;
+    }
+
+    .boxes{
+        flex-direction: column;
+    }
+
+    .box1, .box2{
+        align-items: center;
+    }
+
+    .box-dicionario h1{
+      margin-left: 5%;
+      line-height: 23px;
+    }
+
+    /* Perguntas frequentes
+    * Diminuindo o título "Perguntas Frequentes" nessa resolução"*/
+    .container-perguntas .perguntas h1{
+      font-size: 25px;
+    }
+
+    .perguntas details p {
+      font-size: 80%;
+    }
+
+    /* Responsividade adicional para telas até 569px */
+    @media screen and (max-width: 569px){
+        /* Responsividade Seção 1 */
+        .banner {
+          background-position: right;
+          background-repeat: no-repeat;
+          height: 60vh;
+          justify-content: center;
+    
+          .container {
+            text-align: center;
+            justify-content: center;
+            width: 83%;
+            padding: 90px 15px 0;
+            border: none;
+            background-color: transparent;
+            backdrop-filter: unset;
+            
+          }
+    
+          h1 {
+            text-align: center;
+            font-size: 30px;
+            line-height: 30px;
+          }
+    
+          p {
+            margin: 20px 0;
+            font: 400 italic 10px 'Poppins';
+            text-align: center;
+          }
+        }
+
+        @media screen and (min-width: 280px) and (max-width: 280px) {
+            .mobile-menu {
+                padding-top: 3.5em;
+            }
+
+            /* Responsividade Seção 2 */
+            .boxes {
+              margin-top: -50px;
+            }
+
+            .box-dicionario h1 {
+              font-size: 15px;
+              line-height: 18px;
+            }
+
+            .box p {
+              font-size: 0.7rem;
+            }
+            
+            /*Empilahndo os elementos no footer e diminuindo as fonts para essa resolução de tela*/
+            .container-footer{
+              flex-direction: column;
+            }
+
+            .footer-logo,
+            .footer-contato,
+            .footer-endereco {
+              width: 100%;
+            }
+
+            .footer-logo img{
+              width: 45%;
+            }
+
+            .footer-contato,
+            .footer-endereco h3{
+              font-size: 15px;
+              margin-top: 10px;
+            }
+
+            .footer-contato,
+            .footer-endereco p{
+              font-size: 12px;
+            }
+        }
+
+        @media screen and (min-width: 540px) {
+            .mobile-menu {
+                padding-top: 6em;
+            }
+
+            /* Estilos para o rodapé (footer) */
+            .footer-logo img{
+              width: 80%;
+            }
+
+            .footer-contato,
+            .footer-endereco h3{
+              font-size: 15px;
+            }
+
+            .footer-contato,
+            .footer-endereco p{
+              font-size: 11px;
+              margin: 2px;
+            }
+        }
+
+        .nav-link {
+          font-size: 1rem;
+        }
+
+      }
+}
+
+/* Responsividade Seção 1 e adicional Navbar para telas entre 570px e 800px */
+@media screen and (min-width: 570px) and (max-width: 800px){
+     /* Responsividade até 770px dentro do intervalo pai  */
+    @media screen and (max-width: 800px) {
+        /* Responsividade Navbar */
+        .mobile-menu {
+            padding-top: 9em;
+        }
+        
+        /* Responsividade Seção 1 */
+        .banner {
+            justify-content: center;
+        
+            .container {
+                padding: 0 55px;
+                margin-top: 120px;
+                width: 65%;
+                border: none;
+                background-color: transparent;
+                backdrop-filter: unset;
+
+                h1, p {
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    .banner {
+        .container {
+            max-width: 80%;
+            padding: 30px;
+            backdrop-filter: unset;
+
+            h1 {
+                font-size: 50px;
+                line-height: 50px;
+            }
+
+            p {
+                font: 400 italic 18px 'Poppins';
+                margin: 10px 0;
+            }
+        }
+    }
+}
+
+/* responsividade Seção 1 para telas com min de 800px de largura */
+@media screen and (min-width: 800px) {
+    .banner .container {
+        backdrop-filter: blur(13.5px);
+      }
+
+      .banner h1{
+        text-align: start;
+        font-size: 50px;
+        line-height: 49px;
+    }
+
+    .banner p {
+        font: 400 italic 16px 'Poppins';
+        margin: 15px 0 0;
+        text-align: start;
+        width: 75%;
+      }
+}
+
+/* Responsividade Seção 4 para dispositivos entre 270px e 719px de largura */
+@media screen and (min-width: 270px) and (max-width: 719px) {
+    .container-sobre-nos {
+      justify-content: center;
+      align-items: center;
+      background-size: 300%;
+      height: 70vh;
+    }
+  
+    .container-sobre-nos .sobre-texto {
+      padding: 20px 25px;
+      position: unset;
+      border-radius: 20px;
+      margin-top: 0;
+      width: 65%;
+      font-size: 10px;
+    }
+
+    .sobre-texto{
+      font-size: 1px;
+    }
+
+    .sobre-nos-btn{
+      font-size: 12px;
+    }
+  
+    @media screen and (min-width: 375px) {
+      .container-sobre-nos {
+        padding-top: 70px;
+      }
+    }
+
+    @media screen and (min-width: 413px) {
+        .container-sobre-nos {
+            background-size: 220%;
+        }
+    }
+}
+  
+/* Responsividade Seção 4 para dispositivos entre 720px e 1180px de largura */
+@media screen and (min-width: 719px) and (max-width: 1180px) {
+    .container-sobre-nos {
+      justify-content: center;
+      align-items: center;
+      background-size: 160%;
+    }
+  
+    .container-sobre-nos .sobre-texto {
+      position: unset;
+      width: 60%;
+      font-size: 14px;
+      margin-top: 125px;
+    }
+
+    .sobre-nos-btn{
+      font-size: 11px;
+    }
+  
+    /* Ajustes adicionais para telas até 1024px */
+    @media screen and (max-width: 1024px) {
+      .container-sobre-nos .sobre-texto {
+        right: 102px;
+        bottom: 88px;
+      }
+    }
+}
+
+/* responsividade Seção 2 para telas com min de 800px de largura */
+@media screen and (min-width: 800px) {
+  .social > .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .boxes {
+    width: 85%;
+    align-items: center;
+  }
+
+  .box {
+    gap: 15px;
+    height: 33vh;
+  }
+
+  .box p {
+    width: 78%;
+  }
+
+  .box-dicionario {
+    width: unset;
+    gap: 27px;
+  }
+
+  .box-dicionario h1 {
+    font-size: 2rem;
+    line-height: 30px;
+    width: 50%;
+  }
+
+  .box1, .box2 {
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media screen and (min-width: 820px) and (max-width: 1023px) {
+    .box {
+      gap: 15px;
+      height: 23vh;
+    }
+
+    .box-dicionario {
+      gap: 13px;
+    }
+
+    .box-dicionario h1 {
+      font-size: 1.2rem;
+      line-height: 22px;
+    }
+  }
+
+  @media screen and (min-width: 1024px) and (max-width: 1279px) {
+    .box {
+      height: 43vh;
+    }
+
+    .box-dicionario h1 {
+      font-size: 1.5rem;
+      line-height: 25px;
+    }
+  }
+
+  .banner h1{
+    text-align: start;
+    font-size: 50px;
+    line-height: 49px;
+  }
+
+  .banner p {
+    font: 400 italic 16px 'Poppins';
+    margin: 15px 0 0;
+    text-align: start;
+    width: 75%;
+  }
+}
+
+@media screen and (min-width: 360px) and (max-width: 450px){
+  /*Empilahndo os elementos no footer e diminuindo as fonts para essa resolução de tela*/
+  .container-footer{
+    flex-direction: column;
+  }
+
+  .footer-logo,
+  .footer-contato,
+  .footer-endereco {
+    width: 100%;
+  }
+
+  .footer-logo img{
+    width: 35%;
+  }
+
+  .footer-contato,
+  .footer-endereco h3{
+    font-size: 20px;
+    margin-top: 10px;
+  }
+
+  .footer-contato,
+  .footer-endereco p{
+    font-size: 14px;
+  }
+}
