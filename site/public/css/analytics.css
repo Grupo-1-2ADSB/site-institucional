@@ -42,6 +42,11 @@
     border-radius: 27px;
     height: 61%;
   }
+
+  .hostname, .ip, .sistema-operacional{
+    width: 100%;
+    
+  }
   
   /* Botão de fechar */
   .close {

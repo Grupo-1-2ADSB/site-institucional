@@ -70,7 +70,7 @@
                     </ul>
                 </div>
             </div>
-            
+
 
             <!-- Insights -->
             <ul class="insights">
@@ -126,7 +126,8 @@
                             <!-- Linhas da tabela com informações de usuários -->
                             <tr>
                                 <td>
-                                    <img src="https://pm1.aminoapps.com/8927/70081d2146af8532fea0638e7e960b68f23025a5r1-735-736v2_uhq.jpg">
+                                    <img
+                                        src="https://pm1.aminoapps.com/8927/70081d2146af8532fea0638e7e960b68f23025a5r1-735-736v2_uhq.jpg">
                                     <p>Kauã Nunes</p>
                                 </td>
                                 <td>23-03-2024</td>
@@ -134,7 +135,8 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <img src="https://pm1.aminoapps.com/8209/33a84f48852bee9f54addaf6b8a500ba47c0456fr1-720-721v2_hq.jpg">
+                                    <img
+                                        src="https://pm1.aminoapps.com/8209/33a84f48852bee9f54addaf6b8a500ba47c0456fr1-720-721v2_hq.jpg">
                                     <p>Bia Rosa</p>
                                 </td>
                                 <td>15-03-2024</td>
@@ -190,46 +192,45 @@
 
     <script src="../js/dashboard/dashboard.js"></script> <!-- Importando arquivo JavaScript -->
     <!-- Modal -->
-<div id="modal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2>Cadastrar Nova Máquina</h2>
-      <form>
-        <!-- Adicione os campos necessários para adicionar uma nova máquina -->
-        <label for="machine-name">Hostname:</label>
-        <input type="text" id="machine-name" name="machine-name">
-        <label for="ip">IP:</label>
-        <input type="text" id="machine-name" name="machine-name">
-        <label for="sistema-operacional">Sistema Operacional:</label>
-        <input type="text" id="machine-name" name="machine-name">
-        <label for="machine-name">Nome da Máquina:</label>
-        <input type="text" id="machine-name" name="machine-name">
-        <button type="submit">Adicionar</button>
-      </form>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Cadastrar Nova Máquina</h2>
+            <form>
+                <!-- Adicione os campos necessários para adicionar uma nova máquina -->
+                Hostname:
+                <input type="text" class="hostname" name="machine-name">
+                IP:
+                <input type="text" class="ip" name="ip">
+                Sistema Operacional:
+                <input type="text" class="sistema-operacional" name="sistema operacional">
+
+                <button type="submit">Adicionar</button>
+            </form>
+        </div>
     </div>
-  </div>
-  
-  <script>
-    
-    var modal = document.getElementById('modal');
-    var btn = document.querySelector('.reminders .header .bx-plus');
-    var span = document.getElementsByClassName('close')[0];
-  
-    btn.onclick = function() {
-      modal.style.display = 'block';
-    }
-  
-    span.onclick = function() {
-      modal.style.display = 'none';
-    }
-  
-    window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = 'none';
-      }
-    }
-  </script>
-  
+
+    <script>
+
+        var modal = document.getElementById('modal');
+        var btn = document.querySelector('.reminders .header .bx-plus');
+        var span = document.getElementsByClassName('close')[0];
+
+        btn.onclick = function () {
+            modal.style.display = 'block';
+        }
+
+        span.onclick = function () {
+            modal.style.display = 'none';
+        }
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+
 </body>
 
 </html>
