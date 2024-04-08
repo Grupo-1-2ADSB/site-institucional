@@ -70,6 +70,7 @@
                     </ul>
                 </div>
             </div>
+            
 
             <!-- Insights -->
             <ul class="insights">
@@ -109,7 +110,8 @@
                     <div class="header">
                         <i class='bx bx-receipt'></i> <!-- Ícone de lista -->
                         <h3>Lista de Usuários</h3> <!-- Título da seção -->
-                        <i class='bx bx-filter'></i> <!-- Ícone de filtro -->
+                        <i class='bx bx-filter'></i>
+                        <i class='bx bx-plus'></i> <!-- Ícone de filtro -->
                     </div>
                     <!-- Tabela de usuários -->
                     <table>
@@ -187,6 +189,47 @@
     <!-- Fim do conteúdo principal -->
 
     <script src="../js/dashboard/dashboard.js"></script> <!-- Importando arquivo JavaScript -->
+    <!-- Modal -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Cadastrar Nova Máquina</h2>
+      <form>
+        <!-- Adicione os campos necessários para adicionar uma nova máquina -->
+        <label for="machine-name">Hostname:</label>
+        <input type="text" id="machine-name" name="machine-name">
+        <label for="ip">IP:</label>
+        <input type="text" id="machine-name" name="machine-name">
+        <label for="sistema-operacional">Sistema Operacional:</label>
+        <input type="text" id="machine-name" name="machine-name">
+        <label for="machine-name">Nome da Máquina:</label>
+        <input type="text" id="machine-name" name="machine-name">
+        <button type="submit">Adicionar</button>
+      </form>
+    </div>
+  </div>
+  
+  <script>
+    
+    var modal = document.getElementById('modal');
+    var btn = document.querySelector('.reminders .header .bx-plus');
+    var span = document.getElementsByClassName('close')[0];
+  
+    btn.onclick = function() {
+      modal.style.display = 'block';
+    }
+  
+    span.onclick = function() {
+      modal.style.display = 'none';
+    }
+  
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    }
+  </script>
+  
 </body>
 
 </html>
