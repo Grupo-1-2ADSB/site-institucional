@@ -66,9 +66,37 @@
             <div class="header">
                 <div class="left">
                     <h1>Usuarios</h1> <!-- Título principal -->
-                    <ul class="breadcrumb">
-                        <li><a href="#">Usuarios</a></li> <!-- Migalha de pão (breadcrumb) -->
-                    </ul>
+                    <!-- <ul class="breadcrumb">
+                        <li><a href="#">Usuarios</a></li>  Migalha de pão (breadcrumb)
+                    </ul> -->
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="forms-container">
+                    <form action="">
+                        <div class="forms-container-esquerda">
+                            <input type="text" name="nomeCompleto" id="" placeholder="Nome Completo">
+                            <input type="text" name="username" id="" placeholder="Username">
+                            <input type="date" name="dataNasc" id="" placeholder="Data de Nascimento">
+                            <input type="number" name="cpf" id="" placeholder="CPF">
+                            <input type="number" name="telefone" id="" placeholder="Telefone">
+                        </div>
+                        <div class="forms-container-direita">
+                            <select name="cargo" id="">
+                                <option value="default" default>Selecione um cargo</option>
+                                <option value="tecnicoTI">Técnico de TI</option>
+                            </select>
+                            <input type="email" name="email" id="" placeholder="E-mail">
+                            <div>
+                                <input type="password" name="senha" id="" placeholder="Senha">
+                            </div>
+                            <div>
+                                <input type="password" placeholder="Repita a Senha">
+                            </div>
+                        </div>
+                        <button class="forms-container-submit">Cadastrar</button>
+                    </form>
                 </div>
             </div>
 

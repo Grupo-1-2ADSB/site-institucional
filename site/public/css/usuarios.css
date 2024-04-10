@@ -372,3 +372,44 @@ body {
     color: var(--primary);
     pointer-events: none;
 }
+
+.content main .container form{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5vw;
+}
+
+.content main .container form .forms-container-esquerda, form .forms-container-direita {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+input, select {
+    padding-left: 45px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background: white;
+    outline: none;
+    border: none;
+    line-height: 1;
+    font-weight: 500;
+    font-size: 1.1rem;
+    border-radius: 55px;
+}
+
+::-webkit-input-placeholder, select, input[type = date] {
+    color: #AAAAAA;
+    padding-right: 30px;
+}
+
+::-webkit-calendar-picker-indicator {
+    filter: invert(0.6);
+}
+
+select {
+    border-right: 16px solid transparent;
+}
+select option, select:focus, select:active {
+    color: var(--primary);
+}
