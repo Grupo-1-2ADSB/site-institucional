@@ -373,10 +373,14 @@ body {
     pointer-events: none;
 }
 
+.content main .container {
+    margin-top: 36px;
+}
+
 .content main .container form{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 5vw;
+    gap: 3vw;
 }
 
 .content main .container form .forms-container-esquerda, form .forms-container-direita {
@@ -392,7 +396,6 @@ input, select {
     background: white;
     outline: none;
     border: none;
-    line-height: 1;
     font-weight: 500;
     font-size: 1.1rem;
     border-radius: 55px;
@@ -408,8 +411,29 @@ input, select {
 }
 
 select {
-    border-right: 16px solid transparent;
+    border-right: 30px solid transparent;
 }
 select option, select:focus, select:active {
     color: var(--primary);
+}
+
+.container-inputs-passwd { 
+    :nth-child(1), :nth-child(2){
+        width: 49.6%;
+    }
+}
+
+.forms-btn {
+    width: 100%;
+}
+
+.forms-btn {
+    padding: 12px 0 12px;
+    background: var(--primary);
+    outline: none;
+    border: none;
+    font: 500 1.1rem 'Poppins', sans-serif;
+    border-radius: 55px;
+    color: #FFF;
+    align-self: end;
 }
