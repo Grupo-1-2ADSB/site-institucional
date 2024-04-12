@@ -373,23 +373,23 @@ body {
     pointer-events: none;
 }
 
-.content main .container {
+main .container {
     margin-top: 36px;
 }
 
-.content main .container form{
+main .container form{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 3vw;
 }
 
-.content main .container form .forms-container-esquerda, form .forms-container-direita {
+main .container form .forms-container-esquerda, form .forms-container-direita {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-input, select {
+main .container form input, main .container form select {
     padding-left: 45px;
     padding-top: 12px;
     padding-bottom: 12px;
@@ -401,39 +401,65 @@ input, select {
     border-radius: 55px;
 }
 
-::-webkit-input-placeholder, select, input[type = date] {
+.content main .container form ::-webkit-input-placeholder, main .container form select, main .container form input[type = date] {
     color: #AAAAAA;
     padding-right: 30px;
 }
 
-::-webkit-calendar-picker-indicator {
+.content main .container form ::-webkit-calendar-picker-indicator {
     filter: invert(0.6);
 }
 
-select {
+main .container form select {
     border-right: 30px solid transparent;
 }
-select option, select:focus, select:active {
+
+main .container form select option, main .container form select:focus, main .container form select:active {
     color: var(--primary);
 }
 
-.container-inputs-passwd { 
+main .container form .forms-container-direita .container-inputs-passwd { 
     :nth-child(1), :nth-child(2){
-        width: 49.6%;
+        width: 100%;
+       
     }
+
+    .div-senha-esquerda, .div-senha-direita {
+        width: 49.6%;
+
+    }
+
 }
 
-.forms-btn {
-    width: 100%;
-}
-
-.forms-btn {
+main .container form .forms-container-direita .forms-btn {
+    width: 35%;
     padding: 12px 0 12px;
-    background: var(--primary);
+    align-self: center;
     outline: none;
     border: none;
-    font: 500 1.1rem 'Poppins', sans-serif;
+    font: 600 0.9rem 'Poppins', sans-serif;
     border-radius: 55px;
     color: #FFF;
-    align-self: end;
+    background-color: #4d84e2;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+main .container form .forms-container-direita .forms-btn:hover {
+    background: var(--primary);
+
+}
+
+.container-passwd-esquerda {
+    position: relative;
+}
+
+.olho1, .olho2 {
+    cursor: pointer;
+    background-image: url(../assets/dashboard/usuarios/olhoAberto.svg);
+    padding-right: 1.5em;
+    background-position: 93% center;
+    background-size: 1.5em;
+    background-repeat: no-repeat;
+    margin-left: -2.5em;
 }

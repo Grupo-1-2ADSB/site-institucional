@@ -67,7 +67,7 @@
                 <div class="left">
                     <h1>Usuários</h1> <!-- Título principal -->
                     <ul class="breadcrumb">
-                         <li><a href="#">Usuários</a></li>  <!-- Migalha de pão (breadcrumb) -->
+                         <li><a href="#">Bem-vindo à nossa plataforma de cadastro. Aqui você pode criar contas para seus funcionários acessarem o sistema.</a></li>  <!-- Migalha de pão (breadcrumb) -->
                     </ul>
                 </div>
             </div>
@@ -89,12 +89,19 @@
                             </select>
                             <input type="email" name="email" id="" placeholder="E-mail">
                             <div class="container-inputs-passwd">
-                                <input type="password" name="senha" id="" placeholder="Senha">
-                                <input type="password" placeholder="Repita a Senha">
+                                <div class="div-senha-esquerda">
+                                    <input type="password" name="senha" id="input_senha" placeholder="Senha">
+                                    <span class="olho1"  onclick="exibirSenha(input_senha)" ></span>
+                                </div>
+                                
+                                <div class="div-senha-direita">
+                                    <input type="password" id="input_repetir_senha" placeholder="Repita a Senha">
+                                    <span class="olho2" onclick="exibirSenha(input_repetir_senha)" ></span>
+                                </div>
+                                
                             </div>
-                            <button class="forms-btn">Cadastrar</button>
+                            <button class="forms-btn">CADASTRAR</button>
                         </div>
-                       
                     </form>
                 </div>
             </div>
@@ -104,6 +111,7 @@
     <!-- Fim do conteúdo principal -->
 
     <script src="../js/dashboard/dashboard.js"></script> <!-- Importando arquivo JavaScript -->
+    <script src="../js/dashboard/usuarios.js"></script>
 </body>
 
 </html>
