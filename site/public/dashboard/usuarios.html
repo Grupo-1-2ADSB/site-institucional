@@ -67,7 +67,8 @@
                 <div class="left">
                     <h1>Usuários</h1> <!-- Título principal -->
                     <ul class="breadcrumb">
-                         <li><a href="#">Bem-vindo à nossa plataforma de cadastro. Aqui você pode criar contas para seus funcionários acessarem o sistema.</a></li>  <!-- Migalha de pão (breadcrumb) -->
+                        <li><a href="#">Bem-vindo à nossa plataforma de cadastro. Aqui você pode criar contas para seus
+                                funcionários acessarem o sistema.</a></li> <!-- Migalha de pão (breadcrumb) -->
                     </ul>
                 </div>
             </div>
@@ -78,29 +79,26 @@
                         <div class="forms-container-esquerda">
                             <input type="text" name="nomeCompleto" id="" placeholder="Nome Completo">
                             <input type="text" name="username" id="" placeholder="Username">
-                            <input type="date" name="dataNasc" id="" placeholder="Data de Nascimento">
-                            <input type="number" name="cpf" id="" placeholder="CPF">
-                            <input type="number" name="telefone" id="" placeholder="Telefone">
-                        </div>
-                        <div class="forms-container-direita">
-                            <select name="cargo" id="">
+                            <input type="email" name="email" id="" placeholder="E-mail">
+                            <select name="cargo" id="select_cargo">
                                 <option value="default" default>Selecione um cargo</option>
                                 <option value="tecnicoTI">Técnico de TI</option>
                             </select>
-                            <input type="email" name="email" id="" placeholder="E-mail">
                             <div class="container-inputs-passwd">
                                 <div class="div-senha-esquerda">
                                     <input type="password" name="senha" id="input_senha" placeholder="Senha">
-                                    <span class="olho1"  onclick="exibirSenha(input_senha)" ></span>
+                                    <span class="olho1" onclick="exibirSenha(input_senha)"></span>
                                 </div>
-                                
+
                                 <div class="div-senha-direita">
                                     <input type="password" id="input_repetir_senha" placeholder="Repita a Senha">
-                                    <span class="olho2" onclick="exibirSenha(input_repetir_senha)" ></span>
+                                    <span class="olho2" onclick="exibirSenha(input_repetir_senha)"></span>
                                 </div>
-                                
                             </div>
                             <button class="forms-btn">CADASTRAR</button>
+                        </div>
+                        <div class="forms-container-direita">
+                            <img src="../assets/dashboard/usuarios/logoTelaUsuarios.svg" alt="">
                         </div>
                     </form>
                 </div>
