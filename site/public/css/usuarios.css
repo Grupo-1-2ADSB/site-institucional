@@ -394,6 +394,35 @@ main .container form{
     }
 
     .forms-container-esquerda {
+
+        .input, .input-pass {
+            background-repeat: no-repeat;
+            background-size: 2.3%;
+            background-position: 1.2em center;
+        }
+
+        .input:nth-child(1) {
+            background-image: url(../assets/dashboard/usuarios/iconsForms/user-svgrepo-com.svg);
+        }
+
+        .input:nth-child(2) {
+            background-image: url(../assets/dashboard/usuarios/iconsForms/username-svgrepo-com.svg);
+        }
+
+        .input:nth-child(3) {
+            background-image: url(../assets/dashboard/usuarios/iconsForms/email-8-svgrepo-com\ \(1\).svg);
+        }
+
+        .input:nth-child(4) {
+            background-image: url(../assets/dashboard/usuarios/iconsForms/hierarchy-svgrepo-com.svg);
+        }
+
+        .input-pass {
+            background-image: url(../assets/dashboard/usuarios/iconsForms/closed-lock-password-svgrepo-com.svg);
+            background-size: 4%;
+        }
+
+
         .container-inputs-passwd { 
             display: flex;
             gap: 3%;
@@ -411,7 +440,7 @@ main .container form{
                 background-image: url(../assets/dashboard/usuarios/olhoAberto.svg);
                 padding-right: 1.5em;
                 background-position: 93% center;
-                background-size: 1.5em;
+                background-size: 1.3em;
                 background-repeat: no-repeat;
                 margin-left: -2.5em;
             }
@@ -448,7 +477,7 @@ main .container form{
     }
 
     input, select {
-        padding-left: 45px;
+        padding-left: 55px;
         padding-top: 12px;
         padding-bottom: 12px;
         background: white;
@@ -457,6 +486,7 @@ main .container form{
         font-weight: 500;
         font-size: 1.1rem;
         border-radius: 55px;
+        color: var(--dark);
     }
 
     ::-webkit-input-placeholder, select {
