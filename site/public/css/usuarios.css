@@ -433,17 +433,24 @@ main .container form{
                 :nth-child(1) {
                     width: 100%;
                 }
-            }
 
-            .olho1, .olho2 {
-                cursor: pointer;
-                background-image: url(../assets/dashboard/usuarios/olhoAberto.svg);
-                padding-right: 1.5em;
-                background-position: 93% center;
-                background-size: 1.3em;
-                background-repeat: no-repeat;
-                margin-left: -2.5em;
+                .input-senha-olho-aberto, .input-senha-olho-fechado {
+                    padding-right: 1.5em;
+                    background-position: 93% center;
+                    background-size: 1.3em;
+                    background-repeat: no-repeat;
+                    margin-left: -2.5em;
+                }
+    
+                .input-senha-olho-aberto {
+                    background-image: url('../assets/dashboard/usuarios/olhoAberto.svg');
+                }
+    
+                .input-senha-olho-fechado {
+                    background-image: url('../assets/dashboard/usuarios/olhoFechado.svg');
+                }
             }
+            
         }
 
         .forms-btn {
