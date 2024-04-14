@@ -373,13 +373,13 @@ body {
     pointer-events: none;
 }
 
+/* -----------Informação--------- */
 .config{
     width: 100%;
     height: 475px;
     padding: 36px 24px;
     margin-top: 36px;
 
-    font-size: 20px;
     border-radius: 20px;
     background-color: #F6F6F9;
 
@@ -390,6 +390,7 @@ body {
 .config-direita{
     width: 49.8%;
     height: 400px;
+    font-size: 20px;
 
     flex-direction: column;
     display: flex;
@@ -410,7 +411,7 @@ body {
     width: 60%;
     height: 40px;
     border-radius: 15px;
-    background-color: #CBCBCB;
+    background-color: #EEEEEE;
 }
 
 .config-direita .botao{
@@ -423,7 +424,7 @@ body {
     justify-content: center;
     align-items: center;
 
-    background-color: #1976d275;
+    background-color: #1976D2;
 }
 
 .linha{
@@ -462,30 +463,38 @@ body {
     border-radius: 20px;
     font-size: 20px;    
 
-    background-color: #1976d275;
+    background-color: #1976D2;
 }
 
-dialog{
-    background-color: #0000005a;
-    width: 100%;
-    height: 100vh;
-}
-
+/* -----Modal------- */
 #div_dialog{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
+    width: 100%;
+    height: 100%;
+    background-color: #00000063;
+}
+
+.div-pai{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .div-deletar{
-    width: 60%;
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    border-radius: 20px;
 
-    background-color: #d70808;
+    background-color: #FFFFFF;
 
 }
 
@@ -499,8 +508,6 @@ dialog{
     height: 110px;
 
     font-size: 17px;
-
-    /* background-color: #D32F2F; */
 }
 
 .del-label-input{
@@ -511,8 +518,6 @@ dialog{
 
     width: 80%;
     height: 110px;
-
-    /* background-color: #2fd334; */
 }
 
 .del-label-input input{
@@ -523,6 +528,7 @@ dialog{
 
 .del-label-input label{
     font-size: 20px;
+    display: flex;
 }
 
 .del-botao{
@@ -532,14 +538,13 @@ dialog{
 
     width: 50%;
     height: 60px;
-
-    /* background-color: antiquewhite; */
 }
 
 .del-botao button{
     width: 50%;
     height: 40px;
     border-radius: 20px;
+    font-size: 20px;
 
     margin: 2px;
 }
