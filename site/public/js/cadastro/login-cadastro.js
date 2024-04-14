@@ -20,6 +20,8 @@ sign_in_btn2.addEventListener("click", () => {
     container.classList.remove("sign-up-mode2");
 })
 
+// Dados para o cadastro de usuário
+
 const btnForms = document.getElementById('btn_forms');
 const nomeCompleto = document.getElementById('nome_completo');
 const username = document.getElementById('username');
@@ -41,8 +43,8 @@ function limparMensagensErro() {
 function validarFormsCadastro() {
     limparMensagensErro();
 
-    if (nomeCompleto.value === "" || nomeCompleto.value.length < 5) {
-        mensagensErro[0].textContent = "*Preencha o campo com 5 caracteres, no mínimo.";
+    if (nomeCompleto.value === "" || nomeCompleto.value.length < 8) {
+        mensagensErro[0].textContent = "*Preencha o campo com 8 caracteres, no mínimo.";
         return false;
     } else if (username.value === "" || username.value.length < 5){
         mensagensErro[1].textContent = "*Preencha o campo com 5 caracteres, no mínimo.";
@@ -61,26 +63,24 @@ function validarFormsCadastro() {
     return true;
 }
 
-async function cadastrarUsuario() {
-
+function cadastrarUsuario() {
     if (validarFormsCadastro()) {
         const dados = {
             nomeServer: nomeCompleto.value,
             usernameServer: username.value,
             emailServer: email.value,
             senhaServer: senha.value,
-            cargoServer: "Gerente"
-        }
+            fkCargoServer: 1
+        };
 
-        try {
-            const resposta = await fetch("/usuarios/cadastrarUsuario", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(dados),
-            });
-
+        fetch("/usuarios/cadastrarUsuario", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(dados),
+        })
+        .then(function (resposta) {
             if (resposta.ok) {
                 mensagensErro[4].textContent = "Cadastro realizado com sucesso!✅";
                 mensagensErro[4].style.color = "green";
@@ -90,29 +90,26 @@ async function cadastrarUsuario() {
             } else {
                 throw new Error("Houve um erro ao tentar realizar o cadastro!");
             }
-        } catch (erro) {
-            // mensagemErro[4].innerHTML = "Houve um erro ao tentar realizar o cadastro!";
-            // mensagemErro[4].style.color = "red";
-            console.log(erro  + 'erro catach');
-        }
-
-        return false;
+        })
+        .catch (function (erro){
+            mensagemErro[4].innerHTML = "Houve um erro ao tentar realizar o cadastro!";
+            mensagemErro[4].style.color = "red";
+            console.error("Erro ao tentar realizar o cadastro:", erro);
+        }); 
+    return false;
     }
-
 }
 
-
-
+// Chamada para cadastrar o usuário
 btnForms.addEventListener("click", () => {
     cadastrarUsuario();
 })
 
+// Chamada para aparecer a notificação com os requisitos de senha
 senha.addEventListener('focus', () => {
     senhaNotificacao.classList.add('mostrar');
-    console.log("Focus na inpit")
 })
 
 senha.addEventListener('blur', () => {
     senhaNotificacao.classList.remove('mostrar');
-    console.log("Blur")
 })

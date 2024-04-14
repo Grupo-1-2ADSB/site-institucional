@@ -1,33 +1,35 @@
 var usuariosModel = require("../models/usuariosModel");
 
-async function cadastrarUsuario(req, res) {
-    try {
-        const {
-            nomeServer: nomeCompleto,
-            usernameServer: username,
-            emailServer: email,
-            senhaServer: senha,
-            cargoServer
-        } = req.body;
+function cadastrarUsuario(req, res) {
+    const {
+        nomeServer: nomeCompleto,
+        usernameServer: username,
+        emailServer: email,
+        senhaServer: senha,
+        fkCargoServer
+    } = req.body;
 
-        const cargo = cargoServer || "Gerente";
+    const fkCargo = fkCargoServer || 1;
 
-        if (
-            !nomeCompleto ||
-            !username ||
-            !email ||
-            !senha ||
-            !cargo
-        ) {
-            throw new Error("Todos os campos devem ser preenchidos.");
-        }
-
-        const resultado = await usuariosModel.cadastrarUsuario(nomeCompleto, username, email, senha, cargo);
-        res.json(resultado);
-    } catch (error) {
-        res.status(500).json({ error: "Houve um erro ao realizar o cadastro." });
+    if (
+        !nomeCompleto ||
+        !username ||
+        !email ||
+        !senha ||
+        !fkCargo
+    ) {
+        return res.status(400).json({ error: "Todos os campos devem ser preenchidos." });
     }
-}
+
+    usuariosModel.cadastrarUsuario(nomeCompleto, username, email, senha, fkCargo)
+        .then(function (resultado) {
+            res.json(resultado);
+        }).catch (function (erro) {
+            console.error("Houve um erro ao realizar o cadastro: ", erro);
+            res.status(500).json({ error: "Houve um erro ao realizar o cadastro."});
+        });
+} 
+
 
 module.exports = {
     cadastrarUsuario
