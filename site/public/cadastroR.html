@@ -10,6 +10,21 @@
 </head>
 <body>
 
+<div id="notificacao_senha" class="notificacao-senha">
+    <div class="div-menor">
+<b>Senha deve conter:</b>
+    <ul>
+        <li>Pelo menos 8 caracteres;</li>
+        <li>Pelo menos uma letra minúscula;</li>
+        <li>Pelo menos uma letra maiúscula;</li>
+        <li>Pelo menos um número;</li>
+        <li>Pelo menos um caractere especial;</li>
+    </ul> 
+    </div>
+    
+    
+</div>
+
 <div class="container">
     <div class="signin-signup">
 
@@ -27,7 +42,7 @@
             
             <input type="submit" value="Login" class="btn">
 
-            <p class="social-text">faça login na plataforma social</p>
+            <p class="social-text">Faça login na plataforma social</p>
 
             <div class="social-media">
                 <a href="#" class="social-icon">
@@ -53,27 +68,37 @@
 
             <div class="input-field">
                 <i class="fas fa-user"></i>
-                <input type="text" placeholder="Usuario">
+                <input type="text" id="nome_completo" placeholder="Nome Completo">
             </div>
+            <span class="msg-erro"></span>
+
+            <div class="input-field">
+                <i class="fas fa-user"></i>
+                <input type="text" id="username" placeholder="Username">
+            </div>
+            <span class="msg-erro"></span>
 
             <div class="input-field">
                 <i class="fas fa-envelope"></i>
-                <input type="text" placeholder="Email">
+                <input type="text" id="email" placeholder="Email">
             </div>
+            <span class="msg-erro"></span>
 
             <div class="input-field">
                 <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Criar senha">
+                <input type="password" id="senha" placeholder="Criar senha">
             </div>
+            <span class="msg-erro"></span>
 
             <div class="input-field">
                 <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Confirmar Senha">
+                <input type="password" id="confirmar_senha"  placeholder="Confirmar Senha">
             </div>
+            <span class="msg-erro"></span>
             
-            <input type="submit" value="cadastro" class="btn">
+            <button id="btn_forms" value="cadastro" class="btn">CADASTRAR</button>
 
-            <p class="social-text">faça login na plataforma social</p>
+            <p class="social-text">Faça login na plataforma social</p>
             
             <div class="social-media">
                 <a href="#" class="social-icon">
