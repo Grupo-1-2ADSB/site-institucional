@@ -372,3 +372,11 @@ body {
     color: var(--primary);
     pointer-events: none;
 }
+
+/* #line_chart_CPU text,
+#line_chart_RAM text,
+#barchart_Disco text,
+#donutchart text {
+    fill: black !important;
+    font-weight: bolder !important;
+} */

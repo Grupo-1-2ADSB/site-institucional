@@ -6,6 +6,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../css/dashboard.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Hora do dia', 'Máquina 1 (%)', 'Máquina 2 (%)'],
+          ['13:00',  55,      62],
+          ['14:00',  50,      53],
+          ['15:00',  60,      57],
+          ['16:00',  46,      48]
+        ]);
+
+        var data2 = google.visualization.arrayToDataTable([
+          ['Hora do dia', 'Máquina 1 (%)', 'Máquina 2 (%)'],
+          ['13:00',  35,      42],
+          ['14:00',  42,      57],
+          ['15:00',  50,      33],
+          ['16:00',  46,      48]
+        ]);
+
+        var data3 = google.visualization.arrayToDataTable([
+        ["Máquinas", "% usado", { role: "style" } ],
+        ["Máquina 01", 95, "blue"],
+        ["Máquina 02", 80, "blue"],
+        ["Máquina 03", 75, "blue"],
+        ["Máquina 04", 65, "blue"]
+      ]);
+
+      var data4 = google.visualization.arrayToDataTable([
+          ['Máquinas', '% de Transferência de dados por dia'],
+          ['Máquina 01',     11],
+          ['Máquina 02',      2],
+          ['Máquina 03',  2],
+          ['Máquina 04', 2],
+          ['Máquina 05',    7]
+        ]);
+
+      var view = new google.visualization.DataView(data3);
+      view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
+
+        var options = {
+            title: 'Desempenho do Sistema (CPU)',
+            legend: { position: 'bottom' },
+            backgroundColor: 'transparent'
+        };
+
+        var options2 = {
+            title: 'Desempenho do Sistema (RAM)',
+            legend: { position: 'bottom' },
+            backgroundColor: 'transparent'
+        };
+
+        var options3 = {
+            title: "Percentual de uso do Disco",
+            backgroundColor: 'transparent',
+            bar: {groupWidth: "95%"},
+            legend: { position: "none" }
+        };
+
+        var options4 = {
+            title: 'Percentual de transferência de dados por dia',
+            pieHole: 0.2,
+            backgroundColor: 'transparent'
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('line_chart_CPU'));
+        chart.draw(data, options);
+
+        var chart2 = new google.visualization.LineChart(document.getElementById('line_chart_RAM'));
+        chart2.draw(data2, options2);
+
+        var chart3 = new google.visualization.BarChart(document.getElementById("barchart_Disco"));
+        chart3.draw(view, options3);
+
+        var chart4 = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart4.draw(data4, options4);
+      }
+    </script>
     <title>Dashboard | MedTech</title>
 </head>
 
@@ -72,15 +157,16 @@
                 </div>
             </div>
 
+            <div id="line_chart_CPU" style="width: 40vw; height: 30vh;"></div>
+            <div id="line_chart_RAM" style="width: 40vw; height: 30vh; position: absolute; right: 0vw; top: 28.5vh;"></div>
+            <div id="barchart_Disco" style="width: 40vw; height: 30vh;"></div>
+            <div id="donutchart" style="width: 40vw; height: 30vh; position: absolute; right: 0vw; top: 58.5vh;"></div>
+
         </main>
     </div>
     <!-- Fim do conteúdo principal -->
 
     <script src="../js/dashboard/dashboard.js"></script> <!-- Importando arquivo JavaScript -->
 </body>
-
-</html>
-
-
 
 </html>
