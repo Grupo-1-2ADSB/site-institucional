@@ -72,7 +72,7 @@
                 </div>
 
                 <div class="botao-header">
-                    <button class="botao">Deletar conta</button>
+                    <button id="btn_modal" class="botao">Deletar conta</button>
                 </div>
 
             </div>
@@ -129,10 +129,31 @@
                 </div>
             </div>
 
+            <dialog id="div_dialog" style="display: none;">
+                <div class="div-deletar">
+                    <div class="del-texto">
+                        <h1>Deletar conta</h1>
+                        <p>Para a exclusão de sua conta é necessário confirmar sua senha atual.</p>
+                    </div>
+    
+                    <div class="del-label-input">
+                        <label for="confirmar-senha">Senha atual:
+                        </label> 
+                        <input name="confirmar-senha" type="text">
+                    </div>
+    
+                    <div class="del-botao">
+                        <button id="btn-fechar">Cancelar</button>
+                        <button>Confirmar</button>
+                    </div>
+                </div>
+            </dialog>
+            
+
         </main>
     </div>
     <!-- Fim do conteúdo principal -->
-
+    <script src="../js/dashboard/configuracoes.js"></script>
     <script src="../js/dashboard/dashboard.js"></script> <!-- Importando arquivo JavaScript -->
 </body>
 
