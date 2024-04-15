@@ -20,96 +20,87 @@ sign_in_btn2.addEventListener("click", () => {
     container.classList.remove("sign-up-mode2");
 })
 
-// Dados para o cadastro de usuário
-
-const btnForms = document.getElementById('btn_forms');
-const nomeCompleto = document.getElementById('nome_completo');
-const username = document.getElementById('username');
-const email = document.getElementById('email');
-const senha = document.getElementById('senha');
-const confirmarSenha = document.getElementById('confirmar_senha');
-const mensagensErro = document.getElementsByClassName('msg-erro');
-const senhaNotificacao = document.getElementById('notificacao_senha');
-
-const regexEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,}$/;
-const regexSenha = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W)[\d\w\W]{8,}$/;
-
-function limparMensagensErro() {
-    for (let i = 0; i < mensagensErro.length; i++) {
-        mensagensErro[i].textContent = "";
-    }
-}
-
-function validarFormsCadastro() {
-    limparMensagensErro();
-
-    if (nomeCompleto.value === "" || nomeCompleto.value.length < 8) {
-        mensagensErro[0].textContent = "*Preencha o campo com 8 caracteres, no mínimo.";
-        return false;
-    } else if (username.value === "" || username.value.length < 5){
-        mensagensErro[1].textContent = "*Preencha o campo com 5 caracteres, no mínimo.";
-        return false;
-    } else if (!regexEmail.test(email.value)) {
-        mensagensErro[2].textContent = "*Preencha o campo com um email válido.";
-        return false;
-    } else if (!regexSenha.test(senha.value)) {
-        mensagensErro[3].textContent = "*Preencha o campo com todos os requisitos.";
-        return false;
-    } else if (confirmarSenha.value != senha.value) {
-        mensagensErro[4].textContent = "*Preencha o campo com a mesma senha anterior.";
-        return false;
-    }
+function validarLogin(){
+    const userNameVar = userName_input.value;
+    const senhaVar = senha_input.value;
+    const regexSenha = /^(?=.*[0-9]).{5,}$/;
     
-    return true;
-}
+    var validacao_senha01 = senhaVar == "";
+    var validacao_nameUser01 = userNameVar == "";
 
-function cadastrarUsuario() {
-    if (validarFormsCadastro()) {
-        const dados = {
-            nomeServer: nomeCompleto.value,
-            usernameServer: username.value,
-            emailServer: email.value,
-            senhaServer: senha.value,
-            fkCargoServer: 1
-        };
-
-        fetch("/usuarios/cadastrarUsuario", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(dados),
-        })
-        .then(function (resposta) {
-            if (resposta.ok) {
-                mensagensErro[4].textContent = "Cadastro realizado com sucesso!✅";
-                mensagensErro[4].style.color = "green";
-                setTimeout(() => {
-                    window.location.href = 'cadastroR.html';
-                }, 4000);
-            } else {
-                throw new Error("Houve um erro ao tentar realizar o cadastro!");
-            }
-        })
-        .catch (function (erro){
-            mensagemErro[4].innerHTML = "Houve um erro ao tentar realizar o cadastro!";
-            mensagemErro[4].style.color = "red";
-            console.error("Erro ao tentar realizar o cadastro:", erro);
-        }); 
-    return false;
+  
+    if(validacao_senha01){
+        Swal.fire({
+            title: "Mensagem de Erro:",
+            text: "Sua senha está em branco e assim não é possível prosseguir!",
+            imageUrl: "https://media.tenor.com/o0KWDVtM-bAAAAAC/thinking-emoji.gif",
+            imageWidth: 400,
+            imageHeight: 200,
+            imageAlt: "Custom image"
+        });
+    } else if(validacao_nameUser01){
+        Swal.fire({
+            title: "Mensagem de Erro:",
+            text: "Seu nome de usuário está em branco e assim não é possível prosseguir!",
+            imageUrl: "https://media.tenor.com/o0KWDVtM-bAAAAAC/thinking-emoji.gif",
+            imageWidth: 400,
+            imageHeight: 200,
+            imageAlt: "Custom image"
+        });  
+    } else if(!regexSenha.test(senhaVar)){
+        Swal.fire({
+            title: "Mensagem de Erro:",
+            text: "Sua senha tem que ter pelo menos 5 caracteres, contendo um dígito numérico",
+            imageUrl: "https://media.tenor.com/o0KWDVtM-bAAAAAC/thinking-emoji.gif",
+            imageWidth: 400,
+            imageHeight: 200,
+            imageAlt: "Custom image"
+          });
+    } else {
+        logar()
     }
 }
 
-// Chamada para cadastrar o usuário
-btnForms.addEventListener("click", () => {
-    cadastrarUsuario();
-})
+function logar(){
+    var senhaVar = senha_input.value;
+    var nameUserVar = userName_input.value;
 
-// Chamada para aparecer a notificação com os requisitos de senha
-senha.addEventListener('focus', () => {
-    senhaNotificacao.classList.add('mostrar');
-})
+    fetch("/login/logar",{
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json" 
+        },
+        body: JSON.stringify({
+            nameUserServer: nameUserVar,
+            senhaServer: senhaVar
+        })
+    }).then(function (resposta) {
+        console.log("ESTOU NO THEN DO logar()!");
 
-senha.addEventListener('blur', () => {
-    senhaNotificacao.classList.remove('mostrar');
-})
+        if(resposta.ok){
+            console.log(resposta);
+
+            resposta.json().then(json => {
+                cardMsg.style.display = "block"
+                cardMsg.style.border = "2px solid #00B802"
+                cardMsg.style.boxShadow = "0px 0px 8px rgba(0, 0, 0, 0.7)"
+                cardMsg.style.color = "#00B802"
+                cardMsg.innerHTML = "✅Entrando! Aguarde...✅"; 
+            })
+        } else {
+            cardMsg.style.display = "block"
+            cardMsg.style.border = "2px solid red"
+            cardMsg.style.color = "red"
+            cardMsg.style.boxShadow = "0px 0px 8px rgba(0, 0, 0, 0.7)"
+            cardMsg.innerHTML = "❌Conta não cadastrada❌";
+
+            resposta.text().then(texto => {
+                console.error(texto);
+            });  
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+    });
+
+    return false;
+}
