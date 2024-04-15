@@ -9,7 +9,7 @@
     <title>MedTech - Login</title>
 </head>
 <body>
-
+<div id="cardMsg"></div>
 <div id="notificacao_senha" class="notificacao-senha">
     <div class="div-menor">
 <b>Senha deve conter:</b>
@@ -40,7 +40,7 @@
                 <input type="password" placeholder="Senha">
             </div>
             
-            <input type="submit" value="Login" class="btn">
+            <input type="submit" onclick="validarLogin()" value="Login" class="btn">
 
             <p class="social-text">Faça login na plataforma social</p>
 
@@ -115,7 +115,7 @@
                 </a>
             </div>
 
-            <p class="account-text">já tem uma conta? <a href="#" id="sign-in-btn2">login</a></p>
+            <p class="account-text">já tem uma conta? <a onclick="validarLogin()" id="sign-in-btn2">login</a></p>
         </form>
     </div>
 

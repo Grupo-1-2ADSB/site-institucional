@@ -23,7 +23,7 @@ sign_in_btn2.addEventListener("click", () => {
 function validarLogin(){
     const userNameVar = userName_input.value;
     const senhaVar = senha_input.value;
-    const regexSenha = /^(?=.*[0-9]).{5,}$/;
+    const regexSenha = /^(?=.*[0-9]).{8,}$/;
     
     var validacao_senha01 = senhaVar == "";
     var validacao_nameUser01 = userNameVar == "";
@@ -33,7 +33,7 @@ function validarLogin(){
         Swal.fire({
             title: "Mensagem de Erro:",
             text: "Sua senha está em branco e assim não é possível prosseguir!",
-            imageUrl: "https://media.tenor.com/o0KWDVtM-bAAAAAC/thinking-emoji.gif",
+            imageUrl: "",
             imageWidth: 400,
             imageHeight: 200,
             imageAlt: "Custom image"
@@ -42,7 +42,7 @@ function validarLogin(){
         Swal.fire({
             title: "Mensagem de Erro:",
             text: "Seu nome de usuário está em branco e assim não é possível prosseguir!",
-            imageUrl: "https://media.tenor.com/o0KWDVtM-bAAAAAC/thinking-emoji.gif",
+            imageUrl: "",
             imageWidth: 400,
             imageHeight: 200,
             imageAlt: "Custom image"
@@ -51,7 +51,7 @@ function validarLogin(){
         Swal.fire({
             title: "Mensagem de Erro:",
             text: "Sua senha tem que ter pelo menos 5 caracteres, contendo um dígito numérico",
-            imageUrl: "https://media.tenor.com/o0KWDVtM-bAAAAAC/thinking-emoji.gif",
+            imageUrl: "",
             imageWidth: 400,
             imageHeight: 200,
             imageAlt: "Custom image"
