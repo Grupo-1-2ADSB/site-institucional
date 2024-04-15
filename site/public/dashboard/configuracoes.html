@@ -124,12 +124,12 @@
                     </div>
     
                     <div class="info-direita">
-                    <button class="botao">Confirmar</button>
+                    <button id="botao-confirmar" class="botao">Confirmar</button>
                     </div>
                 </div>
             </div>
 
-            <!-- modal -->
+            <!------------ modal 1---------------->
             <div id="div_dialog" style="display: none;">
                 <div class="div-pai">
                 <div class="div-deletar">
@@ -140,22 +140,41 @@
                     </div>
     
                     <div class="del-label-input">
-                        <label for="confirmar-senha">Senha atual:
-                        </label> 
+                        <label for="confirmar-senha">Senha atual:</label> 
                         <input name="confirmar-senha" type="text">
                     </div>
     
                     <div class="del-botao">
                         <button id="btn-fechar">Cancelar</button>
-                        <button>Confirmar</button>
+                        <button >Confirmar</button>
                     </div>
                 </div>
                 </div>
             </div>
 
-            <!-- ------------------------------------>
-            
-            
+            <!----------------Modal 2------------------->
+    
+            <div id="info_direita" style="display: none;">
+                <div class="div-pai">
+                <div class="div-deletar">
+
+                    <div class="del-texto">
+                        <h1>Deletar conta</h1>
+                        <p>Para a exclusão de sua conta é necessário confirmar sua senha atual.</p>
+                    </div>
+    
+                    <div class="del-label-input">
+                        <label for="confirmar-senha">Senha atual:</label> 
+                        <input name="confirmar-senha" type="text">
+                    </div>
+    
+                    <div class="del-botao">
+                        <button id="btn-fechar2">Cancelar</button>
+                        <button >Confirmar</button>
+                    </div>
+                </div>
+                </div>
+            </div>
 
         </main>
     </div>

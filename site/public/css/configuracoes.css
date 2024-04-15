@@ -524,6 +524,7 @@ body {
     width: 80%;
     height: 50px;
     border-radius: 15px;
+    font-size: 30px;
 }
 
 .del-label-input label{
