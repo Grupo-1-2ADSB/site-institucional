@@ -381,7 +381,7 @@ main .container form{
     display: grid;
     grid-template-columns: 68% 30%;
     gap: 2%;
-    background-color: var(--primary);
+    background-color: #FFF;
     border-radius: 2em;
 
     .forms-container-direita, .forms-container-esquerda {
@@ -476,10 +476,10 @@ main .container form{
         align-items: center;
         background-color: #FFF;
         border-radius: 0 1.5em 1.5em 0em;
-        border: 2px var(--primary) solid;
+        border: 2px var(--dark) solid;
 
         img {
-            width: 95%;
+            width: 60%;
         }
     }
 
@@ -487,7 +487,7 @@ main .container form{
         padding-left: 55px;
         padding-top: 12px;
         padding-bottom: 12px;
-        background: white;
+        background: var(--grey);
         outline: none;
         border: none;
         font-weight: 500;
