@@ -354,3 +354,18 @@ a{
     }
     
 }
+
+/* Card de mensagem geral */
+
+#cardMsg {
+    position: fixed;
+    display: none;
+    background-color: #F1F8FF;
+    padding: 10px 20px;
+    top: 40px;
+    right: 20px;
+    font-size: 14px;
+    font-weight: bolder;
+    border-radius: 5px;
+    z-index: 10000;
+}
