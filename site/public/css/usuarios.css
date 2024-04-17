@@ -375,14 +375,43 @@ body {
 
 main .container {
     margin-top: 36px;
+
+    .forms-container {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5em;
+
+        .forms-btn {
+            width: 35%;
+            padding: 12px 0 12px;
+            align-self: center;
+            outline: none;
+            border: none;
+            font: 600 0.9rem 'Poppins', sans-serif;
+            border-radius: 55px;
+            color: #FFF;
+            background-color: var(--dark);
+            cursor: pointer;
+            transition: 0.5s;
+        }
+
+        .forms-btn:hover {
+            background-color: #272424;
+        }
+    }
 }
 
 main .container form{
     display: grid;
-    grid-template-columns: 68% 30%;
-    gap: 2%;
+    grid-template-columns: 75% 25%;
     background-color: #FFF;
     border-radius: 2em;
+
+    .msg-erro {
+        font: 300 12px 'Poppins';
+        color: var(--danger);
+        margin-left: 1.9em;
+    }
 
     .forms-container-direita, .forms-container-esquerda {
         display: flex;
@@ -390,14 +419,14 @@ main .container form{
         justify-content: center;
         padding: 1.5em;
         border-radius: 1.5em;
-        gap: 20px;
+        gap: 10px;
     }
 
     .forms-container-esquerda {
 
         .input, .input-pass {
             background-repeat: no-repeat;
-            background-size: 2.3%;
+            background-size: 1em;
             background-position: 1.2em center;
         }
 
@@ -405,15 +434,15 @@ main .container form{
             background-image: url(../assets/dashboard/usuarios/iconsForms/user-svgrepo-com.svg);
         }
 
-        .input:nth-child(2) {
+        .input:nth-child(3) {
             background-image: url(../assets/dashboard/usuarios/iconsForms/username-svgrepo-com.svg);
         }
 
-        .input:nth-child(3) {
+        .input:nth-child(5) {
             background-image: url(../assets/dashboard/usuarios/iconsForms/email-8-svgrepo-com\ \(1\).svg);
         }
 
-        .input:nth-child(4) {
+        .input:nth-child(7) {
             background-image: url(../assets/dashboard/usuarios/iconsForms/hierarchy-svgrepo-com.svg);
         }
 
@@ -440,6 +469,7 @@ main .container form{
                     background-size: 1.3em;
                     background-repeat: no-repeat;
                     margin-left: -2.5em;
+                    cursor: pointer;
                 }
     
                 .input-senha-olho-aberto {
@@ -452,24 +482,6 @@ main .container form{
             }
             
         }
-
-        .forms-btn {
-            width: 35%;
-            padding: 12px 0 12px;
-            align-self: center;
-            outline: none;
-            border: none;
-            font: 600 0.9rem 'Poppins', sans-serif;
-            border-radius: 55px;
-            color: #FFF;
-            background-color: var(--dark);
-            cursor: pointer;
-            transition: 0.5s;
-        }
-
-        .forms-btn:hover {
-            background-color: #272424;
-        }
     }
 
     .forms-container-direita {
@@ -477,10 +489,6 @@ main .container form{
         background-color: #FFF;
         border-radius: 0 1.5em 1.5em 0em;
         border: 2px var(--dark) solid;
-
-        img {
-            width: 60%;
-        }
     }
 
     input, select {
@@ -508,4 +516,83 @@ main .container form{
             color: var(--primary);
         }
     }
+}
+
+.orders{
+    width: 90%;
+
+    .header-orders {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        grid-gap: 16px;
+        flex-wrap: wrap;
+        margin-bottom: 2em;
+
+        h3 {
+            font-size: 1.7em;
+            line-height: 30px;
+            text-align: center;
+        }
+    }
+}
+
+.orders table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.orders table th{
+    padding-bottom: 12px;
+    padding-left: 12px;
+    font-size: 10px;
+    text-align: left;
+    border-bottom: 1px solid var(--grey);
+}
+
+.orders table td{
+    padding: 16px 0;
+    font-size: 12px;
+}
+
+.orders table tr td:first-child{
+    display: flex;
+    align-items: center;
+    grid-gap: 12px;
+    padding-left: 6px;
+    flex-wrap: wrap;
+}
+
+.orders table td img{
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.orders table tbody tr{
+    transition: all 0.3s ease;
+}
+
+.orders table tbody tr:hover{
+    background: var(--grey);
+}
+
+.orders table tr td .btn-excluir-user{
+    font-size: 10px;
+    padding: 6px 16px;
+    color: var(--light);
+    border-radius: 20px;
+    font-weight: 700;
+    border: none;
+    background: var(--primary);
+    cursor: pointer;
+}
+
+.orders table tr td .status.process{
+    background: var(--primary);
+}
+
+.orders table tr td .status.pending{
+    background: var(--warning);
 }

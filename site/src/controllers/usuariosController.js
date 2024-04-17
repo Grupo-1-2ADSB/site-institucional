@@ -6,10 +6,9 @@ function cadastrarUsuario(req, res) {
         usernameServer: username,
         emailServer: email,
         senhaServer: senha,
-        fkCargoServer
+        fkCargoServer: fkCargo
     } = req.body;
 
-    const fkCargo = fkCargoServer || 1;
 
     if (
         !nomeCompleto ||

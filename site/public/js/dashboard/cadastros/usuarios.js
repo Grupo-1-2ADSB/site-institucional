@@ -6,17 +6,17 @@ selectCargo.addEventListener("change", function() {
     this.style.color = corSelecionada;
 });
 
-// Função para trocar o tipo dos inputs de senha e mudar o icon do olho
+// // Função para trocar o tipo dos inputs de senha e mudar o icon do olho
 function trocarIconOlho(input, span) {
     if (input.type === "password") {
         input.type = "text";
-        span.classList.remove("input-senha-olho-fechado");
-        span.classList.add("input-senha-olho-aberto");
+        span.classList.remove("input-senha-olho-aberto");
+        span.classList.add("input-senha-olho-fechado");
         
     } else if (input.type === "text") {
         input.type = "password";
-        span.classList.remove("input-senha-olho-aberto");
-        span.classList.add("input-senha-olho-fechado");
+        span.classList.remove("input-senha-olho-fechado");
+        span.classList.add("input-senha-olho-aberto");
     }
 }
 
@@ -42,8 +42,9 @@ const btnForms = document.getElementById('btn_forms');
 const nomeCompleto = document.getElementById('nome_completo');
 const username = document.getElementById('username');
 const email = document.getElementById('email');
-const senha = document.getElementById('senha');
-const confirmarSenha = document.getElementById('confirmar_senha');
+const cargos = document.getElementById('select_cargo').options;
+const senha = document.getElementById('input_senha');
+const confirmarSenha = document.getElementById('input_repetir_senha');
 const mensagensErro = document.getElementsByClassName('msg-erro');
 const senhaNotificacao = document.getElementById('notificacao_senha');
 
@@ -62,20 +63,22 @@ function validarFormsCadastro() {
     if (nomeCompleto.value === "" || nomeCompleto.value.length < 8) {
         mensagensErro[0].textContent = "*Preencha o campo com 8 caracteres, no mínimo.";
         return false;
-    } else if (username.value === "" || username.value.length < 5){
+    }else if (username.value === "" || username.value.length < 5){
         mensagensErro[1].textContent = "*Preencha o campo com 5 caracteres, no mínimo.";
         return false;
     } else if (!regexEmail.test(email.value)) {
         mensagensErro[2].textContent = "*Preencha o campo com um email válido.";
         return false;
-    } else if (!regexSenha.test(senha.value)) {
-        mensagensErro[3].textContent = "*Preencha o campo com todos os requisitos.";
+    } else if (cargos.selectedIndex === 0) {
+        mensagensErro[3].textContent = "*Selecione uma opção válida.";
+        return false;
+    } else if  (!regexSenha.test(senha.value)) {
+        mensagensErro[4].textContent = "*Preencha o campo com todos os requisitos.";
         return false;
     } else if (confirmarSenha.value != senha.value) {
-        mensagensErro[4].textContent = "*Preencha o campo com a mesma senha anterior.";
+        mensagensErro[5].textContent = "*Preencha o campo com a mesma senha anterior.";
         return false;
     }
-    
     return true;
 }
 
@@ -86,7 +89,7 @@ function cadastrarUsuario() {
             usernameServer: username.value,
             emailServer: email.value,
             senhaServer: senha.value,
-            fkCargoServer: 1
+            fkCargoServer: select_cargo.selectedIndex
         };
 
         fetch("/usuarios/cadastrarUsuario", {
@@ -108,8 +111,8 @@ function cadastrarUsuario() {
             }
         })
         .catch (function (erro){
-            mensagemErro[4].innerHTML = "Houve um erro ao tentar realizar o cadastro!";
-            mensagemErro[4].style.color = "red";
+            mensagensErro[5].innerHTML = "Houve um erro ao tentar realizar o cadastro!";
+            mensagensErro[5].style.color = "red";
             console.error("Erro ao tentar realizar o cadastro:", erro);
         }); 
     return false;
@@ -122,11 +125,11 @@ btnForms.addEventListener("click", () => {
 })
 
 // Chamada para aparecer a notificação com os requisitos de senha
-senha.addEventListener('focus', () => {
-    senhaNotificacao.classList.add('mostrar');
-})
+// senha.addEventListener('focus', () => {
+//     senhaNotificacao.classList.add('mostrar');
+// })
 
-senha.addEventListener('blur', () => {
-    senhaNotificacao.classList.remove('mostrar');
-})
+// senha.addEventListener('blur', () => {
+//     senhaNotificacao.classList.remove('mostrar');
+// })
 
