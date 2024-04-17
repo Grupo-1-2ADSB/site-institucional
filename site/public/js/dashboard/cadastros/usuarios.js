@@ -104,8 +104,10 @@ function cadastrarUsuario() {
                 mensagensErro[4].textContent = "Cadastro realizado com sucesso!✅";
                 mensagensErro[4].style.color = "green";
                 setTimeout(() => {
-                    window.location.href = 'cadastroR.html';
-                }, 4000);
+                    window.location = "../../dashboard/usuarios.html";
+                }, 2000);
+
+                // Função p/ adicionar novo usuário na lista de usuários
             } else {
                 throw new Error("Houve um erro ao tentar realizar o cadastro!");
             }
@@ -125,11 +127,11 @@ btnForms.addEventListener("click", () => {
 })
 
 // Chamada para aparecer a notificação com os requisitos de senha
-// senha.addEventListener('focus', () => {
-//     senhaNotificacao.classList.add('mostrar');
-// })
+senha.addEventListener('focus', () => {
+    senhaNotificacao.classList.add('mostrar');
+})
 
-// senha.addEventListener('blur', () => {
-//     senhaNotificacao.classList.remove('mostrar');
-// })
+senha.addEventListener('blur', () => {
+    senhaNotificacao.classList.remove('mostrar');
+})
 
