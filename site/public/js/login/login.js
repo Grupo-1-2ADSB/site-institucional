@@ -29,33 +29,34 @@ function validarLogin(){
     var validacao_nameUser01 = userNameVar == "";
 
   
-    if(validacao_senha01){
-        Swal.fire({
-            title: "Mensagem de Erro:",
-            text: "Sua senha está em branco e assim não é possível prosseguir!",
-            imageUrl: "",
-            imageWidth: 400,
-            imageHeight: 200,
-            imageAlt: "Custom image"
-        });
+    if(validacao_senha01 && validacao_nameUser01){
+        cardMsg.style.display = "block"
+        cardMsg.style.border = "2px solid red"
+        cardMsg.style.boxShadow = "0px 0px 8px rgba(0, 0, 0, 0.7)"
+        cardMsg.style.color = "red"
+        cardMsg.innerHTML = "❌ Todos os seu dados estão em branco!"; 
+
+    } if(validacao_senha01){
+        cardMsg.style.display = "block"
+        cardMsg.style.border = "2px solid red"
+        cardMsg.style.boxShadow = "0px 0px 8px rgba(0, 0, 0, 0.7)"
+        cardMsg.style.color = "red"
+        cardMsg.innerHTML = "❌ Sua senha está em branco e assim não é possível prosseguir!"; 
+
     } else if(validacao_nameUser01){
-        Swal.fire({
-            title: "Mensagem de Erro:",
-            text: "Seu nome de usuário está em branco e assim não é possível prosseguir!",
-            imageUrl: "",
-            imageWidth: 400,
-            imageHeight: 200,
-            imageAlt: "Custom image"
-        });  
+        cardMsg.style.display = "block"
+        cardMsg.style.border = "2px solid red"
+        cardMsg.style.boxShadow = "0px 0px 8px rgba(0, 0, 0, 0.7)"
+        cardMsg.style.color = "red"
+        cardMsg.innerHTML = "❌ Seu nome de usuário está em branco e assim não é possível prosseguir!";
+
     } else if(!regexSenha.test(senhaVar)){
-        Swal.fire({
-            title: "Mensagem de Erro:",
-            text: "Sua senha tem que ter pelo menos 5 caracteres, contendo um dígito numérico",
-            imageUrl: "",
-            imageWidth: 400,
-            imageHeight: 200,
-            imageAlt: "Custom image"
-          });
+        cardMsg.style.display = "block"
+        cardMsg.style.border = "2px solid red"
+        cardMsg.style.boxShadow = "0px 0px 4px rgba(0, 0, 0, 0.7)"
+        cardMsg.style.color = "red"
+        cardMsg.innerHTML = "❌ Senha INVÁLIDA";
+
     } else {
         logar()
     }
@@ -92,7 +93,7 @@ function logar(){
             cardMsg.style.border = "2px solid red"
             cardMsg.style.color = "red"
             cardMsg.style.boxShadow = "0px 0px 8px rgba(0, 0, 0, 0.7)"
-            cardMsg.innerHTML = "❌Conta não cadastrada❌";
+            cardMsg.innerHTML = "❌Conta NÃO cadastrada❌";
 
             resposta.text().then(texto => {
                 console.error(texto);

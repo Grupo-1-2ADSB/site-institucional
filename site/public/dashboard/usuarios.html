@@ -29,7 +29,7 @@
         <!-- Menu de logout -->
         <ul class="side-menu">
             <li>
-                <a href="#" class="logout">
+                <a href="../index.html" class="logout">
                     <i class='bx bx-log-out-circle'></i>
                     Sair
                 </a>
@@ -71,36 +71,101 @@
                                 funcionários acessarem o sistema.</a></li> <!-- Migalha de pão (breadcrumb) -->
                     </ul>
                 </div>
+
+                <div id="notificacao_senha" class="notificacao-senha">
+                    <div class="div-menor">
+                        <b>Senha deve conter:</b>
+                            <ul>
+                                <li>Pelo menos 8 caracteres;</li>
+                                <li>Pelo menos uma letra minúscula;</li>
+                                <li>Pelo menos uma letra maiúscula;</li>
+                                <li>Pelo menos um número;</li>
+                                <li>Pelo menos um caractere especial;</li>
+                            </ul> 
+                    </div>
+                </div>
             </div>
 
             <div class="container">
                 <div class="forms-container">
                     <form action="">
                         <div class="forms-container-esquerda">
-                            <input type="text" class="input" name="nomeCompleto" id="" placeholder="Nome Completo">
-                            <input type="text" class="input" name="username" id="" placeholder="Username">
-                            <input type="email" class="input" name="email" id="" placeholder="E-mail">
+                            <input type="text" class="input" name="nomeCompleto" id="nome_completo" placeholder="Nome Completo">
+                            <span class="msg-erro"></span>
+
+                            <input type="text" class="input" name="username" id="username" placeholder="Username">
+                            <span class="msg-erro"></span>
+
+                            <input type="email" class="input" name="email" id="email" placeholder="E-mail">
+                            <span class="msg-erro"></span>
+
                             <select name="cargo" class="input" id="select_cargo">
                                 <option value="default" default>Selecione um cargo</option>
                                 <option value="tecnicoTI">Técnico de TI</option>
+                                <option value="tecnicoTI2">Técnico de TI2</option>
                             </select>
+                            <span class="msg-erro"></span>
+                            
                             <div class="container-inputs-passwd">
                                 <div class="div-senha-esquerda">
                                     <input type="password" class="input-pass" name="senha" id="input_senha" placeholder="Senha">
                                     <span class="input-senha-olho-aberto" id="span_senha" ></span>
+                                    <span class="msg-erro"></span>
                                 </div>
 
                                 <div class="div-senha-direita">
                                     <input type="password" class="input-pass" id="input_repetir_senha" placeholder="Repita a Senha">
                                     <span class="input-senha-olho-aberto" id="span_repetir_senha" ></span>
+                                    <span class="msg-erro"></span>
                                 </div>
                             </div>
-                            <button class="forms-btn">CADASTRAR</button>
+                            
                         </div>
                         <div class="forms-container-direita">
-                            <img src="../assets/dashboard/usuarios/user-svgrepo-com (1).svg" alt="">
+                            <div class="orders">
+                                <div class="header-orders">
+                                
+                                    <h3>Lista de Usuários</h3> <!-- Título da seção -->
+                                </div>
+                                <!-- Tabela de usuários -->
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Nome</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Linhas da tabela com informações de usuários -->
+                                        <tr>
+                                            <td>
+                                                <img
+                                                    src="https://pm1.aminoapps.com/8927/70081d2146af8532fea0638e7e960b68f23025a5r1-735-736v2_uhq.jpg">
+                                                <p>Kauã Nunes</p>
+                                            </td>
+                                            <td><button class="btn-excluir-user">Excluir</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <img
+                                                    src="https://pm1.aminoapps.com/8209/33a84f48852bee9f54addaf6b8a500ba47c0456fr1-720-721v2_hq.jpg">
+                                                <p>Bia Rosa</p>
+                                            </td>
+                                            <td><button class="btn-excluir-user">Excluir</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <img src="https://i.pinimg.com/736x/d0/66/6a/d0666ab048429c9f6e4393ca26549fdf.jpg">
+                                                <p>Lucas de Paula</p>
+                                            </td>
+                                            <td><button class="btn-excluir-user">Excluir</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </form>
+                    <button id="btn_forms" class="forms-btn">CADASTRAR</button>
                 </div>
             </div>
 
@@ -108,7 +173,8 @@
     </div>
     <!-- Fim do conteúdo principal -->
 
-    <script src="../js/dashboard/dashboard.js"></script> <!-- Importando arquivo JavaScript -->
+    <script src="../js/dashboard/dashboard.js"></script> 
+    <!-- Importando arquivo JavaScript -->
     <script src="../js/dashboard/cadastros/usuarios.js"></script>
 </body>
 
