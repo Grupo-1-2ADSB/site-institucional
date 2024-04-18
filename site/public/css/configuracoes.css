@@ -16,7 +16,7 @@
     --success: #388E3C; /* Cor de sucesso */
     --light-success: #BBF7D0; /* Cor de sucesso mais clara */
 }
-
+ 
 /* Definindo estilos padrão para todo o documento */
 * {
     margin: 0;
@@ -371,4 +371,192 @@ body {
 .content main .header .left .breadcrumb li a.active{
     color: var(--primary);
     pointer-events: none;
+}
+
+/* -----------Informação--------- */
+.config{
+    width: 100%;
+    height: 475px;
+    padding: 36px 24px;
+    margin-top: 36px;
+
+    border-radius: 20px;
+    background-color: #F6F6F9;
+
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.config-direita{
+    width: 49.8%;
+    height: 400px;
+    font-size: 20px;
+
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+}
+
+.config-direita .info-direita{
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+    height: 110px;
+    align-items: center;
+}
+
+.info-direita input{
+    width: 60%;
+    height: 40px;
+    border-radius: 15px;
+    background-color: #EEEEEE;
+}
+
+.config-direita .botao{
+    width: 40%;
+    height: 40px;
+    border-radius: 20px;
+    font-size: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #1976D2;
+}
+
+.linha{
+    width: 0.2%;
+    background-color: #000000;
+}
+
+.config-esquerda{
+    height: 440px;
+    width: 49.8%;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.config-esquerda .info-esquerda{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    width: 90%;
+    height: 400px;
+}
+
+.botao-header{
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.botao-header button{
+    width: 100%;
+    height: 40px;
+    border-radius: 20px;
+    font-size: 20px;    
+
+    background-color: #1976D2;
+}
+
+/* ------Modal------- */
+#div_dialog{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 100%;
+    height: 100%;
+    background-color: #00000063;
+}
+
+#info_direita{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 100%;
+    height: 100%;
+    background-color: #00000063;
+}
+
+.div-pai{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.div-deletar{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 20px;
+
+    background-color: #FFFFFF;
+
+}
+
+.del-texto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    width: 80%;
+    height: 110px;
+
+    font-size: 17px;
+}
+
+.del-label-input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    width: 80%;
+    height: 110px;
+}
+
+.del-label-input input{
+    width: 80%;
+    height: 50px;
+    border-radius: 15px;
+    font-size: 30px;
+}
+
+.del-label-input label{
+    font-size: 20px;
+    display: flex;
+}
+
+.del-botao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 50%;
+    height: 60px;
+}
+
+.del-botao button{
+    width: 50%;
+    height: 40px;
+    border-radius: 20px;
+    font-size: 20px;
+
+    margin: 2px;
 }
