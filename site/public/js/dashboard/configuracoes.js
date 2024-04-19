@@ -1,12 +1,17 @@
 const btn = document.getElementById("btn_modal");
 const modal = document.getElementById("div_dialog");
-const buttonClose = document.getElementById("btn-fechar")
+const buttonClose = document.getElementById("btn-fechar");
+const buttonConfirm = document.getElementById("btn-confirmar");
 
 btn.onclick = function () {
     modal.style.display = 'block';
 }
 
 buttonClose.onclick = function () {
+    modal.style.display = 'none';
+}
+
+buttonConfirm.onclick = function () {
     modal.style.display = 'none';
 }
 
@@ -19,12 +24,17 @@ window.onclick = function (event) {
 const btn2 = document.getElementById("botao-confirmar");
 const modal2 = document.getElementById("info_direita");
 const buttonClose2 = document.getElementById("btn-fechar2")
+const buttonConfirm2 = document.getElementById("btn-confirmar2")
 
 btn2.onclick = function () {
     modal2.style.display = 'block';
 }
 
 buttonClose2.onclick = function () {
+    modal2.style.display = 'none';
+}
+
+buttonConfirm2.onclick = function () {
     modal2.style.display = 'none';
 }
 

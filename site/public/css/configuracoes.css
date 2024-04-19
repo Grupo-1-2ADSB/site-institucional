@@ -417,8 +417,9 @@ body {
         border-radius: 55px;
         color: var(--dark);
         background-repeat: no-repeat;
-            background-size: 1em;
-            background-position: 1.2em center;
+        background-size: 1em;
+        background-position: 1.2em center;
+        width: 80%;
     } 
 }
 
@@ -469,7 +470,8 @@ body {
     justify-content: center;
     align-items: center;
 
-    background-color: #1976D2;
+    background-color: #363949;
+    color: white;
 }
 
 .linha{
@@ -508,7 +510,8 @@ body {
     border-radius: 20px;
     font-size: 20px;    
 
-    background-color: #1976D2;
+    background-color: #363949;
+    color: white;
 }
 
 /* ------Modal------- */
@@ -580,13 +583,14 @@ body {
     width: 80%;
     height: 50px;
     border-radius: 15px;
-    font-size: 30px;
+    font-size: 20px;
+    padding: 1%;
 }
 
-.del-label-input label{
+/* .del-label-input label{
     font-size: 20px;
     display: flex;
-}
+} */
 
 .del-botao{
     display: flex;
