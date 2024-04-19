@@ -474,6 +474,10 @@ body {
     color: white;
 }
 
+.config-direita .botao:hover{
+    background-color: #272424;
+}
+
 .linha{
     width: 0.2%;
     background-color: #000000;
@@ -512,6 +516,10 @@ body {
 
     background-color: #363949;
     color: white;
+}
+
+.botao-header button:hover{
+    background-color: #272424;
 }
 
 /* ------Modal------- */
