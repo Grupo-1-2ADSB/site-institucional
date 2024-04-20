@@ -1,17 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
 }
-
-body{
-    background: #121212;
-}
-
-/* HEADER */
 
 .header{
     position: fixed;
@@ -19,154 +10,155 @@ body{
     left: 0;
     width: 100%;
     padding: 20px 10%;
-    background: #121212;
+    background: transparent;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 100;
+    font-size: 30px;
 }
 
-.logo{
-    font-size: 25px;
-    color: purple;
+header a{
     text-decoration: none;
-    font-weight: 600;
+    color: #fff;
+    font-size: larger;
 }
 
-.navbar a{
-    font-size: 18px;
-    text-decoration: none;
-    color: #ededed;
-    font-weight: 500;
-    margin-left: 35px;
-    transition: .3s;
+header a:hover{
+    color: #c5c0c0;
 }
 
-.navbar a:hover,
-.navbar a.ativado{
-    color: purple;
-}*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
-body{
-    background: #121212;
-}
-
-/* HEADER */
-
-.header{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px 10%;
-    background: #121212;
+section{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 100;
-}
-
-.logo{
-    font-size: 25px;
-    color: purple;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.navbar a{
-    font-size: 18px;
-    text-decoration: none;
-    color: #ededed;
-    font-weight: 500;
-    margin-left: 35px;
-    transition: .3s;
-}
-
-.navbar a:hover,
-.navbar a.ativado{
-    color: purple;
-}
-
-/* LOGIN */
-
-#login{
-    text-align: center;
     justify-content: center;
     align-items: center;
-    display: flex;
-    flex-direction: row;
+    width: 100%;
+    height: 100vh;
+
+    /* background-color: #084D6E; */
+    background: url("../assets/login/HD-wallpaper-emergency-room-hospital.jpg");
+    background-size: cover;
+    background-position: center;
+
+    /* animation: animateBg 5s linear infinite; */
 }
 
-#login a{
-    text-decoration: none;
-    color: purple;
-}
+/* @keyframes animateBg{
+    100%{
+        filter: hue-rotate(360deg);
+    }
+} */
 
-.email input{
-    border-radius: 15px;
-    border: none;
-    width: 250px;
-    height: 40px;
-    padding-left: 15px;
-    background-color: rgba(66, 0, 66, 0.425);
-    color: #b6b6b6;
-}
-
-.senha input{
-    border-radius: 15px;
-    border: none;
-    width: 250px;
-    height: 40px;
-    padding-left: 15px;
-    background-color: rgba(66, 0, 66, 0.425);
-    color: #b6b6b6;
-    margin-top: 15px;
-}
-
-.entrar .btn{
-    margin-top: 10px;
-    cursor: pointer;
-    width: 120px;
-    height: 40px;
+.login-box{
+    position: relative;
+    width: 400px;
+    height: 450px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
     border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(15px);
+}
+
+h2{
+    font-size: 2em;
+    color: #fff;
+    text-align: center;
+}
+
+.input-box{
+    position: relative;
+    width: 310px;
+    margin: 30px 0;
+    border-bottom: 2px solid #fff;
+}
+
+.input-box label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label{
+    top: -5px;
+}
+
+.input-box input{
+    width: 100%;
+    height: 50px;
+    background: transparent;
     border: none;
-    background-color: purple;
-    color: #141414;
+    outline: none;
+    font-size: 1em;
+    color: #fff;   
+    padding: 0 35px 0 5px;
 }
 
-.entrar p{
-    margin-top: 10px;
-    color: #FAFAFA;
+.input-box .icon{
+    position: absolute;
+    right: 4px;
+    color: #fff;
+    font-size: 1.2em;
+    line-height: 57px;
 }
 
-input::placeholder{
-    color: #b6b6b6;
+.checkbox{
+    margin: -15px 0 15px;
+    font-size: .9em;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
 }
 
-h1{
-    color: #FAFAFA;
+.checkbox label input{
+    margin-right: 3px;
 }
 
-.caixa{
-    margin-top: 200px;
+.checkbox a{
+    color: #fff;
+    text-decoration: none;
 }
 
-/* Card de mensagem geral */
-
-#cardMsg {
-    position: fixed;
-    display: none;
-    background-color: #F1F8FF;
-    padding: 10px 20px;
-    top: 40px;
-    right: 20px;
-    font-size: 14px;
-    font-weight: bolder;
-    border-radius: 5px;
-    z-index: 10000;
+.checkbox a:hover{
+    text-decoration: underline;
 }
+
+button{
+    width: 100%;
+    height: 40px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #000;
+    font-weight: 500;
+}
+
+button:hover{
+    background-color: #c5c0c0;
+}
+
+@media (max-width: 360px){
+    .login-box{
+        width: 100%;
+        height: 100vh;
+        border: none;
+        border-radius: 0;
+    }
+
+    .input-box{
+        width: 290px;
+    }
+}
+
+/* @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+ */
