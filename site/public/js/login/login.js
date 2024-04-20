@@ -87,6 +87,14 @@ function logar(){
                 cardMsg.style.boxShadow = "0px 0px 8px rgba(0, 0, 0, 0.7)"
                 cardMsg.style.color = "#00B802"
                 cardMsg.innerHTML = "✅Entrando! Aguarde...✅"; 
+
+                sessionStorage.ID_USUARIO = json.idUsuario;
+                sessionStorage.NAME_USER = json.nomeUser;
+                sessionStorage.CARGO = json.FkCargo;
+                sessionStorage.EMAIL = json.email;
+                sessionStorage.SENHA = json.senha;
+                sessionStorage.HOSPITAL = json.fkUnidadeHospitalar;
+
             })
         } else {
             cardMsg.style.display = "block"

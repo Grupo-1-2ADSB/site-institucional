@@ -6,9 +6,10 @@
     <title>MedTech - Login</title>
 
     <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
+    <div id="cardMsg"></div>
     <header class="header">
         <a href="#" class="logo">MedTech</a>
 
@@ -24,20 +25,21 @@
             <h1>LOGIN</h1>
 
             <div class="email">
-                <input type="email" placeholder="E-mail" id="input_email">
+                <input type="email" placeholder="E-mail" id="userName_input">
             </div>
 
             <div class="senha">
-                <input type="password" placeholder="Senha" id="input_senha">
+                <input type="password" placeholder="Senha" id="senha_input">
             </div>
 
             <div class="entrar">
                 <p>Ainda não tem uma conta? <a href="cadastro.html">Crie uma aqui</a></p>
-                <button onclick="buttonEntrar()" class="btn">Entrar</button>
+                <button onclick="validarLogin()" class="btn">Entrar</button>
             </div>
 
         </div>
     </div>
+    <script src="js/login/login.js"></script>
     
 </body>
 </html>
