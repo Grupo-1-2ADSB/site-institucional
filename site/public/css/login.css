@@ -6,15 +6,20 @@
 
 .header{
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px 10%;
     background: transparent;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+
+    width: 100%;
     font-size: 30px;
+
+    /* display: flex;
+    justify-content: start;
+    align-items: center; */
+}
+ 
+.med a{
+    display: flex;
+    align-items: center;
+    padding: 20px 20px;
 }
 
 header a{
@@ -35,7 +40,7 @@ section{
     height: 100vh;
 
     /* background-color: #084D6E; */
-    background: url("../assets/login/HD-wallpaper-emergency-room-hospital.jpg");
+    background: url("../assets/login/1.jpg");
     background-size: cover;
     background-position: center;
 
