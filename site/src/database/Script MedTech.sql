@@ -57,24 +57,14 @@ CREATE TABLE Computador (
   FOREIGN KEY (fkSO) REFERENCES SistemaOperacional(idSO)
 );
 
-
 CREATE TABLE Hardware (
   idHardware INT PRIMARY KEY AUTO_INCREMENT,
   nomeHardware VARCHAR(45),
   descricaoValor VARCHAR(45),
   valor DECIMAL(8,2),
-  descricaoHardware VARCHAR(45)
-);
-
-CREATE TABLE Componente (
-  idComponente INT PRIMARY KEY AUTO_INCREMENT,
-  valor DECIMAL(8,2),
-  dataHora DATETIME,
+  descricaoHardware VARCHAR(45),
   fkComputador INT,
-  fkComponente INT,
-  unidadeMedida VARCHAR(45),
-  FOREIGN KEY (fkComputador) REFERENCES Computador(idComputador),
-  FOREIGN KEY (fkComponente) REFERENCES Componente(idComponente)
+  FOREIGN KEY (fkComputador) REFERENCES Computador(idComputador)
 );
 
 CREATE TABLE Registro (
@@ -90,3 +80,5 @@ CREATE TABLE Evento (
   fkRegistro INT,
   FOREIGN KEY (fkRegistro) REFERENCES Registro(idRegistro)
 );
+
+SELECT * FROM hardware JOIN computador ON fkComputador = idComputador;
