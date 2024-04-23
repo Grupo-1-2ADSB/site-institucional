@@ -1,8 +1,8 @@
-DROP DATABASE medtech;
+DROP DATABASE IF EXISTS medtech;
 CREATE DATABASE medtech;
 USE medtech;
 
--- Usuario
+-- Usuário config
 DROP USER IF EXISTS 'user_medtech'@'localhost';
 CREATE USER 'user_medtech'@'localhost' IDENTIFIED WITH mysql_native_password BY 'URUBU100';
 GRANT ALL ON medtech.* TO 'user_medtech'@'localhost';
@@ -80,5 +80,23 @@ CREATE TABLE Evento (
   fkRegistro INT,
   FOREIGN KEY (fkRegistro) REFERENCES Registro(idRegistro)
 );
+
+INSERT INTO UnidadeHospitalar (nome, estado, logradouro, numero, cidade, bairro, cep, cnpj)
+VALUES 
+  ('Hospital Municipal', 'São Paulo', 'Rua da Saúde', 123, 'São Paulo', 'Centro', '01001000', '12345678901234'),
+  ('Hospital Santa Maria', 'Rio de Janeiro', 'Avenida das Flores', 456, 'Rio de Janeiro', 'Copacabana', '22041100', '98765432109876'),
+  ('Hospital São Lucas', 'Minas Gerais', 'Rua dos Médicos', 789, 'Belo Horizonte', 'Savassi', '30130180', '45678901234567');
+
+-- Inserindo dados na tabela Cargo
+INSERT INTO Cargo (nome, descricao, areaAtuacao)
+VALUES 
+  ('Médico', 'Responsável pelo atendimento médico aos pacientes', 'Saúde'),
+  ('Enfermeiro', 'Cuida do bem-estar dos pacientes e auxilia os médicos', 'Saúde'),
+  ('Administrador Hospitalar', 'Gerencia as operações e recursos do hospital', 'Administração');
+  
+-- Inserindo usuários (Proto personas)
+INSERT INTO Usuario (idUsuario, nomeCompleto, nomeUser, email, senha, fkUnidadeHospitalar, fkCargo)
+VALUES (NULL, 'João Silva', 'joaoTeste', 'joao.silva@teste.com', 'Teste123', 1, 1);
+
 
 SELECT * FROM hardware JOIN computador ON fkComputador = idComputador;

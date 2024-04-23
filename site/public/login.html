@@ -8,6 +8,7 @@
 </head>
 <body>
 
+    <div id="cardMsg"></div>
     <header class="header">
         <div class="med">
             <a href="./index.html" class="logo"><img src="./assets/index/footer/logo-branco-nobackground.svg" width="15%"></a>
@@ -20,13 +21,13 @@
             <h2>Login</h2>
             <div class="input-box">
                 <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
-                <input type="email" required>
+                <input type="email" id="userName_input" required>
                 <label>E-mail</label>
             </div>
 
             <div class="input-box">
                 <span class="icon"><ion-icon name="bag-outline"></ion-icon></span>
-                <input type="password" required>
+                <input type="password" id="senha_input" required>
                 <label>Senha</label>
             </div>
 
@@ -34,7 +35,7 @@
                  <label> <input type="checkbox">Lembre-se</label>
                  <a href="#">Esqueceu a senha?</a>
             </div>
-            <button type="submit">Login</button>
+            <button type="submit" onclick="validarLogin()">Login</button>
 
         </div>
     </div>
@@ -42,5 +43,6 @@
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="js/login/login.js"></script>
 </body>
 </html>

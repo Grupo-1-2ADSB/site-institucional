@@ -20,6 +20,9 @@ sign_in_btn2.addEventListener("click", () => {
     container.classList.remove("sign-up-mode2");
 })
 
+// Início da rota de Login
+// validção dos inputs
+
 function validarLogin(){
     const userNameVar = userName_input.value;
     const senhaVar = senha_input.value;
@@ -36,7 +39,7 @@ function validarLogin(){
         cardMsg.style.color = "red"
         cardMsg.innerHTML = "❌ Todos os seu dados estão em branco!"; 
 
-    } if(validacao_senha01){
+    } else if(validacao_senha01){
         cardMsg.style.display = "block"
         cardMsg.style.border = "2px solid red"
         cardMsg.style.boxShadow = "0px 0px 8px rgba(0, 0, 0, 0.7)"
