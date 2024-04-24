@@ -135,3 +135,36 @@ senha.addEventListener('blur', () => {
     senhaNotificacao.classList.remove('mostrar');
 })
 
+// Função deletar usuários
+
+const btnExcluirUser = document.getElementById("btn_excluir_user");
+
+function excluirUsuario(idUsuario) {
+    fetch("/usuarios/excluirUsuario", {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }, 
+        body: JSON.stringify({
+            idUsuarioServer: idUsuario
+        }),
+    })
+    .then(function (resposta) {
+        if (resposta.ok) {
+            console.log("Usuario com id" + idUsuario + "deletado");
+        } else {
+            throw new Error("Houve um erro ao tentar excluir usuário");
+        }
+    })
+    .catch (function (erro) {
+        console.error("Erro ao tentar excluir usuário:", erro);
+    });
+    return false;
+}
+
+btnExcluirUser.addEventListener('click', () => {
+    const idUsuario = btnExcluirUser.value;
+    console.log("ENTREI")
+    excluirUsuario(idUsuario);
+})
+

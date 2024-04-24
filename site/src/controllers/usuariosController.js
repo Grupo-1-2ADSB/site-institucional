@@ -29,7 +29,24 @@ function cadastrarUsuario(req, res) {
         });
 } 
 
+function excluirUsuario(req, res) {
+    const idUsuario = req.body.idUsuarioServer; 
+
+    if (!idUsuario) {
+        return res.status(400).json({ error: "IdUsuario está null." });
+    }
+
+    usuariosModel.excluirUsuario(idUsuario)
+        .then(function (resultado) {
+            res.json(resultado);
+        }).catch (function (erro) {
+            console.error("Houve um erro ao excluir usuário: ", erro);
+            res.status(500).json({ error: "Houve um erro ao excluir usuário."});
+        });  
+}
+
 
 module.exports = {
-    cadastrarUsuario
+    cadastrarUsuario,
+    excluirUsuario
 }

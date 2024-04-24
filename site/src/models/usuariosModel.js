@@ -6,6 +6,13 @@ function cadastrarUsuario(nomeCompleto, nomeUser, email, senha, fkCargo) {
     return database.executar(instrucao);
 }
 
+function excluirUsuario(idUsuario) {
+    var instrucao = `DELETE FROM Usuario WHERE idUsuario = ${idUsuario};`;
+
+    return database.executar(instrucao);
+}
+
 module.exports = {
-    cadastrarUsuario
+    cadastrarUsuario,
+    excluirUsuario
 };

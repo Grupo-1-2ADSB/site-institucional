@@ -7,4 +7,8 @@ router.post("/cadastrarUsuario", function (req, res) {
     usuariosController.cadastrarUsuario(req, res);
 });
 
+router.delete("/excluirUsuario", function(req, res) {
+    usuariosController.excluirUsuario(req, res);
+})
+
 module.exports = router;
