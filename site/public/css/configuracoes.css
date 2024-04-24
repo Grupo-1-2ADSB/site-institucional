@@ -618,4 +618,8 @@ body {
     margin: 2px;
 }
 
+.logout {
+    cursor: pointer;
+}
+
 

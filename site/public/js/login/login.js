@@ -24,15 +24,15 @@ sign_in_btn2.addEventListener("click", () => {
 // validção dos inputs
 
 function validarLogin(){
-    const userNameVar = userName_input.value;
+    const userNameVar = senha_input.value;
     const senhaVar = senha_input.value;
     const regexSenha = /^(?=.*[0-9]).{8,}$/;
     
     var validacao_senha01 = senhaVar == "";
-    var validacao_nameUser01 = userNameVar == "";
+    var validacao_email01 = userNameVar == "";
 
   
-    if(validacao_senha01 && validacao_nameUser01){
+    if(validacao_senha01 && validacao_email01){
         cardMsg.style.display = "block"
         cardMsg.style.border = "2px solid red"
         cardMsg.style.boxShadow = "0px 0px 8px rgba(0, 0, 0, 0.7)"
@@ -46,7 +46,7 @@ function validarLogin(){
         cardMsg.style.color = "red"
         cardMsg.innerHTML = "❌ Sua senha está em branco e assim não é possível prosseguir!"; 
 
-    } else if(validacao_nameUser01){
+    } else if(validacao_email01){
         cardMsg.style.display = "block"
         cardMsg.style.border = "2px solid red"
         cardMsg.style.boxShadow = "0px 0px 8px rgba(0, 0, 0, 0.7)"
@@ -67,7 +67,7 @@ function validarLogin(){
 
 function logar(){
     var senhaVar = senha_input.value;
-    var nameUserVar = userName_input.value;
+    var emailVar = email_input.value;
 
     fetch("/login/logar",{
         method: "POST",
@@ -75,7 +75,7 @@ function logar(){
             "Content-Type": "application/json" 
         },
         body: JSON.stringify({
-            nameUserServer: nameUserVar,
+            emailServer: emailVar,
             senhaServer: senhaVar
         })
     }).then(function (resposta) {
@@ -97,7 +97,10 @@ function logar(){
                 sessionStorage.EMAIL = json.email;
                 sessionStorage.SENHA = json.senha;
                 sessionStorage.HOSPITAL = json.fkUnidadeHospitalar;
-
+                
+                setTimeout(function() {
+                    window.location.href = "../../dashboard/dashboard.html";
+                }, 2000);
             })
         } else {
             cardMsg.style.display = "block"
@@ -115,4 +118,12 @@ function logar(){
     });
 
     return false;
+}
+
+function logout() {
+    sessionStorage.clear();
+
+    setTimeout(function() {
+        window.location.href = "../../index.html";
+    }, 2000);
 }

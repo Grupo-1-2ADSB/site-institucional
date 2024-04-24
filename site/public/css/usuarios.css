@@ -637,3 +637,7 @@ main .container form{
 .orders table tr td .status.pending{
     background: var(--warning);
 }
+
+.logout {
+    cursor: pointer;
+}

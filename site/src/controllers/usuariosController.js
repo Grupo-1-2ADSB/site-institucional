@@ -3,7 +3,7 @@ var usuariosModel = require("../models/usuariosModel");
 function cadastrarUsuario(req, res) {
     const {
         nomeServer: nomeCompleto,
-        usernameServer: username,
+        nomeUserServer: nomeUser,
         emailServer: email,
         senhaServer: senha,
         fkCargoServer: fkCargo
@@ -12,7 +12,7 @@ function cadastrarUsuario(req, res) {
 
     if (
         !nomeCompleto ||
-        !username ||
+        !nomeUser ||
         !email ||
         !senha ||
         !fkCargo
@@ -20,7 +20,7 @@ function cadastrarUsuario(req, res) {
         return res.status(400).json({ error: "Todos os campos devem ser preenchidos." });
     }
 
-    usuariosModel.cadastrarUsuario(nomeCompleto, username, email, senha, fkCargo)
+    usuariosModel.cadastrarUsuario(nomeCompleto, nomeUser, email, senha, fkCargo)
         .then(function (resultado) {
             res.json(resultado);
         }).catch (function (erro) {

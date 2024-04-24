@@ -86,7 +86,7 @@ function cadastrarUsuario() {
     if (validarFormsCadastro()) {
         const dados = {
             nomeServer: nomeCompleto.value,
-            usernameServer: username.value,
+            nomeUserServer: username.value,
             emailServer: email.value,
             senhaServer: senha.value,
             fkCargoServer: select_cargo.selectedIndex

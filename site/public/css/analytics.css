@@ -676,6 +676,10 @@ body {
    margin-bottom: 0;
 }
 
+.logout {
+    cursor: pointer;
+}
+
 @media screen and (max-width: 768px) {
     .sidebar{
         width: 200px;

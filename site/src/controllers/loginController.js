@@ -1,16 +1,16 @@
 var loginModel = require("../models/loginModel");
 
 function logar(req, res){
-    var nameUser = req.body.nameUserServer;
+    var email = req.body.emailServer;
     var senha = req.body.senhaServer;
 
-    if(nameUser == undefined){
+    if(email == undefined){
         res.status(400).send("Seu email está undefined!"); 
     } else if (senha == undefined){
         res.status(400).send("Sua senha está indefinida!");
     } else {
         loginModel
-        .logar(nameUser, senha)
+        .logar(email, senha)
         .then(function (resultado) {
             console.log(`\nResultados encontrados: ${resultado.length}`);
             console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
