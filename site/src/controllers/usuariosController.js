@@ -30,13 +30,13 @@ function cadastrarUsuario(req, res) {
 } 
 
 function excluirUsuario(req, res) {
-    const idUsuario = req.body.idUsuarioServer; 
+    const valueUsuario = req.body.valueUsuarioServer; 
 
-    if (!idUsuario) {
-        return res.status(400).json({ error: "IdUsuario está null." });
+    if (!valueUsuario) {
+        return res.status(400).json({ error: "valueUsuario está null." });
     }
 
-    usuariosModel.excluirUsuario(idUsuario)
+    usuariosModel.excluirUsuario(valueUsuario)
         .then(function (resultado) {
             res.json(resultado);
         }).catch (function (erro) {

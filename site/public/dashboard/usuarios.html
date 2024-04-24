@@ -135,15 +135,15 @@
                                             <th>Status</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="tbody">
                                         <!-- Linhas da tabela com informações de usuários -->
-                                        <tr>
+                                        <tr id="1">
                                             <td>
                                                 <img
                                                     src="https://pm1.aminoapps.com/8927/70081d2146af8532fea0638e7e960b68f23025a5r1-735-736v2_uhq.jpg">
                                                 <p>Kauã Nunes</p>
                                             </td>
-                                            <td><button id="btn_excluir_user" value="1" class="btn-excluir-user">Excluir</button></td>
+                                            <td onclick="a()"><button  id="btn_excluir_user" class="btn-excluir-user">Excluir</button></td>
                                         </tr>
                                         <tr>
                                             <td>
@@ -174,6 +174,8 @@
     <!-- Fim do conteúdo principal -->
 
     <script src="../js/dashboard/dashboard.js"></script> 
+    <script src="../js/dashboard/usuarioExcluir.js"></script>
+
     <!-- Importando arquivo JavaScript -->
     <script src="../js/dashboard/cadastros/usuarios.js"></script>
 </body>
