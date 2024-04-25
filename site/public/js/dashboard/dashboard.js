@@ -49,7 +49,7 @@ toggler.addEventListener('change', function () {
     }
 });
 
-// Função de logout
+// Função para o usuário sair da sessão e apagar as informações do session.Storage
 
 function logout() {
     sessionStorage.clear();

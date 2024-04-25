@@ -79,7 +79,6 @@
 
             <div class="config">
                 <div class="config-esquerda" id="config_esquerda">
-                    <h1>Informações do usuário</h1>    
                 </div>
         
         <div class="linha"></div>
@@ -92,30 +91,34 @@
                     <h1>Trocar informações</h1>
 
                     <div class="info-direita">
-                        <input type="text" placeholder="Trocar usuário">
+                        <input type="text" placeholder="Trocar nome de usuário" id="novo_username">
+                        <span class="msg-erro"></span>
                     </div>
     
                     <div class="info-direita">
-                        <input type="text" placeholder="Trocar e-mail">
+                        <input type="text" placeholder="Trocar e-mail" id="novo_email">
+                        <span class="msg-erro"></span>
                     </div>
     
                     <div class="info-direita">
-                        <input type="text" placeholder="Redefinir senha">
+                        <input type="password" placeholder="Redefinir senha" id="nova_senha">
+                        <span class="msg-erro"></span>
                     </div>
     
                     <div class="info-direita">
-                        <input type="text" placeholder="Repita senha">
+                        <input type="password" placeholder="Repetir senha anterior" id="repetir_nova_senha">
+                        <span class="msg-erro"></span>
                     </div>
     
                     <div class="info-direita">
-                    <button id="botao-confirmar" class="botao">Confirmar</button>
+                    <button id="botao_confirmar" class="botao">Confirmar</button>
                     </div>
                 </div>
             </div>
 
             <!------------ modal 1---------------->
             <div id="div_dialog" style="display: none;">
-                <div class="div-pai">
+                <div class="div-pai" id="div_pai_conta">
                 <div class="div-deletar">
 
                     <div class="del-texto">
@@ -138,8 +141,8 @@
             <!----------------Modal 2------------------->
     
             <div id="info_direita" style="display: none;">
-                <div class="div-pai">
-                <div class="div-deletar">
+                <div class="div-pai" id="div_pai_senha">
+                <div class="div-deletar" id="div_deletar">
 
                     <div class="del-texto">
                         <h1>Confirmar a senha atual:</h1>
@@ -147,7 +150,8 @@
                     </div>
     
                     <div class="del-label-input">
-                        <input type="password" placeholder="Senha atual:">
+                        <input type="password" placeholder="Senha atual:" id="confirmar_senha_atual">
+                        <span id="msg-erro-confirmar-senha-atual"></span>
                     </div>
     
                     <div class="del-botao">
