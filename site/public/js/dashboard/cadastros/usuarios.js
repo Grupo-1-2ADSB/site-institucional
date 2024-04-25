@@ -135,3 +135,11 @@ senha.addEventListener('blur', () => {
     senhaNotificacao.classList.remove('mostrar');
 })
 
+// Função de logout
+function logout() {
+    sessionStorage.clear();
+
+    setTimeout(function() {
+        window.location.href = "../../index.html";
+    }, 1000);
+}

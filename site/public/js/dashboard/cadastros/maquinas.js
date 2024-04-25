@@ -92,3 +92,13 @@ window.onclick = function(event) {
         modalDetalhes.style.display = "none";
     }
 };
+
+// Função de logout
+
+function logout() {
+    sessionStorage.clear();
+
+    setTimeout(function() {
+        window.location.href = "../../index.html";
+    }, 1000);
+}

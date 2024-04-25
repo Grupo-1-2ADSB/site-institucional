@@ -48,3 +48,13 @@ toggler.addEventListener('change', function () {
         document.body.classList.remove('dark');
     }
 });
+
+// Função de logout
+
+function logout() {
+    sessionStorage.clear();
+
+    setTimeout(function() {
+        window.location.href = "../../index.html";
+    }, 1000);
+}

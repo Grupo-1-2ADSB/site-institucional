@@ -92,6 +92,7 @@ function logar(){
                 cardMsg.innerHTML = "✅Entrando! Aguarde...✅"; 
 
                 sessionStorage.ID_USUARIO = json.idUsuario;
+                sessionStorage.NOME_COMPLETO = json.nomeCompleto;
                 sessionStorage.NAME_USER = json.nomeUser;
                 sessionStorage.CARGO = json.fkCargo;
                 sessionStorage.EMAIL = json.email;
@@ -125,5 +126,5 @@ function logout() {
 
     setTimeout(function() {
         window.location.href = "../../index.html";
-    }, 2000);
+    }, 1000);
 }
