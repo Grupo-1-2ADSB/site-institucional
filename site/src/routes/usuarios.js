@@ -9,6 +9,10 @@ router.post("/cadastrarUsuario", function (req, res) {
 
 router.delete("/excluirUsuario", function(req, res) {
     usuariosController.excluirUsuario(req, res);
-})
+});
+
+router.get("/obterUsuariosDoBanco", function(req, res) {
+    usuariosController.obterUsuariosDoBanco(req, res);
+});
 
 module.exports = router;

@@ -7,12 +7,19 @@ function cadastrarUsuario(nomeCompleto, nomeUser, email, senha, fkCargo) {
 }
 
 function excluirUsuario(valueUsuario) {
-    var instrucao = `DELETE FROM Usuario WHERE valueUsuario = ${valueUsuario};`;
+    var instrucao = `DELETE FROM Usuario WHERE idUsuario = ${valueUsuario};`;
+
+    return database.executar(instrucao);
+}
+
+function obterUsuariosDoBanco() {
+    var instrucao = `SELECT idUsuario, nomeCompleto FROM Usuario;`;
 
     return database.executar(instrucao);
 }
 
 module.exports = {
     cadastrarUsuario,
-    excluirUsuario
+    excluirUsuario,
+    obterUsuariosDoBanco
 };

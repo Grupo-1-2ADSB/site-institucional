@@ -90,13 +90,13 @@
                 <div class="forms-container">
                     <form action="">
                         <div class="forms-container-esquerda">
-                            <input type="text" class="input" name="nomeCompleto" id="nome_completo" placeholder="Nome Completo">
+                            <input type="text" class="input" name="nomeCompleto" id="nome_completo" placeholder="Nome Completo" autocomplete="name">
                             <span class="msg-erro"></span>
 
-                            <input type="text" class="input" name="username" id="username" placeholder="Username">
+                            <input type="text" class="input" name="username" id="username" placeholder="Username" autocomplete="username">
                             <span class="msg-erro"></span>
 
-                            <input type="email" class="input" name="email" id="email" placeholder="E-mail">
+                            <input type="email" class="input" name="email" id="email" placeholder="E-mail" autocomplete="email">
                             <span class="msg-erro"></span>
 
                             <select name="cargo" class="input" id="select_cargo">
@@ -137,29 +137,6 @@
                                     </thead>
                                     <tbody id="tbody">
                                         <!-- Linhas da tabela com informações de usuários -->
-                                        <tr id="1">
-                                            <td>
-                                                <img
-                                                    src="https://pm1.aminoapps.com/8927/70081d2146af8532fea0638e7e960b68f23025a5r1-735-736v2_uhq.jpg">
-                                                <p>Kauã Nunes</p>
-                                            </td>
-                                            <td onclick="a()"><button  id="btn_excluir_user" class="btn-excluir-user">Excluir</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <img
-                                                    src="https://pm1.aminoapps.com/8209/33a84f48852bee9f54addaf6b8a500ba47c0456fr1-720-721v2_hq.jpg">
-                                                <p>Bia Rosa</p>
-                                            </td>
-                                            <td><button class="btn-excluir-user">Excluir</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <img src="https://i.pinimg.com/736x/d0/66/6a/d0666ab048429c9f6e4393ca26549fdf.jpg">
-                                                <p>Lucas de Paula</p>
-                                            </td>
-                                            <td><button class="btn-excluir-user">Excluir</button></td>
-                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -174,14 +151,10 @@
     <!-- Fim do conteúdo principal -->
 
     <script src="../js/dashboard/dashboard.js"></script> 
-    <script src="../js/dashboard/usuarioExcluir.js"></script>
+    <script src="../js/dashboard/exclusão&updates/usuario.js"></script>
 
     <!-- Importando arquivo JavaScript -->
     <script src="../js/dashboard/cadastros/usuarios.js"></script>
 </body>
-
-</html>
-
-
 
 </html>

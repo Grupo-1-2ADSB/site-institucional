@@ -45,8 +45,19 @@ function excluirUsuario(req, res) {
         });  
 }
 
+function obterUsuariosDoBanco(req, res) {
+    usuariosModel.obterUsuariosDoBanco()
+        .then(function (usuarios) {
+            res.json(usuarios);
+        }).catch (function (erro) {
+            console.error("Erro ao obter usuários:", erro);
+            res.status(500).json({ error: "Erro ao obter usuários."});
+        });  
+}
+
 
 module.exports = {
     cadastrarUsuario,
-    excluirUsuario
+    excluirUsuario,
+    obterUsuariosDoBanco
 }
