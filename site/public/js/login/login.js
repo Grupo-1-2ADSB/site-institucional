@@ -93,7 +93,7 @@ function logar(){
 
                 sessionStorage.ID_USUARIO = json.idUsuario;
                 sessionStorage.NAME_USER = json.nomeUser;
-                sessionStorage.CARGO = json.FkCargo;
+                sessionStorage.CARGO = json.fkCargo;
                 sessionStorage.EMAIL = json.email;
                 sessionStorage.SENHA = json.senha;
                 sessionStorage.HOSPITAL = json.fkUnidadeHospitalar;

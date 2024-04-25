@@ -13,6 +13,7 @@ document.querySelectorAll('.modal .close').forEach(function(closeBtn) {
     });
 });
 
+
 // Função para cadastrar máquina
 function registerMachine() {
     var form = document.getElementById('machineForm');
@@ -20,8 +21,7 @@ function registerMachine() {
     var ip = form.ip.value;
     var os = form.os.value;
 
-    // Aqui você pode fazer algo com os dados do formulário, como enviar para o servidor
-    // Por enquanto, vamos apenas exibir no console para fins de teste
+    // Exibindo os dados no console para fins de teste e enviando para
     console.log("Hostname:", hostname);
     console.log("IP:", ip);
     console.log("Sistema Operacional:", os);
@@ -32,10 +32,16 @@ function registerMachine() {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            nomeTotemServer: nomeTotemVar,
-            fkAeroportoServer: fkAeroportoVar,
-            fkEmpresaServer: fkEmpresaVar
+            hostnameServer: hostname,
+            ipServer: ip,
+            osServer: os
         })
+    }).then(function (resposta){
+        console.log("resposta: ", resposta);
+        if(resposta.ok){
+            mensagensErro[4].textContent = "Cadastro realizado com sucesso!✅";
+            mensagensErro[4].style.color = "green";
+        }
     })
 
 
