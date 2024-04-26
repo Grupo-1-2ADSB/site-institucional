@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../../css/configuracoes.css">
+    <title>Dashboard | MedTech</title>
+</head>
+
+<body> 
+
+    <!-- Barra lateral -->
+    <div class="sidebar">
+        <!-- Logo e nome do aplicativo -->
+        <a href="#" class="logo">
+            <i class='bx bx-desktop'></i>
+            <div class="logo-name"><span>Med</span>Tech</div>
+        </a>
+        <!-- Menu lateral -->
+        <ul class="side-menu">
+            <li><a href="dashboard.html"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
+            <li><a href="analytics.html"><i class='bx bx-analyse'></i>Analytics</a></li>
+            <li class="active"><a href="#"><i class='bx bx-cog'></i>Configurações</a></li>
+        </ul>
+        <!-- Menu de logout -->
+        <ul class="side-menu">
+            <li>
+                <a onclick="logout()" class="logout">
+                    <i class='bx bx-log-out-circle'></i>
+                    Sair
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- Fim da barra lateral -->
+
+    <!-- Conteúdo principal -->
+    <div class="content">
+        <!-- Barra de navegação -->
+        <nav>
+            <i class='bx bx-menu'></i> <!-- Ícone de menu -->
+            <form action="#">
+                <div class="form-input">
+                    <button class="search-btn" type="submit"><i class='bx bxl-aws'></i></button>
+                    <!-- Ícone de pesquisa -->
+                </div>
+            </form>
+            <input type="checkbox" id="theme-toggle" hidden> <!-- Alternador de tema (escondido) -->
+            <label for="theme-toggle" class="theme-toggle"></label> <!-- Rótulo para alternador de tema -->
+            <a href="#" class="notif">
+                <i class='bx bx-bell'></i> <!-- Ícone de notificações -->
+                <span class="count">12</span> <!-- Contagem de notificações -->
+            </a>
+            <a href="#" class="profile">
+                <img src="../assets/images/logoMedTech.png"> <!-- Imagem da logo -->
+            </a>
+        </nav>
+        <!-- Fim da barra de navegação -->
+
+        <main>
+            <!-- Cabeçalho -->
+            <div class="header">
+                <div class="left">
+                    <h1>Configurações</h1> <!-- Título principal -->
+                    <ul class="breadcrumb">
+                        <li><a href="#">Configurações</a></li> <!-- Migalha de pão (breadcrumb) -->
+                    </ul>
+                </div>
+
+                <div class="botao-header">
+                    <button id="btn_modal" class="botao">Deletar conta</button>
+                </div>
+
+            </div>
+
+            <div class="config">
+                <div class="config-esquerda" id="config_esquerda">
+                    <h1>Informações do usuário</h1>    
+                </div>
+        
+        <div class="linha"></div>
+        
+
+       
+
+                <div class="config-direita">
+
+                    <h1>Trocar informações</h1>
+
+                    <div class="info-direita">
+                        <input type="text" placeholder="Trocar usuário">
+                    </div>
+    
+                    <div class="info-direita">
+                        <input type="text" placeholder="Trocar e-mail">
+                    </div>
+    
+                    <div class="info-direita">
+                        <input type="text" placeholder="Redefinir senha">
+                    </div>
+    
+                    <div class="info-direita">
+                        <input type="text" placeholder="Repita senha">
+                    </div>
+    
+                    <div class="info-direita">
+                    <button id="botao-confirmar" class="botao">Confirmar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!------------ modal 1---------------->
+            <div id="div_dialog" style="display: none;">
+                <div class="div-pai">
+                <div class="div-deletar">
+
+                    <div class="del-texto">
+                        <h1>Deletar conta</h1>
+                        <p>Para a exclusão de sua conta é necessário confirmar sua senha atual.</p>
+                    </div>
+    
+                    <div class="del-label-input">
+                        <input type="password" placeholder="Senha atual:">
+                    </div>
+    
+                    <div class="del-botao">
+                        <button id="btn-fechar">Cancelar</button>
+                        <button id="btn-confirmar">Confirmar</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <!----------------Modal 2------------------->
+    
+            <div id="info_direita" style="display: none;">
+                <div class="div-pai">
+                <div class="div-deletar">
+
+                    <div class="del-texto">
+                        <h1>Confirmar a senha atual:</h1>
+                        <p>Para a mudança de dados, é necessário confirmar com a senha atual.</p>
+                    </div>
+    
+                    <div class="del-label-input">
+                        <input type="password" placeholder="Senha atual:">
+                    </div>
+    
+                    <div class="del-botao">
+                        <button id="btn-fechar2">Cancelar</button>
+                        <button id="btn-confirmar2">Confirmar</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+    <!-- Fim do conteúdo principal -->
+    <script src="../../js/dashboard/configuracoes.js"></script>
+    <script src="../../js/dashboard/dashboard.js"></script> <!-- Importando arquivo JavaScript -->
+</body>
+
+</html>
+
+
+
+</html>

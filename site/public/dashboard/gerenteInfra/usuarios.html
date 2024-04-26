@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../../css/usuarios.css">
+    <title>Usuarios | MedTech</title>
+</head>
+
+<body>
+
+    <!-- Barra lateral -->
+    <div class="sidebar">
+        <!-- Logo e nome do aplicativo -->
+        <a href="#" class="logo">
+            <i class='bx bx-desktop'></i>
+            <div class="logo-name"><span>Med</span>Tech</div>
+        </a>
+        <!-- Menu lateral -->
+        <ul class="side-menu">
+            <li><a href="dashboard.html"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
+            <li><a href="analytics.html"><i class='bx bx-analyse'></i>Analytics</a></li>
+            <li class="active"><a href="#"><i class='bx bx-group'></i>Usuários</a></li>
+            <li><a href="maquinas.html"><i class='bx bx-desktop'></i>Máquinas</a></li>
+            <li><a href="configuracoes.html"><i class='bx bx-cog'></i>Configurações</a></li>
+        </ul>
+        <!-- Menu de logout -->
+        <ul class="side-menu">
+            <li>
+                <a onclick="logout()" class="logout">
+                    <i class='bx bx-log-out-circle'></i>
+                    Sair
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- Fim da barra lateral -->
+
+    <!-- Conteúdo principal -->
+    <div class="content">
+        <!-- Barra de navegação -->
+        <nav>
+            <i class='bx bx-menu'></i> <!-- Ícone de menu -->
+            <form action="#">
+                <div class="form-input">
+                    <button class="search-btn" type="submit"><i class='bx bxl-aws'></i></button>
+                    <!-- Ícone de pesquisa -->
+                </div>
+            </form>
+            <input type="checkbox" id="theme-toggle" hidden> <!-- Alternador de tema (escondido) -->
+            <label for="theme-toggle" class="theme-toggle"></label> <!-- Rótulo para alternador de tema -->
+            <a href="#" class="notif">
+                <i class='bx bx-bell'></i> <!-- Ícone de notificações -->
+                <span class="count">12</span> <!-- Contagem de notificações -->
+            </a>
+            <a href="#" class="profile">
+                <img src="../assets/images/logoMedTech.png"> <!-- Imagem da logo -->
+            </a>
+        </nav>
+        <!-- Fim da barra de navegação -->
+
+        <main>
+            <!-- Cabeçalho -->
+            <div class="header">
+                <div class="left">
+                    <h1>Usuários</h1> <!-- Título principal -->
+                    <ul class="breadcrumb">
+                        <li><a href="#">Bem-vindo à nossa plataforma de cadastro. Aqui você pode criar contas para seus
+                                funcionários acessarem o sistema.</a></li> <!-- Migalha de pão (breadcrumb) -->
+                    </ul>
+                </div>
+
+                <div id="notificacao_senha" class="notificacao-senha">
+                    <div class="div-menor">
+                        <b>Senha deve conter:</b>
+                            <ul>
+                                <li>Pelo menos 8 caracteres;</li>
+                                <li>Pelo menos uma letra minúscula;</li>
+                                <li>Pelo menos uma letra maiúscula;</li>
+                                <li>Pelo menos um número;</li>
+                                <li>Pelo menos um caractere especial;</li>
+                            </ul> 
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="forms-container">
+                    <form action="">
+                        <div class="forms-container-esquerda">
+                            <input type="text" class="input" name="nomeCompleto" id="nome_completo" placeholder="Nome Completo" autocomplete="name">
+                            <span class="msg-erro"></span>
+
+                            <input type="text" class="input" name="username" id="username" placeholder="Username" autocomplete="username">
+                            <span class="msg-erro"></span>
+
+                            <input type="email" class="input" name="email" id="email" placeholder="E-mail" autocomplete="email">
+                            <span class="msg-erro"></span>
+
+                            <select name="cargo" class="input" id="select_cargo">
+                                <option value="default" default>Selecione um cargo</option>
+                                <option value="tecnicoTI">Técnico de TI</option>
+                                <option value="tecnicoTI2">Técnico de TI2</option>
+                            </select>
+                            <span class="msg-erro"></span>
+                            
+                            <div class="container-inputs-passwd">
+                                <div class="div-senha-esquerda">
+                                    <input type="password" class="input-pass" name="senha" id="input_senha" placeholder="Senha">
+                                    <span class="input-senha-olho-aberto" id="span_senha" ></span>
+                                    <span class="msg-erro"></span>
+                                </div>
+
+                                <div class="div-senha-direita">
+                                    <input type="password" class="input-pass" id="input_repetir_senha" placeholder="Repita a Senha">
+                                    <span class="input-senha-olho-aberto" id="span_repetir_senha" ></span>
+                                    <span class="msg-erro"></span>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="forms-container-direita">
+                            <div class="orders">
+                                <div class="header-orders">
+                                
+                                    <h3>Lista de Usuários</h3> <!-- Título da seção -->
+                                </div>
+                                <!-- Tabela de usuários -->
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Nome</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbody">
+                                        <!-- Linhas da tabela com informações de usuários -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </form>
+                    <button id="btn_forms" class="forms-btn">CADASTRAR</button>
+                </div>
+            </div>
+
+        </main>
+    </div>
+    <!-- Fim do conteúdo principal -->
+
+    <script src="../../js/dashboard/dashboard.js"></script> 
+    <script src="../../js/dashboard/exclusão&updates/usuarios.js"></script>
+
+    <!-- Importando arquivo JavaScript -->
+    <script src="../../js/dashboard/cadastros/usuarios.js"></script>
+</body>
+
+</html>

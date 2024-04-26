@@ -88,11 +88,11 @@ VALUES
   ('Hospital São Lucas', 'Minas Gerais', 'Rua dos Médicos', 789, 'Belo Horizonte', 'Savassi', '30130180', '45678901234567');
 
 -- Inserindo dados na tabela Cargo
-INSERT INTO Cargo (nome, descricao, areaAtuacao)
+INSERT INTO Cargo (idCargo, nome, descricao, areaAtuacao)
 VALUES 
-  ('Médico', 'Responsável pelo atendimento médico aos pacientes', 'Saúde'),
-  ('Enfermeiro', 'Cuida do bem-estar dos pacientes e auxilia os médicos', 'Saúde'),
-  ('Administrador Hospitalar', 'Gerencia as operações e recursos do hospital', 'Administração');
+  (1, 'Engenheiro de infraestrutura', 'Responsável pelo planejamento, implementação e manutenção de sistemas, redes e servidores', 'infraestrutura de TI'),
+  (2, 'Gerente de infraestrutura', 'Gestão de equipes', 'infraestrutura de TI'),
+  (3, 'Técnico de infraestrutura', 'Análise crítica e atuação assertiva na resolução de problemas', 'infraestrutura de TI');
   
 -- Inserindo usuários (Proto personas)
 INSERT INTO Usuario (idUsuario, nomeCompleto, nomeUser, email, senha, fkUnidadeHospitalar, fkCargo)

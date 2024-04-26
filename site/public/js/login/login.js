@@ -99,9 +99,19 @@ function logar(){
                 sessionStorage.SENHA = json.senha;
                 sessionStorage.HOSPITAL = json.fkUnidadeHospitalar;
                 
-                setTimeout(function() {
-                    window.location.href = "../../dashboard/dashboard.html";
-                }, 2000);
+                if(sessionStorage.fkCargo == 1){
+                    setTimeout(function() {
+                        window.location.href = "../../dashboard/engenheiroInfra/analytics.html";
+                    }, 2000);  
+                } else if(sessionStorage.fkCargo == 2){
+                    setTimeout(function() {
+                        window.location.href = "../../dashboard/gerenteInfra/analytics.html";
+                    }, 2000); 
+                } else {
+                    setTimeout(function() {
+                        window.location.href = "../../dashboard/tecnicoInfra/analytics.html";
+                    }, 2000); 
+                }
             })
         } else {
             cardMsg.style.display = "block"
