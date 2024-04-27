@@ -15,4 +15,8 @@ router.get("/obterUsuariosDoBanco", function(req, res) {
     usuariosController.obterUsuariosDoBanco(req, res);
 });
 
+router.put("/trocarInformacoesUser/:idUsuario", function (req, res) {
+    usuariosController.trocarInformacoesUser(req, res);
+})
+
 module.exports = router;

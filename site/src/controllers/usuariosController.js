@@ -55,9 +55,36 @@ function obterUsuariosDoBanco(req, res) {
         });  
 }
 
+function trocarInformacoesUser(req, res) {
+    const idUsuario = req.params.idUsuario;
+    const {
+        novoUsernameServer: novoUsername,
+        novoEmailServer: novoEmail,
+        novaSenhaServer: novaSenha
+    } = req.body;
+
+    if (idUsuario == undefined) {
+        res.status(400).send("O id está undefined!");
+    } else {
+        usuariosModel.trocarInformacoesUser(idUsuario, novoUsername, novoEmail, novaSenha)
+            .then(function (resultado) {
+                if (resultado) {
+                    res.json(resultado);
+                } else {
+                    res.status(404).send("Usuário não encontrado ou informações não puderam ser atualizadas.");
+                }
+            })
+            .catch(function (erro) {
+                console.error("Erro ao tentar atualizar informações do usuário:", erro);
+                res.status(500).send("Houve um erro interno ao tentar atualizar informações do usuário.");
+            });
+    }
+}
+
 
 module.exports = {
     cadastrarUsuario,
     excluirUsuario,
-    obterUsuariosDoBanco
+    obterUsuariosDoBanco,
+    trocarInformacoesUser
 }

@@ -106,8 +106,6 @@ function cadastrarUsuario() {
                 setTimeout(() => {
                     window.location = "../../dashboard/usuarios.html";
                 }, 2000);
-
-                // Função p/ adicionar novo usuário na lista de usuários
             } else {
                 throw new Error("Houve um erro ao tentar realizar o cadastro!");
             }

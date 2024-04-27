@@ -18,8 +18,18 @@ function obterUsuariosDoBanco() {
     return database.executar(instrucao);
 }
 
+function trocarInformacoesUser(idUsuario, novoUsername, novoEmail, novaSenha) {
+    var instrucao = `UPDATE Usuario SET nomeUser = '${novoUsername}',
+                    email = '${novoEmail}',
+                    senha = '${novaSenha}'
+                    WHERE idUsuario = ${idUsuario}`;
+
+    return database.executar(instrucao);
+}
+
 module.exports = {
     cadastrarUsuario,
     excluirUsuario,
-    obterUsuariosDoBanco
+    obterUsuariosDoBanco,
+    trocarInformacoesUser
 };
