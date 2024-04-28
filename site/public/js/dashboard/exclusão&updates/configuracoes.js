@@ -77,38 +77,47 @@ function validarConfirmarSenhaAtual() {
 }
 
 function trocarInformacoesUser() {
-    if (validarFormsTrocaInfo()) {
-        const dados = {
-            novoUsernameServer: novoUsername.value,
-            novoEmailServer: novoEmail.value,
-            novaSenhaServer: novaSenha.value
-        };
+    const dados = {
+        novoUsernameServer: novoUsername.value,
+        novoEmailServer: novoEmail.value,
+        novaSenhaServer: novaSenha.value
+    };
 
-        fetch(`/usuarios/trocarInformacoesUser/${sessionStorage.ID_USUARIO}`, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(dados),
-        })
-        .then(function (resposta) {
-            if (resposta.ok) {
-                msgErroConfirmarSenhaAtual.textContent = "Alterações realizadas com sucesso!✅";
-                msgErroConfirmarSenhaAtual.style.color = "green";
+    fetch(`/usuarios/trocarInformacoesUser/${sessionStorage.ID_USUARIO}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(dados),
+    })
+    .then(function (resposta) {
+        if (resposta.ok) {
+            msgErroConfirmarSenhaAtual.textContent = "Alterações realizadas com sucesso!✅";
+            msgErroConfirmarSenhaAtual.style.color = "green";
+
+            if (sessionStorage.CARGO === 1) {
                 setTimeout(() => {
-                    window.location = "../../dashboard/configuracoes.html";
+                    window.location = "../../dashboard/engenheiroInfra/configuracoes.html";
                 }, 2000);
-            } else {
-                throw new Error("Houve um erro ao tentar realizar o cadastro!");
-            }
-        })
-        .catch (function (erro) {
-            msgErroConfirmarSenhaAtual.textContent = "Houve um erro ao tentar realizar as alterações!";
-            msgErroConfirmarSenhaAtual.style.color = "red";
-            console.error("Erro ao tentar realizar as alterações:", erro);
-        });
-        return false;
-    }
+            } else if (sessionStorage.CARGO === 2) {
+                setTimeout(() => {
+                    window.location = "../../dashboard/gerenteInfra/configuracoes.html";
+                }, 2000);
+            } else if (sessionStorage.CARGO === 3) {
+                setTimeout(() => {
+                    window.location = "../../dashboard/tecnicoInfra/configuracoes.html";
+                }, 2000);
+            }            
+        } else {
+            throw new Error("Houve um erro ao tentar realizar o cadastro!");
+        }
+    })
+    .catch (function (erro) {
+        msgErroConfirmarSenhaAtual.textContent = "Houve um erro ao tentar realizar as alterações!";
+        msgErroConfirmarSenhaAtual.style.color = "red";
+        console.error("Erro ao tentar realizar as alterações:", erro);
+    });
+    return false;
 }
 
 buttonConfirm2.addEventListener("click", () => {

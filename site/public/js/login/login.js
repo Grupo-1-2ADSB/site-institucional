@@ -99,11 +99,11 @@ function logar(){
                 sessionStorage.SENHA = json.senha;
                 sessionStorage.HOSPITAL = json.fkUnidadeHospitalar;
                 
-                if(sessionStorage.fkCargo == 1){
+                if(sessionStorage.CARGO == 1){
                     setTimeout(function() {
                         window.location.href = "../../dashboard/engenheiroInfra/analytics.html";
                     }, 2000);  
-                } else if(sessionStorage.fkCargo == 2){
+                } else if(sessionStorage.CARGO == 2){
                     setTimeout(function() {
                         window.location.href = "../../dashboard/gerenteInfra/analytics.html";
                     }, 2000); 

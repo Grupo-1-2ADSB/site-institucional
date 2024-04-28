@@ -22,6 +22,8 @@
         <ul class="side-menu">
             <li><a href="dashboard.html"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
             <li><a href="analytics.html"><i class='bx bx-analyse'></i>Analytics</a></li>
+            <li><a href="usuarios.html"><i class='bx bx-group'></i>Usuários</a></li>
+            <li><a href="maquinas.html"><i class='bx bx-desktop'></i>Máquinas</a></li>
             <li class="active"><a href="#"><i class='bx bx-cog'></i>Configurações</a></li>
         </ul>
         <!-- Menu de logout -->
@@ -65,55 +67,68 @@
                 <div class="left">
                     <h1>Configurações</h1> <!-- Título principal -->
                     <ul class="breadcrumb">
-                        <li><a href="#">Configurações</a></li> <!-- Migalha de pão (breadcrumb) -->
+                        <li><a href="#">Edite e visualize suas informações pessoais aqui. </a></li> <!-- Migalha de pão (breadcrumb) -->
                     </ul>
                 </div>
 
-                <div class="botao-header">
+                <!-- <div class="botao-header">
                     <button id="btn_modal" class="botao">Deletar conta</button>
+                </div> -->
+
+                <div id="notificacao_senha" class="notificacao-senha">
+                    <div class="div-menor">
+                        <b>Senha deve conter:</b>
+                            <ul>
+                                <li>Pelo menos 8 caracteres;</li>
+                                <li>Pelo menos uma letra minúscula;</li>
+                                <li>Pelo menos uma letra maiúscula;</li>
+                                <li>Pelo menos um número;</li>
+                                <li>Pelo menos um caractere especial;</li>
+                            </ul> 
+                    </div>
                 </div>
 
             </div>
 
             <div class="config">
                 <div class="config-esquerda" id="config_esquerda">
-                    <h1>Informações do usuário</h1>    
                 </div>
         
-        <div class="linha"></div>
-        
-
-       
+        <div class="linha"></div> 
 
                 <div class="config-direita">
 
                     <h1>Trocar informações</h1>
 
                     <div class="info-direita">
-                        <input type="text" placeholder="Trocar usuário">
+                        <input type="text" placeholder="Trocar nome de usuário" id="novo_username">
+                        <span class="msg-erro"></span>
                     </div>
     
                     <div class="info-direita">
-                        <input type="text" placeholder="Trocar e-mail">
+                        <input type="text" placeholder="Trocar e-mail" id="novo_email">
+                        <span class="msg-erro"></span>
                     </div>
     
                     <div class="info-direita">
-                        <input type="text" placeholder="Redefinir senha">
+                        <input type="password" placeholder="Redefinir senha" id="nova_senha">
+                        <span class="msg-erro"></span>
                     </div>
     
                     <div class="info-direita">
-                        <input type="text" placeholder="Repita senha">
+                        <input type="password" placeholder="Repetir senha anterior" id="repetir_nova_senha">
+                        <span class="msg-erro"></span>
                     </div>
     
                     <div class="info-direita">
-                    <button id="botao-confirmar" class="botao">Confirmar</button>
+                    <button id="botao_confirmar" class="botao">Confirmar</button>
                     </div>
                 </div>
             </div>
 
             <!------------ modal 1---------------->
-            <div id="div_dialog" style="display: none;">
-                <div class="div-pai">
+            <!-- <div id="div_dialog" style="display: none;">
+                <div class="div-pai" id="div_pai_conta">
                 <div class="div-deletar">
 
                     <div class="del-texto">
@@ -131,13 +146,13 @@
                     </div>
                 </div>
                 </div>
-            </div>
+            </div> -->
 
-            <!----------------Modal 2------------------->
+            <!-- --------------Modal 2----------------- -->
     
             <div id="info_direita" style="display: none;">
-                <div class="div-pai">
-                <div class="div-deletar">
+                <div class="div-pai" id="div_pai_senha">
+                <div class="div-deletar" id="div_deletar">
 
                     <div class="del-texto">
                         <h1>Confirmar a senha atual:</h1>
@@ -145,7 +160,8 @@
                     </div>
     
                     <div class="del-label-input">
-                        <input type="password" placeholder="Senha atual:">
+                        <input type="password" placeholder="Senha atual:" id="confirmar_senha_atual">
+                        <span id="msg-erro-confirmar-senha-atual"></span>
                     </div>
     
                     <div class="del-botao">
@@ -159,12 +175,37 @@
         </main>
     </div>
     <!-- Fim do conteúdo principal -->
-    <script src="../../js/dashboard/configuracoes.js"></script>
+    <script src="../js/dashboard/configuracoes.js"></script>
+    <script src="../../js/dashboard/exclusão&updates/configuracoes.js"></script>
     <script src="../../js/dashboard/dashboard.js"></script> <!-- Importando arquivo JavaScript -->
 </body>
 
 </html>
-
-
-
 </html>
+
+<script>
+    
+// Exibir as informações do usuário da sessionStorage
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("config_esquerda").innerHTML = `
+    <h1>Informações do usuário</h1>    
+    <div class="info-esquerda">
+    <div class="infor">
+        <h3>Nome atual:</h3>
+        <span>${sessionStorage.NAME_USER}</span>
+    </div>
+
+    <div class="info">
+        <h3>Email atual:</h3>
+        <span>${sessionStorage.EMAIL}</span>
+    </div>
+
+    <div class="info">
+        <h3>Nome de Usuário atual:</h3>
+        <span>${sessionStorage.NOME_COMPLETO}</span>
+    </div>
+</div>
+    `;
+});
+</script>

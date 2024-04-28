@@ -110,6 +110,14 @@ h2{
     padding: 0 35px 0 5px;
 }
 
+.input-box input:-webkit-autofill {
+    /* Define a cor de fundo */
+    background-color: red; /* Substitua pela cor desejada */
+    /* Outros estilos opcionais */
+    border: 1px solid #ccc;
+    color: #333;
+}
+
 .input-box .icon{
     position: absolute;
     right: 4px;
