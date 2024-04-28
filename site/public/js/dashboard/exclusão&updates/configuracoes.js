@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="info-esquerda">
     <div class="infor">
         <h3>Nome atual:</h3>
-        <span>${sessionStorage.NAME_USER}</span>
+        <span>${sessionStorage.NOME_COMPLETO}</span>
     </div>
 
     <div class="info">
@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     <div class="info">
         <h3>Nome de Usuário atual:</h3>
-        <span>${sessionStorage.NOME_COMPLETO}</span>
+        <span>${sessionStorage.NAME_USER}</span>
     </div>
 </div>
     `;
