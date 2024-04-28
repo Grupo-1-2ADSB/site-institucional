@@ -123,3 +123,27 @@ function trocarInformacoesUser() {
 buttonConfirm2.addEventListener("click", () => {
     validarConfirmarSenhaAtual();
 });
+    
+// Exibir as informações do usuário da sessionStorage
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("config_esquerda").innerHTML = `
+    <h1>Informações do usuário</h1>    
+    <div class="info-esquerda">
+    <div class="infor">
+        <h3>Nome atual:</h3>
+        <span>${sessionStorage.NAME_USER}</span>
+    </div>
+
+    <div class="info">
+        <h3>Email atual:</h3>
+        <span>${sessionStorage.EMAIL}</span>
+    </div>
+
+    <div class="info">
+        <h3>Nome de Usuário atual:</h3>
+        <span>${sessionStorage.NOME_COMPLETO}</span>
+    </div>
+</div>
+    `;
+});

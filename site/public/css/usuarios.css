@@ -604,13 +604,12 @@ main .container form{
     display: flex;
     align-items: center;
     grid-gap: 12px;
-    padding-left: 6px;
     flex-wrap: wrap;
 }
 
 .orders table td img{
-    width: 3em;
-    height: 3em;
+    width: 2em;
+    height: 2em;
     border-radius: 50%;
     object-fit: cover;
 }
@@ -625,7 +624,7 @@ main .container form{
 
 .orders table tr td .btn-excluir-user{
     font-size: 10px;
-    padding: 6px 16px;
+    padding: 6px 10px;
     color: var(--light);
     border-radius: 20px;
     font-weight: 700;
@@ -640,6 +639,21 @@ main .container form{
 
 .orders table tr td .status.pending{
     background: var(--warning);
+}
+
+.orders::-webkit-scrollbar {
+    width: 5px; 
+}
+
+/* Estilo para o thumb (indicador de posição) */
+.orders::-webkit-scrollbar-thumb {
+    background-color: var(--primary); 
+    border-radius: 10px;
+}
+
+/* Estilo para a track (trilha) */
+.orders::-webkit-scrollbar-track {
+    background-color: #f1f1f1; 
 }
 
 .logout {

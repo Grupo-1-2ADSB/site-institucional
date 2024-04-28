@@ -103,8 +103,9 @@ function cadastrarUsuario() {
             if (resposta.ok) {
                 mensagensErro[4].textContent = "Cadastro realizado com sucesso!✅";
                 mensagensErro[4].style.color = "green";
+            
                 setTimeout(() => {
-                    window.location = "../../dashboard/usuarios.html";
+                    location.reload();
                 }, 2000);
             } else {
                 throw new Error("Houve um erro ao tentar realizar o cadastro!");

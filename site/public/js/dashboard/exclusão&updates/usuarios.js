@@ -15,11 +15,14 @@ function criarElementosDosUsuarios(usuarios) {
     const tbodyConteudo = document.getElementById("tbody");
 
     usuarios.forEach(usuario => {
+        const partesNome = usuario.nomeCompleto.split(' ');
+        const nomeAbreviado = partesNome.slice(0,2).join(' ');
+
         const novaTrUsuario = document.createElement("tr");
         novaTrUsuario.innerHTML = `
                 <td>
-                    <img src="../assets/dashboard/usuarios/iconsForms/user-svgrepo-com.svg">
-                    <p>${usuario.nomeCompleto}</p>
+                    <img src="../../assets/dashboard/usuarios/iconsForms/user-svgrepo-com.svg">
+                    <p>${nomeAbreviado}</p>
                 </td>
                 <td><button value="${usuario.idUsuario}" onclick="excluirUsuario(this.value)"  class="btn-excluir-user">Excluir</button></td>
         `;
@@ -51,6 +54,7 @@ function excluirUsuario(valueUsuario) {
     .then(function (resposta) {
         if (resposta.ok) {
             console.log("Usuario com id" + valueUsuario + "deletado");
+            redirecionarPorCargo();
         } else {
             throw new Error("Houve um erro ao tentar excluir usuário");
         }
@@ -61,5 +65,19 @@ function excluirUsuario(valueUsuario) {
     return false;
 }
 
-
+function redirecionarPorCargo() {
+    if (sessionStorage.CARGO === "1") {
+        setTimeout(() => {
+            window.location = "../../dashboard/engenheiroInfra/usuarios.html";
+        }, 2000);
+    } else if (sessionStorage.CARGO === "2") {
+        setTimeout(() => {
+            window.location = "../../dashboard/gerenteInfra/usuarios.html";
+        }, 2000);
+    } else if (sessionStorage.CARGO === "3") {
+        setTimeout(() => {
+            window.location = "../../dashboard/tecnicoInfra/usuarios.html";
+        }, 2000);
+    }
+}
 
