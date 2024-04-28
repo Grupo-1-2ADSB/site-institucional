@@ -6,6 +6,7 @@ function cadastrarUsuario(req, res) {
         nomeUserServer: nomeUser,
         emailServer: email,
         senhaServer: senha,
+        fkUnidadeHospitalarServer: fkUnidadeHospitalar,
         fkCargoServer: fkCargo
     } = req.body;
 
@@ -15,12 +16,13 @@ function cadastrarUsuario(req, res) {
         !nomeUser ||
         !email ||
         !senha ||
+        !fkUnidadeHospitalar||
         !fkCargo
     ) {
         return res.status(400).json({ error: "Todos os campos devem ser preenchidos." });
     }
 
-    usuariosModel.cadastrarUsuario(nomeCompleto, nomeUser, email, senha, fkCargo)
+    usuariosModel.cadastrarUsuario(nomeCompleto, nomeUser, email, senha, fkUnidadeHospitalar, fkCargo)
         .then(function (resultado) {
             res.json(resultado);
         }).catch (function (erro) {

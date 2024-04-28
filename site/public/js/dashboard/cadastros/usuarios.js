@@ -89,7 +89,8 @@ function cadastrarUsuario() {
             nomeUserServer: username.value,
             emailServer: email.value,
             senhaServer: senha.value,
-            fkCargoServer: select_cargo.selectedIndex
+            fkUnidadeHospitalarServer: sessionStorage.HOSPITAL,
+            fkCargoServer: select_cargo.selectedIndex,
         };
 
         fetch("/usuarios/cadastrarUsuario", {
