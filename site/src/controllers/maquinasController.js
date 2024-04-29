@@ -1,22 +1,36 @@
 var maquinasModel = require("../models/maquinasModel");
 
 function cadastrarMaquinas(req, res){
-    let hostname = req.body.hostnameServer;
-    let ip = req.body.ipServer;
-    let os = req.body.osServer;
+    const {
+        soServer: nomeSO,
+        versaoSOServer: versaoSO,
+        arquiteturaSOServer: arquiteturaSO,
+        nomeMaquinaServer: nomeMaquina,
+        localizacaoServer: localizacao,
+        statusMaquinaServer: statusMaquina,
+        fkUnidadeHospitalarServer: fkUnidadeHospitalar
+    } = req.body;
 
-    limparMensagensErro();
+    if (
+        !nomeSO ||
+        !versaoSO ||
+        !arquiteturaSO ||
+        !nomeMaquina ||
+        !localizacao ||
+        !statusMaquina ||
+        !fkUnidadeHospitalar
+    ) {
+        return res.status(400).json({ error: "Todos os campos devem ser preenchidos." });
+    }
 
-    if(hostname.value == "" || hostname.value.length < 4){
-        mensagensErro[0].textContent = "*Preencha o campo com 4 caracteres, no mínimo.";
-        return false;
-    } else if (ip.value == "" || ip.value.length < 15 ){
-        mensagensErro[1].textContent = "*Preencha o campo com 15 caracteres, no mínimo."
-        return false;
-    } else if(os.value == "" || os.value.length < 5){
-        mensagensErro[2].textContent = "*Preencha o campo com 5 caracteres, no mínimo."
-        return false;
-    } 
+    maquinasModel.cadastrarMaquinas(nomeSO,versaoSO, arquiteturaSO, nomeMaquina, localizacao, statusMaquina, fkUnidadeHospitalar)
+        .then(function (resultado) {
+            res.json(resultado);
+        }).catch (function (erro) {
+            console.error("Houve um erro ao realizar o cadastro: ", erro);
+            res.status(500).json({ error: "Houve um erro ao realizar o cadastro."});
+        });
+  
 }
 
 function obterMaquinasDoBanco(req, res){

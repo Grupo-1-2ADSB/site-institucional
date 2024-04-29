@@ -119,16 +119,24 @@
     <div id="modalCadastro" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
+
             <h2>Cadastro de Nova Máquina</h2>
             <form id="machineForm">
-                <div class="form-group">
-                    <label for="hostname">Hostname:</label>
-                    <input type="text" id="hostname" name="hostname" required>
+                <div class="secao-info-so">
+                    <div class="form-group">
+                    <select name="soMaquina" id="">
+                        <option value="default" default>Selecione um Sistema Operacional</option>
+                        <option value="windows">Windows</option>
+                    </select>
                 </div>
+                </div>
+                
+
                 <div class="form-group">
                     <label for="ip">IP:</label>
                     <input type="text" id="ip" name="ip" required>
                 </div>
+
                 <div class="form-group">
                     <label for="os">Sistema Operacional:</label>
                     <input type="text" id="os" name="os" required>
