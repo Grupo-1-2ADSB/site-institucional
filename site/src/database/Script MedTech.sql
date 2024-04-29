@@ -50,7 +50,7 @@ CREATE TABLE Computador (
   idComputador INT PRIMARY KEY AUTO_INCREMENT,
   nome VARCHAR(45),
   localizacao VARCHAR(45),
-  statusPC TINYINT,
+  statusPC VARCHAR(15) CHECK (statusPC IN ('manutenção', 'ativado', 'desativado')),
   fkUnidadeHospitalar INT,
   fkSO INT, 
   FOREIGN KEY (fkUnidadeHospitalar) REFERENCES UnidadeHospitalar(idUnidadeHospitalar),
