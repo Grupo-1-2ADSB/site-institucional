@@ -19,4 +19,8 @@ router.put("/trocarInformacoesUser/:idUsuario", function (req, res) {
     usuariosController.trocarInformacoesUser(req, res);
 })
 
+router.get("/exibirCargos", function (req, res){
+    usuariosController.exibirCargos(req, res);
+})
+
 module.exports = router;
