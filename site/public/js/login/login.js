@@ -24,12 +24,13 @@ sign_in_btn2.addEventListener("click", () => {
 // validção dos inputs
 
 function validarLogin(){
-    const userNameVar = senha_input.value;
+    const emailVar = email_input.value;
     const senhaVar = senha_input.value;
-    const regexSenha = /^(?=.*[0-9]).{8,}$/;
+    const regexSenha = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W)[\d\w\W]{8,}$/;
+    const regexEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,}$/;
     
     var validacao_senha01 = senhaVar == "";
-    var validacao_email01 = userNameVar == "";
+    var validacao_email01 = emailVar == "";
 
   
     if(validacao_senha01 && validacao_email01){
@@ -60,6 +61,12 @@ function validarLogin(){
         cardMsg.style.color = "red"
         cardMsg.innerHTML = "❌ Senha INVÁLIDA";
 
+    } else if (!regexEmail.test(emailVar)){
+        cardMsg.style.display = "block"
+        cardMsg.style.border = "2px solid red"
+        cardMsg.style.boxShadow = "0px 0px 4px rgba(0, 0, 0, 0.7)"
+        cardMsg.style.color = "red"
+        cardMsg.innerHTML = "❌ e-mail INVÁLIDO";
     } else {
         logar()
     }

@@ -83,10 +83,15 @@ function trocarInformacoesUser(req, res) {
     }
 }
 
+function exibirCargos(){
+
+}
+
 
 module.exports = {
     cadastrarUsuario,
     excluirUsuario,
     obterUsuariosDoBanco,
-    trocarInformacoesUser
+    trocarInformacoesUser,
+    exibirCargos
 }

@@ -96,7 +96,9 @@ VALUES
   
 -- Inserindo usuários (Proto personas)
 INSERT INTO Usuario (idUsuario, nomeCompleto, nomeUser, email, senha, fkUnidadeHospitalar, fkCargo)
-VALUES (NULL, 'João Silva', 'joaoTeste', 'joao.silva@teste.com', 'Teste123', 1, 1);
+VALUES (NULL, 'Pedro Henrique', 'PH', 'pedroHenrique@upaZonaSulSantos.com', 'Senha123!', 2, 1),
+	   (NULL, 'Ana Luiza', 'Ana_luiza', 'anaLuiza@upaZonaSulSantos.com', 'Senha123!', 2, 2),
+       (NULL, 'John', 'devJohn', 'John@upaZonaSulSantos.com', 'Senha123!', 2, 3);
 
 
 SELECT * FROM hardware JOIN computador ON fkComputador = idComputador;

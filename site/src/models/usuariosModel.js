@@ -27,9 +27,17 @@ function trocarInformacoesUser(idUsuario, novoUsername, novoEmail, novaSenha) {
     return database.executar(instrucao);
 }
 
+function exibirCargos(selectCargo){
+    console.log(`Acessei o usuariosModel.js, executei exibirCargos()`);
+    var instrucao = `SELECT nome FROM Cargo;`;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     cadastrarUsuario,
     excluirUsuario,
     obterUsuariosDoBanco,
-    trocarInformacoesUser
+    trocarInformacoesUser,
+    exibirCargos
 };

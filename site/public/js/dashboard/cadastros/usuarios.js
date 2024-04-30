@@ -6,6 +6,40 @@ selectCargo.addEventListener("change", function() {
     this.style.color = corSelecionada;
 });
 
+// Função para exibir options de Cargos
+function exibirCargos(){
+    fetch(`/usuarios/exibirCargos`)
+        .then(function (resposta) {
+            if(resposta.ok){
+                resposta.json().then(json =>{
+                    selectCargo.innerHTML = "";
+                    let option1 = document.createElement("option");
+                    option1.innerHTML = "Todos os estados";
+                    option1.setAttribute("value", "0");
+                    option1.setAttribute("selected", "");
+                    selectCargo.appendChild(option1);
+
+                    for(let i = 0; i < json.length; i++){
+                        let cargo = json[i].cargo;
+
+                        let option = document.createElement("option");
+                        option.innerHTML = cargo;
+                        option.setAttribute("value", cargo);
+                        selectCargo.appendChild(option);
+                    }
+
+                })
+            } else {
+                resposta.text().then(texto =>{
+                    console.error(texto);
+                })
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+        });
+    return false;
+}
+
 // // Função para trocar o tipo dos inputs de senha e mudar o icon do olho
 function trocarIconOlho(input, span) {
     if (input.type === "password") {
@@ -90,7 +124,7 @@ function cadastrarUsuario() {
             emailServer: email.value,
             senhaServer: senha.value,
             fkUnidadeHospitalarServer: sessionStorage.HOSPITAL,
-            fkCargoServer: select_cargo.selectedIndex,
+            fkCargoServer: select_cargo.value,
         };
 
         fetch("/usuarios/cadastrarUsuario", {
