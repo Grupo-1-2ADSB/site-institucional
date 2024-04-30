@@ -37,8 +37,7 @@ function obterMaquinasDoBanco(req, res){
     maquinasModel.obterMaquinasDoBanco()
         .then(function(maquinas){
             res.json(maquinas);
-    })
-        .catch(function (erro){
+        }).catch(function (erro){
             console.error("Erro ao obter maquinas:", erro);
             res.status(500).json({error: "Erro ao obter maquinas."})
         })

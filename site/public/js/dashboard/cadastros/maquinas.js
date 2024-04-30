@@ -13,45 +13,6 @@ document.querySelectorAll('.modal .close').forEach(function(closeBtn) {
     });
 });
 
-
-// Função para cadastrar máquina
-function registerMachine() {
-    var form = document.getElementById('machineForm');
-    var hostname = form.hostname.value;
-    var ip = form.ip.value;
-    var os = form.os.value;
-
-    // Exibindo os dados no console para fins de teste e enviando para
-    console.log("Hostname:", hostname);
-    console.log("IP:", ip);
-    console.log("Sistema Operacional:", os);
-
-    fetch('/maquinas/registerMachine', {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            hostnameServer: hostname,
-            ipServer: ip,
-            osServer: os
-        })
-    }).then(function (resposta){
-        console.log("resposta: ", resposta);
-        if(resposta.ok){
-            mensagensErro[4].textContent = "Cadastro realizado com sucesso!✅";
-            mensagensErro[4].style.color = "green";
-        }
-    })
-
-
-
-    // Fechar o modal de cadastro após o envio do formulário
-    var modal = document.getElementById('modalCadastro');
-    modal.style.display = "none";
-    form.reset(); // Limpar os campos do formulário
-}
-
 // Obtém o modal de detalhes da máquina
 var modalDetalhes = document.getElementById("modalDetalhes");
 
@@ -146,7 +107,7 @@ function validarForms() {
 function cadastrarMaquina() {
     if (validarForms()) {
         const dados = {
-            soServer: sos_maquina.selectedIndex,
+            soServer: sos_maquina.value,
             versaoSOServer: inputVersaoSO.value,
             arquiteturaSOServer: inputArquitetura.value,
             nomeMaquinaServer: inputNome.value,

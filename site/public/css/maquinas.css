@@ -155,9 +155,9 @@ button:hover {
   background-color: #f0f0f0;
 }
 
-.machine-info {
+/* .machine-info {
   display: none;
-}
+} */
 /* Estilos para a lista de máquinas */
 .registered-machines {
   margin-top: 20px;
@@ -187,6 +187,11 @@ button:hover {
 
 .status-inactive {
   color: red;
+}
+
+.status-maintenance {
+    color: rgb(221, 145, 3);
+    font-weight: bold;
 }
 
 /* Estilos para os modais */
