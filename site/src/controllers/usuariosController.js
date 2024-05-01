@@ -83,8 +83,17 @@ function trocarInformacoesUser(req, res) {
     }
 }
 
-function exibirCargos(){
-
+function exibirCargos(req, res){
+    usuariosModel.exibirCargos().then(function (resultado){
+        if (resultado.length > 0){
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum cargo encontrado!")
+        }
+    }).catch(function (erro){
+        console.log(erro);
+        res.status(500).json(erro.sqlMessage);
+    });
 }
 
 

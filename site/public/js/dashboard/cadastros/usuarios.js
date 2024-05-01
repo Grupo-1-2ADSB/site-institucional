@@ -7,38 +7,40 @@ selectCargo.addEventListener("change", function() {
 });
 
 // Função para exibir options de Cargos
-function exibirCargos(){
-    fetch(`/usuarios/exibirCargos`)
+
+function obterCargos() {
+    return fetch(`/usuarios/exibirCargos`)
         .then(function (resposta) {
-            if(resposta.ok){
-                resposta.json().then(json =>{
-                    selectCargo.innerHTML = "";
-                    let option1 = document.createElement("option");
-                    option1.innerHTML = "Todos os estados";
-                    option1.setAttribute("value", "0");
-                    option1.setAttribute("selected", "");
-                    selectCargo.appendChild(option1);
-
-                    for(let i = 0; i < json.length; i++){
-                        let cargo = json[i].cargo;
-
-                        let option = document.createElement("option");
-                        option.innerHTML = cargo;
-                        option.setAttribute("value", cargo);
-                        selectCargo.appendChild(option);
-                    }
-
-                })
-            } else {
-                resposta.text().then(texto =>{
-                    console.error(texto);
-                })
+            if(!resposta.ok) {
+                throw new Error("Erro ao obter cargo do banco de dados");
             }
-        }).catch(function (erro) {
+            return resposta.json();
+        })
+        .catch(function (erro) {
             console.log(erro);
         });
-    return false;
 }
+
+function criarOptionsDosCargos(cargos) {
+    for (let i = 0; i < cargos.length; i++){
+        let cargo = cargos[i].nome;
+
+        const novaOpt = document.createElement("option");
+        
+        novaOpt.innerHTML = `
+        <option value="${cargo}">${cargo}</option>
+        `;
+
+        selectCargo.appendChild(novaOpt);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    obterCargos()
+        .then(cargos => {
+            criarOptionsDosCargos(cargos);
+        })
+})
 
 // // Função para trocar o tipo dos inputs de senha e mudar o icon do olho
 function trocarIconOlho(input, span) {
@@ -124,7 +126,7 @@ function cadastrarUsuario() {
             emailServer: email.value,
             senhaServer: senha.value,
             fkUnidadeHospitalarServer: sessionStorage.HOSPITAL,
-            fkCargoServer: select_cargo.value,
+            fkCargoServer: cargos.selectedIndex,
         };
 
         fetch("/usuarios/cadastrarUsuario", {
