@@ -1,0 +1,196 @@
+/* Importando a fonte Poppins do Google Fonts com diferentes pesos */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.header{
+    position: fixed;
+    background: transparent;
+
+    width: 100%;
+    font-size: 30px;
+
+    /* display: flex;
+    justify-content: start;
+    align-items: center; */
+}
+ 
+.med a{
+    display: flex;
+    align-items: center;
+    padding: 20px 20px;
+}
+
+header a{
+    text-decoration: none;
+    color: #fff;
+    font-size: larger;
+}
+
+header a:hover{
+    color: #c5c0c0;
+}
+
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+
+    /* background-color: #084D6E; */
+    background: url("../assets/login/1.1.jpg");
+    background-size: cover;
+    background-position: center;
+
+    /* animation: animateBg 5s linear infinite; */
+}
+
+/* @keyframes animateBg{
+    100%{
+        filter: hue-rotate(360deg);
+    }
+} */
+
+.login-box{
+    position: relative;
+    width: 400px;
+    height: 450px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(15px);
+}
+
+h2{
+    font-size: 2em;
+    color: #fff;
+    text-align: center;
+}
+
+.input-box{
+    position: relative;
+    width: 310px;
+    margin: 30px 0;
+    border-bottom: 2px solid #fff;
+}
+
+.input-box label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label{
+    top: -5px;
+}
+
+.input-box input{
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #fff;   
+    padding: 0 35px 0 5px;
+}
+
+.input-box input:-webkit-autofill {
+    /* Define a cor de fundo */
+    background-color: red; /* Substitua pela cor desejada */
+    /* Outros estilos opcionais */
+    border: 1px solid #ccc;
+    color: #333;
+}
+
+.input-box .icon{
+    position: absolute;
+    right: 4px;
+    color: #fff;
+    font-size: 1.2em;
+    line-height: 57px;
+}
+
+.checkbox{
+    margin: -15px 0 15px;
+    font-size: .9em;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkbox label input{
+    margin-right: 3px;
+}
+
+.checkbox a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.checkbox a:hover{
+    text-decoration: underline;
+}
+
+button{
+    width: 100%;
+    height: 40px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #000;
+    font-weight: 500;
+}
+
+button:hover{
+    background-color: #c5c0c0;
+}
+
+@media (max-width: 360px){
+    .login-box{
+        width: 100%;
+        height: 100vh;
+        border: none;
+        border-radius: 0;
+    }
+
+    .input-box{
+        width: 290px;
+    }
+}
+
+/* @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+ */
+
+/* Card de mensagem geral */
+
+#cardMsg {
+    position: fixed;
+    display: none;
+    background-color: #F1F8FF;
+    padding: 10px 20px;
+    top: 40px;
+    right: 20px;
+    font-size: 14px;
+    font-weight: bolder;
+    border-radius: 5px;
+    z-index: 10000;
+}

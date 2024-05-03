@@ -48,3 +48,13 @@ toggler.addEventListener('change', function () {
         document.body.classList.remove('dark');
     }
 });
+
+// Função para o usuário sair da sessão e apagar as informações do session.Storage
+
+function logout() {
+    sessionStorage.clear();
+
+    setTimeout(function() {
+        window.location.href = "../../index.html";
+    }, 1000);
+}

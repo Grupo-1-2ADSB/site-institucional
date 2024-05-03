@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="../css/analytics.css">
+    <link rel="stylesheet" href="../../css/analytics.css">
     <title>Analytics | MedTech</title>
 </head>
 
@@ -22,14 +22,12 @@
         <ul class="side-menu">
             <li><a href="dashboard.html"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
             <li class="active"><a href="#"><i class='bx bx-analyse'></i>Analytics</a></li>
-            <li><a href="usuarios.html"><i class='bx bx-group'></i>Usuários</a></li>
-            <li><a href="maquinas.html"><i class='bx bx-desktop'></i>Máquinas</a></li>
             <li><a href="configuracoes.html"><i class='bx bx-cog'></i>Configurações</a></li>
         </ul>
         <!-- Menu de logout -->
         <ul class="side-menu">
             <li>
-                <a href="#" class="logout">
+                <a onclick="logout()" class="logout">
                     <i class='bx bx-log-out-circle'></i>
                     Sair
                 </a>
@@ -56,7 +54,7 @@
                 <span class="count">12</span> <!-- Contagem de notificações -->
             </a>
             <a href="#" class="profile">
-                <img src="../assets/images/logoMedTech.png"> <!-- Imagem da logo -->
+                <img src="../../assets/images/logoMedTech.png"> <!-- Imagem da logo -->
             </a>
         </nav>
         <!-- Fim da barra de navegação -->
@@ -128,7 +126,7 @@
                             <tr>
                                 <td>
                                     <img
-                                        src="https://pm1.aminoapps.com/8927/70081d2146af8532fea0638e7e960b68f23025a5r1-735-736v2_uhq.jpg">
+                                        src="../../assets/dashboard/usuarios/iconsForms/user-svgrepo-com.svg">
                                     <p>Kauã Nunes</p>
                                 </td>
                                 <td>23-03-2024</td>
@@ -137,7 +135,7 @@
                             <tr>
                                 <td>
                                     <img
-                                        src="https://pm1.aminoapps.com/8209/33a84f48852bee9f54addaf6b8a500ba47c0456fr1-720-721v2_hq.jpg">
+                                        src="../../assets/dashboard/usuarios/iconsForms/user-svgrepo-com.svg">
                                     <p>Bia Rosa</p>
                                 </td>
                                 <td>15-03-2024</td>
@@ -145,7 +143,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <img src="https://i.pinimg.com/736x/d0/66/6a/d0666ab048429c9f6e4393ca26549fdf.jpg">
+                                    <img src="../../assets/dashboard/usuarios/iconsForms/user-svgrepo-com.svg">
                                     <p>Lucas de Paula</p>
                                 </td>
                                 <td>14-03-2022</td>
@@ -231,8 +229,17 @@
                 modal.style.display = 'none';
             }
         }
-    </script>
 
+        // Função de logout
+
+        function logout() {
+            sessionStorage.clear();
+
+            setTimeout(function() {
+                window.location.href = "../../index.html";
+            }, 2000);
+        }
+    </script>
 </body>
 
 </html>
