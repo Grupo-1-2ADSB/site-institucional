@@ -3,117 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <link rel="stylesheet" href="./css/login.css">
-    <title>Document</title>
+    <link rel="stylesheet" href=".//css/login.css">
+    <title>Login</title>
 </head>
 <body>
 
-<div class="container">
-    <div class="signin-signup">
+    <div id="cardMsg"></div>
+    <header class="header">
+        <div class="med">
+            <a href="./index.html" class="logo"><img src="./assets/index/footer/logo-branco-nobackground.svg" width="15%"></a>
+        </div>
+    </header>
 
-        <form action="" class="sign-in-form">
-            <h2 class="title">Login</h2>
-            <div class="input-field">
-                <i class="fas fa-user"></i>
-                <input type="text" placeholder="Usuario">
+    <section>
+    <div class="login-box">
+        <div class="box">
+            <h2>Login</h2>
+            <div class="input-box">
+                <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+                <input type="email" id="email_input" required>
+                <label>E-mail</label>
             </div>
 
-            <div class="input-field">
-                <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Senha">
-            </div>
-            
-            <input type="submit" value="Login" class="btn">
-
-            <p class="social-text">faça login na plataforma social</p>
-
-            <div class="social-media">
-                <a href="#" class="social-icon">
-                    <i class="fab fa-facebook"></i>
-                </a>
-                <a href="#" class="social-icon">
-                    <i class="fab fa-facebook"></i>
-                </a>
-                <a href="#" class="social-icon">
-                    <i class="fab fa-facebook"></i>
-                </a>
-                <a href="#" class="social-icon">
-                    <i class="fab fa-facebook"></i>
-                </a>
+            <div class="input-box">
+                <span class="icon"><ion-icon name="bag-outline"></ion-icon></span>
+                <input type="password" id="senha_input" required>
+                <label>Senha</label>
             </div>
 
-            <p class="account-text">Não tenho uma conta? <a href="#" id="sign-up-btn2">cadastro</a></p>
-        </form>
-
-        <form action="" class="sign-up-form">
-
-            <h2 class="title">Cadastrar</h2>
-
-            <div class="input-field">
-                <i class="fas fa-user"></i>
-                <input type="text" placeholder="Usuario">
+            <div class="checkbox">
+                 <label> <input type="checkbox">Lembre-se</label>
+                 <a href="#">Esqueceu a senha?</a>
             </div>
+            <button type="submit" onclick="validarLogin()">Login</button>
 
-            <div class="input-field">
-                <i class="fas fa-envelope"></i>
-                <input type="text" placeholder="Email">
-            </div>
-
-            <div class="input-field">
-                <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Criar senha">
-            </div>
-
-            <div class="input-field">
-                <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Confirmar Senha">
-            </div>
-            
-            <input type="submit" value="cadastro" class="btn">
-
-            <p class="social-text">faça login na plataforma social</p>
-            
-            <div class="social-media">
-                <a href="#" class="social-icon">
-                    <i class="fab fa-facebook"></i>
-                </a>
-                <a href="" class="social-icon">
-                    <i class="fab fa-facebook"></i>
-                </a>
-                <a href="" class="social-icon">
-                    <i class="fab fa-facebook"></i>
-                </a>
-                <a href="" class="social-icon">
-                    <i class="fab fa-facebook"></i>
-                </a>
-            </div>
-
-            <p class="account-text">já tem uma conta? <a href="#" id="sign-in-btn2">login</a></p>
-        </form>
-    </div>
-
-        <div class="panels-container">
-            <div class="panel left-panel">
-                <div class="content">
-                    <h3>Membro da plataforma?</h3>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere, vel! Quaerat unde odio quod quidem exercitationem quisquam ipsam quos accusantium eos nobis voluptatibus nemo velit quis ad, amet voluptates. Dolor!</p>
-                    <div class="btn" id="sign-in-btn">Login</div>
-                </div>
-                <img src="./assets/index/footer/logo-branco-nobackground.svg" alt="" class="image">
-            </div>
-
-            <div class="panel right-panel">
-                <div class="content">
-                    <h3>Novo na plataforma?</h3>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere, vel! Quaerat unde odio quod quidem exercitationem quisquam ipsam quos accusantium eos nobis voluptatibus nemo velit quis ad, amet voluptates. Dolor!</p>
-                    <div class="btn" id="sign-up-btn">cadastro</div>
-                </div>
-                <img src="./assets/index/footer/logo-branco-nobackground.svg" alt="" class="image">
-            </div>
         </div>
     </div>
+</section>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="js/login/login.js"></script>
 </body>
 </html>
-<script src="./js/login/login.js"></script>

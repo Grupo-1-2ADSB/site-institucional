@@ -595,23 +595,23 @@ body {
     padding-left: 6px;
 }
 
-.content main .bottom-data .orders table td img{
+.bottom-data .orders table td img{
     width: 36px;
     height: 36px;
     border-radius: 50%;
     object-fit: cover;
 }
 
-.content main .bottom-data .orders table tbody tr{
+.bottom-data .orders table tbody tr{
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
-.content main .bottom-data .orders table tbody tr:hover{
+.bottom-data .orders table tbody tr:hover{
     background: var(--grey);
 }
 
-.content main .bottom-data .orders table tr td .status{
+.bottom-data .orders table tr td .status{
     font-size: 10px;
     padding: 6px 16px;
     color: var(--light);
@@ -619,15 +619,15 @@ body {
     font-weight: 700;
 }
 
-.content main .bottom-data .orders table tr td .status.completed{
+.bottom-data .orders table tr td .status.completed{
     background: var(--success);
 }
 
-.content main .bottom-data .orders table tr td .status.process{
+.bottom-data .orders table tr td .status.process{
     background: var(--primary);
 }
 
-.content main .bottom-data .orders table tr td .status.pending{
+.bottom-data .orders table tr td .status.pending{
     background: var(--warning);
 }
 
@@ -674,6 +674,10 @@ body {
 
 .content main .bottom-data .reminders .task-list li:last-child{
    margin-bottom: 0;
+}
+
+.logout {
+    cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {

@@ -1,284 +1,196 @@
+/* Importando a fonte Poppins do Google Fonts com diferentes pesos */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* font-family: ; */
+    font-family: 'Poppins', sans-serif;
 }
 
-body{
+.header{
+    position: fixed;
+    background: transparent;
+
+    width: 100%;
+    font-size: 30px;
+
+    /* display: flex;
+    justify-content: start;
+    align-items: center; */
+}
+ 
+.med a{
     display: flex;
     align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background: #074c7ed2;
+    padding: 20px 20px;
 }
 
-.container{
+header a{
+    text-decoration: none;
+    color: #fff;
+    font-size: larger;
+}
+
+header a:hover{
+    color: #c5c0c0;
+}
+
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+
+    /* background-color: #084D6E; */
+    background: url("../assets/login/1.1.jpg");
+    background-size: cover;
+    background-position: center;
+
+    /* animation: animateBg 5s linear infinite; */
+}
+
+/* @keyframes animateBg{
+    100%{
+        filter: hue-rotate(360deg);
+    }
+} */
+
+.login-box{
     position: relative;
-    width: 70vw;
-    height: 80vh;
-    background: #fff;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
-    overflow: hidden;
-}
-
-.container::before{
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -50%;
-    width: 100%;
-    height: 100%;
-    background: #81a7c2;
-    /* background: linear-gradient(90deg, rgba(82,124,153,1) 0%, rgba(122,165,196,1) 50%, rgba(193,205,214,1) 100%); */
-    z-index: 6;
-    transform: translateX(100%);
-    transition: 1s ease-in-out;
-}
-
-.signin-signup{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    width: 400px;
+    height: 450px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
     display: flex;
-    align-items: center;
-    justify-content: space-around;
-    z-index: 5;
-}
-
-form{
-    display: flex;
-    align-items: center;
     justify-content: center;
-    flex-direction: column;
-    width: 40%;
-    min-width: 238px;
-    padding: 0 10px;
-}
-form.sign-in-form{
-    opacity: 1;
-    transition: 0.5s ease-in-out;
-    transition-delay: 1s;
+    align-items: center;
+    backdrop-filter: blur(15px);
 }
 
-form.sign-up-form{
-    opacity: 0;
-    transition: 0.5s ease-in-out;
-    transition-delay: 1s;
+h2{
+    font-size: 2em;
+    color: #fff;
+    text-align: center;
 }
 
-.title{
-    font-size: 35px;
-    color: #074c7ed2;
-    margin-bottom: 10px;
+.input-box{
+    position: relative;
+    width: 310px;
+    margin: 30px 0;
+    border-bottom: 2px solid #fff;
 }
 
-.input-field{
+.input-box label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label{
+    top: -5px;
+}
+
+.input-box input{
     width: 100%;
     height: 50px;
-    background: #f0f0f0;
-    margin: 10px 0;
-    border: 2px solid #074c7ed2;
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-}
-
-.input-field i{
-    flex: 1;
-    text-align: center;
-    font-size: 18px;
-}
-
-.input-field input{
-    flex: 5;
-    background: none;
+    background: transparent;
     border: none;
     outline: none;
-    width: 100%;
-    font-size: 18px;
-    font-weight: 600;
+    font-size: 1em;
+    color: #fff;   
+    padding: 0 35px 0 5px;
 }
 
-.btn{
-    width: 150px;
-    height: 50px;
-    border: none;
-    border-radius: 50px;
-    background: #074c7ed2;
+.input-box input:-webkit-autofill {
+    /* Define a cor de fundo */
+    background-color: red; /* Substitua pela cor desejada */
+    /* Outros estilos opcionais */
+    border: 1px solid #ccc;
+    color: #333;
+}
+
+.input-box .icon{
+    position: absolute;
+    right: 4px;
     color: #fff;
-    font-weight: 600;
-    margin: 10px 0;
-    text-transform: uppercase;
-    cursor: pointer;
+    font-size: 1.2em;
+    line-height: 57px;
 }
 
-.btn:hover{
-    background-color: #074c7e;
-}
-
-.social-text{
-    margin: 10px 0;
-    font-size: 16px;
-}
-
-.social-media{
+.checkbox{
+    margin: -15px 0 15px;
+    font-size: .9em;
+    color: #fff;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 }
 
-.social-icon{
-    height: 45px;
-    width: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #444;
-    border: 1px solid #444 ;
-    border-radius: 50px;
-    margin: 0 5px;
+.checkbox label input{
+    margin-right: 3px;
 }
 
-a{
+.checkbox a{
+    color: #fff;
     text-decoration: none;
 }
 
-.social-icon:hover{
-    color: #074c7e;
-    border: #074c7e;
+.checkbox a:hover{
+    text-decoration: underline;
 }
 
-.panels-container{
-    position: absolute;
-    top: 0;
-    left: 0;
+button{
     width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+    height: 40px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #000;
+    font-weight: 500;
 }
 
-.panel{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    width: 35%;
-    min-width: 238px;
-    padding: 0 10px;
-    text-align: center;
-    z-index: 6;
+button:hover{
+    background-color: #c5c0c0;
 }
 
-.left-panel{
-    pointer-events: none;
-}
-
-.content{
-    color: #fff;
-    transition: 1.1 ease-in-out;
-    transition-delay: 0.5s;
-}
-.panel h3{
-    font-size: 24px;
-    font-weight: 600;
-
-}
-
-.panel p{
-    font-size: 15px;
-    padding: 10px 0;
-}
-
-.image{
-    width: 100%;
-    transition: 1.1s ease-in-out;
-    transition-delay: 0.4s;
-}
-
-.left-panel .image,
-.left-panel .content{
-    transform: translateX(-200%);
-}
-.right-panel .image,
-.right-panel .content{
-    transform: translateX(0);
-}
-
-.account-text{
-    display: none;
-}
-
-/* Animação */
-.container.sign-up-mode::before{
-    transform: translateX(0);
-}
-.container.sign-up-mode .right-panel .image,
-.container.sign-up-mode .right-panel .content{
-    transform: translateX(200%);
-}
-.container.sign-up-mode .left-panel .image,
-.container.sign-up-mode .left-panel .content{
-    transform: translateX(0);
-}
-
-.container.sign-up-mode form.sign-in-form{
-    opacity: 0;   
-}
-
-.container.sign-up-mode form.sign-up-form{
-    opacity: 1;   
-}
-
-.container.sign-up-mode .right-panel{
-    pointer-events: none;
-}
-
-.container.sign-up-mode .left-panel{
-    pointer-events: all;
-}
-
-/* Responsive */
-
-@media (max-width:779px){
-    .container{
-        width: 100vw;
+@media (max-width: 360px){
+    .login-box{
+        width: 100%;
         height: 100vh;
+        border: none;
+        border-radius: 0;
+    }
+
+    .input-box{
+        width: 290px;
     }
 }
 
-@media (max-width:635px){
-    .container::before{
-        display: none;
-    }
-    form{
-        width: 80%;
-    }
-    form.sign-up-form{
-        display: none;
-    }
-    .container.sign-up-mode2 form.sign-up-form{
-        display: flex;
-        opacity: 1;
-    }
-    .container.sign-up-mode2 form.sign-in-form{
-        display: none;
-    }
-    .panels-container{
-        display: none;
-    }
-    .account-text{
-        display: initial;
-        margin-top: 30px;
-    }
-}
+/* @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+ */
 
-@media (max-width:320px){
-    form{
-        width: 90%;
-    }
+/* Card de mensagem geral */
+
+#cardMsg {
+    position: fixed;
+    display: none;
+    background-color: #F1F8FF;
+    padding: 10px 20px;
+    top: 40px;
+    right: 20px;
+    font-size: 14px;
+    font-weight: bolder;
+    border-radius: 5px;
+    z-index: 10000;
 }
