@@ -7,7 +7,7 @@ router.post("/cadastrarMaquinas", function (req, res){
     maquinasController.cadastrarMaquinas(req, res);
 });
 
-router.get("/obterMaquinasDoBanco" , function(req, res){
+router.get("/obterMaquinasDoBanco/:fkUnidadeHospitalar", function(req, res){
     maquinasController.obterMaquinasDoBanco(req, res);
 });
 

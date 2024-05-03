@@ -25,8 +25,8 @@ function excluirMaquinas(valueMaquinas) {
     return database.executar(instrucao);
 }
 
-function obterMaquinasDoBanco() {
-    var instrucao = `SELECT * FROM computador JOIN sistemaOperacional ON fkSO = idSO;`;
+function obterMaquinasDoBanco(fkUnidadeHospitalar) {
+    var instrucao = `SELECT * FROM computador JOIN sistemaOperacional ON fkSO = idSO WHERE fkUnidadeHospitalar = ${fkUnidadeHospitalar};`;
 
     return database.executar(instrucao);
 }

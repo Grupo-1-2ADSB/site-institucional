@@ -1,5 +1,6 @@
 function obterMaquinasDoBanco() {
-    return fetch("/maquinas/obterMaquinasDoBanco")
+    const fkUnidadeHospitalar = sessionStorage.HOSPITAL;
+    return fetch(`/maquinas/obterMaquinasDoBanco/${fkUnidadeHospitalar}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error("Erro ao obter maquinas do banco de dados");
@@ -13,7 +14,6 @@ function obterMaquinasDoBanco() {
 
 function criarElementosDasMaquinas(maquinas) {
     const machineList = document.getElementById("machineList");
-
 
     maquinas.forEach(maquina => {
         let statusClass = "";
@@ -34,8 +34,15 @@ function criarElementosDasMaquinas(maquinas) {
         const novaLiMaquina = document.createElement("li");
 
         novaLiMaquina.innerHTML = `
-            <i class="bx bx-desktop"></i> 
-            <span class="machine-name">${maquina.nome}</span> - <span class="machine-ip">${maquina.localizacao}</span> - <span class="${statusClass}">${maquina.statusPC}</span>
+            <div class="li-info-maquinas">
+                <i class="bx bx-desktop"></i> 
+                <span class="machine-name">${maquina.nome}</span> - <span class="machine-ip">${maquina.localizacao}</span> - <span class="${statusClass}">${maquina.statusPC}</span>
+            </div>
+            <div class="li-btns">
+                <button class="btn-editar-maquina" id="btn_editar_maquina" onclick="editarInformacoesMaq(event)">Editar informações</button>
+                <button class="btn-excluir-maquina" id="btn_excluir_maquina" onclick="excluirMaq(event)">Excluir Máquina</button>
+            </div>
+
         `;
 
         novaLiMaquina.addEventListener("click", () => {
@@ -73,3 +80,13 @@ document.addEventListener("DOMContentLoaded", () => {
             criarElementosDasMaquinas(maquinas);
         })
 })
+
+function editarInformacoesMaq(event) {
+    event.stopPropagation();
+    console.log("FUNÇÃO EDITAR INFORMAÇÕES MÁQUINA");
+}
+
+function excluirMaq(event) {
+    event.stopPropagation();
+    console.log("FUNÇÃO EXCLUIR MÁQUINA");
+}

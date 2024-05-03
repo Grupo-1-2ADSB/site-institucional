@@ -34,14 +34,16 @@ function cadastrarMaquinas(req, res){
 }
 
 function obterMaquinasDoBanco(req, res){
-    maquinasModel.obterMaquinasDoBanco()
+    const fkUnidadeHospitalar = req.params.fkUnidadeHospitalar;
+    maquinasModel.obterMaquinasDoBanco(fkUnidadeHospitalar)
         .then(function(maquinas){
             res.json(maquinas);
         }).catch(function (erro){
             console.error("Erro ao obter maquinas:", erro);
             res.status(500).json({error: "Erro ao obter maquinas."})
         })
-}
+    }
+
 
 function excluirMaquinas(req, res) {
     const valueMaquinas = req.body.valueMaquinasServer; 

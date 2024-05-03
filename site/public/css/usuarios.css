@@ -448,12 +448,6 @@ main .container form{
     background-color: #FFF;
     border-radius: 2em;
 
-    .msg-erro {
-        font: 300 12px 'Poppins';
-        color: var(--danger);
-        margin-left: 1.9em;
-    }
-
     .forms-container-direita, .forms-container-esquerda {
         display: flex;
         flex-direction: column;
@@ -630,7 +624,12 @@ main .container form{
     font-weight: 700;
     border: none;
     background: var(--primary);
+    transition: opacity 0.4s;
     cursor: pointer;
+}
+
+.orders table tr td .btn-excluir-user:hover {
+    opacity: .8;
 }
 
 .orders table tr td .status.process{
@@ -658,4 +657,10 @@ main .container form{
 
 .logout {
     cursor: pointer;
+}
+
+.msg-erro {
+    font: 300 12px 'Poppins';
+    color: var(--danger);
+    margin-left: 1.9em;
 }

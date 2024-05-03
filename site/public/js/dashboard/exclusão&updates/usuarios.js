@@ -1,5 +1,6 @@
 function obterUsuariosDoBanco() {
-    return fetch("/usuarios/obterUsuariosDoBanco")
+    const fkUnidadeHospitalar = sessionStorage.HOSPITAL;
+    return fetch(`/usuarios/obterUsuariosDoBanco/${fkUnidadeHospitalar}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error("Erro ao obter usuários do banco de dados");

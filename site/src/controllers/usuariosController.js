@@ -48,13 +48,19 @@ function excluirUsuario(req, res) {
 }
 
 function obterUsuariosDoBanco(req, res) {
-    usuariosModel.obterUsuariosDoBanco()
+    const fkUnidadeHospitalar = req.params.fkUnidadeHospitalar;
+
+    if (fkUnidadeHospitalar == undefined) {
+        res.status(400).send("O id está undefined!");
+    } else {
+    usuariosModel.obterUsuariosDoBanco(fkUnidadeHospitalar)
         .then(function (usuarios) {
             res.json(usuarios);
         }).catch (function (erro) {
             console.error("Erro ao obter usuários:", erro);
             res.status(500).json({ error: "Erro ao obter usuários."});
         });  
+    }
 }
 
 function trocarInformacoesUser(req, res) {

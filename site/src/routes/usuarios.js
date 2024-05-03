@@ -11,7 +11,7 @@ router.delete("/excluirUsuario", function(req, res) {
     usuariosController.excluirUsuario(req, res);
 });
 
-router.get("/obterUsuariosDoBanco", function(req, res) {
+router.get("/obterUsuariosDoBanco/:fkUnidadeHospitalar", function(req, res) {
     usuariosController.obterUsuariosDoBanco(req, res);
 });
 

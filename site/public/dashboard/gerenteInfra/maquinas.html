@@ -103,12 +103,13 @@
                     <input type="text" placeholder="Versão SO" id="input_versaoSO">
                     <span class="msg-erro"></span>
 
-                    <select name="soMaquina" id="input_arquitetura">
-                        <option value="default">Selecione uma Arquitetura so</option>
-                        <option value="">x32</option>
-                        <option value="">x64</option>
+                    <select name="soMaquina" id="arquiteturas_so">
+                        <option value="default">Selecione uma Arquitetura SO</option>
+                        <option value="x32">x32</option>
+                        <option value="x64">x64</option>
                     </select>
                     <span class="msg-erro"></span>
+
                     <!-- <input type="text" placeholder="Arquitetura do SO" id="input_arquitetura">
                     <span class="msg-erro"></span> -->
                 </div>
@@ -116,13 +117,13 @@
                 <div class="secao-info-so">
                     <h3>Informações do computador</h3>
 
-                    <input type="text" placeholder="Nome" id="input_nome">
+                    <input class="input1" type="text" placeholder="Nome" id="input_nome">
                     <span class="msg-erro"></span>
 
                     <input type="text" placeholder="Localização" id="input_localizacao">
                     <span class="msg-erro"></span>
 
-                    <div class="form-group">
+                    <div class="form-group2">
                         <select name="soMaquina" id="status_maquina">
                             <option value="default" default>Selecione o status do pc</option>
                             <option value="ativado">Ativo</option>
