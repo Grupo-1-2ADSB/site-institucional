@@ -21,26 +21,6 @@ var closeBtn = document.getElementsByClassName("close")[0];
 
 // Adiciona um evento de clique a cada item da lista de máquinas
 var machineItems = document.querySelectorAll(".registered-machines ul li");
-machineItems.forEach(function(item) {
-    item.addEventListener("click", function() {
-        // Exibe o modal de detalhes da máquina ao clicar em um item da lista
-        modalDetalhes.style.display = "block";
-
-        // Simula dados da máquina (substitua pelos dados reais da sua aplicação)
-        var machineData = {
-            os: "Linux",
-            disk: "50%",
-            network: "25%",
-            ram: "4GB"
-        };
-
-        // Atualiza o conteúdo do modal com os dados da máquina clicada
-        document.getElementById("os").innerText = machineData.os;
-        document.getElementById("disk").innerText = machineData.disk;
-        document.getElementById("network").innerText = machineData.network;
-        document.getElementById("ram").innerText = machineData.ram;
-    });
-});
 
 // Fecha o modal ao clicar no botão de fechar
 closeBtn.onclick = function() {

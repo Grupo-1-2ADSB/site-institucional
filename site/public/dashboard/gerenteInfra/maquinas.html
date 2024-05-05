@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../../css/maquinas.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Máquinas | MedTech</title>
 </head>
 
@@ -138,23 +139,15 @@
             </form>
         </div>
     </div>
-    <!-- Modal de detalhes da máquina -->
-    <div id="modalDetalhes" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Detalhes da Máquina</h2>
-            <div class="machine-info">
-                <p><strong>Sistema Operacional:</strong> <span id="os"></span></p>
-                <p><strong>Consumo de Disco:</strong> <span id="disk"></span></p>
-                <p><strong>Consumo de Rede:</strong> <span id="network"></span></p>
-                <p><strong>Memória RAM:</strong> <span id="ram"></span></p>
-            </div>
-        </div>
+
+    <!-- Modal de editar detalhes da máquina -->
+    <div id="modal_editar_maquinas" class="modal modal-editar-maquina">
     </div>
 
-    <!-- Script JavaScript -->
+        <!-- Script JavaScript -->
     <script src="../../js/dashboard/cadastros/maquinas.js"></script>
     <script src="../../js/dashboard/exclusão&updates/maquinas.js"></script>
+    <script src="../../js/dashboard/maquinasCadUpdt.js"></script>
 </body>
 
 </html>

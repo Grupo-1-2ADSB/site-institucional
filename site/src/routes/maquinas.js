@@ -15,4 +15,9 @@ router.delete("/excluirMaquinas", function(req, res) {
     maquinasController.excluirMaquinas(req, res);
 });
 
+router.put("/editarInformacoesMaq", function(req, res) {
+    maquinasController.editarInformacoesMaq(req, res);
+});
+
+
 module.exports = router;

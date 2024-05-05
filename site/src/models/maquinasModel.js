@@ -19,10 +19,16 @@ function cadastrarMaquinas(nomeSO,versaoSO, arquiteturaSO, nomeMaquina, localiza
     });
 }
 
-function excluirMaquinas(valueMaquinas) {
-    var instrucao = `DELETE FROM ----- WHERE ---------- = ${valueMaquinas};`;
+function excluirMaquinas(idMaquina, fkSOExcluir) {
+    var instrucao = `DELETE FROM Computador WHERE idComputador = ${idMaquina};`;
 
-    return database.executar(instrucao);
+    return database.executar(instrucao).then(() => {
+        var instrucaoSO = `
+        DELETE FROM SistemaOperacional WHERE idSO = ${fkSOExcluir};
+        `;
+
+        return database.executar(instrucaoSO);
+    });
 }
 
 function obterMaquinasDoBanco(fkUnidadeHospitalar) {
@@ -31,8 +37,31 @@ function obterMaquinasDoBanco(fkUnidadeHospitalar) {
     return database.executar(instrucao);
 }
 
+function editarInformacoesMaq(nomeSO,versaoSO, arquiteturaSO, nomeMaquina, localizacao, statusMaquina, fkUnidadeHospitalar, idComputador, fkSO) {
+    var instrucao = `
+        UPDATE Computador 
+        SET nome = '${nomeMaquina}', 
+            localizacao = '${localizacao}', 
+            statusPC = '${statusMaquina}'
+        WHERE idComputador = ${idComputador};
+    `;
+
+    return database.executar(instrucao).then(result => {
+        var instrucaoSO = `
+            UPDATE SistemaOperacional
+            SET nomeSO = '${nomeSO}',
+                versaoSO = '${versaoSO}',
+                arquiteturaSO = '${arquiteturaSO}'
+            WHERE idSO = ${fkSO};
+        `;
+
+        return database.executar(instrucaoSO);
+    });
+}
+
 module.exports = {
     cadastrarMaquinas,
     excluirMaquinas,
-    obterMaquinasDoBanco
+    obterMaquinasDoBanco,
+    editarInformacoesMaq
 }

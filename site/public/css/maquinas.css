@@ -90,13 +90,13 @@ body.dark {
   background-color: rgba(0,0,0,0.4);
 }
 
-#sos_maquina, #arquiteturas_so{
+#sos_maquina, #arquiteturas_so, #sos_maquina_put, #arquiteturas_so_put{
     padding: 10px 35px;
     width: 100%;
     border-radius: 55px;
 }
 
-#status_maquina{
+#status_maquina, #status_maquina_put{
     padding: 10px 35px;
     width: 100%;
     border-radius: 55px;
@@ -241,14 +241,14 @@ button:hover {
     background-position: 1.2em center;
 }
 
-#sos_maquina{
+#sos_maquina, #arquiteturas_so, #sos_maquina_put, #arquiteturas_so_put{
     background-image: url(../assets/dashboard/usuarios/iconsForms/icons8-laptop-50.png);
     background-repeat: no-repeat;
     background-size: 1em;
     background-position: 1.2em center;
 }
 
-#status_maquina{
+#status_maquina, #status_maquina_put{
     background-image: url(../assets/dashboard/usuarios/iconsForms/icons8-power-off-button-50.png);
     background-repeat: no-repeat;
     background-size: 1em;
@@ -290,20 +290,20 @@ button:hover {
 }
 
 /* Estilos para o modal de cadastro */
-#modalCadastro input[type="text"] {
+#modalCadastro input[type="text"], #modal_editar_maquinas input[type="text"] {
     width: 100%;
     padding: 10px 35px;
     border: 1px solid #ccc;
     border-radius: 55px;
 }
 
-#modalCadastro button {
+#modalCadastro button, #modal_editar_maquinas button {
   background-color: #4CAF50;
   color: white;
   border-radius: 4px;
 }
 
-#modalCadastro button:hover {
+#modalCadastro button:hover, #modal_editar_maquinas button:hover {
   background-color: #45a049;
 }
 
@@ -900,7 +900,7 @@ main .container form{
     cursor: pointer;
 }
 
-.msg-erro {
+.msg-erro, .msg-erro-put {
     font: 300 12px 'Poppins';
     color: var(--danger);
     margin-left: 1.9em;
