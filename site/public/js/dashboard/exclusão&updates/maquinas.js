@@ -45,8 +45,7 @@ function criarElementosDasMaquinas(maquinas) {
 
         `;
 
-    novaLiMaquina
-      .querySelector(".btn-editar-maquina")
+    novaLiMaquina.querySelector(".btn-editar-maquina")
       .addEventListener("click", (event) => {
         event.stopPropagation(); // Impede a propagação do evento para os pais
         exibirModalEditarMaq(event, maquina);
@@ -163,11 +162,10 @@ function exibirModalEditarMaq(event, maquina) {
           maquina.idComputador
         }, ${maquina.fkSO})">Atualizar</button>
     </form>
-</div>
+    </div>
     `;
 
-  document
-    .querySelectorAll(".modal-editar-maquina .close")
+  document.querySelectorAll(".modal-editar-maquina .close")
     .forEach(function (closeBtn) {
       closeBtn.addEventListener("click", function () {
         var modal = this.closest(".modal-editar-maquina");
@@ -179,7 +177,7 @@ function exibirModalEditarMaq(event, maquina) {
   modalEditarMaquina.style.display = "block";
 }
 
-// Obtém os elementos de fechar o modal
+// Funções para fechar modals
 var closeBtn = document.getElementsByClassName("close")[0];
 
 closeBtn.onclick = function () {
@@ -192,6 +190,8 @@ window.onclick = function (event) {
   }
 };
 
+
+// Funções para validar modal de editar informações da máquina
 function limparMensagensErroPut() {
   for (let i = 0; i < mensagensErro.length; i++) {
     mensagensErro[i].textContent = "";
@@ -212,26 +212,17 @@ function validarFormsPut() {
   if (SOsPut.options.selectedIndex === 0) {
     mensagensErroPut[0].textContent = "*Selecione uma opção válida.";
     return false;
-  } else if (
-    inputVersaoSOPut.value.length < 2 ||
-    inputVersaoSOPut.value === ""
-  ) {
-    mensagensErroPut[1].textContent =
-      "*Preencha o campo com 2 caracteres, no mínimo.";
+  } else if (inputVersaoSOPut.value.length < 2 || inputVersaoSOPut.value === "") {
+    mensagensErroPut[1].textContent ="*Preencha o campo com 2 caracteres, no mínimo.";
     return false;
   } else if (arquiteturasSOPut.options.selectedIndex === 0) {
     mensagensErroPut[2].textContent = "*Selecione uma opção válida.";
     return false;
   } else if (inputNomePut.value.length < 4 || inputNomePut.value === "") {
-    mensagensErroPut[3].textContent =
-      "*Preencha o campo com 4 caracteres, no mínimo.";
+    mensagensErroPut[3].textContent = "*Preencha o campo com 4 caracteres, no mínimo.";
     return false;
-  } else if (
-    inputLocalizacaoPut.value.length < 3 ||
-    inputLocalizacaoPut.value === ""
-  ) {
-    mensagensErroPut[4].textContent =
-      "*Preencha o campo com 4 caracteres, no mínimo.";
+  } else if (inputLocalizacaoPut.value.length < 3 || inputLocalizacaoPut.value === "") {
+    mensagensErroPut[4].textContent = "*Preencha o campo com 4 caracteres, no mínimo.";
     return false;
   } else if (statusMaquinaPut.options.selectedIndex === 0) {
     mensagensErroPut[5].textContent = "*Selecione uma opção válida.";
