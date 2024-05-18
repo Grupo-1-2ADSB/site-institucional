@@ -38,6 +38,19 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+function criarElementosDosUsuariosAnalytics(usuarios) {
+  usuarios.forEach((usuario) => {
+    novaTrUsuario.innerHTML = `
+                <td>
+                    <img src="../../assets/dashboard/usuarios/iconsForms/user-svgrepo-com.svg">
+                    <p>${nomeAbreviado}</p>
+                </td>
+        `;
+
+    tbodyConteudo.appendChild(novaTrUsuario);
+  });
+}
+
 const btnExcluirUser = document.getElementsByClassName("btn-excluir-user");
 
 function excluirUsuario(valueUsuario, event) {
