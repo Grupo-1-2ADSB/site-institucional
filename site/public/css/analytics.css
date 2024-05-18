@@ -171,7 +171,7 @@ body {
 
 /* Aplicando estilo quando a barra lateral está fechada */
 .sidebar.close {
-    width: 50px; /* Reduzindo a largura */
+    width: 60px; /* Reduzindo a largura */
 }
 
 /* Estilos para o logotipo na barra lateral */

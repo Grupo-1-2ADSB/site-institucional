@@ -120,37 +120,11 @@
                             <tr>
                                 <th>Nome</th>
                                 <th>Data de Criação</th>
-                                <th>Status</th>
+                                <!-- <th>Status</th> -->
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="tbody">
                             <!-- Linhas da tabela com informações de usuários -->
-                            <tr>
-                                <td>
-                                    <img
-                                        src="../../assets/dashboard/usuarios/iconsForms/user-svgrepo-com.svg">
-                                    <p>Kauã Nunes</p>
-                                </td>
-                                <td>23-03-2024</td>
-                                <td><span class="status completed">Ativo</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img
-                                        src="../../assets/dashboard/usuarios/iconsForms/user-svgrepo-com.svg">
-                                    <p>Bia Rosa</p>
-                                </td>
-                                <td>15-03-2024</td>
-                                <td><span class="status completed">Ativo</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="../../assets/dashboard/usuarios/iconsForms/user-svgrepo-com.svg">
-                                    <p>Lucas de Paula</p>
-                                </td>
-                                <td>14-03-2022</td>
-                                <td><span class="status completed">Ativo</span></td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -162,6 +136,9 @@
                         <h3>Máquinas</h3> <!-- Título da seção -->
                         <a href="./maquinas.html"><i class='bx bx-plus'></i></a><!-- Ícone de adição -->
                     </div>
+                    <ul id="machineList">
+                        <!-- Lista de máquinas será preenchida aqui -->
+                    </ul>
                     <!-- Lista de tarefas de máquinas -->
                     <ul class="task-list">
                         <li class="completed">
@@ -191,6 +168,7 @@
     <!-- Fim do conteúdo principal -->
 
     <script src="../../js/dashboard/dashboard.js"></script> <!-- Importando arquivo JavaScript -->
+    <script src="../../js/dashboard/exclusão&updates/usuarios.js"></script>
 </body>
 
 </html>
