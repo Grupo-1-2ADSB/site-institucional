@@ -106,34 +106,11 @@
 
             <!-- Informações detalhadas -->
             <div class="bottom-data">
-                <!-- Lista de usuários -->
-                <div class="orders">
-                    <div class="header">
-                        <i class='bx bx-receipt'></i> <!-- Ícone de lista -->
-                        <h3>Lista de Usuários</h3> <!-- Título da seção -->
-                        <i class='bx bx-filter'></i>
-                        <i class='bx bx-plus'></i> <!-- Ícone de filtro -->
-                    </div>
-                    <!-- Tabela de usuários -->
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Nome</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tbody">
-                            <!-- Linhas da tabela com informações de usuários -->
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- Lembretes (Reminders) -->
+                            <!-- Lembretes (Reminders) -->
                 <div class="reminders">
                     <div class="header">
                         <i class='bx bx-desktop'></i> <!-- Ícone de lembretes -->
                         <h3>Máquinas</h3> <!-- Título da seção -->
-                        <i class='bx bx-filter'></i> <!-- Ícone de filtro -->
-                        <i class='bx bx-plus'></i> <!-- Ícone de adição -->
                     </div>
                     <ul id="task_list" class="task-list">
                         <!-- Lista de máquinas será preenchida aqui -->
@@ -146,45 +123,7 @@
     <!-- Fim do conteúdo principal -->
 
     <script src="../js/dashboard/dashboard.js"></script> <!-- Importando arquivo JavaScript -->
-    <!-- Modal -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <div class="circulo"></div>
-            <span class="close">&times;</span>
-            <h2 class="maquinas">Cadastrar Nova Máquina</h2>
-            <form>
-                <!-- Adicione os campos necessários para adicionar uma nova máquina -->
-                Hostname:
-                <input type="text" class="hostname" name="machine-name">
-                IP:
-                <input type="text" class="ip" name="ip">
-                Sistema Operacional:
-                <input type="text" class="sistema-operacional" name="sistema operacional">
-
-                <button type="submit">Adicionar</button>
-            </form>
-        </div></div>
-    
-    
     <script>
-
-        var modal = document.getElementById('modal');
-        var btn = document.querySelector('.reminders .header .bx-plus');
-        var span = document.getElementsByClassName('close')[0];
-
-        btn.onclick = function () {
-            modal.style.display = 'block';
-        }
-
-        span.onclick = function () {
-            modal.style.display = 'none';
-        }
-
-        window.onclick = function (event) {
-            if (event.target == modal) {
-                modal.style.display = 'none';
-            }
-        }
 
         // Função de logout
 
