@@ -13,7 +13,7 @@ function excluirUsuario(valueUsuario) {
 }
 
 function obterUsuariosDoBanco(fkUnidadeHospitalar) {
-    var instrucao = `SELECT idUsuario, nomeCompleto FROM Usuario WHERE fkUnidadeHospitalar = ${fkUnidadeHospitalar};`;
+    var instrucao = `SELECT idUsuario, nomeCompleto, created_at FROM Usuario WHERE fkUnidadeHospitalar = ${fkUnidadeHospitalar};`;
 
     return database.executar(instrucao);
 }

@@ -1,3 +1,9 @@
+document.addEventListener("DOMContentLoaded", () => {
+  obterMaquinasDoBanco().then((maquinas) => {
+    criarElementosDasMaquinas(maquinas);
+  });
+});
+
 function obterMaquinasDoBanco() {
   const fkUnidadeHospitalar = sessionStorage.HOSPITAL;
   return fetch(`/maquinas/obterMaquinasDoBanco/${fkUnidadeHospitalar}`)
@@ -80,16 +86,12 @@ function criarElementosDasMaquinas(maquinas) {
   });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  obterMaquinasDoBanco().then((maquinas) => {
-    criarElementosDasMaquinas(maquinas);
-  });
-});
-
 const modalEditarMaquina = document.getElementById("modal_editar_maquinas");
 
 function exibirModalEditarMaq(event, maquina) {
   event.stopPropagation();
+
+  console.log("Entrou aqui")
 
   modalEditarMaquina.innerHTML = `
     <div class="modal-content">
