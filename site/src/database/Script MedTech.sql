@@ -47,7 +47,7 @@ CREATE TABLE SistemaOperacional (
 );
 
 CREATE TABLE Computador (
-  idComputador INT PRIMARY KEY AUTO_INCREMENT,
+  idComputador VARCHAR(20) PRIMARY KEY,
   nome VARCHAR(45),
   localizacao VARCHAR(45),
   statusPC VARCHAR(15) CHECK (statusPC IN ('manutenção', 'ativado', 'desativado')),
@@ -63,14 +63,18 @@ CREATE TABLE Hardware (
   descricaoValor VARCHAR(45),
   valor DECIMAL(8,2),
   descricaoHardware VARCHAR(45),
-  fkComputador INT,
+  fkComputador VARCHAR(20),
   FOREIGN KEY (fkComputador) REFERENCES Computador(idComputador)
 );
 
 CREATE TABLE Registro (
   idRegistro INT PRIMARY KEY AUTO_INCREMENT,
-  fkComputador INT,
-  FOREIGN KEY (fkComputador) REFERENCES Computador(idComputador)
+  valor DECIMAL(8,2), 
+  dataHora DATETIME,
+  fkComputador VARCHAR(20),
+  fkHardware INT,
+  FOREIGN KEY (fkComputador) REFERENCES Computador(idComputador),
+  FOREIGN KEY (FkHardware) REFERENCES Hardware(idHardware)
 );
 
 CREATE TABLE Evento (
@@ -83,9 +87,9 @@ CREATE TABLE Evento (
 
 INSERT INTO UnidadeHospitalar (nome, estado, logradouro, numero, cidade, bairro, cep, cnpj)
 VALUES 
-  ('Hospital Municipal', 'São Paulo', 'Rua da Saúde', 123, 'São Paulo', 'Centro', '01001000', '12345678901234'),
+  ('UPA Zona Leste de Santos', 'São Paulo', 'Rua da Saúde', 123, 'Santos', 'Centro', '01001000', '12345678901234'),
   ('Hospital Santa Maria', 'Rio de Janeiro', 'Avenida das Flores', 456, 'Rio de Janeiro', 'Copacabana', '22041100', '98765432109876'),
-  ('Hospital São Lucas', 'Minas Gerais', 'Rua dos Médicos', 789, 'Belo Horizonte', 'Savassi', '30130180', '45678901234567');
+  ('Hospital Albert Heinstein', 'São Paulo', 'Rua dos Médicos', 789, 'Belo Horizonte', 'Savassi', '30130180', '45678901234567');
 
 -- Inserindo dados na tabela Cargo
 INSERT INTO Cargo (idCargo, nome, descricao, areaAtuacao)
@@ -99,6 +103,20 @@ INSERT INTO Usuario (idUsuario, nomeCompleto, nomeUser, email, senha, fkUnidadeH
 VALUES (NULL, 'Pedro Henrique', 'PH', 'pedroHenrique@upaZonaSulSantos.com', 'Senha123!', 2, 1),
 	   (NULL, 'Ana Luiza', 'Ana_luiza', 'anaLuiza@upaZonaSulSantos.com', 'Senha123!', 2, 2),
        (NULL, 'John', 'devJohn', 'John@upaZonaSulSantos.com', 'Senha123!', 2, 3);
+       
+-- Inserindo Sistemas Operacionais
+INSERT INTO SistemaOperacional(idSO, nomeSO, versaoSO, arquiteturaSO) VALUES(1, 'Windows', '10', 'x64'),
+																			(2, 'Linux', 'Ubuntu 20.04', 'x64'),
+																			(3, 'macOS', 'Big Sur', 'x64');  
 
+-- Inserindo Computadores
+INSERT INTO Computador(idComputador, nome, localizacao, statusPC, fkUnidadeHospitalar, fkSO) VALUES("BFEBFBFF000806EA", 'Máquina Recpção 1', 'Recpção', 'ativado', 1, 1);
+																							
+-- Inserindo Hardware
+INSERT INTO Hardware(idHardware, nomeHardware, descricaoHardware, valor, fkComputador)
+VALUES(NULL, 'Memória RAM', 'DDR4', 600.00, "BFEBFBFF000806EA"),
+      (NULL, 'Disco Rígido', 'HDD', 300.00, "BFEBFBFF000806EA"),
+      (NULL, 'CPU', 'Seagate 1TB', 300.00, "BFEBFBFF000806EA"),
+      (NULL, 'Disco Rígido', 'SSHD', 300.00, "BFEBFBFF000806EA");
 
 SELECT * FROM hardware JOIN computador ON fkComputador = idComputador;
