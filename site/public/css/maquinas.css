@@ -20,6 +20,7 @@
 .new-machine{
   margin-left: 481px;
   margin-top: -54px;
+  cursor: pointer;
 }
 
 /* Estilos para os ícones */
@@ -89,12 +90,16 @@ body.dark {
   background-color: rgba(0,0,0,0.4);
 }
 
-.modal-content {
-  background-color: #fefefe;
-  margin: 10% auto;
-  padding: 20px;
-  border-radius: 10px;
-  max-width: 400px;
+#sos_maquina, #arquiteturas_so, #sos_maquina_put, #arquiteturas_so_put{
+    padding: 10px 35px;
+    width: 100%;
+    border-radius: 55px;
+}
+
+#status_maquina, #status_maquina_put{
+    padding: 10px 35px;
+    width: 100%;
+    border-radius: 55px;
 }
 
 .close {
@@ -109,10 +114,6 @@ body.dark {
   color: black;
   text-decoration: none;
   cursor: pointer;
-}
-
-.form-group {
-  margin-bottom: 15px;
 }
 
 .form-group label {
@@ -145,19 +146,19 @@ button:hover {
 }
 
 .registered-machines ul li {
-  margin-bottom: 10px;
-  padding: 10px;
-  background-color: #f9f9f9;
-  border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    background-color: #f9f9f9;
+    border-radius: 5px;    
 }
 
 .registered-machines ul li:hover {
   background-color: #f0f0f0;
 }
 
-/* .machine-info {
-  display: none;
-} */
 /* Estilos para a lista de máquinas */
 .registered-machines {
   margin-top: 20px;
@@ -203,17 +204,71 @@ button:hover {
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
+  overflow: hidden;
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+#machineForm{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.secao-info-so{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.secao-info-so input:nth-child(3){
+    background-image: url(../assets/dashboard/usuarios/iconsForms/icons8-operating-system-50\ \(1\).png);
+    background-repeat: no-repeat;
+    background-size: 1em;
+    background-position: 1.2em center;
+}
+
+.secao-info-so input:nth-child(4){
+    background-image: url(../assets/dashboard/usuarios/iconsForms/icons8-place-marker-50.png);
+    background-repeat: no-repeat;
+    background-size: 1em;
+    background-position: 1.2em center;
+}
+
+.secao-info-so input:nth-child(2){
+    background-image: url(../assets/dashboard/usuarios/iconsForms/icons8-laptop-50.png);
+    background-repeat: no-repeat;
+    background-size: 1em;
+    background-position: 1.2em center;
+}
+
+#sos_maquina, #arquiteturas_so, #sos_maquina_put, #arquiteturas_so_put{
+    background-image: url(../assets/dashboard/usuarios/iconsForms/icons8-laptop-50.png);
+    background-repeat: no-repeat;
+    background-size: 1em;
+    background-position: 1.2em center;
+}
+
+#status_maquina, #status_maquina_put{
+    background-image: url(../assets/dashboard/usuarios/iconsForms/icons8-power-off-button-50.png);
+    background-repeat: no-repeat;
+    background-size: 1em;
+    background-position: 1.2em center;
+}
+
+#arquiteturas_so{
+    background-image: url(../assets/dashboard/usuarios/iconsForms/hierarchy-svgrepo-com.svg);
+    background-repeat: no-repeat;
+    background-size: 1em;
+    background-position: 1.2em center;
+}
+
 .modal-content {
-  background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-  max-width: 600px;
+    background-color: #fefefe;
+    margin: 8% auto;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 80%;
 }
 
 .modal-content h2 {
@@ -235,26 +290,20 @@ button:hover {
 }
 
 /* Estilos para o modal de cadastro */
-#modalCadastro input[type="text"] {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
+#modalCadastro input[type="text"], #modal_editar_maquinas input[type="text"] {
+    width: 100%;
+    padding: 10px 35px;
+    border: 1px solid #ccc;
+    border-radius: 55px;
 }
 
-#modalCadastro button {
+#modalCadastro button, #modal_editar_maquinas button {
   background-color: #4CAF50;
   color: white;
-  padding: 10px 20px;
-  border: none;
   border-radius: 4px;
-  cursor: pointer;
-  float: right;
 }
 
-#modalCadastro button:hover {
+#modalCadastro button:hover, #modal_editar_maquinas button:hover {
   background-color: #45a049;
 }
 
@@ -384,6 +433,7 @@ body {
     white-space: nowrap; /* Não quebrar texto */
     overflow-x: hidden; /* Ocultar rolagem horizontal */
     transition: all 0.3s ease; /* Transição suave */
+    gap: 5px;
 }
 
 /* Estilos para o link ativo dentro do menu lateral */
@@ -663,12 +713,6 @@ main .container form{
     background-color: #FFF;
     border-radius: 2em;
 
-    .msg-erro {
-        font: 300 12px 'Poppins';
-        color: var(--danger);
-        margin-left: 1.9em;
-    }
-
     .forms-container-direita, .forms-container-esquerda {
         display: flex;
         flex-direction: column;
@@ -691,7 +735,7 @@ main .container form{
         }
 
         .input:nth-child(3) {
-            background-image: url(../assets/dashboard/usuarios/iconsForms/username-svgrepo-com.svg);
+            background-image: url(https://icons8.com/icon/16686/operating-system);
         }
 
         .input:nth-child(5) {
@@ -856,3 +900,46 @@ main .container form{
 .logout {
     cursor: pointer;
 }
+
+.msg-erro, .msg-erro-put {
+    font: 300 12px 'Poppins';
+    color: var(--danger);
+    margin-left: 1.9em;
+}
+
+.li-info-maquinas {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.li-btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+
+    .btn-editar-maquina, .btn-excluir-maquina {
+        font-size: 13px;
+        padding: 5px 15px;
+        color: var(--light);
+        border-radius: 20px;
+        font-weight: 700;
+        border: none;
+        transition: opacity 0.4s;
+        cursor: pointer;
+    }
+
+    .btn-editar-maquina:hover, .btn-excluir-maquina:hover {
+        opacity: .7;
+    }
+    
+    .btn-excluir-maquina {
+        background-color: var(--danger);
+    }
+    
+    .btn-editar-maquina {
+        background-color: var(--primary);
+    }
+}
+

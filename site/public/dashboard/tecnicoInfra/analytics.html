@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="shortcut icon" href="../../assets/logo/logoBrancoNoBck.png" type="image/x-icon">
     <link rel="stylesheet" href="../../css/analytics.css">
     <title>Analytics | MedTech</title>
 </head>
@@ -104,83 +106,14 @@
 
             <!-- Informações detalhadas -->
             <div class="bottom-data">
-                <!-- Lista de usuários -->
-                <div class="orders">
-                    <div class="header">
-                        <i class='bx bx-receipt'></i> <!-- Ícone de lista -->
-                        <h3>Lista de Usuários</h3> <!-- Título da seção -->
-                        <i class='bx bx-filter'></i>
-                        <i class='bx bx-plus'></i> <!-- Ícone de filtro -->
-                    </div>
-                    <!-- Tabela de usuários -->
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th>Data de Criação</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Linhas da tabela com informações de usuários -->
-                            <tr>
-                                <td>
-                                    <img
-                                        src="../../assets/dashboard/usuarios/iconsForms/user-svgrepo-com.svg">
-                                    <p>Kauã Nunes</p>
-                                </td>
-                                <td>23-03-2024</td>
-                                <td><span class="status completed">Ativo</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img
-                                        src="../../assets/dashboard/usuarios/iconsForms/user-svgrepo-com.svg">
-                                    <p>Bia Rosa</p>
-                                </td>
-                                <td>15-03-2024</td>
-                                <td><span class="status completed">Ativo</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="../../assets/dashboard/usuarios/iconsForms/user-svgrepo-com.svg">
-                                    <p>Lucas de Paula</p>
-                                </td>
-                                <td>14-03-2022</td>
-                                <td><span class="status completed">Ativo</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- Lembretes (Reminders) -->
+                            <!-- Lembretes (Reminders) -->
                 <div class="reminders">
                     <div class="header">
                         <i class='bx bx-desktop'></i> <!-- Ícone de lembretes -->
                         <h3>Máquinas</h3> <!-- Título da seção -->
-                        <i class='bx bx-filter'></i> <!-- Ícone de filtro -->
-                        <i class='bx bx-plus'></i> <!-- Ícone de adição -->
                     </div>
-                    <!-- Lista de tarefas de máquinas -->
-                    <ul class="task-list">
-                        <li class="completed">
-                            <div class="task-title">
-                                <i class='bx bx-check-circle'></i> <!-- Ícone de tarefa concluída -->
-                                <p>Computador 1</p> <!-- Nome da máquina -->
-                            </div>
-                        </li>
-                        <li class="completed">
-                            <div class="task-title">
-                                <i class='bx bx-check-circle'></i> <!-- Ícone de tarefa concluída -->
-                                <p>Computador 2</p> <!-- Nome da máquina -->
-                            </div>
-                        </li>
-                        <li class="not-completed">
-                            <div class="task-title">
-                                <i class='bx bx-minus-circle'> </i> <!-- Ícone de tarefa não concluída -->
-                                <p>Computador 3</p> <!-- Nome da máquina -->
-                            </div>
-                        </li>
+                    <ul id="task_list" class="task-list">
+                        <!-- Lista de máquinas será preenchida aqui -->
                     </ul>
                 </div>
                 <!-- Fim dos lembretes (Reminders) -->
@@ -190,45 +123,7 @@
     <!-- Fim do conteúdo principal -->
 
     <script src="../js/dashboard/dashboard.js"></script> <!-- Importando arquivo JavaScript -->
-    <!-- Modal -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <div class="circulo"></div>
-            <span class="close">&times;</span>
-            <h2 class="maquinas">Cadastrar Nova Máquina</h2>
-            <form>
-                <!-- Adicione os campos necessários para adicionar uma nova máquina -->
-                Hostname:
-                <input type="text" class="hostname" name="machine-name">
-                IP:
-                <input type="text" class="ip" name="ip">
-                Sistema Operacional:
-                <input type="text" class="sistema-operacional" name="sistema operacional">
-
-                <button type="submit">Adicionar</button>
-            </form>
-        </div></div>
-    
-    
     <script>
-
-        var modal = document.getElementById('modal');
-        var btn = document.querySelector('.reminders .header .bx-plus');
-        var span = document.getElementsByClassName('close')[0];
-
-        btn.onclick = function () {
-            modal.style.display = 'block';
-        }
-
-        span.onclick = function () {
-            modal.style.display = 'none';
-        }
-
-        window.onclick = function (event) {
-            if (event.target == modal) {
-                modal.style.display = 'none';
-            }
-        }
 
         // Função de logout
 
@@ -240,10 +135,8 @@
             }, 2000);
         }
     </script>
+    <script src="../../js/dashboard/exclusão&updates/maquinasAnalytics.js"></script>
+    <script src="../../js/dashboard/exclusão&updates/analytics.js"></script>
 </body>
-
 </html>
-
-
-
 </html>

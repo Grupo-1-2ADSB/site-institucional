@@ -169,6 +169,7 @@ body {
     white-space: nowrap; /* Não quebrar texto */
     overflow-x: hidden; /* Ocultar rolagem horizontal */
     transition: all 0.3s ease; /* Transição suave */
+    gap: 5px;
 }
 
 /* Estilos para o link ativo dentro do menu lateral */
@@ -448,12 +449,6 @@ main .container form{
     background-color: #FFF;
     border-radius: 2em;
 
-    .msg-erro {
-        font: 300 12px 'Poppins';
-        color: var(--danger);
-        margin-left: 1.9em;
-    }
-
     .forms-container-direita, .forms-container-esquerda {
         display: flex;
         flex-direction: column;
@@ -630,7 +625,12 @@ main .container form{
     font-weight: 700;
     border: none;
     background: var(--primary);
+    transition: opacity 0.4s;
     cursor: pointer;
+}
+
+.orders table tr td .btn-excluir-user:hover {
+    opacity: .8;
 }
 
 .orders table tr td .status.process{
@@ -658,4 +658,10 @@ main .container form{
 
 .logout {
     cursor: pointer;
+}
+
+.msg-erro {
+    font: 300 12px 'Poppins';
+    color: var(--danger);
+    margin-left: 1.9em;
 }

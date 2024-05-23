@@ -21,26 +21,6 @@ var closeBtn = document.getElementsByClassName("close")[0];
 
 // Adiciona um evento de clique a cada item da lista de máquinas
 var machineItems = document.querySelectorAll(".registered-machines ul li");
-machineItems.forEach(function(item) {
-    item.addEventListener("click", function() {
-        // Exibe o modal de detalhes da máquina ao clicar em um item da lista
-        modalDetalhes.style.display = "block";
-
-        // Simula dados da máquina (substitua pelos dados reais da sua aplicação)
-        var machineData = {
-            os: "Linux",
-            disk: "50%",
-            network: "25%",
-            ram: "4GB"
-        };
-
-        // Atualiza o conteúdo do modal com os dados da máquina clicada
-        document.getElementById("os").innerText = machineData.os;
-        document.getElementById("disk").innerText = machineData.disk;
-        document.getElementById("network").innerText = machineData.network;
-        document.getElementById("ram").innerText = machineData.ram;
-    });
-});
 
 // Fecha o modal ao clicar no botão de fechar
 closeBtn.onclick = function() {
@@ -66,8 +46,8 @@ function logout() {
 
 // Funções para cadastro de máquinas
 const SOs = document.getElementById('sos_maquina').options;
+const arquiteturasSO = document.getElementById('arquiteturas_so').options;
 const inputVersaoSO = document.getElementById('input_versaoSO');
-const inputArquitetura = document.getElementById('input_arquitetura');
 const inputNome = document.getElementById('input_nome');
 const inputLocalizacao = document.getElementById('input_localizacao');
 const statusMaquina = document.getElementById('status_maquina').options;
@@ -88,8 +68,8 @@ function validarForms() {
     } else if (inputVersaoSO.value.length < 2 || inputVersaoSO.value === "") {
         mensagensErro[1].textContent = "*Preencha o campo com 2 caracteres, no mínimo.";
         return false;
-    } else if (inputArquitetura.value.length < 2 || inputArquitetura.value === ""){
-        mensagensErro[2].textContent = "*Preencha o campo com 2 caracteres, no mínimo.";
+    } else if (arquiteturasSO.selectedIndex === 0){
+        mensagensErro[2].textContent = "*Selecione uma opção válida.";
         return false;
     } else if(inputNome.value.length < 4 || inputNome.value === ""){
         mensagensErro[3].textContent = "*Preencha o campo com 4 caracteres, no mínimo.";
@@ -109,12 +89,14 @@ function cadastrarMaquina() {
         const dados = {
             soServer: sos_maquina.value,
             versaoSOServer: inputVersaoSO.value,
-            arquiteturaSOServer: inputArquitetura.value,
+            arquiteturaSOServer: arquiteturasSO[arquiteturasSO.selectedIndex].value,
             nomeMaquinaServer: inputNome.value,
             localizacaoServer: inputLocalizacao.value,
             statusMaquinaServer: status_maquina.value,
             fkUnidadeHospitalarServer: sessionStorage.HOSPITAL
         };
+
+        console.log(dados);
 
         fetch("/maquinas/cadastrarMaquinas", {
             method: "POST",

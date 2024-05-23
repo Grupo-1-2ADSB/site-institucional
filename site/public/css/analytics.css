@@ -171,7 +171,7 @@ body {
 
 /* Aplicando estilo quando a barra lateral está fechada */
 .sidebar.close {
-    width: 50px; /* Reduzindo a largura */
+    width: 60px; /* Reduzindo a largura */
 }
 
 /* Estilos para o logotipo na barra lateral */
@@ -260,6 +260,7 @@ body {
     white-space: nowrap; /* Não quebrar texto */
     overflow-x: hidden; /* Ocultar rolagem horizontal */
     transition: all 0.3s ease; /* Transição suave */
+    gap: 5px;
 }
 
 /* Estilos para o link ativo dentro do menu lateral */
@@ -568,8 +569,8 @@ body {
 }
 
 .content main .bottom-data .orders{
-    flex-grow: 1;
     flex-basis: 500px;
+    height: fit-content;
 }
 
 .content main .bottom-data .orders table{
@@ -634,9 +635,14 @@ body {
 .content main .bottom-data .reminders{
     flex-grow: 1;
     flex-basis: 300px;
+    height: fit-content;
+    margin-bottom: 1em;
 }
 
 .content main .bottom-data .reminders .task-list{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     width: 100%;
 }
 
@@ -664,12 +670,16 @@ body {
   cursor: pointer;  
 }
 
-.content main .bottom-data .reminders .task-list li.completed{
+.completed{
     border-left: 10px solid var(--success);
 }
 
-.content main .bottom-data .reminders .task-list li.not-completed{
+.not-completed{
     border-left: 10px solid var(--danger);
+}
+
+.status-maintenance {
+    border-left: 10px solid var(--warning);
 }
 
 .content main .bottom-data .reminders .task-list li:last-child{

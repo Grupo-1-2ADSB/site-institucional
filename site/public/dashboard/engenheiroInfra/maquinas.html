@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../../css/maquinas.css">
+    <link rel="shortcut icon" href="../../assets/logo/logoBrancoNoBck.png" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Máquinas | MedTech</title>
 </head>
 
 <body>
-
     <!-- Barra lateral -->
     <div class="sidebar">
         <!-- Logo e nome do aplicativo -->
@@ -87,7 +88,6 @@
             <span class="close">&times;</span>
             <h2>Cadastro de Nova Máquina</h2>
             <form id="machineForm">
-
                 <div class="secao-info-so">
                     <h3>Informações do SO da máquina</h3>
                     <div class="form-group">
@@ -102,20 +102,27 @@
                     <input type="text" placeholder="Versão SO" id="input_versaoSO">
                     <span class="msg-erro"></span>
 
-                    <input type="text" placeholder="Arquitetura do SO" id="input_arquitetura">
+                    <select name="soMaquina" id="arquiteturas_so">
+                        <option value="default">Selecione uma Arquitetura SO</option>
+                        <option value="x32">x32</option>
+                        <option value="x64">x64</option>
+                    </select>
                     <span class="msg-erro"></span>
+
+                    <!-- <input type="text" placeholder="Arquitetura do SO" id="input_arquitetura">
+                    <span class="msg-erro"></span> -->
                 </div>
 
                 <div class="secao-info-so">
                     <h3>Informações do computador</h3>
 
-                    <input type="text" placeholder="Nome" id="input_nome">
+                    <input class="input1" type="text" placeholder="Nome" id="input_nome">
                     <span class="msg-erro"></span>
 
                     <input type="text" placeholder="Localização" id="input_localizacao">
                     <span class="msg-erro"></span>
 
-                    <div class="form-group">
+                    <div class="form-group2">
                         <select name="soMaquina" id="status_maquina">
                             <option value="default" default>Selecione o status do pc</option>
                             <option value="ativado">Ativo</option>
@@ -130,21 +137,16 @@
             </form>
         </div>
     </div>
+
     <!-- Modal de detalhes da máquina -->
     <div id="modalDetalhes" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Detalhes da Máquina</h2>
-            <div class="machine-info">
-                <p><strong>Sistema Operacional:</strong> <span id="os"></span></p>
-                <p><strong>Consumo de Disco:</strong> <span id="disk"></span></p>
-                <p><strong>Consumo de Rede:</strong> <span id="network"></span></p>
-                <p><strong>Memória RAM:</strong> <span id="ram"></span></p>
-            </div>
-        </div>
     </div>
-
+    <!-- Modal de editar detalhes da máquina -->
+    <div id="modal_editar_maquinas" class="modal modal-editar-maquina">
+    </div>
+    
     <!-- Script JavaScript -->
+    <script src="../../js/dashboard/dashboard.js"></script> 
     <script src="../../js/dashboard/cadastros/maquinas.js"></script>
     <script src="../../js/dashboard/exclusão&updates/maquinas.js"></script>
 </body>

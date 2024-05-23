@@ -7,12 +7,17 @@ router.post("/cadastrarMaquinas", function (req, res){
     maquinasController.cadastrarMaquinas(req, res);
 });
 
-router.get("/obterMaquinasDoBanco" , function(req, res){
+router.get("/obterMaquinasDoBanco/:fkUnidadeHospitalar", function(req, res){
     maquinasController.obterMaquinasDoBanco(req, res);
 });
 
 router.delete("/excluirMaquinas", function(req, res) {
     maquinasController.excluirMaquinas(req, res);
 });
+
+router.put("/editarInformacoesMaq", function(req, res) {
+    maquinasController.editarInformacoesMaq(req, res);
+});
+
 
 module.exports = router;
