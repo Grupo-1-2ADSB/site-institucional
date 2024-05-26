@@ -103,8 +103,6 @@ function cadastrarMaquina() {
             fkUnidadeHospitalarServer: sessionStorage.HOSPITAL
         };
 
-        console.log(dados);
-
         fetch("/maquinas/cadastrarMaquinas", {
             method: "POST",
             headers: {

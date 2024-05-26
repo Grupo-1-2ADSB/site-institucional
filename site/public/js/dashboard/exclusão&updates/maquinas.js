@@ -46,7 +46,7 @@ function criarElementosDasMaquinas(maquinas) {
             </div>
             <div class="li-btns">
                 <button class="btn-editar-maquina" id="btn_editar_maquina">Editar informações</button>
-                <button class="btn-excluir-maquina" id="btn_excluir_maquina" onclick="excluirMaquinas(event, ${maquina.idComputador}, ${maquina.fkSO})">Excluir Máquina</button>
+                <button class="btn-excluir-maquina" id="btn_excluir_maquina">Excluir Máquina</button>
             </div>
 
         `;
@@ -57,8 +57,13 @@ function criarElementosDasMaquinas(maquinas) {
         exibirModalEditarMaq(event, maquina);
       });
 
+      novaLiMaquina.querySelector(".btn-excluir-maquina")
+      .addEventListener("click", (event) => {
+        event.stopPropagation(); // Impede a propagação do evento para os pais
+        excluirMaquinas(event, maquina.idComputador, maquina.fkSO);
+      });
+
     novaLiMaquina.addEventListener("click", () => {
-      console.log(maquina)
       modalDetalhes.innerHTML = `
             <div class="modal-content">
                 <span class="close">&times;</span>
@@ -93,7 +98,6 @@ const modalEditarMaquina = document.getElementById("modal_editar_maquinas");
 function exibirModalEditarMaq(event, maquina) {
   event.stopPropagation();
 
-  console.log("Entrou aqui")
 
   modalEditarMaquina.innerHTML = `
     <div class="modal-content">
@@ -226,7 +230,6 @@ function validarFormsPut() {
 
 // Fetch editar informações
 function editarInformacoesMaq(idComputador, fkSO) {
-  console.log(idComputador, fkSO)
   const formData = validarFormsPut();
 
   if (formData) {

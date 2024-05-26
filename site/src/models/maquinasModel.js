@@ -20,7 +20,7 @@ function cadastrarMaquinas(nomeSO,versaoSO, arquiteturaSO, nomeMaquina, codigoSe
 }
 
 function excluirMaquinas(idMaquina, fkSOExcluir) {
-    var instrucao = `DELETE FROM Computador WHERE idComputador = ${idMaquina};`;
+    var instrucao = `DELETE FROM Computador WHERE idComputador = '${idMaquina}';`;
 
     return database.executar(instrucao).then(() => {
         var instrucaoSO = `
