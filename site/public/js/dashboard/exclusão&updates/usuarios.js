@@ -14,7 +14,7 @@ function obterUsuariosDoBanco() {
 
 function criarElementosDosUsuarios(usuarios) {
   const tbodyConteudo = document.getElementById("tbody");
-
+  
   usuarios.forEach((usuario) => {
     const partesNome = usuario.nomeCompleto.split(" ");
     const nomeAbreviado = partesNome.slice(0, 2).join(" ");

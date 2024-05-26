@@ -1,23 +1,39 @@
 var database = require("../database/config");
 
-function cadastrarMaquinas(nomeSO,versaoSO, arquiteturaSO, nomeMaquina, codigoSerialMaquina, localizacao, statusMaquina, fkUnidadeHospitalar){
+function cadastrarMaquinas(nomeSO, versaoSO, arquiteturaSO, nomeMaquina, codigoSerialMaquina, localizacao, statusMaquina, fkUnidadeHospitalar) {
     var instrucaoSO = `
     INSERT INTO SistemaOperacional (nomeSO, versaoSO, arquiteturaSO)
     VALUES ('${nomeSO}', '${versaoSO}', '${arquiteturaSO}');
     `;
 
     return database.executar(instrucaoSO).then(resultSO => {
-        const fkSO = resultSO.insertId;
+        if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
+            const fkSO = resultSO.insertId;
 
-        var instrucao = `
-        INSERT INTO Computador (idComputador, nome, localizacao, statusPC, fkUnidadeHospitalar, fkSO)
-        VALUES ('${codigoSerialMaquina}', '${nomeMaquina}', '${localizacao}', '${statusMaquina}', ${fkUnidadeHospitalar} ,${fkSO})
-        `;
+            var instrucao = `
+            INSERT INTO Computador (idComputador, nome, localizacao, statusPC, fkUnidadeHospitalar, fkSO)
+            VALUES ('${codigoSerialMaquina}', '${nomeMaquina}', '${localizacao}', '${statusMaquina}', ${fkUnidadeHospitalar}, ${fkSO})
+            `;
 
-        return database.executar(instrucao);
+            return database.executar(instrucao);
+        } else {
+            const getIdentityQuery = `SELECT IDENT_CURRENT('SistemaOperacional') AS LastIdentity`;
 
+            return database.executar(getIdentityQuery).then(resultIdentity => {
+                const fkSO = resultIdentity[0].LastIdentity;
+
+                var instrucao = `
+                INSERT INTO Computador (idComputador, nome, localizacao, statusPC, fkUnidadeHospitalar, fkSO)
+                VALUES ('${codigoSerialMaquina}', '${nomeMaquina}', '${localizacao}', '${statusMaquina}', ${fkUnidadeHospitalar}, ${fkSO})
+                `;
+
+                return database.executar(instrucao);
+            });
+        }
     });
 }
+
+
 
 function excluirMaquinas(idMaquina, fkSOExcluir) {
     var instrucao = `DELETE FROM Computador WHERE idComputador = '${idMaquina}';`;
@@ -37,7 +53,7 @@ function obterMaquinasDoBanco(fkUnidadeHospitalar) {
     return database.executar(instrucao);
 }
 
-function editarInformacoesMaq(nomeSO,versaoSO, arquiteturaSO, nomeMaquina, localizacao, statusMaquina, fkUnidadeHospitalar, idComputador, fkSO) {
+function editarInformacoesMaq(nomeSO, versaoSO, arquiteturaSO, nomeMaquina, localizacao, statusMaquina, fkUnidadeHospitalar, idComputador, fkSO) {
     var instrucao = `
         UPDATE Computador 
         SET nome = '${nomeMaquina}', 

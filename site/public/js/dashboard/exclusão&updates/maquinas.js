@@ -243,25 +243,23 @@ function editarInformacoesMaq(idComputador, fkSO) {
       },
       body: JSON.stringify(formData),
     })
-    .then(resposta => resposta.json().then(data => ({ status: resposta.status, body: data })))
-        .then(function ({ status, body }) {
-            if (status === 200) {
-              Swal.fire({
-                title: "Maravilha!",
-                text: "As alterações foram realizadas com sucesso!",
-                icon: "success",
-              });
-    
-              setTimeout(() => {
-                location.reload();
-              }, 2000);
-            } else if (status === 400 && body.message.startsWith('Duplicate entry')) {
-                mensagensErro[4].textContent = "*Código serial duplicado. Por favor, insira um código serial único.";
-                mensagensErro[4].style.color = "red";
-            } else {
-                throw new Error(body.error || "Houve um erro ao tentar realizar o cadastro!");
-            }
-        })
+    .then(function (response) {
+      if (response.status === 200) {
+        Swal.fire({
+          title: "Maravilha!",
+          text: "As alterações foram realizadas com sucesso!",
+          icon: "success",
+        });
+
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
+      } else {
+        mensagensErro[6].innerHTML = "Houve um erro ao tentar realizar o cadastro!";
+        mensagensErro[6].style.color = "red";
+        console.error("Erro ao tentar realizar o cadastro:", body.error);
+      }
+    })
       .catch(function (erro) {
         Swal.fire({
           icon: "error",

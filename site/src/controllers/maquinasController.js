@@ -1,6 +1,6 @@
 var maquinasModel = require("../models/maquinasModel");
 
-function cadastrarMaquinas(req, res){
+function cadastrarMaquinas(req, res) {
     const {
         soServer: nomeSO,
         versaoSOServer: versaoSO,
@@ -25,34 +25,34 @@ function cadastrarMaquinas(req, res){
         return res.status(400).json({ error: "Todos os campos devem ser preenchidos." });
     }
 
-    maquinasModel.cadastrarMaquinas(nomeSO,versaoSO, arquiteturaSO, nomeMaquina, codigoSerialMaquina, localizacao, statusMaquina, fkUnidadeHospitalar)
+    maquinasModel.cadastrarMaquinas(nomeSO, versaoSO, arquiteturaSO, nomeMaquina, codigoSerialMaquina, localizacao, statusMaquina, fkUnidadeHospitalar)
         .then(function (resultado) {
             res.json(resultado);
         })
-        .catch (function (erro) {
-            if (erro.code === 'ER_DUP_ENTRY') {
+        .catch(function (erro) {
+            if (erro.code === 'ER_DUP_ENTRY' || (erro.message && erro.message.includes('Violation of PRIMARY KEY constraint'))) {
                 return res.status(400).json({ message: `Duplicate entry: ${codigoSerialMaquina}` });
             } else {
                 console.error("Houve um erro ao realizar o cadastro: ", erro);
-                res.status(500).json({ error: "Houve um erro ao realizar o cadastro."});
+                res.status(500).json({ error: "Houve um erro ao realizar o cadastro." });
             }
         });
 }
 
-function obterMaquinasDoBanco(req, res){
+function obterMaquinasDoBanco(req, res) {
     const fkUnidadeHospitalar = req.params.fkUnidadeHospitalar;
     maquinasModel.obterMaquinasDoBanco(fkUnidadeHospitalar)
-        .then(function(maquinas){
+        .then(function (maquinas) {
             res.json(maquinas);
-        }).catch(function (erro){
+        }).catch(function (erro) {
             console.error("Erro ao obter maquinas:", erro);
-            res.status(500).json({error: "Erro ao obter maquinas."})
+            res.status(500).json({ error: "Erro ao obter maquinas." })
         })
-    }
+}
 
 
 function excluirMaquinas(req, res) {
-    const idMaquina = req.body.idMaquinaServer; 
+    const idMaquina = req.body.idMaquinaServer;
     const fkSOExcluir = req.body.fkSOServer;
 
     if (!idMaquina) {
@@ -64,13 +64,13 @@ function excluirMaquinas(req, res) {
     maquinasModel.excluirMaquinas(idMaquina, fkSOExcluir)
         .then(function (resultado) {
             res.json(resultado);
-        }).catch (function (erro) {
+        }).catch(function (erro) {
             console.error("Houve um erro ao excluir maquinas: ", erro);
-            res.status(500).json({ error: "Houve um erro ao excluir maquinas."});
-        });  
+            res.status(500).json({ error: "Houve um erro ao excluir maquinas." });
+        });
 }
 
-function editarInformacoesMaq(req, res){
+function editarInformacoesMaq(req, res) {
     const {
         soServer: nomeSO,
         versaoSOServer: versaoSO,
@@ -97,12 +97,12 @@ function editarInformacoesMaq(req, res){
         return res.status(400).json({ error: "Todos os campos devem ser preenchidos." });
     }
 
-    maquinasModel.editarInformacoesMaq(nomeSO,versaoSO, arquiteturaSO, nomeMaquina, localizacao, statusMaquina, fkUnidadeHospitalar, idComputador, fkSO)
+    maquinasModel.editarInformacoesMaq(nomeSO, versaoSO, arquiteturaSO, nomeMaquina, localizacao, statusMaquina, fkUnidadeHospitalar, idComputador, fkSO)
         .then(function (resultado) {
             res.json(resultado);
-        }).catch (function (erro) {
+        }).catch(function (erro) {
             console.error("Houve um erro ao realizar as alterações!: ", erro);
-            res.status(500).json({ error: "Houve um erro ao realizar as alterações!"});
+            res.status(500).json({ error: "Houve um erro ao realizar as alterações!" });
         });
 }
 

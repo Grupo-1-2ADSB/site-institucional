@@ -1,12 +1,12 @@
 // Modal Cadastro
-document.querySelector('.new-machine').addEventListener('click', function() {
+document.querySelector('.new-machine').addEventListener('click', function () {
     var modal = document.getElementById('modalCadastro');
     modal.style.display = "block";
 });
 
 // Fechar modais
-document.querySelectorAll('.modal .close').forEach(function(closeBtn) {
-    closeBtn.addEventListener('click', function() {
+document.querySelectorAll('.modal .close').forEach(function (closeBtn) {
+    closeBtn.addEventListener('click', function () {
         var modal = this.closest('.modal');
         modal.style.display = "none";
         modal.querySelector('.modal-content').innerHTML = ''; // Limpa o conteúdo ao fechar o modal
@@ -23,12 +23,12 @@ var closeBtn = document.getElementsByClassName("close")[0];
 var machineItems = document.querySelectorAll(".registered-machines ul li");
 
 // Fecha o modal ao clicar no botão de fechar
-closeBtn.onclick = function() {
+closeBtn.onclick = function () {
     modalDetalhes.style.display = "none";
 };
 
 // Fecha o modal ao clicar fora da área do modal
-window.onclick = function(event) {
+window.onclick = function (event) {
     if (event.target == modalDetalhes) {
         modalDetalhes.style.display = "none";
     }
@@ -39,7 +39,7 @@ window.onclick = function(event) {
 function logout() {
     sessionStorage.clear();
 
-    setTimeout(function() {
+    setTimeout(function () {
         window.location.href = "../../index.html";
     }, 1000);
 }
@@ -71,19 +71,19 @@ function validarForms() {
     } else if (inputVersaoSO.value.length < 2 || inputVersaoSO.value === "") {
         mensagensErro[1].textContent = "*Preencha o campo com 2 caracteres, no mínimo.";
         return false;
-    } else if (arquiteturasSO.selectedIndex === 0){
+    } else if (arquiteturasSO.selectedIndex === 0) {
         mensagensErro[2].textContent = "*Selecione uma opção válida.";
         return false;
-    } else if(inputNome.value.length < 4 || inputNome.value === ""){
+    } else if (inputNome.value.length < 4 || inputNome.value === "") {
         mensagensErro[3].textContent = "*Preencha o campo com 4 caracteres, no mínimo.";
         return false;
-    } else if(!serialCode.test(inputCodigoSerial.value)){
+    } else if (!serialCode.test(inputCodigoSerial.value)) {
         mensagensErro[4].textContent = "*Código serial inválido. Deve conter entre 7 e 22 caracteres (letras maiúsculas e números).";
         return false;
-    } else if (inputLocalizacao.value.length < 3 || inputLocalizacao.value === ""){
+    } else if (inputLocalizacao.value.length < 3 || inputLocalizacao.value === "") {
         mensagensErro[5].textContent = "*Preencha o campo com 4 caracteres, no mínimo.";
         return false;
-    } else if (statusMaquina.selectedIndex === 0){
+    } else if (statusMaquina.selectedIndex === 0) {
         mensagensErro[6].textContent = "*Selecione uma opção válida.";
         return false;
     }
@@ -110,27 +110,35 @@ function cadastrarMaquina() {
             },
             body: JSON.stringify(dados),
         })
-        .then(resposta => resposta.json().then(data => ({ status: resposta.status, body: data })))
-        .then(function ({ status, body }) {
-            if (status === 200) {
-                mensagensErro[6].textContent = "Cadastro realizado com sucesso!✅";
-                mensagensErro[6].style.color = "green";
-                setTimeout(() => {
-                    location.reload();
-                }, 2000);
-            } else if (status === 400 && body.message.startsWith('Duplicate entry')) {
-                mensagensErro[4].textContent = "*Código serial duplicado. Por favor, insira um código serial único.";
-                mensagensErro[4].style.color = "red";
-            } else {
-                throw new Error(body.error || "Houve um erro ao tentar realizar o cadastro!");
-            }
-        })
-        .catch (function (erro){
-            mensagensErro[5].innerHTML = "Houve um erro ao tentar realizar o cadastro!";
-            mensagensErro[5].style.color = "red";
-            console.error("Erro ao tentar realizar o cadastro:", erro);
-        }); 
-    return false;
+            .then(function (response) {
+                if (response.status === 200) {
+                    mensagensErro[6].textContent = "Cadastro realizado com sucesso!✅";
+                    mensagensErro[6].style.color = "green";
+                    setTimeout(() => {
+                        location.reload();
+                    }, 2000);
+                } else {
+                    return response.json().then(body => {
+                        if (response.status === 400 && (
+                            (body && body.message && body.message.startsWith('Duplicate entry')) ||
+                            (body && body.error && body.error.includes('Violation of PRIMARY KEY constraint'))
+                        )) {
+                            mensagensErro[4].textContent = "*Código serial duplicado. Por favor, insira um código serial único.";
+                            mensagensErro[4].style.color = "red";
+                        } else {
+                            mensagensErro[6].innerHTML = "Houve um erro ao tentar realizar o cadastro!";
+                            mensagensErro[6].style.color = "red";
+                            console.error("Erro ao tentar realizar o cadastro:", body.error);
+                        }
+                    });
+                }
+            })
+            .catch(function (erro) {
+                mensagensErro[6].innerHTML = "Houve um erro ao tentar realizar o cadastro!";
+                mensagensErro[6].style.color = "red";
+                console.error("Erro ao tentar realizar o cadastro:", erro);
+            });
+        return false;
     }
 }
 
