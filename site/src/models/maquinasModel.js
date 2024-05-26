@@ -43,7 +43,7 @@ function editarInformacoesMaq(nomeSO,versaoSO, arquiteturaSO, nomeMaquina, local
         SET nome = '${nomeMaquina}', 
             localizacao = '${localizacao}', 
             statusPC = '${statusMaquina}'
-        WHERE idComputador = ${idComputador};
+        WHERE idComputador = '${idComputador}';
     `;
 
     return database.executar(instrucao).then(result => {

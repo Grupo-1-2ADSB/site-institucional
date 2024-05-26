@@ -58,6 +58,7 @@ function criarElementosDasMaquinas(maquinas) {
       });
 
     novaLiMaquina.addEventListener("click", () => {
+      console.log(maquina)
       modalDetalhes.innerHTML = `
             <div class="modal-content">
                 <span class="close">&times;</span>
@@ -66,6 +67,7 @@ function criarElementosDasMaquinas(maquinas) {
                     <p><strong>Sistema Operacional:</strong> <span>${maquina.nomeSO} ${maquina.versaoSO}.</span></p>
                     <p><strong>Arquitetura do Sistema Operacional:</strong> <span>${maquina.arquiteturaSO}.</span></p>
                     <p><strong>Nome da Máquina:</strong> <span>${maquina.nome}.</span></p>
+                    <p><strong>Código Serial da Máquina:</strong> <span>${maquina.idComputador}.</span></p>
                     <p><strong>Localização da Máquina:</strong> <span>${maquina.localizacao}.</span></p>
                     <p><strong>Status da Máquina:</strong> <span>${maquina.statusPC}.</span></p>
                 </div>
@@ -103,29 +105,19 @@ function exibirModalEditarMaq(event, maquina) {
             <div class="form-group">
                 <select name="soMaquina" id="sos_maquina_put">
                     <option value="default" default>Selecione um Sistema Operacional</option>
-                    <option value="windows" ${
-                      maquina.nomeSO === "windows" ? "selected" : ""
-                    }>Windows</option>
-                    <option value="linux" ${
-                      maquina.nomeSO === "linux" ? "selected" : ""
-                    }>Linux</option>
+                    <option value="windows" ${maquina.nomeSO === "windows" ? "selected" : ""}>Windows</option>
+                    <option value="linux" ${maquina.nomeSO === "linux" ? "selected" : ""}>Linux</option>
                 </select>
                 <span class="msg-erro-put"></span>
             </div>
 
-            <input type="text" placeholder="Versão SO" id="input_versaoSO_put" value="${
-              maquina.versaoSO
-            }">
+            <input type="text" placeholder="Versão SO" id="input_versaoSO_put" value="${maquina.versaoSO}">
             <span class="msg-erro-put"></span>
 
             <select name="arquiteturaSO" id="arquiteturas_so_put">
                 <option value="default">Selecione uma Arquitetura SO</option>
-                <option value="x32" ${
-                  maquina.arquiteturaSO === "x32" ? "selected" : ""
-                }>x32</option>
-                <option value="x64" ${
-                  maquina.arquiteturaSO === "x64" ? "selected" : ""
-                }>x64</option>
+                <option value="x32" ${maquina.arquiteturaSO === "x32" ? "selected" : ""}>x32</option>
+                <option value="x64" ${maquina.arquiteturaSO === "x64" ? "selected" : ""}>x64</option>
             </select>
             <span class="msg-erro-put"></span>
         </div>
@@ -133,36 +125,24 @@ function exibirModalEditarMaq(event, maquina) {
         <div class="secao-info-so">
             <h3>Informações do computador</h3>
 
-            <input class="input1" type="text" placeholder="Nome" id="input_nome_put" value="${
-              maquina.nome
-            }">
+            <input class="input1" type="text" placeholder="Nome" id="input_nome_put" value="${maquina.nome}">
             <span class="msg-erro-put"></span>
 
-            <input type="text" placeholder="Localização" id="input_localizacao_put" value="${
-              maquina.localizacao
-            }">
+            <input type="text" placeholder="Localização" id="input_localizacao_put" value="${maquina.localizacao}">
             <span class="msg-erro-put"></span>
 
             <div class="form-group2">
                 <select name="statusMaquina" id="status_maquina_put">
                     <option value="default">Selecione o status do PC</option>
-                    <option value="ativado" ${
-                      maquina.statusPC === "ativado" ? "selected" : ""
-                    }>Ativo</option>
-                    <option value="desativado" ${
-                      maquina.statusPC === "desativado" ? "selected" : ""
-                    }>Inativo</option>
-                    <option value="manutenção" ${
-                      maquina.statusPC === "manutenção" ? "selected" : ""
-                    }>Manutenção</option>
+                    <option value="ativado" ${maquina.statusPC === "ativado" ? "selected" : ""}>Ativo</option>
+                    <option value="desativado" ${maquina.statusPC === "desativado" ? "selected" : ""}>Inativo</option>
+                    <option value="manutenção" ${maquina.statusPC === "manutenção" ? "selected" : ""}>Manutenção</option>
                 </select>
                 <span class="msg-erro-put"></span>
             </div>
         </div>
 
-        <button type="button" id="btn_atualizar_maq" onclick="editarInformacoesMaq(${
-          maquina.idComputador
-        }, ${maquina.fkSO})">Atualizar</button>
+        <button type="button" id="btn_atualizar_maq" onclick="editarInformacoesMaq('${maquina.idComputador}', ${maquina.fkSO})">Atualizar</button>
     </form>
     </div>
     `;
@@ -246,6 +226,7 @@ function validarFormsPut() {
 
 // Fetch editar informações
 function editarInformacoesMaq(idComputador, fkSO) {
+  console.log(idComputador, fkSO)
   const formData = validarFormsPut();
 
   if (formData) {
@@ -259,21 +240,25 @@ function editarInformacoesMaq(idComputador, fkSO) {
       },
       body: JSON.stringify(formData),
     })
-      .then(function (resposta) {
-        if (resposta.ok) {
-          Swal.fire({
-            title: "Maravilha!",
-            text: "As alterações foram realizadas com sucesso!",
-            icon: "success",
-          });
-
-          setTimeout(() => {
-            location.reload();
-          }, 2000);
-        } else {
-          throw new Error("Houve um erro ao tentar realizar as alterações!");
-        }
-      })
+    .then(resposta => resposta.json().then(data => ({ status: resposta.status, body: data })))
+        .then(function ({ status, body }) {
+            if (status === 200) {
+              Swal.fire({
+                title: "Maravilha!",
+                text: "As alterações foram realizadas com sucesso!",
+                icon: "success",
+              });
+    
+              setTimeout(() => {
+                location.reload();
+              }, 2000);
+            } else if (status === 400 && body.message.startsWith('Duplicate entry')) {
+                mensagensErro[4].textContent = "*Código serial duplicado. Por favor, insira um código serial único.";
+                mensagensErro[4].style.color = "red";
+            } else {
+                throw new Error(body.error || "Houve um erro ao tentar realizar o cadastro!");
+            }
+        })
       .catch(function (erro) {
         Swal.fire({
           icon: "error",
