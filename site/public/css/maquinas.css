@@ -228,6 +228,13 @@ button:hover {
 }
 
 .secao-info-so input:nth-child(4){
+    background-image: url(../assets/dashboard/usuarios/iconsForms/barcode-svgrepo-com.svg);
+    background-repeat: no-repeat;
+    background-size: 1em;
+    background-position: 1.2em center;
+}
+
+.secao-info-so input:nth-child(6){
     background-image: url(../assets/dashboard/usuarios/iconsForms/icons8-place-marker-50.png);
     background-repeat: no-repeat;
     background-size: 1em;
@@ -264,7 +271,7 @@ button:hover {
 
 .modal-content {
     background-color: #fefefe;
-    margin: 8% auto;
+    margin: 6% auto;
     padding: 20px;
     border-radius: 10px;
     max-width: 600px;

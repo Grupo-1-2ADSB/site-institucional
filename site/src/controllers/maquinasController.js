@@ -6,6 +6,7 @@ function cadastrarMaquinas(req, res){
         versaoSOServer: versaoSO,
         arquiteturaSOServer: arquiteturaSO,
         nomeMaquinaServer: nomeMaquina,
+        codigoSerialMaquinaServer: codigoSerialMaquina,
         localizacaoServer: localizacao,
         statusMaquinaServer: statusMaquina,
         fkUnidadeHospitalarServer: fkUnidadeHospitalar
@@ -16,6 +17,7 @@ function cadastrarMaquinas(req, res){
         !versaoSO ||
         !arquiteturaSO ||
         !nomeMaquina ||
+        !codigoSerialMaquina ||
         !localizacao ||
         !statusMaquina ||
         !fkUnidadeHospitalar
@@ -23,12 +25,17 @@ function cadastrarMaquinas(req, res){
         return res.status(400).json({ error: "Todos os campos devem ser preenchidos." });
     }
 
-    maquinasModel.cadastrarMaquinas(nomeSO,versaoSO, arquiteturaSO, nomeMaquina, localizacao, statusMaquina, fkUnidadeHospitalar)
+    maquinasModel.cadastrarMaquinas(nomeSO,versaoSO, arquiteturaSO, nomeMaquina, codigoSerialMaquina, localizacao, statusMaquina, fkUnidadeHospitalar)
         .then(function (resultado) {
             res.json(resultado);
-        }).catch (function (erro) {
-            console.error("Houve um erro ao realizar o cadastro: ", erro);
-            res.status(500).json({ error: "Houve um erro ao realizar o cadastro."});
+        })
+        .catch (function (erro) {
+            if (erro.code === 'ER_DUP_ENTRY') {
+                return res.status(400).json({ message: `Duplicate entry: ${codigoSerialMaquina}` });
+            } else {
+                console.error("Houve um erro ao realizar o cadastro: ", erro);
+                res.status(500).json({ error: "Houve um erro ao realizar o cadastro."});
+            }
         });
 }
 

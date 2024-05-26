@@ -1,6 +1,6 @@
 var database = require("../database/config");
 
-function cadastrarMaquinas(nomeSO,versaoSO, arquiteturaSO, nomeMaquina, localizacao, statusMaquina, fkUnidadeHospitalar){
+function cadastrarMaquinas(nomeSO,versaoSO, arquiteturaSO, nomeMaquina, codigoSerialMaquina, localizacao, statusMaquina, fkUnidadeHospitalar){
     var instrucaoSO = `
     INSERT INTO SistemaOperacional (nomeSO, versaoSO, arquiteturaSO)
     VALUES ('${nomeSO}', '${versaoSO}', '${arquiteturaSO}');
@@ -10,8 +10,8 @@ function cadastrarMaquinas(nomeSO,versaoSO, arquiteturaSO, nomeMaquina, localiza
         const fkSO = resultSO.insertId;
 
         var instrucao = `
-        INSERT INTO Computador (nome, localizacao, statusPC, fkUnidadeHospitalar, fkSO)
-        VALUES ('${nomeMaquina}', '${localizacao}', '${statusMaquina}', ${fkUnidadeHospitalar} ,${fkSO})
+        INSERT INTO Computador (idComputador, nome, localizacao, statusPC, fkUnidadeHospitalar, fkSO)
+        VALUES ('${codigoSerialMaquina}', '${nomeMaquina}', '${localizacao}', '${statusMaquina}', ${fkUnidadeHospitalar} ,${fkSO})
         `;
 
         return database.executar(instrucao);
