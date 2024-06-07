@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-    <link rel="shortcut icon" href="../../assets/logo/logoBrancoNoBck.png" type="image/x-icon">
     <link rel="stylesheet" href="../../css/analytics.css">
+    <link rel="shortcut icon" href="../../assets/logo/logoBrancoNoBck.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <title>Analytics | MedTech</title>
 </head>
 
@@ -16,7 +16,7 @@
     <!-- Barra lateral -->
     <div class="sidebar">
         <!-- Logo e nome do aplicativo -->
-        <a href="../index.html" class="logo">
+        <a href="../../index.html" class="logo">
             <i class='bx bx-desktop'></i>
             <div class="logo-name"><span>Med</span>Tech</div>
         </a>
@@ -67,7 +67,7 @@
                 <div class="left">
                     <h1>Analytics</h1> <!-- Título principal -->
                     <ul class="breadcrumb">
-                        <li><a href="#">Analytics</a></li> <!-- Migalha de pão (breadcrumb) -->
+                        <!-- <li><a href="#">Analytics</a></li>  -->
                     </ul>
                 </div>
             </div>
@@ -76,41 +76,115 @@
             <!-- Insights -->
             <ul class="insights">
                 <!-- Estatísticas breves -->
-                <li><i class='bx bx-wifi'></i>
-                    <span class="info">
-                        <h3>71</h3>
-                        <p>Conexões Rede</p> <!-- Informação sobre conexões de rede -->
-                    </span>
+                <li class="insights-maquinas insights-maquinas-alerta">
+                    <div class="title-KPI">
+                        <i class='bx bx-error'></i>
+                        <h3>Máquinas em estado de alerta</h3>
+                    </div>
+                    <div class="maquinas-alertas">
+                        <div class="task-title">
+                            <span>
+                                <i class="fa-solid fa-microchip"></i>
+                                <p>CPU</p>
+                            </span>
+                            <span>
+                                <p class="nome-maquina">${maquina.nome}</p> 
+                                <p class="registro-maquina-alerta">80%</p>
+                            </span>
+                        </div>
+
+                        <div class="task-title">
+                            <span>
+                                <i class="fa-solid fa-microchip"></i>
+                                <p>CPU</p>
+                            </span>
+                            <span>
+                                <p class="nome-maquina">${maquina.nome}</p> 
+                                <p class="registro-maquina-alerta">80%</p>
+                            </span>
+                        </div>
+                        
+                        
+                        <div class="task-title">
+                            <span>
+                                <i class="fa-solid fa-memory"></i>
+                                <p>Memória RAM</p>
+                            </span>
+                            <span>
+                                <p class="nome-maquina">${maquina.nome}</p> 
+                                <p class="registro-maquina-alerta">80%</p>
+                            </span>
+                        </div>
+
+                        <div class="task-title">
+                            <span>
+                                <i class="fa-solid fa-hard-drive"></i>
+                                <p>Disco Rígido</p>
+                            </span>
+                            <span>
+                                <p class="nome-maquina">${maquina.nome}</p> 
+                                <p class="registro-maquina-alerta">80%</p>
+                            </span>
+                        </div>
+                    </div>
                 </li>
-                <li><i class='bx bx-error'></i>
-                    <span class="info">
-                        <h3>4</h3>
-                        <p>Alertas</p> <!-- Informação sobre alertas -->
-                    </span>
-                <li>
-                    <i class='bx bx-desktop'></i>
-                    <span class="info">
-                        <h3>34</h3>
-                        <p>Máquinas On</p> <!-- Informação sobre máquinas online -->
-                    </span>
+
+                <li class="insights-maquinas insights-maquinas-critico">
+                    <div class="title-KPI">
+                        <i class='bx bx-error'></i>
+                        <h3>Máquinas em estado crítico</h3>
+                    </div>
+                    <div class="maquinas-alertas">
+                        <div class="task-title">
+                            <span>
+                                <i class="fa-solid fa-microchip"></i>
+                                <p>CPU</p>
+                            </span>
+                            <span>
+                                <p class="nome-maquina">${maquina.nome}</p> 
+                                <p class="registro-maquina-critico blinking-text">80%</p>
+                            </span>
+                        </div>
+                        
+                        
+                        <div class="task-title">
+                            <span>
+                                <i class="fa-solid fa-memory"></i>
+                                <p>Memória RAM</p>
+                            </span>
+                            <span>
+                                <p class="nome-maquina">${maquina.nome}</p> 
+                                <p class="registro-maquina-critico blinking-text">80%</p>
+                            </span>
+                        </div>
+
+                        <div class="task-title">
+                            <span>
+                                <i class="fa-solid fa-hard-drive"></i>
+                                <p>Disco Rígido</p>
+                            </span>
+                            <span>
+                                <p class="nome-maquina">${maquina.nome}</p> 
+                                <p class="registro-maquina-critico blinking-text">80%</p>
+                            </span>
+                        </div>
+                    </div>
                 </li>
-                </li>
-                <li><i class='bx bx-desktop'></i>
-                    <span class="info">
-                        <h3>2</h3>
-                        <p>Máquinas Off</p> <!-- Informação sobre máquinas offline -->
-                    </span>
-                </li>
+
+                <div class="status-maquinas" id="status_maquinas">
+                </div>
+                
             </ul>
             <!-- Fim dos Insights -->
 
             <!-- Informações detalhadas -->
             <div class="bottom-data">
-                            <!-- Lembretes (Reminders) -->
+                <!-- Lembretes (Reminders) -->
                 <div class="reminders">
                     <div class="header">
                         <i class='bx bx-desktop'></i> <!-- Ícone de lembretes -->
                         <h3>Máquinas</h3> <!-- Título da seção -->
+                        <a href="./maquinas.html"><i class='bx bx-plus'></i></a><!-- Ícone de adição -->
                     </div>
                     <ul id="task_list" class="task-list">
                         <!-- Lista de máquinas será preenchida aqui -->
@@ -122,21 +196,12 @@
     </div>
     <!-- Fim do conteúdo principal -->
 
-    <script src="../js/dashboard/dashboard.js"></script> <!-- Importando arquivo JavaScript -->
-    <script>
-
-        // Função de logout
-
-        function logout() {
-            sessionStorage.clear();
-
-            setTimeout(function() {
-                window.location.href = "../../index.html";
-            }, 2000);
-        }
-    </script>
-    <script src="../../js/dashboard/exclusão&updates/maquinasAnalytics.js"></script>
+    <script src="../../js/dashboard/dashboard.js"></script> <!-- Importando arquivo JavaScript -->
     <script src="../../js/dashboard/exclusão&updates/analytics.js"></script>
 </body>
+
 </html>
+
+
+
 </html>

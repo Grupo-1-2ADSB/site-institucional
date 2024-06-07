@@ -17,7 +17,7 @@ function logar(req, res){
 
             if (resultado.length == 1) {
                 console.log(resultado);
-                res.json(resultado[0]);
+              res.json(resultado[0]);
               } else if (resultado.length == 0) {
                 res.status(403).send("Email e/ou senha inválido(s)");
               } else {

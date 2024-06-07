@@ -51,6 +51,9 @@ function obterMaquinasDoBanco() {
       });
   }
 
+  let maquinasOn = 0;
+  let maquinasOff = 0;
+
   function criarElementosDasMaquinasAnalytics(maquinas) {
     const taskList = document.getElementById("task_list");
   
@@ -59,9 +62,11 @@ function obterMaquinasDoBanco() {
       switch (maquina.statusPC) {
         case "ativado":
           statusClass = "completed";
+          maquinasOn++;
           break;
         case "desativado":
           statusClass = "not-completed";
+          maquinasOff++;
           break;
         case "manutenção":
           statusClass = "status-maintenance";
@@ -83,10 +88,46 @@ function obterMaquinasDoBanco() {
   
       taskList.appendChild(novaUlMaquina);
     });
+
+    criarElementosMaqOnOff(maquinasOn);
   }
+
+  function criarElementosMaqOnOff(maquinasOn) {
+    const novaLiOn = document.createElement("li");
+    const novaLiOff = document.createElement("li");
+
+    const statusMaquinas = document.getElementById("status_maquinas");
+
+    novaLiOn.innerHTML = `
+      <i class='bx bx-desktop'></i>
+      <span class="info">
+          <h3>${maquinasOn}</h3>
+          <p>Máquinas On</p>
+      </span>
+    `;
+
+    novaLiOff.innerHTML = `
+      <i class='bx bx-desktop'></i>
+      <span class="info">
+          <h3>${maquinasOff}</h3>
+          <p>Máquinas Off</p>
+      </span>
+    `;
+
+    statusMaquinas.appendChild(novaLiOn);
+    statusMaquinas.appendChild(novaLiOff);
+  }
+  
 
   document.addEventListener("DOMContentLoaded", () => {
     obterMaquinasDoBanco().then((maquinas) => {
       criarElementosDasMaquinasAnalytics(maquinas);
     });
+
+    const elementosPiscantes = document.querySelectorAll('.registro-maquina-critico');      
+    setInterval(function() {
+      elementosPiscantes.forEach(elemento => {
+        elemento.classList.toggle('piscando');
+      })  
+      }, 500);
   });

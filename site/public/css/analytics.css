@@ -117,7 +117,7 @@
 }
 
 /* Estilizando um elemento com a classe .bx */
-.bx {
+.bx, .fa-radiation {
     font-size: 1.7rem; /* Tamanho da fonte */
 }
 
@@ -480,9 +480,15 @@ body {
 
 .content main .insights{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    grid-gap: 24px;
-    margin-top: 36px;
+    grid-template-columns: 38% 38% 21%;
+    grid-gap: 18px;
+    margin-top: 15px;
+}
+
+.content main .status-maquinas {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
 }
 
 .content main .insights li{
@@ -493,34 +499,98 @@ body {
     align-items: center;
     grid-gap: 24px;
     cursor: pointer;
+
+    .title-KPI {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+
+        h3 {
+            font-family: 'Poppins';
+            margin-right: auto;
+            font-size: 20px;
+            font-weight: 600;
+        }
+    }
+
+    .maquinas-alertas {
+        width: 100%;
+        overflow: auto;
+        height: 26vh;
+        scrollbar-width: none;
+
+        div {
+            width: 100%;
+            margin-bottom: 16px;
+            background: var(--grey);
+            padding: 14px 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: var(--dark);
+
+            span {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+
+                .nome-maquina {
+                    font-weight: 400;
+                }
+
+                .registro-maquina-alerta {
+                    color: #d79900;
+                }
+
+                .registro-maquina-critico {
+                    color: var(--danger);
+                }
+
+                .piscando {
+                    opacity: 0;
+                }
+            }
+
+            i {
+                font-size: 20px;
+            }
+
+            p {
+                font: 700 16px 'Poppins';
+            }
+        }
+    }
 }
 
-.content main .insights li .bx{
-    width: 80px;
-    height: 80px;
+.content main .insights .insights-maquinas  {
+    flex-direction: column;
+}
+
+.content main .insights li .bx, 
+.content main .insights li .fa-radiation {
+    width: 55px;
+    height: 55px;
     border-radius: 10px;
-    font-size: 36px;
+    font-size: 35px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .content main .insights li:nth-child(1) .bx{
-    background: var(--light-primary);
-    color: var(--primary);
-}
-
-.content main .insights li:nth-child(2) .bx{
     background: var(--light-warning);
     color: var(--warning);
 }
 
-.content main .insights li:nth-child(3) .bx{
+.content main .insights .status-maquinas li:nth-child(1) .bx {
     background: var(--light-success);
     color: var(--success);
 }
 
-.content main .insights li:nth-child(4) .bx{
+.content main .insights li:nth-child(2) .bx,
+.content main .insights li .fa-radiation{
     background: var(--light-danger);
     color: var(--danger);
 }
@@ -646,7 +716,7 @@ body {
     width: 100%;
 }
 
-.content main .bottom-data .reminders .task-list li{
+.content main .bottom-data .reminders .task-list li, .span-maquinas-alertas{
     width: 100%;
     margin-bottom: 16px;
     background: var(--grey);
