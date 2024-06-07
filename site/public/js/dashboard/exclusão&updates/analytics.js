@@ -14,6 +14,7 @@ function obterUsuariosDoBanco() {
 
 function obterRegistrosDoBanco(){
   const fkUnidadeHospitalar = sessionStorage.HOSPITAL;
+  console.log(`Acessei o analytics.js, executei obterRegistrosDoBanco()`);
   return fetch(`/maquinas/obterRegistrosDoBanco/${fkUnidadeHospitalar}`)
     .then((response) => {
       if(!response.ok){
@@ -58,7 +59,7 @@ function obterMaquinasDoBanco() {
       if (!response.ok) {
         throw new Error("Erro ao obter maquinas do banco de dados");
       }
-      return response.json();
+      return response.json(); 
     })
     .catch((error) => {
       console.error("Erro ao obter maquinas:", error);
@@ -157,4 +158,9 @@ document.addEventListener("DOMContentLoaded", () => {
       elemento.classList.toggle('piscando');
     })  
   }, 500);
+
+  obterRegistrosDoBanco().then((registros) => {
+    console.log("Registros obtidos:", registros);
+  });
+
 });

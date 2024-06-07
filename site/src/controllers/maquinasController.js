@@ -51,8 +51,9 @@ function obterMaquinasDoBanco(req, res) {
 }
 
 function obterRegistrosDoBanco(req, res) {
+    console.log("Acessei o maquinasController, e executei obterRegistrosDoBanco");
     const fkUnidadeHospitalar = req.params.fkUnidadeHospitalar;
-    analyticsModel.obterRegistrosDoBanco(fkUnidadeHospitalar)
+    maquinasModel.obterRegistrosDoBanco(fkUnidadeHospitalar)
         .then(function (registros) {
             res.json(registros);
         }).catch(function (erro) {

@@ -34,10 +34,12 @@ function cadastrarMaquinas(nomeSO, versaoSO, arquiteturaSO, nomeMaquina, codigoS
 }
 
 function obterRegistrosDoBanco(fkUnidadeHospitalar){
+    console.log(`Acessei o maquinasModel.js, executei obterRegistrosDoBanco()`);
     var instrucao = `SELECT 
                         r.idRegistro,
                         r.valor,
                         r.dataHora,
+                        h.nomeHardware,
                         r.fkComputador,
                         r.fkHardware,
                         h.valor AS valorHardware
@@ -50,6 +52,7 @@ function obterRegistrosDoBanco(fkUnidadeHospitalar){
                     WHERE 
                         c.fkUnidadeHospitalar = ${fkUnidadeHospitalar};`;
                         
+    console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
 
