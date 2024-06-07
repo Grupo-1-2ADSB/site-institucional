@@ -33,6 +33,26 @@ function cadastrarMaquinas(nomeSO, versaoSO, arquiteturaSO, nomeMaquina, codigoS
     });
 }
 
+function obterRegistrosDoBanco(fkUnidadeHospitalar){
+    var instrucao = `SELECT 
+                        r.idRegistro,
+                        r.valor,
+                        r.dataHora,
+                        r.fkComputador,
+                        r.fkHardware,
+                        h.valor AS valorHardware
+                    FROM 
+                        Registro r
+                    JOIN 
+                        Computador c ON r.fkComputador = c.idComputador
+                    JOIN 
+                        Hardware h ON r.fkHardware = h.idHardware
+                    WHERE 
+                        c.fkUnidadeHospitalar = ${fkUnidadeHospitalar};`;
+                        
+    return database.executar(instrucao);
+}
+
 
 
 function excluirMaquinas(idMaquina, fkSOExcluir) {
@@ -79,5 +99,6 @@ module.exports = {
     cadastrarMaquinas,
     excluirMaquinas,
     obterMaquinasDoBanco,
+    obterRegistrosDoBanco,
     editarInformacoesMaq
 }

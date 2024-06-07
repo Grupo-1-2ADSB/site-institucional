@@ -11,6 +11,10 @@ router.get("/obterMaquinasDoBanco/:fkUnidadeHospitalar", function(req, res){
     maquinasController.obterMaquinasDoBanco(req, res);
 });
 
+router.get("/obterRegistrosDoBanco/:fkUnidadeHospitalar", function(req, res){
+    maquinasController.obterRegistrosDoBanco(req, res);
+})
+
 router.delete("/excluirMaquinas", function(req, res) {
     maquinasController.excluirMaquinas(req, res);
 });

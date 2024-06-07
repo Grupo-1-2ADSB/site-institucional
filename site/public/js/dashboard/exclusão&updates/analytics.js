@@ -12,6 +12,20 @@ function obterUsuariosDoBanco() {
     });
 }
 
+function obterRegistrosDoBanco(){
+  const fkUnidadeHospitalar = sessionStorage.HOSPITAL;
+  return fetch(`/maquinas/obterRegistrosDoBanco/${fkUnidadeHospitalar}`)
+    .then((response) => {
+      if(!response.ok){
+        throw new Error("Erro ao obter registros do banco de dados");
+      }
+      return response.json();
+    })
+    .catch((error) =>{
+      console.error("Erro ao obter registros:", error);
+    })
+}
+
 function criarElementosDosUsuarios(usuarios) {
   const tbodyConteudo = document.getElementById("tbody");
 
