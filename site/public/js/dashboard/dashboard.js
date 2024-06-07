@@ -49,7 +49,15 @@ toggler.addEventListener('change', function () {
     }
 });
 
-// Função para o usuário sair da sessão e apagar as informações do session.Storage
+function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const idComputador = getQueryParam('id');
+    console.log("ID do Computador:", idComputador);
+});
 
 function logout() {
     sessionStorage.clear();
@@ -58,3 +66,5 @@ function logout() {
         window.location.href = "../../index.html";
     }, 1000);
 }
+
+

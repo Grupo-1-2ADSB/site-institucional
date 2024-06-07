@@ -946,7 +946,7 @@ main .container form{
     }
     
     .btn-editar-maquina {
-        background-color: var(--primary);
+        background-color: var(--dark);
     }
 }
 

@@ -714,6 +714,9 @@ body {
     flex-direction: column;
     gap: 10px;
     width: 100%;
+    overflow: auto;
+    height: 26vh;
+    scrollbar-width: none;
 }
 
 .content main .bottom-data .reminders .task-list li, .span-maquinas-alertas{
@@ -725,6 +728,22 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    .btn-visualizar-dash {
+        font-size: 13px;
+        padding: 5px 15px;
+        color: var(--light);
+        border-radius: 20px;
+        font-weight: 700;
+        border: none;
+        transition: opacity 0.4s;
+        cursor: pointer;
+        background-color: var(--dark);
+    }
+
+    .btn-visualizar-dash:hover {
+        opacity: .7;
+    }
 }
 
 .content main .bottom-data .reminders .task-list li .task-title{
