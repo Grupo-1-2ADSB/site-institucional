@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="../../css/configuracoes.css">
     <link rel="shortcut icon" href="../../assets/logo/logoBrancoNoBck.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/configuracoes.css">
     <title>Dashboard | MedTech</title>
 </head>
 
@@ -64,12 +64,6 @@
         <main>
             <!-- Cabeçalho -->
             <div class="header">
-                <div class="left">
-                    <h1>Configurações</h1> <!-- Título principal -->
-                    <ul class="breadcrumb">
-                        <li><a href="#">Edite e visualize suas informações pessoais aqui. </a></li> <!-- Migalha de pão (breadcrumb) -->
-                    </ul>
-                </div>
 
                 <!-- <div class="botao-header">
                     <button id="btn_modal" class="botao">Deletar conta</button>
@@ -99,6 +93,7 @@
                 <div class="config-direita">
 
                     <h1>Trocar informações</h1>
+                    <p>Edite suas informações pessoais aqui. </p>
 
                     <div class="info-direita">
                         <input type="text" placeholder="Trocar nome de usuário" id="novo_username">
@@ -121,34 +116,12 @@
                     </div>
     
                     <div class="info-direita">
-                    <button id="botao_confirmar" class="botao">Confirmar</button>
+                    <button id="botao_confirmar" class="botao">CONFIRMAR</button>
                     </div>
                 </div>
             </div>
 
-            <!------------ modal 1---------------->
-            <div id="div_dialog" style="display: none;">
-                <div class="div-pai" id="div_pai_conta">
-                <div class="div-deletar">
-
-                    <div class="del-texto">
-                        <h1>Deletar conta</h1>
-                        <p>Para a exclusão de sua conta é necessário confirmar sua senha atual.</p>
-                    </div>
-    
-                    <div class="del-label-input">
-                        <input type="password" placeholder="Senha atual:">
-                    </div>
-    
-                    <div class="del-botao">
-                        <button id="btn-fechar">Cancelar</button>
-                        <button id="btn-confirmar">Confirmar</button>
-                    </div>
-                </div>
-                </div>
-            </div>
-
-            <!----------------Modal 2------------------->
+            <!-- --------------Modal 2----------------- -->
     
             <div id="info_direita" style="display: none;">
                 <div class="div-pai" id="div_pai_senha">
@@ -175,7 +148,7 @@
         </main>
     </div>
     <!-- Fim do conteúdo principal -->
-    <!-- <script src="../js/dashboard/configuracoes.js"></script> -->
+    <script src="../js/dashboard/configuracoes.js"></script>
     <script src="../../js/dashboard/exclusão&updates/configuracoes.js"></script>
     <script src="../../js/dashboard/dashboard.js"></script> <!-- Importando arquivo JavaScript -->
 </body>

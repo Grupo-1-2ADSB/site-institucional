@@ -421,12 +421,13 @@ body {
 
 .config{
     width: 100%;
-    height: 475px;
+    height: 78vh;
     padding: 36px 24px;
-    margin-top: 36px;
+    margin-top: 22px;
 
     border-radius: 20px;
-    background-color: #F6F6F9;
+    background-color: var(--light);
+    color: var(--dark);
 
     display: flex;
     justify-content: space-evenly;
@@ -434,11 +435,12 @@ body {
 
 .config-direita{
     width: 49.8%;
-    height: 400px;
+    height: 70vh;
 
     flex-direction: column;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .config-direita .info-direita{
@@ -474,25 +476,29 @@ body {
     align-items: center;
 }
 
-.config-direita .info-direita:nth-child(2) {
+.config-direita p {
+    margin-bottom: 25px;
+}
+
+.config-direita .info-direita:nth-child(3) {
     input {
         background-image: url(../assets/dashboard/usuarios/iconsForms/user-svgrepo-com.svg);
     }  
 }
 
-.config-direita .info-direita:nth-child(3) {
+.config-direita .info-direita:nth-child(4) {
     input {
         background-image: url(../assets/dashboard/usuarios/iconsForms/email-8-svgrepo-com\ \(1\).svg);
     }  
 }
 
-.config-direita .info-direita:nth-child(4) {
+.config-direita .info-direita:nth-child(5) {
     input {
         background-image: url(../assets/dashboard/usuarios/iconsForms/closed-lock-password-svgrepo-com.svg);
     }  
 }
 
-.config-direita .info-direita:nth-child(5) {
+.config-direita .info-direita:nth-child(6) {
     input {
         background-image: url(../assets/dashboard/usuarios/iconsForms/closed-lock-password-svgrepo-com.svg);
     }  
@@ -506,28 +512,26 @@ body {
 } */
 
 .config-direita .botao{
-    width: 40%;
-    height: 40px;
-    border-radius: 20px;
-    font-size: 18px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    background-color: #363949;
-    color: white;
-    font-weight: 600;
+    width: 35%;
+    padding: 8px 0 8px;
+    align-self: center;
+    outline: none;
+    border: none;
+    font: 600 0.9rem 'Poppins', sans-serif;
+    border-radius: 55px;
+    color: var(--light);
+    background-color: var(--dark);
     cursor: pointer;
+    transition: 0.5s;
 }
 
 .config-direita .botao:hover{
-    background-color: #272424;
+    opacity: .7;
 }
 
 .linha{
     width: 0.2%;
-    background-color: #000000;
+    background-color: var(--dark);
 }
 
 .config-esquerda{

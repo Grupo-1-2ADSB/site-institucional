@@ -337,6 +337,7 @@ body {
     width: 100%;
     padding: 36px 24px;
     max-height: calc(100vh - 56px);
+    justify-content: center;
 }
 
 .content main .header{
@@ -376,6 +377,26 @@ body {
 
 .logout {
     cursor: pointer;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 40vw);
+    grid-template-rows: repeat(2, 41vh);
+    column-gap: 43px;
+}
+
+.chart {
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width: 1000px) {
+    .dashboard-grid {
+    grid-template-columns: 73vw;
+    grid-template-rows: 45vh;
+    gap: 35px;
+    }
 }
 
 /* #line_chart_CPU text,

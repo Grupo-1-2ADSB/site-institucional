@@ -18,8 +18,6 @@
 }
 
 .new-machine{
-  margin-left: 481px;
-  margin-top: -54px;
   cursor: pointer;
 }
 
@@ -104,7 +102,7 @@ body.dark {
 }
 
 .close {
-  color: var(--grey);
+  color: var(--dark);
   float: right;
   font-size: 28px;
   font-weight: bold;
@@ -112,7 +110,7 @@ body.dark {
 
 .close:hover,
 .close:focus {
-  color: var(--dark);
+  color: var(--dark-grey);
   text-decoration: none;
   cursor: pointer;
 }
@@ -297,20 +295,6 @@ button:hover {
 
 .modal-content h2 {
   margin-top: 0;
-}
-
-.close {
-  color: var(--grey);
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: var(--dark);
-  text-decoration: none;
-  cursor: pointer;
 }
 
 /* Estilos para o modal de cadastro */
@@ -635,7 +619,7 @@ body {
     flex-wrap: wrap;
 }
 
-.content main .header .left h1{
+.content main .new-machine{
     font-size: 36px;
     font-weight: 600;
     margin-bottom: 10px;

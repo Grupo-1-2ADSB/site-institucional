@@ -416,12 +416,12 @@ body {
 }
 
 main .container {
-    margin-top: 36px;
 
     .forms-container {
         display: flex;
         flex-direction: column;
-        gap: 1.5em;
+        gap: 2.5em;
+        height: 81vh;
 
         .forms-btn {
             width: 35%;
@@ -431,14 +431,14 @@ main .container {
             border: none;
             font: 600 0.9rem 'Poppins', sans-serif;
             border-radius: 55px;
-            color: var(--primary);
-            background-color: var(--light);
+            color: var(--light);
+            background-color: var(--dark);
             cursor: pointer;
             transition: 0.5s;
         }
 
         .forms-btn:hover {
-            background-color: #AAAAAA;
+            opacity: .8;
         }
     }
 }
@@ -448,6 +448,7 @@ main .container form{
     grid-template-columns: 75% 25%;
     background-color: var(--grey);
     border-radius: 2em;
+    height: 70vh;
 
     .forms-container-direita, .forms-container-esquerda {
         display: flex;
@@ -457,6 +458,7 @@ main .container form{
         border-radius: 1.5em;
         gap: 10px;
     }
+
 
     .forms-container-esquerda {
         border: 2px solid var(--dark);
@@ -469,19 +471,19 @@ main .container form{
             background-position: 1.2em center;
         }
 
-        .input:nth-child(1) {
+        .input:nth-child(2) {
             background-image: url(../assets/dashboard/usuarios/iconsForms/user-svgrepo-com.svg);
         }
 
-        .input:nth-child(3) {
+        .input:nth-child(4) {
             background-image: url(../assets/dashboard/usuarios/iconsForms/username-svgrepo-com.svg);
         }
 
-        .input:nth-child(5) {
+        .input:nth-child(6) {
             background-image: url(../assets/dashboard/usuarios/iconsForms/email-8-svgrepo-com\ \(1\).svg);
         }
 
-        .input:nth-child(7) {
+        .input:nth-child(8) {
             background-image: url(../assets/dashboard/usuarios/iconsForms/hierarchy-svgrepo-com.svg);
         }
 
@@ -528,8 +530,9 @@ main .container form{
         background-color: var(--light);
         border-radius: 0 1.5em 1.5em 0em;
         border: 2px var(--dark) solid;
-        padding: 2em 0.5em;
+        padding: 3em 0.5em;
         color: var(--dark);
+        justify-content: flex-start;
     }
 
     input, select {
