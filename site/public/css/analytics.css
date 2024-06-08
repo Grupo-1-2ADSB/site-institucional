@@ -597,7 +597,8 @@ body {
 }
 
 .content main .insights li .bx, 
-.content main .insights li .fa-radiation {
+.content main .insights li .fa-radiation,
+.content main .insights li .fa-land-mine-on {
     width: 45px;
     height: 45px;
     border-radius: 10px;
@@ -605,6 +606,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.content main .insights li .fa-land-mine-on {
+    font-size: 25px;
 }
 
 .content main .insights li:nth-child(1) .bx{
@@ -618,7 +623,7 @@ body {
 }
 
 .content main .insights li:nth-child(2) .bx,
-.content main .insights li .fa-radiation{
+.content main .insights li .fa-radiation, .fa-land-mine-on{
     background: var(--light-danger);
     color: var(--danger);
 }

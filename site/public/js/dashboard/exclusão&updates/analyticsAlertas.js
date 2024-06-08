@@ -100,9 +100,12 @@ function criarElementosDosAlertas(alertas) {
         const calculo = ((valorAtual / valorHardware) * 100).toFixed(1);
 
         const novaDivMaquinaAlerta = document.createElement("div");
+        novaDivMaquinaAlerta.setAttribute("data-id", alerta.idComputador);
+
         novaDivMaquinaAlerta.classList.add('task-list');
 
         const novaDivMaquinaCritica = document.createElement("div");
+        novaDivMaquinaCritica.setAttribute("data-id", alerta.idComputador);
         novaDivMaquinaCritica.classList.add('task-list');
 
         let componenteIcon = "";
@@ -133,6 +136,10 @@ function criarElementosDosAlertas(alertas) {
             `;
             divMaquinasAlertas.appendChild(novaDivMaquinaAlerta);
             alertaAlertaPresente = true;
+            novaDivMaquinaAlerta.addEventListener('click', () => {
+                const idComputador = novaDivMaquinaAlerta.getAttribute('data-id');
+                irParaDash(idComputador);
+            });
         } else if (alerta.gravidade === "Crítica") {
             novaDivMaquinaCritica.innerHTML = `
                 <span>
@@ -146,7 +153,13 @@ function criarElementosDosAlertas(alertas) {
             `;
             divMaquinasCriticas.appendChild(novaDivMaquinaCritica);
             alertaCriticaPresente = true;
+            novaDivMaquinaCritica .addEventListener('click', () => {
+                const idComputador = novaDivMaquinaCritica .getAttribute('data-id');
+                irParaDash(idComputador);
+            });
         }
+
+        
     });
 
     if (!alertaAlertaPresente) {
@@ -154,8 +167,12 @@ function criarElementosDosAlertas(alertas) {
     }
 
     if (!alertaCriticaPresente) {
-        divMaquinasCriticas.innerHTML = "<p style='color: var(--dark);'>Não há alertas do tipo alerta.</p>";
+        divMaquinasCriticas.innerHTML = "<p style='color: var(--dark);'>Não há alertas do tipo crítico.</p>";
     }
+}
+
+function irParaDash(idComputador) {
+    window.location.href =  `dashboard.html?id=${idComputador}`;
 }
 
 

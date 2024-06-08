@@ -1,3 +1,16 @@
+function obterUsuariosDoBanco() {
+  const fkUnidadeHospitalar = sessionStorage.HOSPITAL;
+  return fetch(`/usuarios/obterUsuariosDoBanco/${fkUnidadeHospitalar}`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Erro ao obter usuários do banco de dados");
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      console.error("Erro ao obter usuários:", error);
+    });
+}
 
 function obterUsuariosDoBanco() {
   const fkUnidadeHospitalar = sessionStorage.HOSPITAL;
@@ -39,7 +52,6 @@ function criarElementosDosUsuarios(usuarios) {
   });
 }
 
-
 function obterMaquinasDoBanco() {
   const fkUnidadeHospitalar = sessionStorage.HOSPITAL;
   return fetch(`/maquinas/obterMaquinasDoBanco/${fkUnidadeHospitalar}`)
@@ -58,12 +70,12 @@ let maquinasOn = 0;
 let maquinasOff = 0;
 let maquinasManutencao = 0;
 
-function criarElementosDasMaquinasAnalytics(maquinas) {
+function criarElementosDasMaquinasAnalytics(maquinas, alertas) {
   const taskList = document.getElementById("task_list");
-  
+
   // Verifique se a lista de máquinas está vazia
   if (maquinas.length === 0) {
-    taskList.innerHTML = "<p>Não há máquinas em estado crítico.</p>";
+    taskList.innerHTML = "<p>Não há máquinas em estado crítica.</p>";
     return; // Interrompe a execução da função
   }
 
@@ -86,14 +98,31 @@ function criarElementosDasMaquinasAnalytics(maquinas) {
         statusClass = "";
     }
 
+    let estadoMaquina = "Normal";
+    let iconEstadoMaquina = "bx bx-check-circle";
+
+    const alertaMaquina = alertas.find(alerta => alerta.idComputador === maquina.idComputador);
+    if (alertaMaquina) {
+      estadoMaquina = alertaMaquina.gravidade === "Crítica" ? "Crítica" : "Alerta";
+    } 
+    if (estadoMaquina === "Alerta") {
+      iconEstadoMaquina = "bx bx-error";
+    } else if (estadoMaquina === "Crítica") {
+      estadoMaquina = "fa-solid fa-land-mine-on";
+    }
+
+    alertas.find(alerta => alerta.idComputador === maquina.idComputador);
+    if (alertaMaquina) {
+      estadoMaquina = alertaMaquina.gravidade === "Crítica" ? "Crítica" : "Alerta";
+    }
+
     const novaUlMaquina = document.createElement("ul");
 
-    let maquinaEstadoComponentes = "Crítico";
     novaUlMaquina.innerHTML = `
       <li class="${statusClass}">
         <div class="task-title">
-          <i class='bx bx-check-circle'></i>
-          <p>${maquina.nome} - Estado ${maquinaEstadoComponentes}</p> 
+          <i class='${iconEstadoMaquina}'></i>
+          <p>${maquina.nome} - Estado ${estadoMaquina}</p>
         </div>
         <div>
           <button class="btn-visualizar-dash" data-id="${maquina.idComputador}">Visualizar Detalhadamente</button>
@@ -113,7 +142,6 @@ function criarElementosDasMaquinasAnalytics(maquinas) {
     });
   });
 }
-
 
 function criarElementosMaqOnOff(maquinasOn, maquinasOff, maquinasManutencao) {
   const novaLiOn = document.createElement("li");
@@ -162,6 +190,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   obterMaquinasDoBanco().then((maquinas) => {
-    criarElementosDasMaquinasAnalytics(maquinas);
+    obterAlertasDoBanco().then((alertas) => {
+      criarElementosDasMaquinasAnalytics(maquinas, alertas);
+    })
   });
 });
