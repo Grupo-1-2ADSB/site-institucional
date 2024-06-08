@@ -446,7 +446,7 @@ main .container {
 main .container form{
     display: grid;
     grid-template-columns: 75% 25%;
-    background-color: var(--light);
+    background-color: var(--grey);
     border-radius: 2em;
 
     .forms-container-direita, .forms-container-esquerda {
@@ -526,6 +526,7 @@ main .container form{
         border-radius: 0 1.5em 1.5em 0em;
         border: 2px var(--dark) solid;
         padding: 2em 0.5em;
+        color: var(--dark);
     }
 
     input, select {
