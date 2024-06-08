@@ -431,14 +431,14 @@ main .container {
             border: none;
             font: 600 0.9rem 'Poppins', sans-serif;
             border-radius: 55px;
-            color: #FFF;
-            background-color: var(--dark);
+            color: var(--primary);
+            background-color: var(--light);
             cursor: pointer;
             transition: 0.5s;
         }
 
         .forms-btn:hover {
-            background-color: #272424;
+            background-color: #AAAAAA;
         }
     }
 }
@@ -446,7 +446,7 @@ main .container {
 main .container form{
     display: grid;
     grid-template-columns: 75% 25%;
-    background-color: #FFF;
+    background-color: var(--light);
     border-radius: 2em;
 
     .forms-container-direita, .forms-container-esquerda {
@@ -522,7 +522,7 @@ main .container form{
 
     .forms-container-direita {
         align-items: center;
-        background-color: #FFF;
+        background-color: var(--light);
         border-radius: 0 1.5em 1.5em 0em;
         border: 2px var(--dark) solid;
         padding: 2em 0.5em;
@@ -532,7 +532,7 @@ main .container form{
         padding-left: 55px;
         padding-top: 12px;
         padding-bottom: 12px;
-        background: var(--grey);
+        background: var(--light);
         outline: none;
         border: none;
         font-weight: 500;

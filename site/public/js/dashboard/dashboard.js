@@ -49,22 +49,25 @@ toggler.addEventListener('change', function () {
     }
 });
 
+// Função para obter parâmetros da URL
 function getQueryParam(param) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(param);
 }
 
+// Adicionando evento quando o conteúdo do documento estiver carregado
 document.addEventListener("DOMContentLoaded", () => {
+    // Obtendo o parâmetro 'id' da URL
     const idComputador = getQueryParam('id');
     console.log("ID do Computador:", idComputador);
 });
 
+// Função para logout
 function logout() {
+    // Limpando a sessão
     sessionStorage.clear();
-
+    // Redirecionando para a página de login após 1 segundo
     setTimeout(function() {
         window.location.href = "../../index.html";
     }, 1000);
 }
-
-
