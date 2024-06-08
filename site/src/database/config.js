@@ -8,7 +8,7 @@ var sqlServerConfig = {
     user: "sa",
     password: "urubu100",
     pool: {
-        max: 10,
+        max: 20,
         min: 0,
         idleTimeoutMillis: 30000
     },

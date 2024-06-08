@@ -1,3 +1,4 @@
+
 function obterUsuariosDoBanco() {
   const fkUnidadeHospitalar = sessionStorage.HOSPITAL;
   return fetch(`/usuarios/obterUsuariosDoBanco/${fkUnidadeHospitalar}`)
@@ -12,24 +13,10 @@ function obterUsuariosDoBanco() {
     });
 }
 
-function obterRegistrosDoBanco(){
-  const fkUnidadeHospitalar = sessionStorage.HOSPITAL;
-  console.log(`Acessei o analytics.js, executei obterRegistrosDoBanco()`);
-  return fetch(`/maquinas/obterRegistrosDoBanco/${fkUnidadeHospitalar}`)
-    .then((response) => {
-      if(!response.ok){
-        throw new Error("Erro ao obter registros do banco de dados");
-      }
-      return response.json();
-    })
-    .catch((error) =>{
-      console.error("Erro ao obter registros:", error);
-    })
-}
-
 function criarElementosDosUsuarios(usuarios) {
   const tbodyConteudo = document.getElementById("tbody");
 
+  console.log(usuarios);
   usuarios.forEach((usuario) => {
     const partesNome = usuario.nomeCompleto.split(" ");
     const nomeAbreviado = partesNome.slice(0, 2).join(" ");
@@ -37,8 +24,14 @@ function criarElementosDosUsuarios(usuarios) {
     const novaTrUsuario = document.createElement("tr");
     novaTrUsuario.innerHTML = `
       <td>
-        <i class="fa-solid fa-user"></i>
-        <p>${nomeAbreviado}</p>
+        <i style="font-size: 25px;" class="fa-solid fa-user"></i>
+        <div style="display: flex;
+        flex-direction: column;">
+        <p style="font-size: 17px;
+        line-height: 19px;">${nomeAbreviado}</p>
+        <p style="font-size: 13px;
+        font-style: italic;">${usuario.nome}</p>
+        </div>
       </td>
     `;
 
@@ -46,11 +39,6 @@ function criarElementosDosUsuarios(usuarios) {
   });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  obterUsuariosDoBanco().then((usuarios) => {
-    criarElementosDosUsuarios(usuarios);
-  });
-});
 
 function obterMaquinasDoBanco() {
   const fkUnidadeHospitalar = sessionStorage.HOSPITAL;
@@ -68,9 +56,17 @@ function obterMaquinasDoBanco() {
 
 let maquinasOn = 0;
 let maquinasOff = 0;
+let maquinasManutencao = 0;
 
 function criarElementosDasMaquinasAnalytics(maquinas) {
   const taskList = document.getElementById("task_list");
+  
+  // Verifique se a lista de máquinas está vazia
+  if (maquinas.length === 0) {
+    taskList.innerHTML = "<p>Não há máquinas em estado crítico.</p>";
+    return; // Interrompe a execução da função
+  }
+
   maquinas.forEach((maquina) => {
     let statusClass = "";
     switch (maquina.statusPC) {
@@ -84,6 +80,7 @@ function criarElementosDasMaquinasAnalytics(maquinas) {
         break;
       case "manutenção":
         statusClass = "status-maintenance";
+        maquinasManutencao++;
         break;
       default:
         statusClass = "";
@@ -107,7 +104,7 @@ function criarElementosDasMaquinasAnalytics(maquinas) {
     taskList.appendChild(novaUlMaquina);
   });
 
-  criarElementosMaqOnOff(maquinasOn);
+  criarElementosMaqOnOff(maquinasOn, maquinasOff, maquinasManutencao);
 
   document.querySelectorAll('.btn-visualizar-dash').forEach(button => {
     button.addEventListener('click', () => {
@@ -117,9 +114,11 @@ function criarElementosDasMaquinasAnalytics(maquinas) {
   });
 }
 
-function criarElementosMaqOnOff(maquinasOn) {
+
+function criarElementosMaqOnOff(maquinasOn, maquinasOff, maquinasManutencao) {
   const novaLiOn = document.createElement("li");
   const novaLiOff = document.createElement("li");
+  const novaLiManutencao = document.createElement("li");
 
   const statusMaquinas = document.getElementById("status_maquinas");
 
@@ -139,28 +138,30 @@ function criarElementosMaqOnOff(maquinasOn) {
     </span>
   `;
 
+  novaLiManutencao.innerHTML = `
+    <i class='bx bx-desktop'></i>
+    <span class="info">
+      <h3>${maquinasManutencao}</h3>
+      <p>Máquinas em Manutenção</p>
+    </span>
+  `;
+
   statusMaquinas.appendChild(novaLiOn);
   statusMaquinas.appendChild(novaLiOff);
+  statusMaquinas.appendChild(novaLiManutencao);
 }
+
 
 function irParaDash(idComputador) {
   window.location.href =  `dashboard.html?id=${idComputador}`;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  obterUsuariosDoBanco().then((usuarios) => {
+    criarElementosDosUsuarios(usuarios);
+  });
+
   obterMaquinasDoBanco().then((maquinas) => {
     criarElementosDasMaquinasAnalytics(maquinas);
   });
-
-  const elementosPiscantes = document.querySelectorAll('.registro-maquina-critico');      
-  setInterval(function() {
-    elementosPiscantes.forEach(elemento => {
-      elemento.classList.toggle('piscando');
-    })  
-  }, 500);
-
-  obterRegistrosDoBanco().then((registros) => {
-    console.log("Registros obtidos:", registros);
-  });
-
 });

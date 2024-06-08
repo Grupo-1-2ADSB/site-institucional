@@ -66,7 +66,7 @@
             <!-- Cabeçalho -->
             <div class="header">
                 <div class="left">
-                    <h1>Analytics</h1> <!-- Título principal -->
+                    <!-- <h1>Analytics</h1>  -->
                     <ul class="breadcrumb">
                         <!-- <li><a href="#">Analytics</a></li>  -->
                     </ul>
@@ -82,51 +82,7 @@
                         <i class='bx bx-error'></i>
                         <h3>Máquinas em estado de alerta</h3>
                     </div>
-                    <div class="maquinas-alertas">
-                        <div class="task-title">
-                            <span>
-                                <i class="fa-solid fa-microchip"></i>
-                                <p>CPU</p>
-                            </span>
-                            <span>
-                                <p class="nome-maquina">${maquina.nome}</p> 
-                                <p class="registro-maquina-alerta">80%</p>
-                            </span>
-                        </div>
-
-                        <div class="task-title">
-                            <span>
-                                <i class="fa-solid fa-microchip"></i>
-                                <p>CPU</p>
-                            </span>
-                            <span>
-                                <p class="nome-maquina">${maquina.nome}</p> 
-                                <p class="registro-maquina-alerta">80%</p>
-                            </span>
-                        </div>
-                        
-                        
-                        <div class="task-title">
-                            <span>
-                                <i class="fa-solid fa-memory"></i>
-                                <p>Memória RAM</p>
-                            </span>
-                            <span>
-                                <p class="nome-maquina">${maquina.nome}</p> 
-                                <p class="registro-maquina-alerta">80%</p>
-                            </span>
-                        </div>
-
-                        <div class="task-title">
-                            <span>
-                                <i class="fa-solid fa-hard-drive"></i>
-                                <p>Disco Rígido</p>
-                            </span>
-                            <span>
-                                <p class="nome-maquina">${maquina.nome}</p> 
-                                <p class="registro-maquina-alerta">80%</p>
-                            </span>
-                        </div>
+                    <div id="div_maquinas_alertas" class="maquinas-alertas">
                     </div>
                 </li>
 
@@ -135,40 +91,7 @@
                         <i class='bx bx-error'></i>
                         <h3>Máquinas em estado crítico</h3>
                     </div>
-                    <div class="maquinas-alertas">
-                        <div class="task-title">
-                            <span>
-                                <i class="fa-solid fa-microchip"></i>
-                                <p>CPU</p>
-                            </span>
-                            <span>
-                                <p class="nome-maquina">${maquina.nome}</p> 
-                                <p class="registro-maquina-critico blinking-text">80%</p>
-                            </span>
-                        </div>
-                        
-                        
-                        <div class="task-title">
-                            <span>
-                                <i class="fa-solid fa-memory"></i>
-                                <p>Memória RAM</p>
-                            </span>
-                            <span>
-                                <p class="nome-maquina">${maquina.nome}</p> 
-                                <p class="registro-maquina-critico blinking-text">80%</p>
-                            </span>
-                        </div>
-
-                        <div class="task-title">
-                            <span>
-                                <i class="fa-solid fa-hard-drive"></i>
-                                <p>Disco Rígido</p>
-                            </span>
-                            <span>
-                                <p class="nome-maquina">${maquina.nome}</p> 
-                                <p class="registro-maquina-critico blinking-text">80%</p>
-                            </span>
-                        </div>
+                    <div id="div_maquinas_criticas" class="maquinas-alertas">
                     </div>
                 </li>
 
@@ -199,6 +122,8 @@
 
     <script src="../../js/dashboard/dashboard.js"></script> <!-- Importando arquivo JavaScript -->
     <script src="../../js/dashboard/exclusão&updates/analytics.js"></script>
+    <script src="../../js/dashboard/exclusão&updates/analyticsAlertas.js"></script>
+
 </body>
 
 </html>

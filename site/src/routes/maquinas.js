@@ -23,5 +23,4 @@ router.put("/editarInformacoesMaq", function(req, res) {
     maquinasController.editarInformacoesMaq(req, res);
 });
 
-
 module.exports = router;
