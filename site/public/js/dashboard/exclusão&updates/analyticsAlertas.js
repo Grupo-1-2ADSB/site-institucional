@@ -1,3 +1,6 @@
+function obterRegistrosDoBanco(){
+    const fkUnidadeHospitalar = sessionStorage.HOSPITAL;
+    return fetch(`/maquinas/obterRegistrosDoBanco/${fkUnidadeHospitalar}`)
       .then((response) => {
         if(!response.ok){
           throw new Error("Erro ao obter registros do banco de dados");
@@ -7,10 +10,7 @@
       .catch((error) =>{
         console.error("Erro ao obter registros:", error);
       })
-  }function obterRegistrosDoBanco(){
-    const fkUnidadeHospitalar = sessionStorage.HOSPITAL;
-    return fetch(`/maquinas/obterRegistrosDoBanco/${fkUnidadeHospitalar}`)
-
+  }
 
 function cadastrarAlertas(registros, alertas) {
 registros.forEach((registro) => {
@@ -109,7 +109,7 @@ function criarElementosDosAlertas(alertas) {
 
         let componenteIcon = "";
         switch (alerta.nomeHardware) {
-            case "Disco Rígido":
+            case "Armazenamento":
                 componenteIcon = "fa-solid fa-hard-drive";
                 break;
             case "CPU":
