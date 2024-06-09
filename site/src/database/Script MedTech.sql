@@ -108,15 +108,3 @@ VALUES (NULL, 'Pedro Henrique', 'PH', 'pedroHenrique@upaZonaSulSantos.com', 'Sen
 INSERT INTO SistemaOperacional(idSO, nomeSO, versaoSO, arquiteturaSO) VALUES(1, 'Windows', '10', 'x64'),
 																			(2, 'Linux', 'Ubuntu 20.04', 'x64'),
 																			(3, 'macOS', 'Big Sur', 'x64');  
-
--- Inserindo Computadores
-INSERT INTO Computador(idComputador, nome, localizacao, statusPC, fkUnidadeHospitalar, fkSO) VALUES("BFEBFBFF000806EA", 'Máquina Recpção 1', 'Recpção', 'ativado', 1, 1);
-																							
--- Inserindo Hardware
-INSERT INTO Hardware(idHardware, nomeHardware, descricaoHardware, valor, fkComputador)
-VALUES(NULL, 'Memória RAM', 'DDR4', 600.00, "BFEBFBFF000806EA"),
-      (NULL, 'Disco Rígido', 'HDD', 300.00, "BFEBFBFF000806EA"),
-      (NULL, 'CPU', 'Seagate 1TB', 300.00, "BFEBFBFF000806EA"),
-      (NULL, 'Disco Rígido', 'SSHD', 300.00, "BFEBFBFF000806EA");
-
-SELECT * FROM hardware JOIN computador ON fkComputador = idComputador;

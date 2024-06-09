@@ -1,8 +1,8 @@
 // routes/dadosRoute.js
 const express = require('express');
 const router = express.Router();
-const dadosController = require('../controllers/dadosController');
+const dashboardController = require('../controllers/dashboardController');
 
-router.get('/obterDadosDoBanco/:fkUnidadeHospitalar', dadosController.obterDadosDoBanco);
+router.get('/obterDadosDoBanco/:fkUnidadeHospitalar', dashboardController.obterDadosDoBanco);
 
 module.exports = router;

@@ -63,6 +63,19 @@ function obterRegistrosDoBanco(req, res) {
 }
 
 
+function obter7RegistrosDoBanco(req, res) {
+    console.log("Acessei o maquinasController, e executei obter7RegistrosDoBanco");
+    const fkUnidadeHospitalar = req.params.fkUnidadeHospitalar;
+    maquinasModel.obter7RegistrosDoBanco(fkUnidadeHospitalar)
+        .then(function (registros) {
+            res.json(registros);
+        }).catch(function (erro) {
+            console.error("Erro ao obter registros:", erro);
+            res.status(500).json({ error: "Erro ao obter registros." })
+        })
+}
+
+
 function excluirMaquinas(req, res) {
     const idMaquina = req.body.idMaquinaServer;
     const fkSOExcluir = req.body.fkSOServer;
@@ -123,5 +136,6 @@ module.exports = {
     obterMaquinasDoBanco,
     excluirMaquinas,
     obterRegistrosDoBanco,
+    obter7RegistrosDoBanco,
     editarInformacoesMaq
 }

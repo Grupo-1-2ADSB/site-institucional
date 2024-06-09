@@ -1,7 +1,3 @@
-function obterRegistrosDoBanco(){
-    const fkUnidadeHospitalar = sessionStorage.HOSPITAL;
-    console.log(`Acessei o analytics.js, executei obterRegistrosDoBanco()`);
-    return fetch(`/maquinas/obterRegistrosDoBanco/${fkUnidadeHospitalar}`)
       .then((response) => {
         if(!response.ok){
           throw new Error("Erro ao obter registros do banco de dados");
@@ -11,7 +7,10 @@ function obterRegistrosDoBanco(){
       .catch((error) =>{
         console.error("Erro ao obter registros:", error);
       })
-  }
+  }function obterRegistrosDoBanco(){
+    const fkUnidadeHospitalar = sessionStorage.HOSPITAL;
+    return fetch(`/maquinas/obterRegistrosDoBanco/${fkUnidadeHospitalar}`)
+
 
 function cadastrarAlertas(registros, alertas) {
 registros.forEach((registro) => {

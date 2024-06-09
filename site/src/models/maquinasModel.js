@@ -56,6 +56,56 @@ function obterRegistrosDoBanco(fkUnidadeHospitalar){
     return database.executar(instrucao);
 }
 
+function obter7RegistrosDoBanco(fkUnidadeHospitalar){
+    console.log(`Acessei o maquinasModel.js, executei obterRegistrosDoBanco()`);
+    var instrucao;
+
+    if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
+       instrucao = `SELECT 
+        r.idRegistro,
+        r.valor,
+        r.dataHora,
+        h.nomeHardware,
+        r.fkComputador,
+        r.fkHardware,
+        h.valor AS valorHardware
+    FROM 
+        Registro r
+    JOIN 
+        Computador c ON r.fkComputador = c.idComputador
+    JOIN 
+        Hardware h ON r.fkHardware = h.idHardware
+    WHERE 
+        c.fkUnidadeHospitalar = ${fkUnidadeHospitalar}
+    ORDER BY 
+        r.dataHora DESC
+    LIMIT 7;`;
+    } else {
+        instrucao = `
+        SELECT TOP 7
+        r.idRegistro,
+        r.valor,
+        r.dataHora,
+        h.nomeHardware,
+        r.fkComputador,
+        r.fkHardware,
+        h.valor AS valorHardware
+    FROM 
+        Registro r
+    JOIN 
+        Computador c ON r.fkComputador = c.idComputador
+    JOIN 
+        Hardware h ON r.fkHardware = h.idHardware
+    WHERE 
+        c.fkUnidadeHospitalar = ${fkUnidadeHospitalar}
+    ORDER BY 
+        r.dataHora DESC;    
+        `;
+    }
+                        
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
 
 
 function excluirMaquinas(idMaquina, fkSOExcluir) {
@@ -103,5 +153,6 @@ module.exports = {
     excluirMaquinas,
     obterMaquinasDoBanco,
     obterRegistrosDoBanco,
+    obter7RegistrosDoBanco,
     editarInformacoesMaq
 }

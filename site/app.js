@@ -1,11 +1,10 @@
-process.env.AMBIENTE_PROCESSO = "desenvolvimento";
+// process.env.AMBIENTE_PROCESSO = "desenvolvimento";
 process.env.AMBIENTE_PROCESSO = "producao";
 
 var express = require("express");
 var cors = require("cors");
 var path = require("path");
 var PORTA = process.env.AMBIENTE_PROCESSO == "desenvolvimento" ? 3333 : 80;
-var PORTA = process.env.AMBIENTE_PROCESSO == "producao" ? 3333 : 80;
 
 var app = express();
 
@@ -13,7 +12,7 @@ var indexRouter = require("./src/routes/login");
 var usuarioRouter = require("./src/routes/usuarios");
 var maquinasRouter = require("./src/routes/maquinas");
 var alertasRouter = require("./src/routes/alertas");
-// var aquariosRouter = require("./src/routes/aquarios");
+var dashboardRouter = require("./src/routes/dashboard");
 // var empresasRouter = require("./src/routes/empresas");
 
 app.use(express.json());
@@ -26,7 +25,7 @@ app.use("/login", indexRouter);
 app.use("/usuarios", usuarioRouter);
 app.use("/maquinas", maquinasRouter);
 app.use("/alertas", alertasRouter);
-// app.use("/aquarios", aquariosRouter);
+app.use("/dashboard", dashboardRouter);
 // app.use("/empresas", empresasRouter);
 
 app.listen(PORTA, function () {
