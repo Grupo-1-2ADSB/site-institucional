@@ -67,7 +67,11 @@
 
     function obter7RegistrosDoBanco() {
         const fkUnidadeHospitalar = sessionStorage.HOSPITAL;
-        return fetch(`/maquinas/obter7RegistrosDoBanco/${fkUnidadeHospitalar}`)
+        const idComputador = getQueryParam('id'); // Certifique-se de passar o nome do parâmetro correto
+    
+        console.log(`Obtendo registros para Unidade Hospitalar: ${fkUnidadeHospitalar}, Computador: ${idComputador}`);
+    
+        return fetch(`/maquinas/obter7RegistrosDoBanco/${fkUnidadeHospitalar}/${idComputador}`)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error("Erro ao obter registros do banco de dados");
@@ -75,75 +79,86 @@
                 return response.json();
             })
             .then((registros) => {
-                return registros.reduce((acumulador, registro) => {
-                    // Agrupar os registros por nome de hardware
-                    acumulador[registro.nomeHardware] = acumulador[registro.nomeHardware] || [];
-                    // Adicionar o registro ao grupo correspondente
-                    acumulador[registro.nomeHardware].push(registro);
-                    // Manter apenas os últimos 7 registros em cada grupo
-                    acumulador[registro.nomeHardware] = acumulador[registro.nomeHardware].slice(-7);
-                    return acumulador;
-                }, {});
+                console.log("Registros recebidos do servidor:", registros);
+                allRecords = registros; // Armazenar os registros recebidos na lista global
+                return registros;
             })
             .catch((error) => {
                 console.error("Erro ao obter registros:", error);
             });
     }
     
-    function fetchNewRecords() {
-        return obter7RegistrosDoBanco().then((registros) => {
-            console.log("Registros obtidos do servidor:", registros);
-            console.log("Todos os registros obtidos do servidor:", allRecords);
-    
-            const newRecords = [];
-    
-            // Iterar sobre cada grupo de registros
-            Object.values(registros).forEach((registroGrupo) => {
-                // Adicionar os últimos 7 registros de cada grupo à lista newRecords
-                newRecords.push(...getLastNRecords(registroGrupo, 7));
-            });
-    
-            console.log("Novos registros filtrados:", newRecords);
-    
-            allRecords.push(...newRecords);
-    
-            return newRecords;
+let uniqueRecords = [];
+function fetchNewRecords() {
+    return obter7RegistrosDoBanco().then((novosRegistros) => {
+        console.log("Registros obtidos do servidor:", novosRegistros);
+
+        // Iterar pelos novos registros
+        novosRegistros.forEach((registro) => {
+            // Verificar se o registro específico já está na lista
+            const registroExistente = uniqueRecords.find(reg => reg.idRegistro === registro.idRegistro);
+
+            // Adicionar apenas se ainda não estiver na lista
+            if (!registroExistente) {
+                // Se a lista já contiver 7 registros, remover o mais antigo
+                if (uniqueRecords.length >= 7) {
+                    uniqueRecords.shift();
+                }
+                uniqueRecords.push(registro);
+                console.log(`Unique Records: ${uniqueRecords}`)
+            }
         });
-    }
-    
-    
-    
-    
-function updateRecordsAndDrawChart() {
-    obter7RegistrosDoBanco().then((registros) => {
-        const registrosCPU = registros['CPU'] || [];
-        const registrosRAM = registros['Memória RAM'] || [];
-        const registrosDisco = registros['Armazenamento'] || [];
-        const registrosRede = registros['Rede'] || [];
-        
-        drawAllCharts(registrosCPU, registrosRAM, registrosDisco, registrosRede);
+
+        console.log("Registros únicos:", uniqueRecords);
+
+        // Agendar a próxima atualização após 5 segundos
+        setTimeout(updateChartsWithNewRecords, 5000);
     });
 }
-
+    
+    // Defina a função updateChartsWithNewRecords
     function updateChartsWithNewRecords() {
-        fetchNewRecords().then((newRecords) => {
-            console.log("1 - " + newRecords)
-
-            if (newRecords.length > 0) {
-                // Atualizar os gráficos com os novos registros
-                console.log("2 - " + newRecords)
-                drawAllCharts(newRecords);
-            }
+        fetchNewRecords().then(() => {
+            // Atualizar os gráficos com os novos registros
+            drawAllCharts(allRecords);
             // Agendar a próxima atualização após 5 segundos
             setTimeout(updateChartsWithNewRecords, 5000);
         });
     }
+
+    updateChartsWithNewRecords();
+
+    
+// function updateRecordsAndDrawChart() {
+//     obter7RegistrosDoBanco().then((registros) => {
+//         const registrosCPU = registros['CPU'] || [];
+//         const registrosRAM = registros['Memória RAM'] || [];
+//         const registrosDisco = registros['Armazenamento'] || [];
+//         const registrosRede = registros['Rede'] || [];
+        
+//         drawAllCharts(registrosCPU.concat(registrosRAM, registrosDisco, registrosRede));
+//     });
+// }
+
+// fetchNewRecords().then((newRecords) => {
+//     console.log("1 - " + newRecords)
+
+//     if (Array.isArray(newRecords) && newRecords.length > 0) {
+//         // Atualizar os gráficos com os novos registros
+//         console.log("2 - " + newRecords)
+//         drawAllCharts(newRecords);
+//     }
+//     // Agendar a próxima atualização após 5 segundos
+//     setTimeout(updateChartsWithNewRecords, 5000);
+// });
 
     function prepararDadosParaGrafico(registros, numRegistros) {
         const dadosCPU = [["Hora do dia", "Uso da CPU(%)"]];
         const dadosRAM = [["Hora do dia", "Uso da RAM(%)"]];
         const dadosDisco = [["Discos", "% usado", { role: "style" }]];
         const dadosRede = [["Medida", "Valor"]];
+
+        const todosRegistros = registros.flatMap(registro => registro);
 
         // Filtrando os registros por tipo de componente e garantindo que a propriedade 'nomeHardware' esteja definida
         const registrosCPU = registros.filter(r => r && r.nomeHardware === 'CPU');
@@ -271,7 +286,7 @@ function updateRecordsAndDrawChart() {
             },
         };
 
-        var { dadosCPU, dadosRAM, dadosDisco, dadosRede } = prepararDadosParaGrafico(registros, 10);
+        var { dadosCPU, dadosRAM, dadosDisco, dadosRede } = prepararDadosParaGrafico(registros, 7);
 
         var chartCPU = new google.visualization.LineChart(
             document.getElementById("line_chart_CPU")
@@ -294,16 +309,19 @@ function updateRecordsAndDrawChart() {
         chartRede.draw(google.visualization.arrayToDataTable(dadosRede), optionsRede);
     }
 
-    function getLastNRecords(records, n) {
-        return records.slice(Math.max(records.length - n, 0));
-    }
+    // function getLastNRecords(records, n) {
+    //     if (!Array.isArray(records)) {
+    //         console.error("getLastNRecords: records não é um array", records);
+    //         return [];
+    //     }
+    //     return records.slice(Math.max(records.length - n, 0));
+    // }
 
-    document.addEventListener("DOMContentLoaded", () => {
-        // Atualizar os registros e desenhar os gráficos iniciais
-        updateRecordsAndDrawChart();
-        // Iniciar o processo de atualização contínua dos registros e dos gráficos
-        updateChartsWithNewRecords();
-    });
+    // document.addEventListener("DOMContentLoaded", () => {
+    //     // Atualizar os registros e desenhar os gráficos iniciais
+    //     updateRecordsAndDrawChart();
+    //     // Iniciar o processo de atualização contínua dos registros e dos gráficos
+    // });
 
 
 

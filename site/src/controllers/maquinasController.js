@@ -66,7 +66,11 @@ function obterRegistrosDoBanco(req, res) {
 function obter7RegistrosDoBanco(req, res) {
     console.log("Acessei o maquinasController, e executei obter7RegistrosDoBanco");
     const fkUnidadeHospitalar = req.params.fkUnidadeHospitalar;
-    maquinasModel.obter7RegistrosDoBanco(fkUnidadeHospitalar)
+    const idComputador = req.params.idComputador;
+
+    console.log("Parametos" + idComputador)
+
+    maquinasModel.obter7RegistrosDoBanco(fkUnidadeHospitalar, idComputador)
         .then(function (registros) {
             res.json(registros);
         }).catch(function (erro) {

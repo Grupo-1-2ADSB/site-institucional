@@ -15,7 +15,7 @@ router.get("/obterRegistrosDoBanco/:fkUnidadeHospitalar", function(req, res){
     maquinasController.obterRegistrosDoBanco(req, res);
 })
 
-router.get("/obter7RegistrosDoBanco/:fkUnidadeHospitalar", function(req, res){
+router.get("/obter7RegistrosDoBanco/:fkUnidadeHospitalar/:idComputador", function(req, res){
     maquinasController.obter7RegistrosDoBanco(req, res);
 })
 

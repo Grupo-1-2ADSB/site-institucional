@@ -56,7 +56,7 @@ function obterRegistrosDoBanco(fkUnidadeHospitalar){
     return database.executar(instrucao);
 }
 
-function obter7RegistrosDoBanco(fkUnidadeHospitalar){
+function obter7RegistrosDoBanco(fkUnidadeHospitalar, idComputador){
     console.log(`Acessei o maquinasModel.js, executei obterRegistrosDoBanco()`);
     var instrucao;
 
@@ -76,30 +76,35 @@ function obter7RegistrosDoBanco(fkUnidadeHospitalar){
     JOIN 
         Hardware h ON r.fkHardware = h.idHardware
     WHERE 
-        c.fkUnidadeHospitalar = ${fkUnidadeHospitalar}
+        c.fkUnidadeHospitalar = ${fkUnidadeHospitalar} AND
+        c.idComputador = '${idComputador}'
     ORDER BY 
         r.dataHora DESC
     LIMIT 7;`;
     } else {
         instrucao = `
-        SELECT TOP 7
-        r.idRegistro,
-        r.valor,
-        r.dataHora,
-        h.nomeHardware,
-        r.fkComputador,
-        r.fkHardware,
-        h.valor AS valorHardware
-    FROM 
-        Registro r
-    JOIN 
-        Computador c ON r.fkComputador = c.idComputador
-    JOIN 
-        Hardware h ON r.fkHardware = h.idHardware
-    WHERE 
-        c.fkUnidadeHospitalar = ${fkUnidadeHospitalar}
-    ORDER BY 
-        r.dataHora DESC;    
+        SELECT idRegistro, valor, dataHora, nomeHardware, fkComputador, fkHardware, valorHardware
+        FROM (
+            SELECT 
+                r.idRegistro,
+                r.valor,
+                r.dataHora,
+                h.nomeHardware,
+                r.fkComputador,
+                r.fkHardware,
+                h.valor AS valorHardware,
+                ROW_NUMBER() OVER (PARTITION BY h.nomeHardware ORDER BY r.dataHora DESC) AS RowNum
+            FROM 
+                Registro r
+            JOIN 
+                Computador c ON r.fkComputador = c.idComputador
+            JOIN 
+                Hardware h ON r.fkHardware = h.idHardware
+            WHERE 
+                c.fkUnidadeHospitalar = ${fkUnidadeHospitalar} AND c.idComputador = '${idComputador}'
+        ) AS SubQuery
+        WHERE 
+            RowNum <= 7;
         `;
     }
                         
