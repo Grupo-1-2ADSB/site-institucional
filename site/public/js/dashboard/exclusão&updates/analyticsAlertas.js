@@ -19,23 +19,26 @@ registros.forEach((registro) => {
     let descricao;
     let valorHardware = registro.valorHardware;
     let valorAtual = registro.valor;
-    const calculo = ((valorAtual / valorHardware) * 100).toFixed(1);
+    const calculo = ((valorAtual / valorHardware) * 100);
 
     if (calculo >= 80.0 && calculo >= 90.0) {
-    if (calculo >= 80.0) {
+    if (calculo >= 80.0 && calculo <= 90.0) {
         gravidade = "Alerta";
-        descricao = `O componente ${nomeHardware} está acima de ${calculo}% do ideal para o uso.`;
-    } else if (calculo >= 90.0) {
+        descricao = `O componente ${nomeHardware} está acima de ${calculo.toFixed(1)}% do ideal para o uso.`;
+    } else {
         gravidade = "Crítica";
-        descricao = `O componente ${nomeHardware} está em estado crítico, acima de ${calculo}% do ideal para o uso. Envie um técnico imediatamente.`;
+        descricao = `O componente ${nomeHardware} está em estado crítico, acima de ${calculo.toFixed(1)}% do ideal para o uso.`;
     }
 
-    console.log(alertas)
+    console.log(`${registro.nomeHardware} e calculo: ${calculo}`);
+
+
+    console.log("Alertas" + alertas)
     const alertaExistente = alertas.some(
     (alerta) => alerta.fkRegistro === registro.idRegistro
     );
 
-    console.log(alertaExistente);
+    console.log("Alertas Existe: " + alertaExistente);
 
     if (!alertaExistente) {
         const dados = {
@@ -43,6 +46,8 @@ registros.forEach((registro) => {
         descricaoServer: descricao,
         fkRegistroServer: registro.idRegistro
         };
+
+        console.log("Dados " + JSON.stringify(dados))
 
         fetch("/alertas/cadastrarAlertas", {
         method: "POST",
@@ -94,8 +99,9 @@ function criarElementosDosAlertas(alertas) {
     let alertaCriticaPresente = false;
 
     alertas.forEach((alerta) => {
-        let valorHardware = alerta.valor[0];
-        let valorAtual = alerta.valor[1];
+        console.log("ALertas" + alertas);
+        let valorHardware = alerta.valor[1];
+        let valorAtual = alerta.valor[0];
         const calculo = ((valorAtual / valorHardware) * 100).toFixed(1);
 
         const novaDivMaquinaAlerta = document.createElement("div");
@@ -123,6 +129,7 @@ function criarElementosDosAlertas(alertas) {
         }
 
         if (alerta.gravidade === "Alerta") {
+            
             novaDivMaquinaAlerta.innerHTML = `
                 <span>
                     <i class="${componenteIcon}"></i>

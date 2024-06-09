@@ -50,7 +50,8 @@ function obterRegistrosDoBanco(fkUnidadeHospitalar){
                     JOIN 
                         Hardware h ON r.fkHardware = h.idHardware
                     WHERE 
-                        c.fkUnidadeHospitalar = ${fkUnidadeHospitalar};`;
+                        c.fkUnidadeHospitalar = ${fkUnidadeHospitalar}
+                        AND CONVERT(date, r.dataHora) = CONVERT(date, GETDATE());`;
                         
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

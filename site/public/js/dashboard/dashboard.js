@@ -157,6 +157,7 @@ function fetchNewRecords() {
         const dadosRAM = [["Hora do dia", "Uso da RAM(%)"]];
         const dadosDisco = [["Discos", "% usado", { role: "style" }]];
         const dadosRede = [["Medida", "Valor"]];
+        let maxCPU = 0;
 
         const todosRegistros = registros.flatMap(registro => registro);
 
@@ -169,6 +170,9 @@ function fetchNewRecords() {
         // Processando os registros válidos
         registrosCPU.forEach((r) => {
             const hora = new Date(r.dataHora).toLocaleTimeString();
+            maxCPU = r.valorHardware;
+            console.log("Reg CPU" + r.valorHardware)
+            
             dadosCPU.push([hora, r.valor]);
         });
 
@@ -186,7 +190,7 @@ function fetchNewRecords() {
             dadosRede.push([hora, r.valor]);
         });
 
-        return { dadosCPU, dadosRAM, dadosDisco, dadosRede };
+        return { dadosCPU, dadosRAM, dadosDisco, dadosRede, maxCPU };
     }
 
 
@@ -198,6 +202,9 @@ function fetchNewRecords() {
 
     function drawAllCharts(registros) {
         var darkColor = getThemeColor();
+        var { dadosCPU, dadosRAM, dadosDisco, dadosRede, maxCPU } = prepararDadosParaGrafico(registros, 7);
+
+        console.log("Recebi o maxCPU" + maxCPU)
 
         var optionsCPU = {
             title: "Desempenho do Sistema (CPU)",
@@ -205,13 +212,17 @@ function fetchNewRecords() {
             backgroundColor: "transparent",
             width: "100%",
             height: "100%",
-            titleTextStyle: { color: darkColor },
-            hAxis: { textStyle: { color: darkColor }, titleTextStyle: { color: darkColor } },
-            vAxis: { textStyle: { color: darkColor }, titleTextStyle: { color: darkColor } },
             animation: {
                 duration: 1000,
                 easing: 'out',
-            },
+              },
+            titleTextStyle: { color: darkColor },
+            hAxis: { textStyle: { color: darkColor }, titleTextStyle: { color: darkColor } },
+            vAxis: {
+                title: 'Medidas ',
+                minValue: 0,
+                maxValue: 100 // Ajustar conforme necessário
+              },
             chartArea: {
                 width: "100%",
                 height: "60%",
@@ -286,7 +297,7 @@ function fetchNewRecords() {
             },
         };
 
-        var { dadosCPU, dadosRAM, dadosDisco, dadosRede } = prepararDadosParaGrafico(registros, 7);
+        
 
         var chartCPU = new google.visualization.LineChart(
             document.getElementById("line_chart_CPU")
