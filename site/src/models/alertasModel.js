@@ -7,10 +7,14 @@ function cadastrarAlertas(gravidade, descricao, fkRegistro) {
 }
 
 function obterAlertasDoBanco(fkUnidadeHospitalar) {
-    var instrucao = `SELECT * FROM Evento JOIN Registro ON Evento.fkRegistro = Registro.idRegistro 
-    JOIN Computador ON Registro.fkComputador = Computador.idComputador
-    JOIN Hardware ON Registro.fkHardware = Hardware.idHardware
-    WHERE fkUnidadeHospitalar = ${fkUnidadeHospitalar};`;
+    var instrucao = `SELECT * 
+                        FROM Evento 
+                        JOIN Registro ON Evento.fkRegistro = Registro.idRegistro 
+                        JOIN Computador ON Registro.fkComputador = Computador.idComputador 
+                        JOIN Hardware ON Registro.fkHardware = Hardware.idHardware 
+                        WHERE fkUnidadeHospitalar = ${fkUnidadeHospitalar} 
+                        AND DATE(Registro.dataHora) = CURDATE() 
+                        ORDER BY Registro.dataHora;`;
 
     return database.executar(instrucao);
 }
