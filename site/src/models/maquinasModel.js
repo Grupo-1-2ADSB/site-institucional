@@ -85,27 +85,27 @@ function obter7RegistrosDoBanco(fkUnidadeHospitalar, idComputador){
     } else {
         instrucao = `
         SELECT idRegistro, valor, dataHora, nomeHardware, fkComputador, fkHardware, valorHardware
-        FROM (
-            SELECT 
-                r.idRegistro,
-                r.valor,
-                r.dataHora,
-                h.nomeHardware,
-                r.fkComputador,
-                r.fkHardware,
-                h.valor AS valorHardware,
-                ROW_NUMBER() OVER (PARTITION BY h.nomeHardware ORDER BY r.dataHora DESC) AS RowNum
-            FROM 
-                Registro r
-            JOIN 
-                Computador c ON r.fkComputador = c.idComputador
-            JOIN 
-                Hardware h ON r.fkHardware = h.idHardware
-            WHERE 
-                c.fkUnidadeHospitalar = ${fkUnidadeHospitalar} AND c.idComputador = '${idComputador}'
-        ) AS SubQuery
-        WHERE 
-            RowNum <= 7;
+FROM (
+    SELECT 
+        r.idRegistro,
+        r.valor,
+        r.dataHora,
+        h.nomeHardware,
+        r.fkComputador,
+        r.fkHardware,
+        h.valor AS valorHardware,
+        ROW_NUMBER() OVER (PARTITION BY h.nomeHardware ORDER BY CASE WHEN h.nomeHardware = 'Armazenamento' THEN r.dataHora END DESC, r.dataHora DESC) AS RowNum
+    FROM 
+        Registro r
+    JOIN 
+        Computador c ON r.fkComputador = c.idComputador
+    JOIN 
+        Hardware h ON r.fkHardware = h.idHardware
+    WHERE 
+        c.fkUnidadeHospitalar = ${fkUnidadeHospitalar} AND c.idComputador = '${idComputador}'
+) AS SubQuery
+WHERE 
+    (nomeHardware = 'Armazenamento' AND RowNum = 1) OR (nomeHardware <> 'Armazenamento' AND RowNum <= 7);
         `;
     }
                         

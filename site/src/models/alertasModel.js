@@ -10,7 +10,7 @@ function obterAlertasDoBanco(fkUnidadeHospitalar) {
     var instrucao = `SELECT * FROM Evento JOIN Registro ON Evento.fkRegistro = Registro.idRegistro 
     JOIN Computador ON Registro.fkComputador = Computador.idComputador
     JOIN Hardware ON Registro.fkHardware = Hardware.idHardware
-    WHERE fkUnidadeHospitalar = ${fkUnidadeHospitalar} ORDER BY Registro.dataHora DESC LIMIT 1;`;
+    WHERE fkUnidadeHospitalar = ${fkUnidadeHospitalar};`;
 
     return database.executar(instrucao);
 }

@@ -151,47 +151,54 @@ function fetchNewRecords() {
 //     // Agendar a próxima atualização após 5 segundos
 //     setTimeout(updateChartsWithNewRecords, 5000);
 // });
+function prepararDadosParaGrafico(registros, numRegistros) {
+    const dadosCPU = [["Hora do dia", "Uso da CPU(%)"]];
+    const dadosRAM = [["Hora do dia", "Uso da RAM(%)"]];
+    const dadosDisco = [["Discos", "% usado", { role: "style" }]];
+    const dadosRede = [["Medida", "Valor"]];
+    let maxDisco = 0;
+    let calculo;
 
-    function prepararDadosParaGrafico(registros, numRegistros) {
-        const dadosCPU = [["Hora do dia", "Uso da CPU(%)"]];
-        const dadosRAM = [["Hora do dia", "Uso da RAM(%)"]];
-        const dadosDisco = [["Discos", "% usado", { role: "style" }]];
-        const dadosRede = [["Medida", "Valor"]];
-        let maxCPU = 0;
+    // Filtrando os registros por tipo de componente e garantindo que a propriedade 'nomeHardware' esteja definida
+    const registrosCPU = registros.filter(r => r && r.nomeHardware === 'CPU');
+    const registrosRAM = registros.filter(r => r && r.nomeHardware === 'Memoria RAM');
+    const registrosDisco = registros.filter(r => r && r.nomeHardware === 'Armazenamento');
+    const registrosRede = registros.filter(r => r && r.nomeHardware === 'Rede');
 
-        const todosRegistros = registros.flatMap(registro => registro);
+    // Calculando o valor máximo do disco
+    registrosDisco.forEach(r => {
+        if (r.valorHardware > maxDisco) {
+            maxDisco = r.valorHardware;
+        }
+    });
 
-        // Filtrando os registros por tipo de componente e garantindo que a propriedade 'nomeHardware' esteja definida
-        const registrosCPU = registros.filter(r => r && r.nomeHardware === 'CPU');
-        const registrosRAM = registros.filter(r => r && r.nomeHardware === 'Memória RAM');
-        const registrosDisco = registros.filter(r => r && r.nomeHardware === 'Armazenamento');
-        const registrosRede = registros.filter(r => r && r.nomeHardware === 'Rede');
+    // Processando os registros válidos
+    registrosCPU.forEach((r) => {
+        const hora = new Date(r.dataHora).toLocaleTimeString();
+        calculo = ((r.valor / r.valorHardware) * 100);
+        dadosCPU.push([hora, calculo]);
+    });
 
-        // Processando os registros válidos
-        registrosCPU.forEach((r) => {
-            const hora = new Date(r.dataHora).toLocaleTimeString();
-            maxCPU = r.valorHardware;
-            console.log("Reg CPU" + r.valorHardware)
-            
-            dadosCPU.push([hora, r.valor]);
-        });
+    registrosRAM.forEach((r) => {
+        const hora = new Date(r.dataHora).toLocaleTimeString();
+        calculo = ((r.valor / r.valorHardware) * 100);
+        dadosRAM.push([hora, calculo]);
+    });
 
-        registrosRAM.forEach((r) => {
-            const hora = new Date(r.dataHora).toLocaleTimeString();
-            dadosRAM.push([hora, r.valor]);
-        });
+    registrosDisco.forEach((r) => {
+        const hora = new Date(r.dataHora).toLocaleTimeString();
+        const percentual = (r.valor / maxDisco) * 100; 
+        dadosDisco.push(["Disco", percentual, "blue"]);
+    });
 
-        registrosDisco.forEach((r) => {
-            dadosDisco.push(["Disco", r.valor, "blue"]);
-        });
+    registrosRede.forEach((r) => {
+        const hora = new Date(r.dataHora).toLocaleTimeString();
+        dadosRede.push([hora, r.valor]);
+    });
 
-        registrosRede.forEach((r) => {
-            const hora = new Date(r.dataHora).toLocaleTimeString();
-            dadosRede.push([hora, r.valor]);
-        });
+    return { dadosCPU, dadosRAM, dadosDisco, dadosRede };
+}
 
-        return { dadosCPU, dadosRAM, dadosDisco, dadosRede, maxCPU };
-    }
 
 
     function getThemeColor() {
@@ -221,7 +228,7 @@ function fetchNewRecords() {
             vAxis: {
                 title: 'Medidas ',
                 minValue: 0,
-                maxValue: 100 // Ajustar conforme necessário
+                maxValue: 100
               },
             chartArea: {
                 width: "100%",
@@ -242,16 +249,20 @@ function fetchNewRecords() {
             height: "100%",
             titleTextStyle: { color: darkColor },
             hAxis: { textStyle: { color: darkColor }, titleTextStyle: { color: darkColor } },
-            vAxis: { textStyle: { color: darkColor }, titleTextStyle: { color: darkColor } },
-            animation: {
-                duration: 1000,
-                easing: 'out',
-            },
+            vAxis: {
+                title: 'Medidas ',
+                minValue: 0,
+                maxValue: 100
+              },
             chartArea: {
                 width: "100%",
                 height: "60%",
                 top: "10%",
                 left: "10%",
+            },
+            animation: {
+                duration: 1000,
+                easing: 'out',
             },
         };
 
@@ -263,17 +274,21 @@ function fetchNewRecords() {
             width: "100%",
             height: "100%",
             titleTextStyle: { color: darkColor },
-            hAxis: { textStyle: { color: darkColor }, titleTextStyle: { color: darkColor } },
+            hAxis: {
+                title: 'Medidas ',
+                minValue: 0,
+                maxValue: 100
+              },
             vAxis: { textStyle: { color: darkColor }, titleTextStyle: { color: darkColor } },
-            animation: {
-                duration: 1000,
-                easing: 'out',
-            },
             chartArea: {
                 width: "100%",
                 height: "60%",
                 top: "10%",
                 left: "10%",
+            },
+            animation: {
+                duration: 1000,
+                easing: 'out',
             },
         };
 
@@ -284,16 +299,21 @@ function fetchNewRecords() {
             backgroundColor: "transparent",
             width: "100%",
             height: "100%",
+            vAxis: {
+                title: 'Medidas ',
+                minValue: 0,
+                maxValue: 100
+              },
             titleTextStyle: { color: darkColor },
-            animation: {
-                duration: 1000,
-                easing: 'out',
-            },
             chartArea: {
                 width: "75%",
                 height: "60%",
                 top: "10%",
                 left: "10%",
+            },
+            animation: {
+                duration: 1000,
+                easing: 'out',
             },
         };
 
