@@ -1,0 +1,37 @@
+Chart
+  data = dados que ele exibe
+
+For( {
+  data = respota
+})
+
+Chart.update(dada)
+
+
+Model
+  SELECT ...
+
+CONTROLER
+  Then{
+    faça isso - certo
+  }catch{
+    faça isso - errado
+  }
+
+Routes
+  /raisaa/casa/ = Casa Verde
+
+JS
+  fetch(url, metodo){
+    body: pacote
+  }.then(
+    var data = resposta
+    chart.update(data)
+  ).catch(
+    console.log("#ERRO")
+  )
+
+STATUS
+  400 = ruido de comunicação = eu espero algo vc me entraga outra coisa  
+  404 = solicitação incorreta = URL não achou nada
+  500 = erro interno no servidor = Erro no back-end
