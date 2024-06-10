@@ -381,8 +381,8 @@ body {
 
 .dashboard-grid {
     display: grid;
-    grid-template-columns: repeat(2, 40vw);
-    grid-template-rows: repeat(2, 41vh);
+    grid-template-columns: repeat(2, 35vw);
+    grid-template-rows: repeat(2, 36vh);
     column-gap: 43px;
 }
 
