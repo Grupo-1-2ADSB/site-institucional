@@ -384,6 +384,7 @@ body {
     grid-template-columns: repeat(2, 35vw);
     grid-template-rows: repeat(2, 36vh);
     column-gap: 43px;
+    row-gap: 20px;
 }
 
 .chart {

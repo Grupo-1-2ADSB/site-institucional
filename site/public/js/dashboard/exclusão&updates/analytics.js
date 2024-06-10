@@ -75,7 +75,7 @@ function criarElementosDasMaquinasAnalytics(maquinas, alertas) {
 
   // Verifique se a lista de máquinas está vazia
   if (maquinas.length === 0) {
-    taskList.innerHTML = "<p>Não há máquinas em estado crítica.</p>";
+    taskList.innerHTML = "<p>Não há máquinas cadastradas.</p>";
     return; // Interrompe a execução da função
   }
 

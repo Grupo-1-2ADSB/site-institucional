@@ -113,18 +113,38 @@ WHERE
     return database.executar(instrucao);
 }
 
-
 function excluirMaquinas(idMaquina, fkSOExcluir) {
-    var instrucao = `DELETE FROM Computador WHERE idComputador = '${idMaquina}';`;
+    // Instruções SQL
+    var instrucaoEventos = `
+        DELETE FROM Evento
+        WHERE fkRegistro IN (
+            SELECT idRegistro
+            FROM Registro
+            WHERE fkComputador = '${idMaquina}'
+        );
+    `;
+    var instrucaoRegistros = `DELETE FROM Registro WHERE fkComputador = '${idMaquina}';`;
+    var instrucaoHardware = `DELETE FROM Hardware WHERE fkComputador = '${idMaquina}';`;
+    var instrucaoComputador = `DELETE FROM Computador WHERE idComputador = '${idMaquina}';`;
 
-    return database.executar(instrucao).then(() => {
-        var instrucaoSO = `
-        DELETE FROM SistemaOperacional WHERE idSO = ${fkSOExcluir};
-        `;
-
-        return database.executar(instrucaoSO);
-    });
+    // Executar as instruções em ordem
+    return database.executar(instrucaoEventos)
+        .then(() => {
+            return database.executar(instrucaoRegistros);
+        })
+        .then(() => {
+            return database.executar(instrucaoHardware);
+        })
+        .then(() => {
+            return database.executar(instrucaoComputador);
+        })
+        .catch((erro) => {
+            console.error("Erro ao excluir máquinas:", erro);
+            throw erro; // Propagar o erro para ser tratado em outro lugar, se necessário
+        });
 }
+
+
 
 function obterMaquinasDoBanco(fkUnidadeHospitalar) {
     var instrucao = `SELECT * FROM computador JOIN sistemaOperacional ON fkSO = idSO WHERE fkUnidadeHospitalar = ${fkUnidadeHospitalar};`;

@@ -1,5 +1,5 @@
 // controllers/dadosController.js
-const dadosModel = require('../models/dashboardModel');
+const dashboardModel = require('../models/dashboardModel');
 
 async function obterDadosDoBanco(req, res) {
     const fkUnidadeHospitalar = req.params.fkUnidadeHospitalar;
@@ -14,6 +14,19 @@ async function obterDadosDoBanco(req, res) {
     }
 }
 
+function obterQtdDisco(req, res) {
+    const idComputador = req.params.idComputador;
+
+    dashboardModel.obterQtdDisco(idComputador)
+        .then(function (qtdDisco) {
+            res.json(qtdDisco);
+        }).catch(function (erro) {
+            console.error("Erro ao obter qtdDisco:", erro);
+            res.status(500).json({ error: "Erro ao obter qtdDisco." })
+        })
+}
+
 module.exports = {
-    obterDadosDoBanco
+    obterDadosDoBanco,
+    obterQtdDisco
 };

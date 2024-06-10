@@ -14,6 +14,16 @@ async function obterDadosDoBanco(fkUnidadeHospitalar) {
     }
 }
 
+function obterQtdDisco(idComputador) {
+    var instrucao = `SELECT fkComputador, COUNT(*) AS quantidade_armazenamento
+    FROM Hardware
+    WHERE nomeHardware LIKE '%Armazenamento%' AND fkComputador = '${idComputador}'
+    GROUP BY fkComputador;`;
+
+    return database.executar(instrucao);
+}
+
 module.exports = {
-    obterDadosDoBanco
+    obterDadosDoBanco,
+    obterQtdDisco
 };
