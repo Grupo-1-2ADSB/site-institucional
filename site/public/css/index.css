@@ -76,6 +76,7 @@ body {
 
 .nav-item {
   margin: 0 15px;
+  cursor: pointer;
 }
 
 .nav-link {

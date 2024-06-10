@@ -146,11 +146,11 @@ function drawAllCharts(registros) {
     var darkColor = getThemeColor();
     var { dadosCPU, dadosRAM, dadosDisco, dadosRede, maxCPU } = prepararDadosParaGrafico(registros, 7);
 
-    obterQtdDisco(getQueryParam('id'));
-
+    obterQtdDisco(getQueryParam('id')); 
+    
     var optionsCPU = {
-        title: "Desempenho do Sistema (CPU)",
-        legend: { position: "top", textStyle: { color: darkColor } },
+        title: `Desempenho do Sistema (CPU)`,
+        legend: { position: "bottom", textStyle: { color: darkColor }},
         backgroundColor: "transparent",
         width: "100%",
         height: "100%",
@@ -159,9 +159,9 @@ function drawAllCharts(registros) {
             easing: 'out',
         },
         titleTextStyle: { color: darkColor },
-        hAxis: { title: 'Hora do dia', textStyle: { color: darkColor }, titleTextStyle: { color: darkColor } },
+        hAxis: { textStyle: { color: darkColor }, titleTextStyle: { color: darkColor } },
         vAxis: {
-            title: 'Uso da CPU (%)',
+            title: 'Escala de Percentual',
             textStyle: { color: darkColor }, titleTextStyle: { color: darkColor },
             minValue: 0,
             maxValue: 100
@@ -186,7 +186,8 @@ function drawAllCharts(registros) {
         titleTextStyle: { color: darkColor },
         hAxis: { textStyle: { color: darkColor }, titleTextStyle: { color: darkColor } },
         vAxis: {
-            title: 'Medidas ',
+            title: 'Escala de Percentual',
+            textStyle: { color: darkColor }, titleTextStyle: { color: darkColor },
             minValue: 0,
             maxValue: 100
         },
@@ -211,7 +212,8 @@ function drawAllCharts(registros) {
         height: "100%",
         titleTextStyle: { color: darkColor },
         hAxis: {
-            title: 'Medidas ',
+            title: 'Escala de Percentual',
+            textStyle: { color: darkColor }, titleTextStyle: { color: darkColor },
             minValue: 0,
             maxValue: 100
         },
@@ -230,13 +232,14 @@ function drawAllCharts(registros) {
 
     var optionsRede = {
         title: "Velocidade de Download da Rede",
-        hAxis: { title: "Medida", titleTextStyle: { color: darkColor }, textStyle: { color: darkColor } },
+        hAxis: { title: "Uso da Rede(Mbps)", titleTextStyle: { color: darkColor }, textStyle: { color: darkColor } },
         vAxis: { minValue: 0, textStyle: { color: darkColor }, titleTextStyle: { color: darkColor } },
         backgroundColor: "transparent",
         width: "100%",
         height: "100%",
         vAxis: {
-            title: 'Medidas ',
+            title: 'Escala de Mbps',
+            textStyle: { color: darkColor }, titleTextStyle: { color: darkColor },
             minValue: 0,
             maxValue: 100
         },
@@ -299,3 +302,48 @@ function logout() {
         window.location.href = "../../index.html";
     }, 1000);
 }
+
+
+function obterMaquinasDoBanco() {
+    const fkUnidadeHospitalar = sessionStorage.HOSPITAL;
+    return fetch(`/maquinas/obterMaquinasDoBanco/${fkUnidadeHospitalar}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Erro ao obter maquinas do banco de dados");
+        }
+        return response.json(); 
+      })
+      .catch((error) => {
+        console.error("Erro ao obter maquinas:", error);
+      });
+  }
+  
+function irParaDashComGrafico1Maq() {
+   obterMaquinasDoBanco().then((maquinas) => {   
+      if (maquinas.length > 0) {
+        const primeiraMaquina = maquinas[0];
+        const idComputador = primeiraMaquina.idComputador;
+        window.location.href =  `dashboard.html?id=${idComputador}`;
+      } else {
+        console.log("Nenhuma máquina encontrada.");
+      }
+    });
+  }
+
+  const divInfoMaquina = document.getElementById("info_maquina");
+
+    var dataAtual = new Date();
+    var dia = dataAtual.getDate();
+    var mes = dataAtual.getMonth() + 1;
+    var ano = dataAtual.getFullYear();
+
+    var dataFormatada = dia + '/' + mes + '/' + ano;
+
+    document.addEventListener("DOMContentLoaded", () => {
+  console.log("divInfoMaquina")
+
+        divInfoMaquina.innerHTML = `
+        <h3 style="color: var(--dark);">Desempenho da Máquina com IP ${getQueryParam("id")} durante o dia <span style="color: var(--primary);">${dataFormatada}</span>.</h3>
+      `;
+    })
+  

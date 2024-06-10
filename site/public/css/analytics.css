@@ -829,7 +829,7 @@ body {
    margin-bottom: 0;
 }
 
-.logout {
+.logout, .nav-item {
     cursor: pointer;
 }
 

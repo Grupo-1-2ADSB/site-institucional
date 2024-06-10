@@ -22,7 +22,7 @@
         </a>
         <!-- Menu lateral -->
         <ul class="side-menu">
-            <li><a href="dashboard.html"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
+            <li><a onclick="irParaDashComGrafico1Maq()" style="cursor: pointer;"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
             <li class="active"><a href="#"><i class='bx bx-analyse'></i>Analytics</a></li>
             <li><a href="usuarios.html"><i class='bx bx-group'></i>Usuários</a></li>
             <li><a href="maquinas.html"><i class='bx bx-desktop'></i>Máquinas</a></li>
@@ -67,7 +67,7 @@
             <!-- Cabeçalho -->
             <div class="header">
                 <div class="left">
-                    <!-- <h1>Analytics</h1> -->
+                    <!-- <h1>Analytics</h1>  -->
                     <ul class="breadcrumb">
                         <!-- <li><a href="#">Analytics</a></li>  -->
                     </ul>
@@ -103,21 +103,7 @@
             <!-- Fim dos Insights -->
 
             <!-- Informações detalhadas -->
-            <div class="bottom-data">
-                 <!-- Lista de usuários -->
-                 <div class="orders">
-                    <div class="header">
-                        <i class='bx bx-receipt'></i> <!-- Ícone de lista -->
-                        <h3>Lista de Usuários</h3> <!-- Título da seção -->
-                        <a href="./usuarios.html"><i class='bx bx-plus'></i></a> <!-- Ícone de filtro -->
-                    </div>
-                    <!-- Tabela de usuários -->
-                    <table>
-                        <tbody id="tbody">
-                            <!-- Linhas da tabela com informações de usuários -->
-                        </tbody>
-                    </table>
-                </div>
+            <div class="bottom-data" style="grid-template-columns: none;">
                 <!-- Lembretes (Reminders) -->
                 <div class="reminders">
                     <div class="header">

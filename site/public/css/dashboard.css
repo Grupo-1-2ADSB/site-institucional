@@ -338,6 +338,9 @@ body {
     padding: 36px 24px;
     max-height: calc(100vh - 56px);
     justify-content: center;
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
 }
 
 .content main .header{
