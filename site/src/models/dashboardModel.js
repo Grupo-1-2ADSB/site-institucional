@@ -23,7 +23,15 @@ function obterQtdDisco(idComputador) {
     return database.executar(instrucao);
 }
 
+function obterInfoMaquina(idComputador) {
+    var instrucao = `SELECT * FROM Computador JOIN SistemaOperacional ON fkSO = idSO
+    JOIN Hardware ON idComputador = fkComputador WHERE idComputador = '${idComputador}';`;
+
+    return database.executar(instrucao);
+}
+
 module.exports = {
     obterDadosDoBanco,
-    obterQtdDisco
+    obterQtdDisco,
+    obterInfoMaquina
 };

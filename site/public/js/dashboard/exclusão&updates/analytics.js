@@ -184,6 +184,20 @@ function irParaDash(idComputador) {
   window.location.href =  `dashboard.html?id=${idComputador}`;
 }
 
+function obterAlertasDoBanco() {
+  const fkUnidadeHospitalar = sessionStorage.HOSPITAL;
+  return fetch(`/alertas/obterAlertasDoBanco/${fkUnidadeHospitalar}`)
+      .then((response) => {
+      if (!response.ok) {
+          throw new Error("Erro ao obter alertas do banco de dados");
+      }
+      return response.json();
+      })
+      .catch((error) => {
+      console.error("Erro ao obter alertas:", error);
+      });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   obterUsuariosDoBanco().then((usuarios) => {
     criarElementosDosUsuarios(usuarios);

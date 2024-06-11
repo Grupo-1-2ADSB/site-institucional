@@ -335,12 +335,13 @@ body {
 
 .content main{
     width: 100%;
-    padding: 36px 24px;
+    padding: 36px 50px;
+    padding-right: 0;
     max-height: calc(100vh - 56px);
-    justify-content: center;
-    gap: 30px;
+    justify-content: space-between;
+    gap: 40px;
     display: flex;
-    flex-direction: column;
+    align-items: center;
 }
 
 .content main .header{
@@ -384,7 +385,7 @@ body {
 
 .dashboard-grid {
     display: grid;
-    grid-template-columns: repeat(2, 35vw);
+    grid-template-columns: repeat(2, 32vw);
     grid-template-rows: repeat(2, 36vh);
     column-gap: 43px;
     row-gap: 20px;

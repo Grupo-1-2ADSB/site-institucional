@@ -26,7 +26,20 @@ function obterQtdDisco(req, res) {
         })
 }
 
+function obterInfoMaquina(req, res) {
+    const idComputador = req.params.idComputador;
+
+    dashboardModel.obterInfoMaquina(idComputador)
+        .then(function (idComputador) {
+            res.json(idComputador);
+        }).catch(function (erro) {
+            console.error("Erro ao obter informações do computador:", erro);
+            res.status(500).json({ error: "Erro ao obter informações do computador." })
+        })
+}
+
 module.exports = {
     obterDadosDoBanco,
-    obterQtdDisco
+    obterQtdDisco,
+    obterInfoMaquina
 };

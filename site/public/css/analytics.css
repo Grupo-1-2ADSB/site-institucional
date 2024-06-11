@@ -524,6 +524,12 @@ body {
             font-weight: 600;
             color: var(--dark);
         }
+
+        p {
+            font-size: 14px;
+            line-height: 11px;
+            color: var(--dark-grey);
+        }
     }
 
     .maquinas-alertas {
@@ -892,4 +898,14 @@ body {
         min-width: 340px;
     }
 
+}
+
+@keyframes piscar {
+    0% { opacity: 1; }
+    50% { opacity: 0.1; }
+    100% { opacity: 1; }
+}
+
+.blinking-text {
+    animation: piscar .7s infinite;
 }

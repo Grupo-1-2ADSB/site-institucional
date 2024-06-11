@@ -330,7 +330,22 @@ function irParaDashComGrafico1Maq() {
     });
   }
 
-  const divInfoMaquina = document.getElementById("info_maquina");
+  function obterInfoMaquina(idComputador) {
+  return fetch(`/dashboard/obterInfoMaquina/${idComputador}`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Erro ao obter informações da máquina no banco de dados");
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      console.error("Erro ao obter informações da máquina:", error);
+    });
+  }
+
+  const divTitleListMaq = document.getElementById("div_title_list_maq");
+  const divInfoMaq = document.getElementById("div_info_maquina");
+
 
     var dataAtual = new Date();
     var dia = dataAtual.getDate();
@@ -340,10 +355,62 @@ function irParaDashComGrafico1Maq() {
     var dataFormatada = dia + '/' + mes + '/' + ano;
 
     document.addEventListener("DOMContentLoaded", () => {
-  console.log("divInfoMaquina")
-
-        divInfoMaquina.innerHTML = `
+        divTitleListMaq.innerHTML = `
         <h3 style="color: var(--dark);">Desempenho da Máquina com IP ${getQueryParam("id")} durante o dia <span style="color: var(--primary);">${dataFormatada}</span>.</h3>
       `;
+
+      function displayMachineInfo(infoMaquinas) {
+        const container = document.getElementById('div_info_maquina');
+        const groupedByComputer = {};
+
+        // Agrupa as informações por computador
+        infoMaquinas.forEach(info => {
+            if (!groupedByComputer[info.idComputador]) {
+                groupedByComputer[info.idComputador] = {
+                    ...info,
+                    componentes: []
+                };
+            }
+            groupedByComputer[info.idComputador].componentes.push(info);
+        });
+
+        // Cria os elementos HTML para cada computador
+        for (const [idComputador, machineInfo] of Object.entries(groupedByComputer)) {
+            const machineDiv = document.createElement('div');
+            machineDiv.classList.add('machine-info');
+
+            const machineHeader = `
+                <h2>Informações da Máquina</h2>
+                <p><strong>ID:</strong> ${machineInfo.idComputador}</p>
+                <p><strong>Nome:</strong> ${machineInfo.nome}</p>
+                <p><strong>Localização:</strong> ${machineInfo.localizacao}</p>
+                <p><strong>Status:</strong> ${machineInfo.statusPC}</p>
+                <p><strong>Sistema Operacional:</strong> ${machineInfo.nomeSO} ${machineInfo.versaoSO} (${machineInfo.arquiteturaSO})</p>
+                <h2>Componentes monitorados:</h2>
+            `;
+
+            machineDiv.innerHTML = machineHeader;
+
+            machineInfo.componentes.forEach(component => {
+                const componentDiv = document.createElement('div');
+                componentDiv.classList.add('component');
+
+                const componentInfo = `
+                    <h3 style="color: var(--primary);">${component.nomeHardware}</h3>
+                `;
+
+                componentDiv.innerHTML = componentInfo;
+                machineDiv.appendChild(componentDiv);
+            });
+
+            container.appendChild(machineDiv);
+        }
+    }
+
+    // Obtém as informações da máquina e exibe-as
+    obterInfoMaquina(getQueryParam("id")).then((infoMaquina) => {
+        console.log("Info Máquinas: " + JSON.stringify(infoMaquina));
+        displayMachineInfo(infoMaquina);
+    });
     })
   

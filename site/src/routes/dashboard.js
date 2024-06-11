@@ -9,5 +9,9 @@ router.get('/obterQtdDisco/:idComputador', function(req, res) {
     dashboardController.obterQtdDisco(req, res);
 });
 
+router.get('/obterInfoMaquina/:idComputador', function(req, res) {
+    dashboardController.obterInfoMaquina(req, res);
+});
+
 
 module.exports = router;
