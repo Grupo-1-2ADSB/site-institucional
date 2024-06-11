@@ -100,7 +100,7 @@ function criarElementosDosAlertas(alertas) {
 
     if (alertas.length === 0) {
         divMaquinasAlertas.innerHTML = "<p style='color: var(--dark);'>Não há máquinas em estado de alerta.</p>";
-        divMaquinasCriticas.innerHTML = "<p style='color: var(--dark);'>Não há máquinas em estado crítico.</p>";
+        divMaquinasCriticas.innerHTML = "<p style='color: var(--dark); '>Não há máquinas em estado crítico.</p>";
         return; 
     }
 
