@@ -105,6 +105,8 @@ function logar(){
                 sessionStorage.EMAIL = json.email;
                 sessionStorage.SENHA = json.senha;
                 sessionStorage.HOSPITAL = json.fkUnidadeHospitalar;
+                sessionStorage.THEME = 1;
+                sessionStorage.SIDE_BAR = "open";
                 
                 if(sessionStorage.CARGO == 1){
                     setTimeout(function() {
