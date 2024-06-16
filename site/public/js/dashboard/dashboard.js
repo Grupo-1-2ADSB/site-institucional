@@ -19,13 +19,13 @@ function getQueryParam(param) {
     return urlParams.get(param);
 }
 
-let allRecords = []; 
+let allRecords = [];
 
 google.charts.load('current', { packages: ['corechart', 'bar', 'line', 'area'] });
 
 function obter7RegistrosDoBanco() {
     const fkUnidadeHospitalar = sessionStorage.HOSPITAL;
-    const idComputador = getQueryParam('id'); 
+    const idComputador = getQueryParam('id');
 
     return fetch(`/maquinas/obter7RegistrosDoBanco/${fkUnidadeHospitalar}/${idComputador}`)
         .then((response) => {
@@ -111,7 +111,7 @@ function prepararDadosParaGrafico(registros, numRegistros) {
         dadosDisco.push(["Disco", percentual, "blue"]);
     });
 
-    const dadosRede = [["Hora do dia", "Valor"]]; 
+    const dadosRede = [["Hora do dia", "Valor"]];
 
     registrosRede.forEach((r) => {
         const horaString = r.dataHora.slice(11, 19);
@@ -130,11 +130,11 @@ function drawAllCharts(registros) {
     var darkColor = getThemeColor();
     var { dadosCPU, dadosRAM, dadosDisco, dadosRede, maxCPU } = prepararDadosParaGrafico(registros, 7);
 
-    obterQtdDisco(getQueryParam('id')); 
-    
+    obterQtdDisco(getQueryParam('id'));
+
     var optionsCPU = {
         title: `Desempenho do Sistema (CPU)`,
-        legend: { position: "bottom", textStyle: { color: darkColor }},
+        legend: { position: "bottom", textStyle: { color: darkColor } },
         backgroundColor: "transparent",
         width: "100%",
         height: "100%",
@@ -291,59 +291,63 @@ function logout() {
 function obterMaquinasDoBanco() {
     const fkUnidadeHospitalar = sessionStorage.HOSPITAL;
     return fetch(`/maquinas/obterMaquinasDoBanco/${fkUnidadeHospitalar}`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Erro ao obter maquinas do banco de dados");
-        }
-        return response.json(); 
-      })
-      .catch((error) => {
-        console.error("Erro ao obter maquinas:", error);
-      });
-  }
-  
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("Erro ao obter maquinas do banco de dados");
+            }
+            return response.json();
+        })
+        .catch((error) => {
+            console.error("Erro ao obter maquinas:", error);
+        });
+}
+
 function irParaDashComGrafico1Maq() {
-   obterMaquinasDoBanco().then((maquinas) => {   
-      if (maquinas.length > 0) {
-        const primeiraMaquina = maquinas[0];
-        const idComputador = primeiraMaquina.idComputador;
-        window.location.href =  `dashboard.html?id=${idComputador}`;
-      } else {
-        console.log("Nenhuma máquina encontrada.");
-      }
+    obterMaquinasDoBanco().then((maquinas) => {
+        if (maquinas.length > 0) {
+            const primeiraMaquina = maquinas[0];
+            const idComputador = primeiraMaquina.idComputador;
+            window.location.href = `dashboard.html?id=${idComputador}`;
+        } else {
+            console.log("Nenhuma máquina encontrada.");
+        }
     });
-  }
+}
 
-  function obterInfoMaquina(idComputador) {
-  return fetch(`/dashboard/obterInfoMaquina/${idComputador}`)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Erro ao obter informações da máquina no banco de dados");
-      }
-      return response.json();
-    })
-    .catch((error) => {
-      console.error("Erro ao obter informações da máquina:", error);
-    });
-  }
+function obterInfoMaquina(idComputador) {
+    return fetch(`/dashboard/obterInfoMaquina/${idComputador}`)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("Erro ao obter informações da máquina no banco de dados");
+            }
+            return response.json();
+        })
+        .catch((error) => {
+            console.error("Erro ao obter informações da máquina:", error);
+        });
+}
 
-  const divTitleListMaq = document.getElementById("div_title_list_maq");
-  const divInfoMaq = document.getElementById("div_info_maquina");
+function irParaDash(idComputador) {
+    window.location.href = `dashboard.html?id=${idComputador}`;
+}
+
+const divTitleListMaq = document.getElementById("div_title_list_maq");
+const divInfoMaq = document.getElementById("div_info_maquina");
 
 
-    var dataAtual = new Date();
-    var dia = dataAtual.getDate();
-    var mes = dataAtual.getMonth() + 1;
-    var ano = dataAtual.getFullYear();
+var dataAtual = new Date();
+var dia = dataAtual.getDate();
+var mes = dataAtual.getMonth() + 1;
+var ano = dataAtual.getFullYear();
 
-    var dataFormatada = dia + '/' + mes + '/' + ano;
+var dataFormatada = dia + '/' + mes + '/' + ano;
 
-    document.addEventListener("DOMContentLoaded", () => {
-        divTitleListMaq.innerHTML = `
-        <h3 style="color: var(--dark);">Desempenho da Máquina com IP ${getQueryParam("id")} durante o dia <span style="color: var(--primary);">${dataFormatada}</span>.</h3>
-      `;
+document.addEventListener("DOMContentLoaded", () => {
+    divTitleListMaq.innerHTML = `
+            <h3 style="color: var(--dark);">Desempenho da Máquina com ID ${getQueryParam("id")} durante o dia <span style="color: var(--primary);">${dataFormatada}</span>.</h3>
+        `;
 
-      function displayMachineInfo(infoMaquinas) {
+    function displayMachineInfo(infoMaquinas) {
         const container = document.getElementById('div_info_maquina');
         const groupedByComputer = {};
 
@@ -364,30 +368,53 @@ function irParaDashComGrafico1Maq() {
             machineDiv.classList.add('machine-info');
 
             const machineHeader = `
-                <h2>Informações da Máquina</h2>
-                <p><strong>ID:</strong> ${machineInfo.idComputador}</p>
-                <p><strong>Nome:</strong> ${machineInfo.nome}</p>
-                <p><strong>Localização:</strong> ${machineInfo.localizacao}</p>
-                <p><strong>Status:</strong> ${machineInfo.statusPC}</p>
-                <p><strong>Sistema Operacional:</strong> ${machineInfo.nomeSO} ${machineInfo.versaoSO} (${machineInfo.arquiteturaSO})</p>
-                <h2>Componentes monitorados:</h2>
-            `;
+                    <div style="padding-bottom: 30px;">
+                        <h3>Monitore outra máquina:</h3>
+                        <select name="" id="select_maquinas_${idComputador}" class="select-maquinas">
+                        </select>
+                    </div>
+                    <div>
+                        <h2>Informações da Máquina</h2>
+                        <p><strong>ID:</strong> ${machineInfo.idComputador}</p>
+                        <p><strong>Nome:</strong> ${machineInfo.nome}</p>
+                        <p><strong>Localização:</strong> ${machineInfo.localizacao}</p>
+                        <p><strong>Status:</strong> ${machineInfo.statusPC}</p>
+                        <p><strong>Sistema Operacional:</strong> ${machineInfo.nomeSO} ${machineInfo.versaoSO} (${machineInfo.arquiteturaSO})</p>
+                        <h2>Componentes monitorados:</h2>
+                    </div>
+                `;
 
             machineDiv.innerHTML = machineHeader;
+            container.appendChild(machineDiv);
+
+            const selectMaquinas = document.getElementById(`select_maquinas_${idComputador}`);
+            selectMaquinas.addEventListener('change', (event) => {
+                irParaDash(event.target.value);
+            });
+
+            // Preencher o select com máquinas
+            obterMaquinasDoBanco().then((maquinas) => {
+                maquinas.forEach((maquina) => {
+                    if (maquina.statusPC === "ativado") {
+                        const option = document.createElement('option');
+                        option.value = maquina.idComputador;
+                        option.textContent = maquina.nome;
+                        selectMaquinas.appendChild(option);
+                    }
+                });
+            });
 
             machineInfo.componentes.forEach(component => {
                 const componentDiv = document.createElement('div');
                 componentDiv.classList.add('component');
 
                 const componentInfo = `
-                    <h3 style="color: var(--primary);">${component.nomeHardware}</h3>
-                `;
+                        <h3 style="color: var(--primary);">${component.nomeHardware}</h3>
+                    `;
 
                 componentDiv.innerHTML = componentInfo;
                 machineDiv.appendChild(componentDiv);
             });
-
-            container.appendChild(machineDiv);
         }
     }
 
@@ -396,5 +423,4 @@ function irParaDashComGrafico1Maq() {
         console.log("Info Máquinas: " + JSON.stringify(infoMaquina));
         displayMachineInfo(infoMaquina);
     });
-    })
-  
+});

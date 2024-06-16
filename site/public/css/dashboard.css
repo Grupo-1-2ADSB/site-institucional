@@ -338,8 +338,7 @@ body {
     padding: 36px 50px;
     padding-right: 0;
     max-height: calc(100vh - 56px);
-    justify-content: space-between;
-    gap: 40px;
+    gap: 27px;
     display: flex;
     align-items: center;
 }
@@ -402,6 +401,20 @@ body {
     grid-template-rows: 45vh;
     gap: 35px;
     }
+}
+
+.select-maquinas {
+    margin-top: 5px;
+    padding: 4px 14px;
+    width: 100%;
+    background: var(--dark);
+    outline: none;
+    border: none;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 12px;
+    border-radius: 55px;
+    color: var(--light);
 }
 
 /* #line_chart_CPU text,
